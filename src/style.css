@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+#title {
+  text-rendering: optimizeSpeed;
+  image-rendering: optimizeSpeed;
+  transform-origin: center;
+  backface-visibility: hidden;
+}
+
+
+
+
+.timelineContainer {
+  @apply pl-[50px] pr-[50px] max-sm:pr-[25px] relative w-auto sm:w-[50%] pt-10 max-sm:w-[calc(100vw-40px)]  ;
+}
+
+.timelineContainer .text-box.left {
+  @apply opacity-0 sm:-translate-x-100 translate-x-100 ;
+}
+
+.timelineContainer .text-box.right {
+  @apply opacity-0 translate-x-100 ;
+}
+
+
+.timelineLabel.active {
+  @apply !scale-100 !opacity-100;
+}
+
+.text-box {
+  @apply opacity-0 transition-all duration-300 ease-in-out border-2 border-black bg-black;
+}
+
+.timelineContainer .text-box.active {
+  @apply !opacity-100 translate-x-0;
+}
+.timelineLabel {
+  @apply rounded-full border border-black border-2 py-1 px-1 flex justify-center items-center absolute !w-[30px] h-[30px] bottom-0 z-10 scale-0 transition-all duration-100 opacity-0;
+}
+
+.timelineLabel.further {
+  @apply transition-all duration-100 opacity-0 border-none w-[30px] h-[30px] p-0;
+}
+
+.ftTest {
+  font-family: "Fascinate Inline", system-ui;
+  font-weight: 400;
+}
