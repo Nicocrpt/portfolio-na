@@ -60,28 +60,7 @@ homeTl.to('.mainTitle', {y: 1000, duration: 10, ease: "sine.inOut"})
 }, "-=10");
 
 
-gsap.to('.skillsTitle', {
-  scrollTrigger: {
-    trigger: '.skillsTitle',
-    start: "top 10%",
-    end:`top+=${document.querySelector('.skillsSection').offsetHeight}px`,
-    scrub: 1,
-    pin: true,
-    pinSpacing: false
-  }
-})
 
-gsap.to('.skillsContent', {
-  scrollTrigger: {
-    trigger: '.skillsContent',
-    endTrigger: '.skillsContent',
-    start: `top+=${document.querySelector('.skillsSection').offsetHeight/2}px 50%`,
-    end:`top+=${document.querySelector('.skillsSection').offsetHeight/2}px`,
-    scrub: 1,
-    pin: true,
-    pinSpacing: false
-  }
-})
 
 const timeline = gsap.timeline({
   scrollTrigger: {
@@ -705,7 +684,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const elementRect = element.getBoundingClientRect(); // Récupère la position et la taille de l'élément
       const windowHeight = window.innerHeight; // Hauteur du viewport (fenêtre du navigateur)
       
-      const elementHeight = elementRect.height;
+      let elementHeight = elementRect.height;
       if (element.classList.contains('scale-[0.1%]'))
       {
         elementHeight *= 1000
@@ -775,51 +754,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  function generateClouds(svgId, numClouds) {
+function generateClouds(svgId, numClouds) {
     const svg = document.getElementById(svgId);
     const width = svg.viewBox.baseVal.width;
     const height = svg.viewBox.baseVal.height;
 
     for (let i = 0; i < numClouds; i++) {
-      const cloud = document.createElementNS("http://www.w3.org/2000/svg", "g");
-      const x = Math.random() * width;
-      const y = Math.random() * height * 0.7; // Limite la hauteur des nuages
-      const scale = Math.random() * 0.6 + 0.5; // Échelle entre 0.5 et 1.1
-      const opacity = Math.random() * 0.4 + 0.6; // Opacité entre 0.6 et 1
+        const cloud = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        const x = Math.random() * width;
+        const y = Math.random() * height * 0.7; // Limite la hauteur des nuages
+        const scale = Math.random() * 0.4 + 0.6; // Échelle entre 0.6 et 1
+        const opacity = Math.random() * 0.4 + 0.5; // Opacité entre 0.5 et 0.9
 
-      // Créer plusieurs cercles pour donner une forme de nuage
-      for (let j = 0; j < 5; j++) {
-        const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-        const cx = x + Math.random() * 50; // Espacement des cercles
-        const cy = y + Math.random() * 20; // Légère variation en hauteur
-        const radius = Math.random() * 25 + 20; // Taille des cercles
-        circle.setAttribute("cx", cx);
-        circle.setAttribute("cy", cy);
-        circle.setAttribute("r", radius);
-        circle.setAttribute("fill", "rgba(255, 255, 255, " + opacity + ")"); // Blanc semi-transparent
-        cloud.appendChild(circle);
-      }
+        // Créer une forme de nuage irrégulière avec plusieurs cercles de tailles et positions variées
+        const numCircles = Math.floor(Math.random() * 4) + 4; // Nombre de cercles entre 4 et 7
+        for (let j = 0; j < numCircles; j++) {
+            const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            const cx = x + Math.random() * 80 - 40; // Espacement des cercles
+            const cy = y + Math.random() * 30 - 10; // Variation en hauteur
+            const radius = Math.random() * 20 + 20; // Taille des cercles
+            const circleOpacity = Math.random() * 0.5 + 0.5; // Légère variation d'opacité
+            const grayShade = Math.random() * 50 + 205; // Nuance de gris plus réaliste
 
-      cloud.setAttribute("transform", `scale(${scale})`);
-      svg.appendChild(cloud);
+            // Appliquer une couleur de remplissage avec des nuances de gris
+            circle.setAttribute("cx", cx);
+            circle.setAttribute("cy", cy);
+            circle.setAttribute("r", radius);
+            circle.setAttribute("fill", `rgb(${grayShade}, ${grayShade}, ${grayShade})`);
+            circle.setAttribute("fill-opacity", circleOpacity);
+            cloud.appendChild(circle);
+        }
 
-      // Animation de déplacement
-      cloud.style.animation = `moveClouds ${Math.random() * 20 + 10}s linear infinite alternate`;
+        cloud.setAttribute("transform", `scale(${scale})`);
+        svg.appendChild(cloud);
+
+        // Animation de déplacement avec plus de réalisme
+        const animationDuration = Math.random() * 30 + 30; // Durée de l'animation entre 15s et 30s
+        const direction = Math.random() < 0.5 ? 1 : -1; // Direction aléatoire (gauche ou droite)
+        const distance = Math.random() * 100 + 50; // Déplacement plus important pour plus de réalisme
+
+        // Ajouter une légère variation de vitesse
+        cloud.style.animation = `moveClouds ${animationDuration}s linear infinite alternate`;
+
+        // Ajouter une propriété CSS pour la distance
+        cloud.style.setProperty('--distance', `${distance * direction}px`);
     }
-  }
+}
 
-  generateClouds("cloudySky", 5);
+generateClouds("cloudySky", 5);
 
-  // Ajout de l'animation CSS pour simuler un déplacement lent
-  const styleCloud = document.createElement("style");
-  styleCloud.innerHTML = `
+// Ajout de l'animation CSS pour simuler un déplacement lent
+const styleCloud = document.createElement("style");
+styleCloud.innerHTML = `
     @keyframes moveClouds {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(50px); }
+        0% { transform: translateX(0); }
+        100% { transform: translateX(var(--distance)); }
     }
-  `;
-  document.head.appendChild(styleCloud);
-
+`;
+document.head.appendChild(styleCloud);
 
 
   function updateTextColorOnCloudPass() {
@@ -862,3 +854,79 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
 
+  function scrollToElement(id) {
+    const element = document.getElementById(id);
+    element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'  // Place l'élément en haut de la fenêtre
+    });
+}
+
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const shootingStarsContainer = document.querySelector('.shooting-stars');
+
+//   // Fonction pour générer une étoile filante
+//   function createShootingStar() {
+//     const shootingStar = document.createElement('div');
+//     shootingStar.classList.add('shooting-star');
+
+//     // Positionner l'étoile filante à des coordonnées aléatoires
+//     const startX = Math.random() * window.innerWidth;
+//     const startY = -10; // Commence au-dessus de l'écran
+
+//     shootingStar.style.left = `${startX}px`;
+//     shootingStar.style.top = `${startY}px`;
+
+//     // Ajouter l'étoile filante au conteneur
+//     shootingStarsContainer.appendChild(shootingStar);
+
+//     // Supprimer l'étoile après l'animation
+//     setTimeout(() => {
+//       shootingStar.remove();
+//     }, 2000); // 2s pour correspondre à la durée de l'animation
+//   }
+
+//   // Créer des étoiles filantes toutes les 3 à 6 secondes
+//   setInterval(createShootingStar, Math.random() * 3000 + 3000);
+// });
+
+
+
+// Test 1 trainée
+
+document.addEventListener('DOMContentLoaded', () => {
+  const shootingStarsContainer = document.querySelector('.shooting-stars');
+
+  // Fonction pour générer une étoile filante avec une traînée
+  function createShootingStar() {
+    const shootingStar = document.createElement('div');
+    shootingStar.classList.add('shooting-star');
+
+    // Création de la traînée
+    const trail = document.createElement('div');
+    trail.classList.add('trail');
+    shootingStar.appendChild(trail);
+
+    // Positionner l'étoile filante et la traînée à des coordonnées aléatoires
+    const startX = Math.random() * window.innerWidth;
+    console.log(startX)
+    const startY = -10; // Commence au-dessus de l'écran
+    shootingStar.style.left = `${startX}px`;
+    shootingStar.style.top = `${startY}px`;
+
+    // Ajouter l'étoile filante au conteneur
+    shootingStarsContainer.appendChild(shootingStar);
+
+    // Supprimer l'étoile et sa traînée après l'animation
+    setTimeout(() => {
+      shootingStar.remove();
+    }, 2000); // 2s pour correspondre à la durée de l'animation
+  }
+
+  // Créer des étoiles filantes toutes les 3 à 6 secondes
+  setInterval(createShootingStar, Math.random() * 3000 + 3000);
+});
+ 

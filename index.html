@@ -18,8 +18,14 @@
               <ul class=" items-center gap-4 lg:gap-5 text-white/80 lg:text-lg hidden md:flex">
                   <li><a href="#sec1" id="homeLink" class="hover:text-white transition-color ease-in-out duration-300">Accueil</a></li>
                   <li><a href="#sec2" id="compLink" class="hover:text-white transition-color ease-in-out duration-300">Compétences</a></li>
-                  <li><a href="#projets" id="projetLink" class="hover:text-white transition-color ease-in-out duration-300">Projets</a></li>
-                  <li><a href="#veille" id="veilleLink" class="hover:text-white transition-color ease-in-out duration-300">Veille technologique</a></li>
+                  <li><a href="#" onclick="document.querySelector('.projectSecTitle').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start' // Centre l'élément dans la fenêtre
+                })" class="hover:text-white transition-color ease-in-out duration-300">Projets</a></li>
+                  <li><a href="#" onclick="document.querySelector('#veilleTitle').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start' // Centre l'élément dans la fenêtre
+                })" id="veilleLink" class="hover:text-white transition-color ease-in-out duration-300">Veille technologique</a></li>
                   <li><a href="#contact" id="contactLink" class="hover:text-white transition-color ease-in-out duration-300">Contact</a></li>
               </ul>
               <button class="block md:hidden" @click="burgerMenu = !burgerMenu">
@@ -58,27 +64,129 @@
     <main class="!max-w-screen !overflow-x-hidden relative">
       <!-- Home -->
       <section id="homeSection" class="h-screen w-full relative flex items-center justify-center !overflow-hidden" style="background: rgb(0,21,33);background: linear-gradient(180deg, rgba(0,21,33,1) 0%, rgba(0,39,62,1) 57%, rgba(0,66,102,1) 100%);">
+
+
+        <div class="galaxy-background absolute top-0 left-0 -mt-48 -ml-12 opacity-60 w-[calc(100vw+3rem)] h-screen">
+          <svg id="milkyway" class="w-full" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 1920 1080" preserveaspectratio="xMidYMid slice">
+            <defs>
+              <radialGradient id="milkyway-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" style="stop-color: rgba(255, 255, 255, 0.9); stop-opacity: 0.7" />
+                <stop offset="100%" style="stop-color: rgba(255, 255, 255, 0.1); stop-opacity: 0" />
+              </radialGradient>
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blurred"/>
+                <feMerge>
+                  <feMergeNode in="blurred"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            <g id="stars">
+              <circle cx="150" cy="250" r="2" fill="white" />
+              <circle cx="450" cy="600" r="3" fill="white" />
+              <circle cx="800" cy="200" r="1.5" fill="white" />
+              <circle cx="1200" cy="900" r="4" fill="white" />
+              <circle cx="1600" cy="500" r="2.5" fill="white" />
+              <circle cx="1700" cy="700" r="1" fill="white" />
+              <circle cx="300" cy="900" r="2" fill="white" />
+              <circle cx="1000" cy="800" r="1.8" fill="white" />
+              <circle cx="1800" cy="400" r="2.3" fill="white" />
+              <circle cx="1400" cy="300" r="2" fill="white" />
+
+            </g>
+            <g id="clouds" class="opacity-10" fill="url(#milkyway-gradient)" filter="url(#glow)">
+              <path d="M0,500 C400,600 700,800 1200,500 C1600,350 1800,700 1920,500 C1800,300 1400,100 1200,300 C1000,500 700,300 400,400 C0,500 0,500" />
+              <path d="M0,700 C200,850 600,900 1000,600 C1400,400 1600,500 1920,400 C1800,250 1400,300 1000,500 C600,700 200,800 0,700" />
+            </g>
+          </svg>
+          
+            <defs>
+              <!-- Dégradé lumineux pour la voie lactée -->
+              <radialGradient id="milkyway-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" style="stop-color: rgba(255, 255, 255, 0.9); stop-opacity: 0.7" />
+                <stop offset="100%" style="stop-color: rgba(255, 255, 255, 0.1); stop-opacity: 0" />
+              </radialGradient>
+          
+              <!-- Dégradé chromatique pour les nuages (couleurs différentes) -->
+              <linearGradient id="cloud-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color: rgba(255, 0, 128, 0.8);" /> <!-- Rose ou magenta -->
+                <stop offset="30%" style="stop-color: rgba(75, 0, 130, 0.6);" /> <!-- Violet -->
+                <stop offset="60%" style="stop-color: rgba(0, 255, 255, 0.5);" /> <!-- Cyan clair -->
+                <stop offset="100%" style="stop-color: rgba(0, 0, 139, 0.4);" /> <!-- Bleu nuit -->
+              </linearGradient>
+          
+              <!-- Filtre pour un effet de flou lumineux -->
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blurred"/>
+                <feMerge>
+                  <feMergeNode in="blurred"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+          
+            <g id="stars">
+              <!-- Création des étoiles aléatoires -->
+              <circle class="star" cx="150" cy="250" r="2" fill="white" />
+              <circle class="star" cx="450" cy="600" r="3" fill="white" />
+              <circle class="star" cx="800" cy="200" r="1.5" fill="white" />
+              <circle class="star" cx="1200" cy="900" r="4" fill="white" />
+              <circle class="star" cx="1600" cy="500" r="2.5" fill="white" />
+              <circle class="star" cx="1700" cy="700" r="1" fill="white" />
+              <circle class="star" cx="300" cy="900" r="2" fill="white" />
+              <circle class="star" cx="1000" cy="800" r="1.8" fill="white" />
+              <circle class="star" cx="1800" cy="400" r="2.3" fill="white" />
+              <circle class="star" cx="1400" cy="300" r="2" fill="white" />
+              <!-- Ajouter encore plus d'étoiles ici pour plus de densité -->
+            </g>
+          
+            <!-- Nébuleuse et nuages lumineux avec effet chromatique -->
+            <g id="clouds" fill="url(#cloud-gradient)" filter="url(#glow)">
+              <path d="M0,500 C400,600 700,800 1200,500 C1600,350 1800,700 1920,500 C1800,300 1400,100 1200,300 C1000,500 700,300 400,400 C0,500 0,500" />
+              <path d="M0,700 C200,850 600,900 1000,600 C1400,400 1600,500 1920,400 C1800,250 1400,300 1000,500 C600,700 200,800 0,700" />
+            </g>
+          </svg>
+          
+
+          
+        </div>
+
         <div class="mainTitle z-40">
           <h1 class="text-white text-5xl md:text-8xl font-bold text-center">Nicolas Carpita</h1>
           <p class="text-white font-semibold text-center text-xl md:text-2xl profession">Développeur FullStack</p>
+          <div class="flex items-center justify-center mt-4 gap-4 z-40">
+            <svg  class="h-12 fill-zinc-300 hover:fill-white transition-all ease-in-out duration-200" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M41.4,508.1H-8.5V348.4h49.9 V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7c18.4,0,29.7,11.9,30.1,27.7 C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4c-14.9,0-23.2,10-27,19.6 c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6c35.5,0,63.3,23,63.3,72.4V508.1z "></path> </g></svg>
+
+            <svg fill="#ffffff"  class="h-12 fill-zinc-300 hover:fill-white transition-all ease-in-out duration-200" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M113,446c24.8,0,45.1-20.2,45.1-45.1c0-9.8-3.2-18.9-8.5-26.3c-8.2-11.3-21.5-18.8-36.5-18.8s-28.3,7.4-36.5,18.8 c-5.3,7.4-8.5,16.5-8.5,26.3C68,425.8,88.2,446,113,446z"></path> <polygon points="211.4,345.9 211.4,308.1 211.4,302.5 205.8,302.5 168,302.6 168.2,346 "></polygon> <path d="M183,401c0,38.6-31.4,70-70,70c-38.6,0-70-31.4-70-70c0-9.3,1.9-18.2,5.2-26.3H10v104.8C10,493,21,504,34.5,504h157 c13.5,0,24.5-11,24.5-24.5V374.7h-38.2C181.2,382.8,183,391.7,183,401z"></path> <path d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M241,374.7v104.8 c0,27.3-22.2,49.5-49.5,49.5h-157C7.2,529-15,506.8-15,479.5V374.7v-52.3c0-27.3,22.2-49.5,49.5-49.5h157 c27.3,0,49.5,22.2,49.5,49.5V374.7z"></path> </g> </g></svg>
+
+            <svg viewBox="0 0 20 20" class="h-12 group" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>github [#142]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" class="fill-zinc-300 group-hover:fill-white transition-all ease-in-out duration-200"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]"> </path> </g> </g> </g> </g></svg>
+          </div>
         </div>
         <div class="size-[200px] rounded-full bg-amber-100 absolute moon z-10 left-0 bottom-0" :style="'left: -' + $el.offsetWidth + 'px;'"></div>
         
-        <svg class="absolute -bottom-1 left-0 z-50" viewBox="0 0 1440 390" xmlns="http://www.w3.org/2000/svg">
+        <svg class="absolute -bottom-1 left-0 z-50 pointer-events-none" viewBox="0 0 1440 390" xmlns="http://www.w3.org/2000/svg">
           <path d="M 0,400 L 0,320 C 80,300 160,250 240,260 C 320,270 400,340 480,310 C 560,280 640,180 720,170 C 800,160 880,230 960,250 C 1040,270 1120,240 1200,200 C 1280,160 1360,180 1440,220 L 1440,400 L 0,400 Z"
           fill="#000000" stroke="none"></path>
         </svg>
 
-        <svg class="absolute -bottom-12 left-0 fill-zinc-900 z-10" id="svg" viewBox="0 0 1440 490" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><path d="M 0,500 L 0,187 C 76.9962212298179,122.65784953624184 153.9924424596358,58.31569907248368 225,94 C 296.0075575403642,129.68430092751632 361.0264513912745,265.39505324630716 418,303 C 474.9735486087255,340.60494675369284 523.9017519752663,280.1040879422879 582,275 C 640.0982480247337,269.8959120577121 707.3665407076606,320.18859498454134 797,363 C 886.6334592923394,405.81140501545866 998.6320851940914,441.1415321195466 1066,491 C 1133.3679148059086,540.8584678804534 1156.1051185159738,605.2452765372724 1211,632 C 1265.8948814840262,658.7547234627276 1352.947440742013,647.8773617313639 1440,637 L 1440,500 L 0,500 Z" stroke="none" stroke-width="0" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-0"></path></svg>
+        <svg class="absolute -bottom-12 left-0 fill-zinc-900 z-10 pointer-events-none" id="svg" viewBox="0 0 1440 490" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><path d="M 0,500 L 0,187 C 76.9962212298179,122.65784953624184 153.9924424596358,58.31569907248368 225,94 C 296.0075575403642,129.68430092751632 361.0264513912745,265.39505324630716 418,303 C 474.9735486087255,340.60494675369284 523.9017519752663,280.1040879422879 582,275 C 640.0982480247337,269.8959120577121 707.3665407076606,320.18859498454134 797,363 C 886.6334592923394,405.81140501545866 998.6320851940914,441.1415321195466 1066,491 C 1133.3679148059086,540.8584678804534 1156.1051185159738,605.2452765372724 1211,632 C 1265.8948814840262,658.7547234627276 1352.947440742013,647.8773617313639 1440,637 L 1440,500 L 0,500 Z" stroke="none" stroke-width="0" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-0"></path></svg>
         
 
         <svg id="starrySky" class="absolute top-0 left-0" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"></svg>
 
         <svg id="cloudySky" class="absolute top-0 left-0 z-10" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"></svg>
+
+        <!-- <svg id="shootingStars"  class="absolute top-0 left-0 z-10" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 600">
+
+          <g id="shootingStarsContainer"></g>
+        </svg> -->
+
+        <div class="shooting-stars absolute top60 left-0 w-full h-full"></div>
+
       </section>
       <!-- A propos de moi B -->
-      <section class="min-h-screen w-full bg-black text-white z-50 skillsSection">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center skillsTitle opacity-0 blur-md" id="">A propos de moi</h1>
+      <section class="min-h-screen w-full bg-black text-white z-50 presentationSection pt-12">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center presentationTitle " id="">A propos de moi</h1>
         <div class="w-[950px] skillsContent mx-auto flex flex-col gap-4">
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur nesciunt repudiandae dignissimos facere sunt qui, ea blanditiis incidunt earum praesentium voluptates ratione quod sit assumenda unde, expedita suscipit recusandae. Exercitationem.</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eaque nemo atque consectetur soluta illo dignissimos voluptatibus consequatur quisquam, reiciendis, pariatur officia excepturi dolorum molestias eos commodi, repellendus accusamus et!</p>
@@ -244,7 +352,7 @@
         
       </section>
       <!-- Mes projets B -->
-      <section class="bg-black pt-16 min-h-screen flex justify-center items-center max-w-full" id="mesProjets">
+      <section class="bg-black pt-24 min-h-screen flex justify-center items-center max-w-full" id="mesProjets">
         <div class="pt-16 mx-4 sm:mx-12 2xl:mx-16 projetsContent">
           <div class="projectSecTitle">
             <h1 class="font-bold text-5xl sm:text-4xl md:text-6xl text-white opacity-0 blur-3xl translate-x-[10%] mb-4 sm:mb-3 text-center ">Mes Projets</h1>
