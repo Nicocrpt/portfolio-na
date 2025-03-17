@@ -7,10 +7,10 @@
     <title>Nicolas Carpita - Developpeur FullStack</title>
     <link rel="stylesheet" href="/src/style.css">
   </head>
-  <body x-data="{ burgerMenu: false, vtIntroHeight: document.querySelector }" class="">
+  <body x-data="{ burgerMenu: false, projectModal: false }" class="">
 
-    <header>
-      <div class="fixed top-0 w-full h-16 z-20 navbar transition-color ease-in-out duration-300 flex items-center" >
+    <header class="">
+      <div class="navBar z-50 fixed top-0 w-full h-16 navbar transition-color ease-in-out duration-300 flex items-center " >
           <nav class="flex items-center gap-10 mx-6 md:mx-8 lg:mx-10 justify-between flex-row-reverse md:flex-row md:justify-start w-full">
               <div>
                 <h1 class="text-white text-2xl font-bold ftTest">Nicolas Carpita</h1>
@@ -56,291 +56,764 @@
     </header>
 
     <main class="!max-w-screen !overflow-x-hidden relative">
-      <section id="homeSection" class="h-screen w-full relative flex items-center justify-center " style="background: rgb(0,21,33);background: linear-gradient(180deg, rgba(0,21,33,1) 0%, rgba(0,39,62,1) 57%, rgba(0,66,102,1) 100%);">
-        <div>
+      <!-- Home -->
+      <section id="homeSection" class="h-screen w-full relative flex items-center justify-center !overflow-hidden" style="background: rgb(0,21,33);background: linear-gradient(180deg, rgba(0,21,33,1) 0%, rgba(0,39,62,1) 57%, rgba(0,66,102,1) 100%);">
+        <div class="mainTitle z-40">
           <h1 class="text-white text-5xl md:text-8xl font-bold text-center">Nicolas Carpita</h1>
-          <p class="text-white font-semibold text-center text-xl md:text-2xl">Développeur FullStack</p>
+          <p class="text-white font-semibold text-center text-xl md:text-2xl profession">Développeur FullStack</p>
         </div>
-        <!-- <div class="size-[500px] rounded-full bg-amber-100 absolute top-[calc(50%-170px)] left-[calc(50%-128px)]"></div>
-        <div class="size-[500px] rounded-full bg-black absolute top-[calc(50%-128px)]"></div> -->
+        <div class="size-[200px] rounded-full bg-amber-100 absolute moon z-10 left-0 bottom-0" :style="'left: -' + $el.offsetWidth + 'px;'"></div>
         
-        <svg class="absolute bottom-0 z-10" id="canvas" height="auto" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 900 350" width="auto" style="width: auto; height: auto;">
-
-          <defs>
-            <!-- Dégradé gris foncé vers noir -->
-            <linearGradient id="darkGrayGradient" gradientTransform="rotate(90)">
-              <stop stop-color="#00000" offset="0"/> <!-- Gris foncé -->
-              <stop stop-color="#000000" offset="1"/> <!-- Noir -->
-            </linearGradient>
-          </defs>
-        
-          <!-- Arrière-plan blanc -->
-          <rect width="900" height="512" fill="transparent"/>
-        
-          <!-- Vague avec le dégradé plus foncé -->
-          <path d="M0,512C0,469.1553037831526,-8.823529411764705,304.79303896437364,0,254.93182269891565C8.823529411764705,205.07060643345764,35.294117647058826,225.59998598555134,52.94117647058823,212.83270240725201C70.58823529411764,200.0654188289527,88.23529411764706,175.729536876052,105.88235294117646,178.32812122911974C123.52941176470587,180.92670558218748,141.17647058823528,215.92891226113537,158.8235294117647,228.4242085256584C176.47058823529412,240.91950479018143,194.1176470588235,249.5065282112353,211.76470588235293,253.299898816258C229.41176470588235,257.09326942128075,247.05882352941174,262.8694172865497,264.70588235294116,251.18443215579475C282.35294117647055,239.4994470250398,300,203.7098167245334,317.6470588235294,183.18998803172832C335.2941176470588,162.67015933892324,352.94117647058823,118.1593945677035,370.5882352941176,128.06545999896423C388.235294117647,137.97152543022494,405.88235294117646,226.24310512932868,423.52941176470586,242.62638061929266C441.17647058823525,259.00965610925664,458.8235294117647,221.25171191821025,476.4705882352941,226.3651129387481C494.1176470588235,231.47851395928595,511.7647058823529,291.6626837112747,529.4117647058823,273.3067867425197C547.0588235294117,254.95088977376471,564.7058823529411,121.85494050338544,582.3529411764705,116.22973112621813C599.9999999999999,110.60452174905082,617.6470588235294,225.34070185232295,635.2941176470588,239.55553047951582C652.9411764705882,253.7703591067087,670.5882352941177,207.31235304926113,688.2352941176471,201.51870288937542C705.8823529411765,195.7250527294897,723.5294117647059,212.93293178078375,741.1764705882352,204.79362952020153C758.8235294117646,196.65432725961932,776.470588235294,148.99649868447028,794.1176470588234,152.68288932588217C811.7647058823528,156.36927996729406,829.4117647058823,231.44951922992524,847.0588235294117,226.91197336867293C864.7058823529411,222.37442750742062,890.843137254902,77.60960971981385,900,125.45761415836836C909.156862745098,173.30561859692287,901.6666666666666,449.2429356930614,902,514" fill="url(#darkGrayGradient)" opacity="1"/>
+        <svg class="absolute -bottom-1 left-0 z-50" viewBox="0 0 1440 390" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 0,400 L 0,320 C 80,300 160,250 240,260 C 320,270 400,340 480,310 C 560,280 640,180 720,170 C 800,160 880,230 960,250 C 1040,270 1120,240 1200,200 C 1280,160 1360,180 1440,220 L 1440,400 L 0,400 Z"
+          fill="#000000" stroke="none"></path>
         </svg>
-        <svg  id="svg" viewBox="0 0 1440 690" xmlns="http://www.w3.org/2000/svg" class="absolute bottom-0 left-0 z-0"><defs><linearGradient id="gradient" x1="50%" y1="100%" x2="50%" y2="0%"><stop offset="5%" stop-color="#000000"></stop><stop offset="95%" stop-color="#abb8c3"></stop></linearGradient></defs><path d="M 0,700 L 0,262 C 25.50337615008042,181.25051612080676 51.00675230016084,100.50103224161356 75,147 C 98.99324769983916,193.49896775838644 121.47636694943705,367.24638715435253 148,395 C 174.52363305056295,422.75361284564747 205.08777990209103,304.51341914097634 224,310 C 242.91222009790897,315.48658085902366 250.17251344219875,444.6999362817421 274,493 C 297.82748655780125,541.3000637182579 338.2221663291142,508.68683573205533 364,541 C 389.7778336708858,573.3131642679447 400.93882124134433,670.5527207900368 424,668 C 447.06117875865567,665.4472792099632 482.02254870550837,563.1022811077978 508,582 C 533.9774512944916,600.8977188922022 550.9709839366222,741.038154778772 575,790 C 599.0290160633778,838.961845221228 630.0935155480023,796.7450997771144 652,787 C 673.9064844519977,777.2549002228856 686.6549538713685,799.9814461127705 712,876 C 737.3450461286315,952.0185538872295 775.2866689665236,1081.3291157718031 800,1109 C 824.7133310334764,1136.6708842281969 836.198370262537,1062.7020908000168 859,1026 C 881.801629737463,989.2979091999831 915.9198499833284,989.8625210281295 941,1077 C 966.0801500166716,1164.1374789718705 982.1222298041499,1337.8478250874646 1003,1358 C 1023.8777701958501,1378.1521749125354 1049.5912308000725,1244.746178622012 1077,1213 C 1104.4087691999275,1181.253821377988 1133.5128469955605,1251.1674604244884 1159,1351 C 1184.4871530044395,1450.8325395755116 1206.3573812176846,1580.5839796800342 1229,1582 C 1251.6426187823154,1583.4160203199658 1275.0576281337003,1456.4966208553753 1300,1462 C 1324.9423718662997,1467.5033791446247 1351.4121062475142,1605.429536898464 1375,1665 C 1398.5878937524858,1724.570463101536 1419.293946876243,1705.785231550768 1440,1687 L 1440,700 L 0,700 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-0"></path></svg>
 
+        <svg class="absolute -bottom-12 left-0 fill-zinc-900 z-10" id="svg" viewBox="0 0 1440 490" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><path d="M 0,500 L 0,187 C 76.9962212298179,122.65784953624184 153.9924424596358,58.31569907248368 225,94 C 296.0075575403642,129.68430092751632 361.0264513912745,265.39505324630716 418,303 C 474.9735486087255,340.60494675369284 523.9017519752663,280.1040879422879 582,275 C 640.0982480247337,269.8959120577121 707.3665407076606,320.18859498454134 797,363 C 886.6334592923394,405.81140501545866 998.6320851940914,441.1415321195466 1066,491 C 1133.3679148059086,540.8584678804534 1156.1051185159738,605.2452765372724 1211,632 C 1265.8948814840262,658.7547234627276 1352.947440742013,647.8773617313639 1440,637 L 1440,500 L 0,500 Z" stroke="none" stroke-width="0" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-0"></path></svg>
+        
+
+        <svg id="starrySky" class="absolute top-0 left-0" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"></svg>
+
+        <svg id="cloudySky" class="absolute top-0 left-0 z-10" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"></svg>
       </section>
-      <section class="min-h-screen w-full bg-black pt-48 text-white">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center pt-20" id="">Mes Compétences</h1>
-      </section>
-      <section class="h-[16rem] w-full z-10 flex items-end overflow-hidden relative">
-        <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 630" xmlns="http://www.w3.org/2000/svg" class="absolute -top-10 z-10"><path d="M 0,400 L 0,150 C 140.66666666666663,164.39999999999998 281.33333333333326,178.79999999999998 435,165 C 588.6666666666667,151.20000000000002 755.3333333333335,109.2 925,102 C 1094.6666666666665,94.8 1267.3333333333333,122.4 1440,150 L 1440,400 L 0,400 Z" stroke="none" stroke-width="0" fill="#000000" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-0" transform="rotate(-180 720 200)"></path></svg>
-        <svg id="svg" viewBox="0 0 1440 690" xmlns="http://www.w3.org/2000/svg" class="absolute bottom-0 z-10 w-screen"><path d="M 0,700 L 0,262 C 65.76923076923077,204.00384615384615 131.53846153846155,146.0076923076923 209,133 C 286.46153846153845,119.99230769230769 375.61538461538464,151.97307692307692 463,217 C 550.3846153846154,282.0269230769231 635.9999999999999,380.09999999999997 715,430 C 794.0000000000001,479.90000000000003 866.3846153846155,481.62692307692305 950,507 C 1033.6153846153845,532.373076923077 1128.4615384615386,581.3923076923077 1212,607 C 1295.5384615384614,632.6076923076923 1367.7692307692307,634.8038461538462 1440,637 L 1440,700 L 0,700 Z" stroke="none" stroke-width="0" fill="#ffffff" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-0"></path></svg>
-        <img src="Images/wp2701742.jpg" alt="" class="!w-full separator">
-      </section>
-      <section class="h-[150vh]">
-        <div class="h-screen flex items-center justify-center !overflow-x-none !overflow-x-hidden !w-screen">
-          <h1 class="text-[500px] font-bold whitespace-nowrap text-center opacity-0" id="title">Hello world</h1>
+      <!-- A propos de moi B -->
+      <section class="min-h-screen w-full bg-black text-white z-50 skillsSection">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center skillsTitle opacity-0 blur-md" id="">A propos de moi</h1>
+        <div class="w-[950px] skillsContent mx-auto flex flex-col gap-4">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur nesciunt repudiandae dignissimos facere sunt qui, ea blanditiis incidunt earum praesentium voluptates ratione quod sit assumenda unde, expedita suscipit recusandae. Exercitationem.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eaque nemo atque consectetur soluta illo dignissimos voluptatibus consequatur quisquam, reiciendis, pariatur officia excepturi dolorum molestias eos commodi, repellendus accusamus et!</p>
         </div>
+        
       </section>
-      <section id="sec2" class="py-16 two pb-0">
+      <!-- Mon parcours W -->
+      <section class="py-16 two pb-0">
         <div class="w-full flex flex-col justify-center items-center">
           <div class="flex items-start gap-4">
             <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold pb-4">Mon parcours</h1>
-            <svg id="parcoursLogo" viewBox="0 0 24 24" class="mt-[2px] sm:mt-[4px] w-[40px] sm:w-[50px] md:w-[60px]" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>route_fill</title> <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Map" transform="translate(-288.000000, -48.000000)" fill-rule="nonzero"> <g id="route_fill" transform="translate(288.000000, 48.000000)"> <path d="M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z" id="MingCute" fill-rule="nonzero"> </path> <path d="M18,16 C19.6569,16 21,17.3431 21,19 C21,20.6569 19.6569,22 18,22 C16.3431,22 15,20.6569 15,19 C15,17.3431 16.3431,16 18,16 Z M15.5,4 C17.9853,4 20,6.01472 20,8.5 C20,10.9853 17.9853,13 15.5,13 L8.5,13 C7.11929,13 6,14.1193 6,15.5 C6,16.8807 7.11929,18 8.5,18 L13,18 C13.5523,18 14,18.4477 14,19 C14,19.5523 13.5523,20 13,20 L8.5,20 C6.01472,20 4,17.9853 4,15.5 C4,13.0147 6.01472,11 8.5,11 L15.5,11 C16.8807,11 18,9.88071 18,8.5 C18,7.11929 16.8807,6 15.5,6 L11,6 C10.4477,6 10,5.55228 10,5 C10,4.44772 10.4477,4 11,4 L15.5,4 Z M6,2 C7.65685,2 9,3.34315 9,5 C9,6.65685 7.65685,8 6,8 C4.34315,8 3,6.65685 3,5 C3,3.34315 4.34315,2 6,2 Z" id="形状" fill="#000000"> </path> </g> </g> </g> </g></svg>
+            <svg id="parcoursLogo" viewBox="0 0 24 24" class="mt-[2px] sm:mt-[4px] w-[40px] sm:w-[50px] md:w-[60px]" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>route_fill</title> <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Map" transform="translate(-288.000000, -48.000000)" fill-rule="nonzero"> <g id="route_fill" transform="translate(288.000000, 48.000000)"> <path d="M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z" id="MingCute" fill-rule="nonzero"> </path> <path d="M18,16 C19.6569,16 21,17.3431 21,19 C21,20.6569 19.6569,22 18,22 C16.3431,22 15,20.6569 15,19 C15,17.3431 16.3431,16 18,16 Z M15.5,4 C17.9853,4 20,6.01472 20,8.5 C20,10.9853 17.9853,13 15.5,13 L8.5,13 C7.11929,13 6,14.1193 6,15.5 C6,16.8807 7.11929,18 8.5,18 L13,18 C13.5523,18 14,18.4477 14,19 C14,19.5523 13.5523,20 13,20 L8.5,20 C6.01472,20 4,17.9853 4,15.5 C4,13.0147 6.01472,11 8.5,11 L15.5,11 C16.8807,11 18,9.88071 18,8.5 C18,7.11929 16.8807,6 15.5,6 L11,6 C10.4477,6 10,5.55228 10,5 C10,4.44772 10.4477,4 11,4 L15.5,4 Z M6,2 C7.65685,2 9,3.34315 9,5 C9,6.65685 7.65685,8 6,8 C4.34315,8 3,6.65685 3,5 C3,3.34315 4.34315,2 6,2 Z" id="形状" fill="#000000"> </path> </g> </g> </g> </g>
+            </svg>
           </div>
           <p class="text-stone-500 mx-6 text-center">Résumé de mes experiences professionnelles et pédagogiques, et du savoir faire et des compétences que j'en ai tiré.</p>
         </div>
         <div class="timeline relative max-w-[1200px] sm:mx-auto mt-[100px] after:content-[''] after:absolute after:w-[6px] after:rounded-full after:h-full after:bg-black after:top-0  after:left-10 sm:after:left-1/2 after:-translate-x-1/2 after:-z-10">
-          <!-- <span class="h-0 w-0 absolute -top-6 z-10 border-[15px] border-transparent border-b-black left-[calc(50%-15px)] rounded"></span> -->
-          <svg viewBox="0 0 32 32" class="timelineLabel further w-[30px] left-[25px] sm:left-[calc(50%-15px)] -top-6 absolute z-20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>arrow-up-circle</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-362.000000, -1089.000000)" fill="#000000"> <path d="M384.535,1105.54 C384.145,1105.93 383.512,1105.93 383.121,1105.54 L379,1101.41 L379,1112 C379,1112.55 378.553,1113 378,1113 C377.447,1113 377,1112.55 377,1112 L377,1101.41 L372.879,1105.54 C372.488,1105.93 371.854,1105.93 371.465,1105.54 C371.074,1105.14 371.074,1104.51 371.465,1104.12 L377.121,1098.46 C377.361,1098.22 377.689,1098.15 378,1098.21 C378.311,1098.15 378.639,1098.22 378.879,1098.46 L384.535,1104.12 C384.926,1104.51 384.926,1105.14 384.535,1105.54 L384.535,1105.54 Z M378,1089 C369.163,1089 362,1096.16 362,1105 C362,1113.84 369.163,1121 378,1121 C386.837,1121 394,1113.84 394,1105 C394,1096.16 386.837,1089 378,1089 L378,1089 Z" id="arrow-up-circle" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
+          <svg viewBox="0 0 32 32" class="timelineLabel further w-[30px] left-[25px] sm:left-[calc(50%-15px)] -top-6 absolute z-20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>arrow-up-circle</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-362.000000, -1089.000000)" fill="#000000"> <path d="M384.535,1105.54 C384.145,1105.93 383.512,1105.93 383.121,1105.54 L379,1101.41 L379,1112 C379,1112.55 378.553,1113 378,1113 C377.447,1113 377,1112.55 377,1112 L377,1101.41 L372.879,1105.54 C372.488,1105.93 371.854,1105.93 371.465,1105.54 C371.074,1105.14 371.074,1104.51 371.465,1104.12 L377.121,1098.46 C377.361,1098.22 377.689,1098.15 378,1098.21 C378.311,1098.15 378.639,1098.22 378.879,1098.46 L384.535,1104.12 C384.926,1104.51 384.926,1105.14 384.535,1105.54 L384.535,1105.54 Z M378,1089 C369.163,1089 362,1096.16 362,1105 C362,1113.84 369.163,1121 378,1121 C386.837,1121 394,1113.84 394,1105 C394,1096.16 386.837,1089 378,1089 L378,1089 Z" id="arrow-up-circle" sketch:type="MSShapeGroup"> </path> </g> </g> </g>
+          </svg>
             <div class="timelineContainer max-sm:left-10">
                 <div class="timelineLabel bg-black max-sm:-left-[15px] sm:-right-[15px]">
                     <svg fill="#ffffff" width="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-q</title><polygon points="256 370.43 96 279 96 377.42 256 466.3 416 377.42 416 279 256 370.43"></polygon><polygon points="512.25 192 256 45.57 -0.25 192 256 338.43 464 219.57 464 384 512 384 512 192.14 512.25 192"></polygon></g></svg>
                 </div>
-                <div class="text-box left py-[20px] px-[30px] bg-yellow-500 text-white rounded-[6px] text-[15px]">
-                    <h2 class="font-bold text-2xl">IFC Avignon</h2>
-                    <small>2023 - 2025</small>
-                    <p>BTS Services Informatiques aux Organisations, option SLAM (Solution logicielles et applications métiers)</p>
-                    
+                <div @click="$el.classList.toggle('!h-72'); $el.querySelector('.moreInfos').classList.toggle('opacity-0');setTimeout(() => { $el.querySelector('.moreInfos').classList.toggle('duration-500'); }, 500);" class="text-box left  text-white rounded-[6px] text-[15px] flex flex-col justify-between">
+                    <div>
+                      <h2 class="font-bold text-2xl">IFC Avignon</h2>
+                      <small>2023 - 2025</small>
+                      <p>BTS Service informatique aux Organisations, option SLAM</p>
+                    </div>
+                    <p class="moreInfos mt-4 text-sm opacity-0 transition-all ease-in-out duration-500">En suivant ce BTS orienté sur l'informatique, j'ai appris les bases du développement web et applicatif, en plus de solides connaissances en culture générale, en anglais ainsi qu'en droit, management et économie. </p>
                 </div>
             </div>
             <div class="timelineContainer max-sm:left-10 left-1/2">
                 <div class="timelineLabel -left-[15px] bg-black">
                     <svg viewBox="0 0 512 512" width="30px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>work-case-filled</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="work-case" fill="#ffffff" transform="translate(42.666667, 64.000000)"> <path d="M1.20792265e-13,197.76 C54.5835501,218.995667 112.186031,231.452204 170.666667,234.666667 L170.666667,277.333333 L256,277.333333 L256,234.666667 C314.339546,231.013 371.833936,218.86731 426.666667,198.613333 L426.666667,362.666667 L1.20792265e-13,362.666667 L1.20792265e-13,197.76 Z M277.333333,-1.42108547e-14 L298.666667,21.3333333 L298.666667,64 L426.666667,64 L426.666667,175.146667 C361.254942,199.569074 292.110481,212.488551 222.293333,213.333333 L222.293333,213.333333 L206.933333,213.333333 C136.179047,212.568604 66.119345,199.278929 7.10542736e-15,174.08 L7.10542736e-15,174.08 L7.10542736e-15,64 L128,64 L128,21.3333333 L149.333333,-1.42108547e-14 L277.333333,-1.42108547e-14 Z M256,42.6666667 L170.666667,42.6666667 L170.666667,64 L256,64 L256,42.6666667 Z" id="Combined-Shape-Copy"> </path> </g> </g> </g></svg>
                 </div>
-                <div class="text-box right py-[20px] px-[30px] bg-green-600 text-white rounded-[6px] text-[15px]">
+                <div @click="$el.classList.toggle('!h-72'); $el.querySelector('.moreInfos').classList.toggle('opacity-0');setTimeout(() => { $el.querySelector('.moreInfos').classList.toggle('duration-500'); }, 500);" class="text-box right text-white rounded-[6px] text-[15px] flex flex-col justify-between">
+                  <div class="">
                     <h2 class="font-bold text-2xl">GREENLOG Aroma-Zone</h2>
                     <small>2018 - 2024</small>
                     <p>Opérateur d'expédition logistique</p>
-                    
+                  </div>
+                    <p class="moreInfos mt-4 text-sm opacity-0 transition-all ease-in-out duration-500">Mon travail en tant qu'opérateur logistique pendant plusieurs années m'a permis de me confronter au monde du travail, de développer ma capacité à travailler au sein d'une équipe, ainsi que de remplir les objectifs mis en place par l'entreprise, en touchant à plusieurs tâches relatives à la logistique (préparation de commandes, gestion de stock...) </p>
                 </div>
             </div>
             <div class="timelineContainer max-sm:left-10">
                 <div class="timelineLabel bg-black max-sm:-left-[15px] sm:-right-[15px]">
                     <svg fill="#ffffff" width="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-q</title><polygon points="256 370.43 96 279 96 377.42 256 466.3 416 377.42 416 279 256 370.43"></polygon><polygon points="512.25 192 256 45.57 -0.25 192 256 338.43 464 219.57 464 384 512 384 512 192.14 512.25 192"></polygon></g></svg>
                 </div>
-                <div class="text-box left py-[20px] px-[30px] bg-red-600 text-white rounded-[6px] text-[15px]">
+                <div @click="$el.classList.toggle('!h-72'); $el.querySelector('.moreInfos').classList.toggle('opacity-0'); $el.classList.toggle('bg-black');setTimeout(() => { $el.querySelector('.moreInfos').classList.toggle('duration-500'); }, 500);"  class="text-box left text-white rounded-[6px] text-[15px] flex flex-col justify-between">
+                  <div class="">
                     <h2 class="font-bold text-2xl">Acfa Multimédia (Montpellier)</h2>
                     <small>2016 - 2018</small>
                     <p>Formation Sound Designer</p>
-                    
-                    
+                  </div>
+                  <p class="moreInfos mt-4 text-sm opacity-0 transition-all ease-in-out duration-500">En suivant ce BTS orienté sur l'informatique, j'ai appris les bases du développement web et applicatif, en plus de solides connaissances en culture générale, en anglais ainsi qu'en droit, management et économie. </p>
                 </div>
             </div>
             <div class="timelineContainer max-sm:left-10 left-1/2">
-                <div class="timelineLabel bg-black -left-[15px]">
+                <div class="timelineLabel bg-black -left-[15px]" @click="$el.classList.toggle('!h-72'); console.log('hello')">
                     <svg fill="#ffffff" width="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-q</title><polygon points="256 370.43 96 279 96 377.42 256 466.3 416 377.42 416 279 256 370.43"></polygon><polygon points="512.25 192 256 45.57 -0.25 192 256 338.43 464 219.57 464 384 512 384 512 192.14 512.25 192"></polygon></g></svg>
                 </div>
-                <div class="text-box bg-sky-500 right py-[20px] px-[30px]  text-white rounded-[6px] text-[15px]">
+                <div @click="$el.classList.toggle('!h-72'); $el.querySelector('.moreInfos').classList.toggle('opacity-0');setTimeout(() => { $el.querySelector('.moreInfos').classList.toggle('duration-500'); }, 500);" class="text-box right  text-white rounded-[6px] text-[15px] flex flex-col justify-between">
+                  <div>
                     <h2 class="font-bold text-2xl">Lycée Ismael Dauphin</h2>
                     <small>2014</small>
                     <p>Baccalauréat scientifique (spécialisation Mathématiques)</p>
-                    
+                  </div>
+                  <p class="moreInfos mt-4 text-sm opacity-0 transition-all ease-in-out duration-500">En suivant ce BTS orienté sur l'informatique, j'ai appris les bases du développement web et applicatif, en plus de solides connaissances en culture générale, en anglais ainsi qu'en droit, management et économie. </p>
                 </div>
             </div>
         </div>
       </section>
+      <!-- Mes connaissances B -->
+      <section class="min-h-screen flex justify-center items-center skillsSec">
+        <div class="skillsContent w-full h-full flex flex-col justify-center items-center">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi dolor architecto aut nostrum natus? Vitae, ratione cupiditate quasi aliquam quisquam laboriosam aspernatur et libero quidem nemo velit, facere mollitia quibusdam similique earum sequi itaque fugit eos. Aperiam temporibus natus reprehenderit aut, optio nam facere quia, debitis expedita deleniti architecto iste exercitationem consequuntur veniam dicta tempora necessitatibus mollitia dolorum qui consequatur assumenda odio asperiores? Molestias, natus optio fugit, sint consequatur illo tempora nihil velit voluptates eveniet adipisci veritatis, sit ut harum sequi. Inventore quia obcaecati ducimus animi architecto vel quibusdam ad! Sunt debitis unde mollitia ullam. Laborum, numquam corrupti sequi, illo nihil, dolorem voluptatem laudantium voluptas quis asperiores quibusdam rem. Molestias obcaecati totam odio officiis nobis excepturi doloribus, explicabo neque veritatis harum inventore id sapiente ut dolore fugiat dicta perspiciatis illum iste deserunt exercitationem. Vero aspernatur nobis esse aliquam inventore quo numquam perferendis accusantium sapiente deleniti ullam exercitationem eum, veniam debitis quisquam maxime officiis facere. Aut corrupti aliquam blanditiis magnam molestias voluptatibus commodi iste itaque enim nostrum vitae autem error dolorem sunt dignissimos doloremque saepe ipsum, neque architecto. Doloremque ad suscipit id placeat dolorem rerum quasi ab dignissimos fugiat, dicta quam dolor? Quo atque labore fugit esse unde repudiandae ducimus nihil.</p>
+        </div>
+        
+      </section>
+      <!-- Mon entreprise W -->
+      <section class="min-h-screen text-white companySec py-16">
+        <div class="companySecTitle">
+          <h1 class="font-bold text-black text-5xl sm:text-4xl md:text-6xl  mb-4 sm:mb-3 text-center opacity-0">Mon entreprise</h1>
+          <p class="text-black/50 font-semibold max-sm:text-sm text-center md:mb-16 opacity-0 translate-y-[150%]">Rapide présentation de l'entreprise qui m'a accueilli en alternance</p>
+        </div>
+        <div class="companyContent w-[950px] max-w-[95%] mx-auto opacity-0 blur-3xl">
+          <!-- Az presentation -->
+          <div class="flex justify-center items-center h-48 sm:gap-8 p-4 py-6 max-sm:flex-col max-sm:h-auto">
+            <img src="./Images/az-logo-small.png" alt="" class="azLogo max-sm:hidden">
+            <img src="./Images/az-logo.png" alt="" class="azLogo sm:hidden">
+            <div class="flex flex-col gap-2 max-sm:gap-1 justify-start h-full py-3 ">
+              <h3 class="font-semibold text-2xl">Aroma-Zone</h3>
+              <p class="max-sm:text-sm">Aroma-zone est une entreprise qui oriente son activité sur le <span class="font-semibold">bien être au naturel</span> en proposant à la vente des huiles essentielles, des produits cosmétiques naturels ainsi que les ingrédients nécéssaires pour pouvoir les préparer soi-même.</p>
+            </div>
+          </div>
+          
+          <div class="flex flex-row-reverse max-sm:flex-wrap justify-between sm:gap-[2%] mb-10">
+            <div class="parallaxAz1 relative w-1/3 max-sm:w-[42%] overflow-hidden sm:min-h-[300px]" >
+              <img src="./Images/az-product2.jpg" alt="" class="w-full absolute bottom-0 max-h-none azProduct scale-[170%]">
+            </div>
+            <div class="w-2/3 max-sm:w-[56%] firstPartpar">
+              <p class="max-sm:text-sm pr-1">Le projet a débuté en 1999 par la création d’un site web à titre
+                purement informatif sur le sujet de l’aromathérapie. Très vite, le site se
+                met à proposer à la vente des huiles essentielles venant des quatre coins
+                du monde, et élargit peu à peu son catalogue.
+                <span class="max-sm:hidden">C’est finalement en 2005 que Aroma-Zone ouvre ses premiers locaux à
+                  Cabrières d’Avignon, et fait le choix judicieux d’ajouter le concept de
+                  cosmétique maison à son offre, et le succès est plus qu’au rendez-vous.</span></p>
+            </div>
+            <div class="w-full mt-[2%] sm:hidden text-sm">
+              <p>C’est finalement en 2005 que Aroma-Zone ouvre ses premiers locaux à
+                Cabrières d’Avignon, et fait le choix judicieux d’ajouter le concept de
+                cosmétique maison à son offre, et le succès est plus qu’au rendez-vous.</p>
+            </div>
+          </div>
+
+          <div class=" flex flex-row-reverse flex-wrap">
+            <div class="w-3/4 flex flex-col gap-2 pl-4">
+              <h3 class="text-xl font-semibold">Une entreprise expansion</h3>
+              <p class="max-sm:text-sm">C’est en 2016 que sont ouvert de nouveaux locaux à Chateauneuf-de-Gadagne,
+                ce dernier site s’occupant alors de la partie logistique quand le site
+                historique conserve l’aspect production. Aroma-Zone en profitera également
+                pour ouvrir progressivement quelques boutiques, notamment celle de Paris-
+                Haussmann.
+                <span class="max-sm:hidden">Années après années, Aroma-zone progresse, mais c’est avec la pandémie du
+                  COVID-19 que l’entreprise explose. Avec les doutes de la population,
+                  l’intérêt pour l domaine des huiles essentielles et du « naturel » grandit
+                  chez les consommateurs et le volume de commandes augmente grandement.</span></p>
+            </div>
+            <div class="parallaxAz2 bg-amber-600 w-1/4 relative overflow-hidden">
+              <div class="h-full w-fit azBoutiqueParent">
+                <img src="./Images/az-boutique.jpg" alt="" class="h-full absolute left-0 max-w-none  azBoutique">
+              </div>
+            </div>
+            <div class="sm:hidden text-sm">
+              <p>Années après années, Aroma-zone progresse, mais c’est avec la pandémie duCOVID-19 que l’entreprise explose. Avec les doutes de la population, l’intérêt pour l domaine des huiles essentielles et du « naturel » grandit chez les consommateurs et le volume de commandes augmente grandement.
+              </p>
+            </div>
+          </div>
+
+         
 
 
-      <section class="min-h-[400vh] relative pt-96 !max-w-screen overflow-x-none" id="veilleTechno">
-        <div class="w-full flex justify-center items-start sticky top-0 py-28 pb-6 gap-2 sm:gap-4" >
-          <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold pb-4 z-20" id="veilleTitle">Veille Technologique</h1>
-          <div id="rssWrapper">
-            <svg id="rssLogo" viewBox="0 0 44 44" class="w-8 sm:w-12 mt-[2px] opacity-0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>RSS-color</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Color-" transform="translate(-800.000000, -760.000000)" fill="#FF9A00"> <path d="M800.000471,797.714286 C800.000471,794.243 802.81487,791.428571 806.286118,791.428571 C809.757367,791.428571 812.571765,794.243 812.571765,797.714286 C812.571765,801.185571 809.757367,804 806.286118,804 C802.81487,804 800.000471,801.185571 800.000471,797.714286 Z M844,804 L835.619661,804 C835.619661,784.358714 819.641547,768.380429 800.000471,768.380429 L800.000471,760 C824.261497,760 844,779.738714 844,804 Z M829.333543,804 L820.953204,804 C820.953204,792.446857 811.553019,783.048143 800,783.048143 L800,774.666143 C816.174541,774.666143 829.333543,787.825286 829.333543,804 Z" id="RSS"> </path> </g> </g> </g></svg>
+          <div class="mt-10">
+            <div class="flex flex-col gap-2 max-sm:text-sm">
+              <p>Aroma-Zone reste aujourd’hui leader dans son domaine, tout en prônant des
+              valeurs fortes dans le contexte sociétal actuel. L’entreprise dispose
+              aujourd’hui de nombreuses boutiques en France, et a considérablement
+              élargit son offre de base, en y ajoutant par exemple des compléments
+              alimentaires, et plus largement une gamme complète de produits finis, ce
+              que l’entreprise ne proposait pas avant.</p>
+
+              <p>Le principal objectif aujourd’hui est de s’étendre à l’international.
+              L’ouverture d’une première boutique en Belgique (Bruxelles), d'une suivante en préparation à Londres et la future
+              mise à disposition du site web en anglais sont les premiers pas vers ce
+              nouveau défi.</p>
+            </div>
           </div>
         </div>
-        <!-- VT content -->
-        <div class="w-full flex flex-col justify-center -mt-18 items-center text-white text-center ">
-          <div class="introWrapper w-full opacity-0">
-            <div class="flex flex-col gap-[20px] sm:text-xl font-semibold max-w-[95%] mx-auto items-center" id="feedlyIntro">
-                <p class="w-[860px] !max-w-[95%] text-center">Dans le domaine informatique, la veille technologique est primordiale : Elle nous permet de rester au courant des dernières avancées sur nos domaines de compétences, afin de les intégrer à notre workflow et rester ainsi à la pointe du progrès !</p>
-                <p class="w-[860px] max-w-[95%]">Cependant, suivre toutes les dernières actualités peut être compliqué mais heureusement, certains outils peuvent nous faciliter la vie.</p>
+        
+      </section>
+      <!-- Mes projets B -->
+      <section class="bg-black pt-16 min-h-screen flex justify-center items-center max-w-full" id="mesProjets">
+        <div class="pt-16 mx-4 sm:mx-12 2xl:mx-16 projetsContent">
+          <div class="projectSecTitle">
+            <h1 class="font-bold text-5xl sm:text-4xl md:text-6xl text-white opacity-0 blur-3xl translate-x-[10%] mb-4 sm:mb-3 text-center ">Mes Projets</h1>
+            <p class="text-zinc-400/70 max-sm:text-sm text-center md:mb-16 opacity-0 blur-3xl -translate-x-[10%]">Ensemble des réalisations que j'ai effectué, que ce soit en entreprise ou en cours de formation</p>
+          </div>
+          
+          <div class="flex flex-wrap gap-[2%] mt-12 justify-start items-start w-[1400px] max-w-[98%] sm:max-w-[95%] mx-auto">
+
+              <!-- Projet 1 -->
+            <div class=" relative group overflow-hidden projectCard" :style="'height:' + ($el.offsetWidth / 1.6) + 'px'">
+                <div class="row-span-2 w-full pinParent">
+                  <img src="https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="">
+                </div>
+                <div class="w-full absolute h-full top-2/3 group-hover:top-0 bg-slate-900/40 rounded row-span-full transition-all ease-in-out duration-300 grid grid-rows-3 backdrop-blur">
+                    <div class="w-full h-full flex justify-center items-center group-hover:-mt-6 transition-all ease-in-out duration-500">
+                        <h2 class="text-white text-3xl font-semibold">Projet 1</h2>
+                    </div>
+                    <div class="row-span-2 px-8 flex flex-col justify-between">
+                        <p class="text-white mt-6 group-hover:mt-0 transition-all ease-in-out duration-700">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto quis inventore fuga harum totam facilis accusantium dolores commodi perspiciatis quisquam officiis corporis sunt soluta, quia recusandae voluptatem sit, voluptas excepturi.</p>
+                        <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-1').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="mb-2 p-1 bg-white rounded cursor-pointer">En savoir plus</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 2 -->
+
+            <div class=" relative group overflow-hidden projectCard" :style="'height:' + ($el.offsetWidth / 1.6) + 'px'">
+              <div class="row-span-2 w-full pinParent">
+                <img src="Images/CsharpMdpProj.png" alt="">
+              </div>
+              <div class="w-full absolute h-full top-2/3 group-hover:top-0 bg-slate-900/40 rounded row-span-full transition-all ease-in-out duration-300 grid grid-rows-3 backdrop-blur">
+                  <div class="w-full h-full flex justify-center items-center group-hover:-mt-6 transition-all ease-in-out duration-500">
+                      <h2 class="text-white text-3xl font-semibold">Projet 2</h2>
+                  </div>
+                  <div class="row-span-2 px-8 flex flex-col justify-between">
+                      <p class="text-white mt-6 group-hover:mt-0 transition-all ease-in-out duration-700">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto quis inventore fuga harum totam facilis accusantium dolores commodi perspiciatis quisquam officiis corporis sunt soluta, quia recusandae voluptatem sit, voluptas excepturi.</p>
+                      <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-2').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="mb-2 p-1 bg-white rounded cursor-pointer">En savoir plus</button>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Projet 3 -->
+
+            <div class=" relative group overflow-hidden projectCard" :style="'height:' + ($el.offsetWidth / 1.6) + 'px'">
+              <div class="row-span-2 w-full pinParent">
+                <img src="Images/tableau-monday.png" alt="" class="object-cover h-[150%]">
+              </div>
+              <div class="w-full absolute h-full top-2/3 group-hover:top-0 bg-slate-900/40 rounded row-span-full transition-all ease-in-out duration-300 grid grid-rows-3 backdrop-blur">
+                  <div class="w-full h-full flex justify-center items-center group-hover:-mt-6 transition-all ease-in-out duration-500">
+                      <h2 class="text-white text-3xl font-semibold">Projet 3</h2>
+                  </div>
+                  <div class="row-span-2 px-8 flex flex-col justify-between">
+                      <p class="text-white mt-6 group-hover:mt-0 transition-all ease-in-out duration-700">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto quis inventore fuga harum totam facilis accusantium dolores commodi perspiciatis quisquam officiis corporis sunt soluta, quia recusandae voluptatem sit, voluptas excepturi.</p>
+                      <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-3').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="mb-2 p-1 bg-white rounded cursor-pointer">En savoir plus</button>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Projet 4 -->
+
+            <div class=" relative group overflow-hidden projectCard" :style="'height:' + ($el.offsetWidth / 1.6) + 'px'">
+              <div class="row-span-2 w-full pinParent">
+                <img src="Images/graphique.png" alt="">
+              </div>
+              <div class="w-full absolute h-full top-2/3 group-hover:top-0 bg-slate-900/40 rounded row-span-full transition-all ease-in-out duration-300 grid grid-rows-3 backdrop-blur">
+                  <div class="w-full h-full flex justify-center items-center group-hover:-mt-6 transition-all ease-in-out duration-500">
+                      <h2 class="text-white text-3xl font-semibold">Projet 4</h2>
+                  </div>
+                  <div class="row-span-2 px-8 flex flex-col justify-between">
+                      <p class="text-white mt-6 group-hover:mt-0 transition-all ease-in-out duration-700">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto quis inventore fuga harum totam facilis accusantium dolores commodi perspiciatis quisquam officiis corporis sunt soluta, quia recusandae voluptatem sit, voluptas excepturi.</p>
+                      <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-4').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="mb-2 p-1 bg-white rounded cursor-pointer">En savoir plus</button>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Projet 5 -->
+
+            <div class=" relative group overflow-hidden projectCard" :style="'height:' + ($el.offsetWidth / 1.6) + 'px'">
+              <div class="row-span-2 w-full pinParent">
+                <img src="Images/bg2.jpg" alt="">
+              </div>
+              <div class="w-full absolute h-full top-2/3 group-hover:top-0 bg-slate-900/40 rounded row-span-full transition-all ease-in-out duration-300 grid grid-rows-3 backdrop-blur">
+                  <div class="w-full h-full flex justify-center items-center group-hover:-mt-6 transition-all ease-in-out duration-500">
+                      <h2 class="text-white text-3xl font-semibold">Projet 5</h2>
+                  </div>
+                  <div class="row-span-2 px-8 flex flex-col justify-between">
+                      <p class="text-white mt-6 group-hover:mt-0 transition-all ease-in-out duration-700">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto quis inventore fuga harum totam facilis accusantium dolores commodi perspiciatis quisquam officiis corporis sunt soluta, quia recusandae voluptatem sit, voluptas excepturi.</p>
+                      <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-5').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="mb-2 p-1 bg-white rounded cursor-pointer">En savoir plus</button>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Projet 6 -->
+
+            <div class=" relative group overflow-hidden projectCard" :style="'height:' + ($el.offsetWidth / 1.6) + 'px'">
+              <div class="row-span-2 w-full pinParent">
+                <img src="Images/bgAccueil.jpg" alt="">
+              </div>
+              <div class="w-full absolute h-full top-2/3 group-hover:top-0 bg-slate-900/40 rounded row-span-full transition-all ease-in-out duration-300 grid grid-rows-3 backdrop-blur">
+                  <div class="w-full h-full flex justify-center items-center group-hover:-mt-6 transition-all ease-in-out duration-500">
+                      <h2 class="text-white text-3xl font-semibold">Projet 6</h2>
+                  </div>
+                  <div class="row-span-2 px-8 flex flex-col justify-between">
+                      <p class="text-white mt-6 group-hover:mt-0 transition-all ease-in-out duration-700">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto quis inventore fuga harum totam facilis accusantium dolores commodi perspiciatis quisquam officiis corporis sunt soluta, quia recusandae voluptatem sit, voluptas excepturi.</p>
+                      <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-6').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="mb-2 p-1 bg-white rounded cursor-pointer">En savoir plus</button>
+                  </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+          
+
+        <div class="hidden absolute top-0 left-0 z-20 projet1 p-12  w-full h-[95vh] overflow-hidden">
+          <div class="project-1 w-full h-full flex flex-col justify-center items-center bg-red-500 overflow-scroll p-12 ">
+              <h2 class="text-white text-3xl font-semibold mt-36">Projet 1</h2>
+              <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, aliquam ad architecto ab, distinctio quos at ea explicabo, commodi voluptates quia sint illum necessitatibus recusandae? Voluptatem esse vero delectus unde, veritatis debitis pariatur? Adipisci tempora sed omnis quo. Animi quo exercitationem ullam numquam veniam magnam obcaecati sequi consectetur quae, voluptas dolor quisquam iste corporis. Unde deleniti eligendi fugiat nobis delectus! Nesciunt a blanditiis, quas, quibusdam, et maiores natus distinctio atque perferendis quidem nulla optio quae iste sit dolores mollitia commodi delectus dolore ipsum molestias incidunt officia sint harum alias. Harum dolores nisi aspernatur atque nostrum deserunt inventore nemo ipsam animi minus perferendis perspiciatis consequuntur autem vel non rem doloribus cum, aliquam fuga veniam? Libero ratione magni illo, possimus quia maxime pariatur, voluptates dicta inventore tenetur odio dignissimos quo est temporibus repellat. A atque impedit deserunt vitae quod corporis animi accusamus quisquam sapiente saepe sit provident laudantium, recusandae error sint hic. Autem fugit dolores consequuntur esse officiis libero recusandae sint inventore fuga minima veritatis sit voluptatibus, aperiam ratione commodi assumenda maiores voluptates facere! Quis, quod nemo nobis aliquid voluptate delectus, deserunt aspernatur laudantium quam sit nesciunt maiores illum in neque reiciendis maxime. Laudantium mollitia quidem error rem ratione saepe optio distinctio laborum pariatur quod! Minima doloribus ab omnis. Iusto, quisquam mollitia. Velit facilis doloribus earum itaque impedit enim nobis explicabo atque temporibus, porro at provident. Ipsam accusantium voluptatem, non quidem sapiente, praesentium consequuntur voluptas maxime, odio dolorum consectetur assumenda vitae quas rerum animi minus. Repellat excepturi recusandae consequuntur ipsum asperiores saepe maxime, beatae, amet voluptatem a molestias, incidunt sint doloremque omnis ex commodi quaerat! Odit quasi inventore obcaecati aliquid officia? Animi corrupti qui, obcaecati aliquam dolorum laboriosam temporibus modi! Sequi magni vitae laudantium, aliquam fugiat eligendi ipsam voluptas. Asperiores expedita sapiente maiores qui aspernatur excepturi, magni consequuntur odio architecto numquam a rem ea eos delectus quam possimus. Eius necessitatibus consequuntur assumenda modi totam voluptas asperiores tenetur. Aut architecto ad ipsa nesciunt reiciendis blanditiis consequuntur ab sit nihil veritatis iste, sunt ullam at, incidunt ex. Temporibus architecto beatae alias. Perferendis omnis velit enim eum. Temporibus magni reiciendis cupiditate nulla aperiam! Dolorum aperiam inventore dolores ratione amet, ipsa porro illum a! A dignissimos ab non animi voluptatum doloremque alias quod. Alias ipsam dicta molestias temporibus voluptates! Eveniet fugiat debitis dolores nemo voluptatibus aperiam molestiae cum mollitia dolorem labore aspernatur obcaecati earum, voluptate esse neque corporis maxime quidem error saepe illo velit reiciendis necessitatibus. Totam, voluptatem expedita odio quis autem saepe esse veniam illo eos commodi incidunt omnis, excepturi dolorum dicta! Eveniet obcaecati vitae tenetur quisquam deleniti voluptatibus neque ipsam, aspernatur officia fugit ducimus sint assumenda modi ex cum dignissimos molestias inventore, fuga debitis similique corporis, voluptatum in voluptas eius. Pariatur officia placeat facere porro expedita quas error nesciunt reprehenderit enim, mollitia odio maxime. Sunt, aut corporis tenetur voluptatum inventore vel sit porro recusandae aliquam est optio et non deleniti, quae consectetur quisquam facere consequatur iste doloribus soluta quo. Necessitatibus aliquam aut possimus doloribus odio magni nulla esse facilis tempore quam recusandae debitis exercitationem enim, cum similique earum minus dolorum minima eos vitae quod autem. Facere non iste at aperiam fuga modi et consequatur aliquid saepe praesentium fugit nisi magnam libero ipsa atque, blanditiis, id distinctio aut nulla sequi corrupti voluptate? In aliquam beatae minima expedita aut tempore, quod eligendi sunt officia reprehenderit. Laborum ipsa soluta, quidem tenetur iure optio nisi dolore suscipit quis dicta, ullam sapiente delectus laudantium, fugiat amet sunt vel. Aliquam vitae rem laboriosam iure necessitatibus nobis, esse cupiditate officiis, molestiae odit dignissimos error mollitia praesentium totam quisquam fuga sed? Minima natus eius rerum voluptates hic perspiciatis consequuntur ut obcaecati eaque nisi ullam nobis quis doloremque, voluptatibus, voluptate numquam nihil. Excepturi distinctio sapiente sed, consequatur expedita officiis maxime voluptates est ratione laborum sunt porro rerum natus illo maiores cupiditate eaque enim sint ex ad reiciendis ducimus nesciunt? Vel consequuntur voluptatum quasi obcaecati nemo repellendus inventore enim nulla! Eligendi officiis doloremque quam laborum cumque ipsa. Ullam ad fugiat labore nostrum explicabo dolores quos nulla quisquam minima mollitia? Illo unde reiciendis delectus molestias nulla quos est, vitae possimus. Unde non vel quo incidunt velit quod nemo iure voluptatum in officia perspiciatis, quos eius, nostrum deserunt error et. Dolore laboriosam quas aspernatur est, minima fugiat architecto! Consequatur, reprehenderit, reiciendis quam dolor iure, aliquam est architecto officia omnis dicta eaque vitae magnam laboriosam incidunt culpa. Vel quis, ipsa aliquid eveniet ipsam aut animi tempore odit ab incidunt illum voluptatibus fuga, iure sapiente enim perspiciatis sunt quo debitis sit distinctio laboriosam tenetur dicta! Nam modi explicabo quis. Consequuntur, aliquam a, soluta excepturi blanditiis numquam fuga, veritatis totam quod saepe voluptatum accusamus magnam velit dicta quos! Impedit dolore quis, assumenda labore eos eligendi repellendus debitis illo voluptatibus nulla, praesentium soluta dicta. Rem reiciendis itaque, debitis quisquam facilis dolor, ab, esse laboriosam aliquam dolorem soluta hic voluptatum omnis distinctio recusandae culpa voluptates illum ad a! Dolores, assumenda quaerat quidem ratione officia iste. Inventore molestias incidunt, porro, quaerat distinctio ipsum laudantium eligendi beatae animi at nisi magni ullam quod? Laudantium sit delectus, maxime sequi qui nihil molestiae, a doloribus amet aliquam voluptas nesciunt nam exercitationem asperiores ut consequatur fugiat dolorem reiciendis accusamus ipsa repellendus quo molestias mollitia. Repellat corrupti illo voluptates consequuntur quos atque, ratione, provident, accusamus rem facilis quam ut porro facere sapiente nesciunt tempore. Nulla illum corrupti odio aperiam laboriosam deserunt illo pariatur aliquid, explicabo eum aliquam fugit cumque quisquam dolorum commodi, delectus nesciunt, repellat minus iure excepturi! Aperiam, pariatur adipisci! A cum tempora sed dolorem adipisci praesentium excepturi sunt tempore explicabo dicta ratione, officia quaerat facere in ad. Animi repellat labore aliquid sunt est eligendi enim necessitatibus quibusdam saepe, eveniet fugiat neque, possimus officiis modi facilis esse dolor. Molestiae quaerat error et ratione quo vero repellat, veritatis minima explicabo totam sunt sed doloribus quibusdam accusamus consequatur commodi facere dicta! Rem, pariatur. Explicabo, dicta. Fugit, quia? Officia nam obcaecati placeat? Natus veritatis fugit deserunt possimus odio accusamus incidunt maiores nobis autem doloremque, asperiores et eaque consectetur placeat delectus minus quas nulla magni aliquam cupiditate laboriosam totam voluptatibus cumque iusto. Laboriosam alias, non, rem dignissimos voluptatem maxime quibusdam fugit culpa unde provident quo sint. Perferendis ipsa maxime officiis saepe amet sequi beatae magni mollitia quos eius adipisci consequatur ea quidem consectetur, voluptatibus ratione a labore veritatis excepturi eveniet quis perspiciatis itaque commodi quod. Eos, nobis accusantium saepe quod cum corrupti quibusdam maiores culpa libero hic nam veniam exercitationem aliquid labore numquam adipisci vitae et placeat sapiente nulla aperiam soluta sunt! Quisquam fuga voluptas et eius voluptates earum dolores! Natus eius adipisci qui animi ducimus sed sapiente impedit harum? Beatae ipsam cum ducimus non fugit laborum qui deserunt velit facilis molestias. Qui animi tempore neque ullam accusamus est quibusdam numquam ex aspernatur, magni molestiae perspiciatis pariatur rerum consequuntur officia assumenda voluptatum et nostrum reiciendis accusantium corrupti amet eum esse recusandae. Consectetur ea dolore culpa quibusdam eaque. Iure ullam, voluptatem unde inventore autem quos sed perspiciatis tempore iste quod, omnis vero, placeat et consequuntur labore. Commodi excepturi vero soluta error doloremque! Eius, nostrum consequatur alias suscipit odio laborum commodi est, porro nesciunt voluptatem aut beatae quae incidunt harum enim, delectus repellendus distinctio quis! Quisquam quod neque nam, quo impedit veritatis dolorum asperiores recusandae dicta voluptatibus est accusantium veniam ea tempore error a debitis, fugiat voluptate eligendi minima? Vitae, culpa, minima eius ad dolorum quidem quam sed vero error iste vel quibusdam reiciendis nesciunt perspiciatis doloremque, possimus ratione? Tenetur eius facilis consequuntur doloribus, quisquam cum labore. Rem voluptatibus explicabo obcaecati doloribus natus suscipit debitis sequi accusamus aliquam perferendis quibusdam magni eaque maxime error molestiae ipsa, dolor enim ratione illo officia non! Commodi ullam, ducimus sunt sint natus est odit perferendis ratione explicabo quaerat illo repudiandae quasi adipisci tempore id dolor. Accusamus iure quo praesentium quam, adipisci doloremque! Aliquam minima corporis debitis laborum nam rerum dolor sit dolorem fugiat esse dicta labore eveniet tempora perferendis culpa iste ex quasi, odio molestiae neque? Asperiores laudantium quis quaerat architecto fuga fugiat recusandae optio dolores suscipit in inventore velit, repudiandae consequatur debitis, consequuntur atque sint magni! Laudantium sequi sed qui cupiditate ab ea. Harum eligendi, non optio at natus quod in numquam amet, debitis eum, quo enim facilis obcaecati ab dolorum quaerat sapiente est libero laudantium corporis. Ullam nesciunt perferendis magnam quis sit dolores et obcaecati rem, dicta inventore perspiciatis vel veniam ex. Reiciendis, ipsum minima suscipit quos laudantium debitis magni, quidem eaque culpa temporibus, assumenda pariatur quia vel sint nostrum placeat harum amet in voluptates qui voluptatem eveniet. Et, architecto magni sapiente quasi optio debitis itaque, odit, impedit iusto cumque beatae delectus quidem. Similique aspernatur, architecto impedit accusamus dicta quaerat! Accusamus cum rem natus quos praesentium facere fuga sequi commodi rerum voluptatum quibusdam labore autem, sint odio ipsum, dolorum ratione voluptatibus sit quam, ab illo. Dignissimos provident rem deleniti reiciendis aut illum totam vel laudantium, tempore doloremque excepturi cumque! Quae corporis impedit dignissimos necessitatibus cumque quam, nisi vero enim deserunt, a quasi eaque, consequatur officiis iusto ab. Numquam rerum quasi laborum! Voluptates itaque, officia laudantium eos suscipit aperiam praesentium atque expedita vero eveniet ipsam ea animi numquam dolorum quas rerum natus maiores laboriosam sit corrupti veritatis dolore repellendus odio nulla! Facilis molestias voluptatem dolorem repellat excepturi, necessitatibus facere. Est sequi aut illo impedit, accusamus dignissimos. Iusto quo neque eum laboriosam, quis recusandae qui pariatur nisi, ducimus quam error? Nobis totam atque doloribus impedit, debitis harum consequatur corporis facilis aperiam beatae laborum blanditiis nulla necessitatibus eligendi eius cum recusandae. Rem quas quis rerum consectetur ullam sed, explicabo assumenda ab odit tempore quam repellendus incidunt atque temporibus, dolorum recusandae officiis esse omnis! Culpa, velit repellat. Quod ipsam architecto laudantium animi, quis itaque. Aspernatur voluptates quo minus alias ad! Ab distinctio laboriosam nemo fugit laudantium amet quod atque beatae porro delectus voluptatum, molestias incidunt unde fugiat ipsa dolores doloribus esse nihil magnam quos veniam repellat illo quibusdam. Hic voluptate sit laborum libero aliquam quis nihil natus, temporibus non veniam iusto pariatur tempora, at dolor officia recusandae quas eum? Veritatis et enim, recusandae cum beatae eum voluptatem vero sunt id, voluptates dolorem expedita reprehenderit quasi repellat libero. Ad dolorum deleniti fugiat. Magni soluta totam sed quo non voluptatum earum fugit debitis error enim cumque illo ad, reprehenderit maxime voluptas veritatis porro dolorem suscipit itaque eius, at dicta qui officiis. Libero, sequi! Error eaque nobis impedit et! Culpa aspernatur quae aut dolore dolor molestias magni enim magnam doloribus dolorem! Debitis alias, voluptas magnam odit voluptate culpa ut sit est porro voluptates! Delectus corporis soluta tempore. Cupiditate eos iusto perspiciatis ut expedita quaerat tempore consequatur atque veritatis at? Velit, hic qui excepturi ratione quod obcaecati dolores ducimus repellat exercitationem deleniti minima sequi aut odio ab quasi maxime, culpa dicta recusandae nemo praesentium voluptatem nobis provident pariatur sit! Quasi, numquam? Tempora labore ab, quo fugiat voluptatum qui alias rerum velit fugit, molestias quos possimus ad ratione similique perferendis, ipsum iure ipsam! Cupiditate inventore veritatis ratione, animi aspernatur corporis maiores soluta enim. Iste, ratione est. Earum necessitatibus neque eos qui soluta eveniet impedit, rerum omnis distinctio, iste recusandae nemo dicta odit velit doloremque sunt quam optio adipisci incidunt similique quasi. Laboriosam est quo, itaque, fugit alias dolore a at in ratione tempore quibusdam sed, vel sit pariatur. Necessitatibus recusandae asperiores nesciunt molestiae pariatur iure voluptates, amet magni facere quaerat. Ut maxime, doloribus odit expedita maiores recusandae perspiciatis quos quod! Ullam sequi modi dicta ab voluptates iste libero, enim consequuntur consequatur iure quisquam ipsum soluta officiis aperiam a tempora adipisci omnis necessitatibus delectus quae similique in cumque. Itaque dicta, explicabo, sed enim, animi distinctio blanditiis esse vel facilis impedit recusandae quia non! Sequi, consequatur! Deleniti voluptatum aliquid quaerat quae iure molestiae obcaecati numquam neque rem, fuga, at veritatis consequuntur doloremque expedita, voluptas sint corporis ratione unde rerum quia quos ipsum. Quo porro, est deserunt ipsum quas optio expedita corrupti laborum veniam dolorem nostrum sapiente delectus culpa aliquid magni nihil odio animi atque vitae tempora doloremque fugiat officiis? Dolores sint voluptatem ipsa quam pariatur soluta accusamus ipsam a provident mollitia quas delectus, vitae itaque minus eum sapiente autem similique officia ut enim? Libero, quo.
+              </p>
+          </div>
+        </div>
+      </section>
+      <!-- Veille Technologique + Transition -->
+        <!-- Veille Technologique -->
+        <section class="bg-white relative !max-w-screen overflow-hidden pt-64 z-20 " id="veilleTechno">
+          <div class="w-full flex justify-center items-start gap-2 sm:gap-4 pinnedVt" >
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold pb-4 z-20 opacity-0" id="veilleTitle">Veille Technologique</h1>
+            <div id="rssWrapper">
+              <svg id="rssLogo" viewBox="0 0 44 44" class=" w-8 sm:w-12 mt-[2px] opacity-0 scale-[2000%]" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>RSS-color</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Color-" transform="translate(-800.000000, -760.000000)" fill="#FF9A00"> <path d="M800.000471,797.714286 C800.000471,794.243 802.81487,791.428571 806.286118,791.428571 C809.757367,791.428571 812.571765,794.243 812.571765,797.714286 C812.571765,801.185571 809.757367,804 806.286118,804 C802.81487,804 800.000471,801.185571 800.000471,797.714286 Z M844,804 L835.619661,804 C835.619661,784.358714 819.641547,768.380429 800.000471,768.380429 L800.000471,760 C824.261497,760 844,779.738714 844,804 Z M829.333543,804 L820.953204,804 C820.953204,792.446857 811.553019,783.048143 800,783.048143 L800,774.666143 C816.174541,774.666143 829.333543,787.825286 829.333543,804 Z" id="RSS"> </path> </g> </g> </g></svg>
+            </div>
+          </div>
+          <!-- VT content -->
+          <div class="w-full flex flex-col justify-center items-center text-white text-center">
+            <div class="introWrapper w-full">
+              <div class="flex flex-col gap-[20px] sm:text-xl font-semibold max-w-[95%] mx-auto items-center opacity-0 blur-md" id="feedlyIntro">
+                  <p class="w-[860px] !max-w-[95%] text-center">Dans le domaine informatique, la veille technologique est primordiale : Elle nous permet de rester au courant des dernières avancées sur nos domaines de compétences, afin de les intégrer à notre workflow et rester ainsi à la pointe du progrès !</p>
+                  <p class="w-[860px] max-w-[95%]">Cependant, suivre toutes les dernières actualités peut être compliqué mais heureusement, certains outils peuvent nous faciliter la vie.</p>
+              </div>
+            </div>
+            
+            
+  
+            <div class="flex flex-col max-w-[95%]" id="howItWorks">
+              <p class="w-[950px] max-w-[95%] font-semibold text-md sm:text-xl mx-auto mb-2 sm:mb-6 blur-md" id="lastVtContent">Je vous présente ici l'outil que j'utilise pour rester alerte, ainsi que la facon dont je m'en sert :</p>
+              <div class="flex max-sm:flex-col max-w-[900px] mx-auto items-center justify-center sm:gap-1 mb-8 feedlyBox">
+                <a href="https://feedly.com/" target="_blank" class="left max-sm:px-6 -translate-x-1/2 blur-md"><img src="Images/veilleTech/feedly.png" alt=""></a>
+                <div class="flex flex-col items-start right translate-x-1/2 blur-md">
+                    <h2 class="text-[3em] font-bold tracking-[2px] max-sm:hidden" class="">FEEDLY.</h2>
+                    <p class="max-sm:text-sm sm:text-start max-sm:mx-4 max-sm:-mt-4">Feedly est un outil qui permet de selectionner divers themes ou sources, et d'etre notifié dès qu'une nouveauté apparait sur notre séléction.</p>
+                </div>
+              </div>
+              <div class="w-[860px] max-w-[95%] flex flex-col items-start justify-start gap-2 sm:gap-4 text-start mx-auto translate-y-1/2 blur-md" id="feedlyTuto">
+                <h4 class="tracking-[1px] uppercase w-[900px] max-w-[95%] font-semibold">Comment ça marche ?</h4>
+                <p class="max-sm:text-sm">Pour utiliser Feedly, il faut tout d'abord se créer un compte sur le site web, ensuite, nous pouvons séléctionner des sources/centres d'intêrets, et les classer librement par dossiers.</p>
+                <p class="max-sm:text-sm">Le service dispose d'une offre gratuite et payante, l'offre gratuite limitant le nombre de rubriques possible, et n'autorisant pas l'accès aux fonctionnalités "IA" (agrégation des news par centre d'interêts) entre autres que le site propose... </p>
+              </div>
+            </div>
+  
+            <div id="vtPart2" class="max-w-[95%]">
+              <div class="w-[950px] max-w-[95%] mx-auto mt-24">
+                <div class="flex flex-col text-start intro">
+                  <h2 class="text-4xl font-bold mb-2 orgaTitle -translate-x-[100%] opacity-0 blur-xl">Mon organisation.</h2>
+                  <p class=" font-semibold orgaLabel translate-x-[100%] opacity-0 blur-xl">j'ai organisé ma veille au travers de 4 rubriques, regroupant chacunes plusieurs sources sur un theme bien particulier, voyons en détails :</p>
+                </div>
+        
+                <div class="grid grid-cols-2 mt-8 grid-rows-2 py-2 gap-[0.5rem] h-[20rem]">
+                  <div class=" bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr rounded-bl rounded-tl-xl rounded-br-xl fold1 scale-0 opacity-0 hover:m-0">
+                      <h2 class="text-start font-semibold">.Langages & Frameworks</h2>
+                  </div>
+                  <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr-md rounded-bl-md rounded-tl rounded-br fold2 scale-0 opacity-0 hover:m-0">
+                      <h2 class="text-start font-semibold">.Cybersécurité</h2>
+                  </div>
+                  <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr-md rounded-bl-md rounded-tl rounded-br fold3 scale-0 opacity-0 hover:m-0">
+                      <h2 class="text-start font-semibold">.Software & OS</h2>
+                  </div>
+                  <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr rounded-bl rounded-tl-md rounded-br-md fold4 scale-0 opacity-0 hover:m-0">
+                      <h2 class="text-start font-semibold">.Actus Tech en général</h2>
+                  </div>
+                </div>
+              </div>
+              <div id="split2"></div>
+  
+              <div id="vtTopic" class="mt-24 w-[950px] max-w-[95%] mx-auto">
+  
+                <div class="topicIntro ">
+                  <div class="topicTitle opacity-0 blur-3xl scale-[95%]">
+                    <h2 class="text-4xl font-bold mb-2 text-start">Mon sujet.</h2>
+  
+                    <p class=" font-semibold text-start">J'ai décidé de choisir <b>Le Cloud Computing</b> comme sujet de veille technologique, et plus particulièrement <b>Microsoft Azure</b> : Je vous justifie donc ce choix, et sa pertinence dans le developpement web.</p>
+                  </div>
+                  
+  
+                  <div class="grid grid-cols-10 w-[950px] max-w-[95%] gap-[20px] items-center my-[80px] mx-[30px]">
+                      <a class="col-span-3 opacity-0 -translate-x-100" id="azureLeft" href="https://azure.microsoft.com/fr-fr" target="_blank"><img src="Images/veilleTech/microsoft_azure.png" alt="" class="w-[70%]"></a>
+                      <div class="feedlyPre col-span-7 opacity-0 translate-x-100" id="azureRight">
+                          <p class="italic text-start">
+                              Microsoft Azure est une solution de cloud computing qui offre une variété de services à haute disponibilité et scalabilité. Azure permet, comme les autres solutions de cloud computing, de fournir ces services selon plusieurs niveaux d'abstraction.
+                          </p>
+                      </div>
+                  </div>
+  
+                  <p class="text-start topicIntroPara opacity-0 blur-3xl scale-[95%]">Les services de cloud computing ont commencés à voir le jour vers la fin des années 2000; poussés par la crise financière de 2008, ils apparaissent comme une solution plus flexible et moins cher que les services de "on premise". Leur essort à continué dans les années 2010, jusqu'en 2020 ou la crise de COVID-19 à exarcerbé les besoins de télétravail et de solutions à distance, galvanisant encore plus le secteur.</p>
+                </div>
+                
+  
+                <div class="topicPartial">
+                  <h2 class="text-4xl font-bold mb-2 text-start mt-16">L'intêret du cloud computing</h2>
+  
+  
+                  <p class="text-start text-white/85 mb-6">
+                  Le cloud computing offre de nombreux avantages si on le compare avec des solutions "on premise" (sur une machine physique présente dans les locaux de l'entreprise) :
+                  </p>
+                  <ul class="list-disc list-outside flex flex-col gap-2 text-start ml-4">
+                      <li><b>La maintenance est simplifié, voir inexistante :</b> Le prestataire gère les cas d'indisponibilité.</li>
+                      <li><b>Le coût est bien souvent inférieur :</b> Le coût est basé sur notre usage et non sur notre infrastructure.</li>
+                      <li><b>La scalabilité est facile :</b> On peut facilement augmenter les performances requises pour un service.</li>
+                      <li><b>Travail collaboratif et accessibilité :</b> l'accès aux ressources est simplifié, car tout se fait via l'interface du prestataire.</li>
+                      <li><b>Simplification de la gestion et du déploiement des ressources :</b> On peut facilement gérer les ressources de maniére centralisée et simplifiee, grâce à un fort taux d'abstraction de l'infrastructure (SaaS, PaaS, IaaS).
+                  </ul>
+  
+  
+  
+                  <p class="font-semibold text-lg mt-12" >Aujourd'hui, les 3 services de cloud computing les plus populaires sont Microsoft Azure, Amazon Web Service et Google Cloud.</p>
+                </div>
+  
+                <div class="border-b-3 border-b-white/10 pb-24">
+                  <div id="cloudServices" class="topicPartial flex items-center justify-evenly max-sm:mt-8 mt-16">
+  
+                    <!-- AWS -->
+                    <svg viewBox="0 0 16 16" class="size-24 md:size-32" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#FFFFFF" d="M4.51 7.687c0 .197.02.357.058.475.042.117.096.245.17.384a.233.233 0 01.037.123c0 .053-.032.107-.1.16l-.336.224a.255.255 0 01-.138.048c-.054 0-.107-.026-.16-.074a1.652 1.652 0 01-.192-.251 4.137 4.137 0 01-.165-.315c-.415.491-.936.737-1.564.737-.447 0-.804-.129-1.064-.385-.261-.256-.394-.598-.394-1.025 0-.454.16-.822.484-1.1.325-.278.756-.416 1.304-.416.18 0 .367.016.564.042.197.027.4.07.612.118v-.39c0-.406-.085-.689-.25-.854-.17-.166-.458-.246-.868-.246-.186 0-.377.022-.574.07a4.23 4.23 0 00-.575.181 1.525 1.525 0 01-.186.07.326.326 0 01-.085.016c-.075 0-.112-.054-.112-.166v-.262c0-.085.01-.15.037-.186a.399.399 0 01.15-.113c.185-.096.409-.176.67-.24.26-.07.537-.101.83-.101.633 0 1.096.144 1.394.432.293.288.442.726.442 1.314v1.73h.01zm-2.161.811c.175 0 .356-.032.548-.096.191-.064.362-.182.505-.342a.848.848 0 00.181-.341c.032-.129.054-.283.054-.465V7.03a4.43 4.43 0 00-.49-.09 3.996 3.996 0 00-.5-.033c-.357 0-.618.07-.793.214-.176.144-.26.347-.26.614 0 .25.063.437.196.566.128.133.314.197.559.197zm4.273.577c-.096 0-.16-.016-.202-.054-.043-.032-.08-.106-.112-.208l-1.25-4.127a.938.938 0 01-.049-.214c0-.085.043-.133.128-.133h.522c.1 0 .17.016.207.053.043.032.075.107.107.208l.894 3.535.83-3.535c.026-.106.058-.176.1-.208a.365.365 0 01.214-.053h.425c.102 0 .17.016.213.053.043.032.08.107.101.208l.841 3.578.92-3.578a.458.458 0 01.107-.208.346.346 0 01.208-.053h.495c.085 0 .133.043.133.133 0 .027-.006.054-.01.086a.76.76 0 01-.038.133l-1.283 4.127c-.032.107-.069.177-.111.209a.34.34 0 01-.203.053h-.457c-.101 0-.17-.016-.213-.053-.043-.038-.08-.107-.101-.214L8.213 5.37l-.82 3.439c-.026.107-.058.176-.1.213-.043.038-.118.054-.213.054h-.458zm6.838.144a3.51 3.51 0 01-.82-.096c-.266-.064-.473-.134-.612-.214-.085-.048-.143-.101-.165-.15a.378.378 0 01-.031-.149v-.272c0-.112.042-.166.122-.166a.3.3 0 01.096.016c.032.011.08.032.133.054.18.08.378.144.585.187.213.042.42.064.633.064.336 0 .596-.059.777-.176a.575.575 0 00.277-.508.52.52 0 00-.144-.373c-.095-.102-.276-.193-.537-.278l-.772-.24c-.388-.123-.676-.305-.851-.545a1.275 1.275 0 01-.266-.774c0-.224.048-.422.143-.593.096-.17.224-.32.384-.438.16-.122.34-.213.553-.277.213-.064.436-.091.67-.091.118 0 .24.005.357.021.122.016.234.038.346.06.106.026.208.052.303.085.096.032.17.064.224.096a.46.46 0 01.16.133.289.289 0 01.047.176v.251c0 .112-.042.171-.122.171a.552.552 0 01-.202-.064 2.427 2.427 0 00-1.022-.208c-.303 0-.543.048-.708.15-.165.1-.25.256-.25.475 0 .149.053.277.16.379.106.101.303.202.585.293l.756.24c.383.123.66.294.825.513.165.219.244.47.244.748 0 .23-.047.437-.138.619a1.436 1.436 0 01-.388.47c-.165.133-.362.23-.591.299-.24.075-.49.112-.761.112z"></path> <g fill="#F90" fill-rule="evenodd" clip-rule="evenodd"> <path d="M14.465 11.813c-1.75 1.297-4.294 1.986-6.481 1.986-3.065 0-5.827-1.137-7.913-3.027-.165-.15-.016-.353.18-.235 2.257 1.313 5.04 2.109 7.92 2.109 1.941 0 4.075-.406 6.039-1.239.293-.133.543.192.255.406z"></path> <path d="M15.194 10.98c-.223-.287-1.479-.138-2.048-.069-.17.022-.197-.128-.043-.24 1-.705 2.645-.502 2.836-.267.192.24-.053 1.89-.99 2.68-.143.123-.281.06-.218-.1.213-.53.687-1.72.463-2.003z"></path> </g> </g></svg>
+  
+  
+                    <!-- Azure -->
+  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="size-24 md:size-32" viewBox="0 0 96 96">
+                        <defs>
+                            <linearGradient id="e399c19f-b68f-429d-b176-18c2117ff73c" x1="-1032.172" x2="-1059.213" y1="145.312" y2="65.426" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-color="#114a8b"/>
+                                <stop offset="1" stop-color="#0669bc"/>
+                            </linearGradient>
+                            <linearGradient id="ac2a6fc2-ca48-4327-9a3c-d4dcc3256e15" x1="-1023.725" x2="-1029.98" y1="108.083" y2="105.968" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-opacity=".3"/>
+                                <stop offset=".071" stop-opacity=".2"/>
+                                <stop offset=".321" stop-opacity=".1"/>
+                                <stop offset=".623" stop-opacity=".05"/>
+                                <stop offset="1" stop-opacity="0"/>
+                            </linearGradient>
+                            <linearGradient id="a7fee970-a784-4bb1-af8d-63d18e5f7db9" x1="-1027.165" x2="-997.482" y1="147.642" y2="68.561" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-color="#3ccbf4"/>
+                                <stop offset="1" stop-color="#2892df"/>
+                            </linearGradient>
+                        </defs>
+                        <path fill="url(#e399c19f-b68f-429d-b176-18c2117ff73c)" d="M33.338 6.544h26.038l-27.03 80.087a4.152 4.152 0 0 1-3.933 2.824H8.149a4.145 4.145 0 0 1-3.928-5.47L29.404 9.368a4.152 4.152 0 0 1 3.934-2.825z"/>
+                        <path fill="#0078d4" d="M71.175 60.261h-41.29a1.911 1.911 0 0 0-1.305 3.309l26.532 24.764a4.171 4.171 0 0 0 2.846 1.121h23.38z"/>
+                        <path fill="url(#ac2a6fc2-ca48-4327-9a3c-d4dcc3256e15)" d="M33.338 6.544a4.118 4.118 0 0 0-3.943 2.879L4.252 83.917a4.14 4.14 0 0 0 3.908 5.538h20.787a4.443 4.443 0 0 0 3.41-2.9l5.014-14.777 17.91 16.705a4.237 4.237 0 0 0 2.666.972H81.24L71.024 60.261l-29.781.007L59.47 6.544z"/>
+                        <path fill="url(#a7fee970-a784-4bb1-af8d-63d18e5f7db9)" d="M66.595 9.364a4.145 4.145 0 0 0-3.928-2.82H33.648a4.146 4.146 0 0 1 3.928 2.82l25.184 74.62a4.146 4.146 0 0 1-3.928 5.472h29.02a4.146 4.146 0 0 0 3.927-5.472z"/>
+                    </svg>
+  
+                    <!-- Google Cloud -->
+  
+                    <svg viewBox="0 -25 256 256" class="size-24 md:size-32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M170.2517,56.8186 L192.5047,34.5656 L193.9877,25.1956 C153.4367,-11.6774 88.9757,-7.4964 52.4207,33.9196 C42.2667,45.4226 34.7337,59.7636 30.7167,74.5726 L38.6867,73.4496 L83.1917,66.1106 L86.6277,62.5966 C106.4247,40.8546 139.8977,37.9296 162.7557,56.4286 L170.2517,56.8186 Z" fill="#EA4335"> </path> <path d="M224.2048,73.9182 C219.0898,55.0822 208.5888,38.1492 193.9878,25.1962 L162.7558,56.4282 C175.9438,67.2042 183.4568,83.4382 183.1348,100.4652 L183.1348,106.0092 C198.4858,106.0092 210.9318,118.4542 210.9318,133.8052 C210.9318,149.1572 198.4858,161.2902 183.1348,161.2902 L127.4638,161.2902 L121.9978,167.2242 L121.9978,200.5642 L127.4638,205.7952 L183.1348,205.7952 C223.0648,206.1062 255.6868,174.3012 255.9978,134.3712 C256.1858,110.1682 244.2528,87.4782 224.2048,73.9182" fill="#4285F4"> </path> <path d="M71.8704,205.7957 L127.4634,205.7957 L127.4634,161.2897 L71.8704,161.2897 C67.9094,161.2887 64.0734,160.4377 60.4714,158.7917 L52.5844,161.2117 L30.1754,183.4647 L28.2234,191.0387 C40.7904,200.5277 56.1234,205.8637 71.8704,205.7957" fill="#34A853"> </path> <path d="M71.8704,61.4255 C31.9394,61.6635 -0.2366,94.2275 0.0014,134.1575 C0.1344,156.4555 10.5484,177.4455 28.2234,191.0385 L60.4714,158.7915 C46.4804,152.4705 40.2634,136.0055 46.5844,122.0155 C52.9044,108.0255 69.3704,101.8085 83.3594,108.1285 C89.5244,110.9135 94.4614,115.8515 97.2464,122.0155 L129.4944,89.7685 C115.7734,71.8315 94.4534,61.3445 71.8704,61.4255" fill="#FBBC05"> </path> </g> </g></svg>
+                  </div>
+                </div>
+  
+                <div id="companyUsage" class=" topicPartial">
+                  <h2 class="text-4xl font-bold mb-2 text-start mt-48">Mon Utilisation en Entreprise</h2>
+  
+                  <p class="text-start text-white/85 mb-6">Microsoft Azure est au coeur de l'architecture informatique de Aroma-Zone, prenant majoritairement la place de "ciment", liant les differents services utilisés par l'entreprise.</p>
+  
+                  <div class="grid grid-cols-2 gap-4 w-full mt-4">
+                    <img src="Images/veilleTech/logicapp_example.png" alt="" class="rounded-sm">
+                    <p class="text-start w-full">Je me sert essentiellement d'un service en particulier proposé par Azure : <b>Les Logic Apps</b> qui permettent d'automatiser des tâches, des processus ou des flux de données en utilisant du low-code, et ce, très facilement. L'avantage ici est la clarté du code, qui, ressemblant à un logigramme, ne nécéssite pas de connaissances sur un language particulier.</p>
+                  </div>
+  
+                  <p class="mt-2 italic text-sm"><i>L'aspect PaaS des logic apps rends en outre leur création et leur utilisation quasi-instantané, sans préoccupation de l'infrastructure et du déploiement.</i></p>
+                </div>
+  
+                <div id="cloudEvolution" class="text-start topicPartial">
+                  <h2 class="text-4xl font-bold mb-2 text-start mt-24">Les récentes avancées du cloud computing</h2>
+  
+                  <p>Aujourd'hui, le cloud computing, que ce soit via des changements technologiques majeurs ou pour répondre à des problématiques essentielles, continue à évoluer. </p>
+  
+  
+                  <p style="font-weight: normal; margin-top: 30px;"><b>Le cloud souverain (hébergement localisé)</b>, par exemple, est une tendance qui se developpe de plus en plus, avec une volonté de respecter les lois en vigueur dans chaque pays.</p>
+  
+                  <p style="font-weight: normal; margin-top: 10px;">D'un autre coté, On compte également de nombreux projets qui s'orientent vers la création d'infrastructures neutres en carbone, plus saines pour l'environnement.</p>
+                  <p style="font-weight: normal; margin-top: 30px;">D'un point de vue technologique maintenant, l'arrivée de l'IA générative dans les solutions de cloud computing se fait progressivement, permettant par exemple la création d'applications avec des fonctionnalités d'IA (Azure OpenAI Service).</p>
+  
+                  <p style="font-weight: normal; margin-top: 10px;">Egalement, des services comme le Cloud hybride (possibilité de mêler différentes infrastructures clouds ou clouds/locales) comme Azure ARC et Google Anthos on été developpés, permettant de mieux s'adapter aux besoins de chacun, que ce soit en terme de flexibilité ou de sécurité.</p>
+  
+                  <p style="font-weight: normal; margin-top: 10px;" class="lastVtElement pb-48">Pour finir, on peut également penser à des solutions comme Azure Quantum, Google Quantum AI ou encore AWS bracket, qui permettent l'accès a des ordinateurs quantiques via le cloud, pour une utilisation scientifique.</p>
+                </div>
+  
+              </div>
             </div>
           </div>
           
+        </section>
+        <!-- Transition -->
+        <section class="h-[22rem] max-h-[40rem] w-full z-10 flex items-end relative vtContactSeparator">
+          <!-- <div class="absolute h-0 w-0 border-l-[200vw] border-l-transparent border-b-[12rem] border-t-[12rem] border-b-white border-t-transparent top-0 left-0 z-40 whiteOverlay"></div>
+          <div class="absolute h-0 w-0 border-r-[200vw] border-r-transparent border-t-[12rem] border-b-[12rem] border-t-black border-b-transparent bottom-0 left-0 z-50 blackOverlay"></div> -->
+  
+          <svg width="100%" height="150" class="z-40 absolute top-0 blackOverlay" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 100 0 L 0 70 L 0 0 Z" fill="black" />
+          </svg>
+  
+          <svg width="100%" height="150" class="z-40 absolute bottom-0 whiteOverlay" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 0 100 L 100 30 L 100 100 Z" fill="white" />
+          </svg>
           
+          <img src="Images/abstract.jpg" alt="" class="!w-full separator" id="veilleToContact" data-speed="auto">
+        </section>
 
-          <div class="flex flex-col max-w-[95%] opacity-0" id="howItWorks">
-            <p class="w-[950px] max-w-[95%] font-semibold text-md sm:text-xl mx-auto mb-2 sm:mb-6 blur-md" id="lastvtContent">Je vous présente ici l'outil que j'utilise pour rester alerte, ainsi que la facon dont je m'en sert :</p>
-            <div class="flex max-sm:flex-col max-w-[900px] mx-auto items-center justify-center gap-1 mb-8 feedlyBox">
-              <a href="https://feedly.com/" target="_blank" class="left max-sm:px-6"><img src="Images/veilleTech/feedly.png" alt=""></a>
-              <div class="flex flex-col items-start right translate-x-1/2">
-                  <h2 class="text-[3em] font-bold tracking-[2px] max-sm:hidden" class="">FEEDLY.</h2>
-                  <p class="max-sm:text-base sm:text-start max-sm:mx-4">Feedly est un outil qui permet de selectionner divers themes ou sources, et d'etre notifié dès qu'une nouveauté apparait sur notre séléction.</p>
-              </div>
-            </div>
-            <div class="w-[860px] max-w-[95%] flex flex-col items-start justify-start gap-4 text-start mx-auto translate-y-1/2 opacity-0" id="feedlyTuto">
-              <h4 class="tracking-[1px] uppercase w-[900px] max-w-[95%] font-semibold">Comment ça marche ?</h4>
-              <p class="max-sm:text-sm">Pour utiliser Feedly, il faut tout d'abord se créer un compte sur le site web, ensuite, nous pouvons séléctionner des sources/centres d'intêrets, et les classer librement par dossiers.</p>
-              <p class="max-sm:text-sm">Le service dispose d'une offre gratuite et payante, l'offre gratuite limitant le nombre de rubriques possible, et n'autorisant pas l'accès aux fonctionnalités "IA" (agrégation des news par centre d'interêts) entre autres que le site propose... </p>
-            </div>
-          </div>
-          <div id="split1"></div>
-          <div id="orgaVt" class="w-[860px] max-w-[95%] mx-auto mt-24">
-            <div class="flex flex-col text-start intro opacity-0">
-              <h2 class="text-4xl font-bold mb-2">Mon organisation.</h2>
-              <p class=" font-semibold">j'ai organisé ma veille au travers de 4 rubriques, regroupant chacunes plusieurs sources sur un theme bien particulier, voyons en détails :</p>
-            </div>
-    
-            <div class="grid grid-cols-2 mt-8 grid-rows-2 p-2 gap-[0.5rem] h-[20rem]">
-              <div class=" bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr rounded-bl rounded-tl-xl rounded-br-xl fold1 scale-0 opacity-0 hover:m-0 transition-all ease-in-out duration-500">
-                  <h2 class="text-start font-semibold">.Langages & Frameworks</h2>
-              </div>
-              <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr-md rounded-bl-md rounded-tl rounded-br fold2 scale-0 opacity-0 hover:m-0 transition-all ease-in-out duration-500">
-                  <h2 class="text-start font-semibold">.Cybersécurité</h2>
-              </div>
-              <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr-md rounded-bl-md rounded-tl rounded-br fold3 scale-0 opacity-0 hover:m-0 transition-all ease-in-out duration-500">
-                  <h2 class="text-start font-semibold">.Software & OS</h2>
-              </div>
-              <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr rounded-bl rounded-tl-md rounded-br-md fold4 scale-0 opacity-0 hover:m-0 transition-all ease-in-out duration-500">
-                  <h2 class="text-start font-semibold">.Actus Tech en général</h2>
-              </div>
+
+      <!-- Contact -->
+      <section class=" pt-32  2xl:p-16 max-sm:pt-2 z-20 overflow-hidden bg-white contactSec pb-12 relative">
+          <div class="w-[950px] max-w-[95%] mx-auto h-full">
+            <h1 class="font-bold text-4xl sm:text-4xl md:text-6xl text-black mb-1 sm:mb-3 max-sm:text-center">Me contacter</h1>
+            <p class="text-zinc-400/70 max-sm:text-sm max-sm:text-center md:mb-16">Vous pouvez me contacter par mail, via mes réseaux sociaux, ou en remplissant le formulaire ci-dessous !</p>
+            <div class="w-full flex justify-between mt-8 2xl:mt-24 h-full">
+                <form action="POST" class="flex flex-col w-full gap-4 translate-x-0 h-full md:min-h-72">
+                  <div class="flex gap-4">
+                    <input type="text" name="Nom" id="nom" class="border w-full p-1 rounded" placeholder="Nom">
+                    <input type="text" name="Prénom" id="prenom" class="border w-full p-1 rounded" placeholder="Prénom">
+                  </div>
+                  <input type="email" name="Email" class="border w-full p-1 rounded" id="email" placeholder="Email">
+                  <div class="textArea">
+                    <textarea name="message" id="message" class="border min-h-[200px] sm:min-h-[200px]  p-1 pb-0 rounded w-full" placeholder="Votre message"></textarea>
+                  </div>
+                  <div class="w-full h-full flex justify-center">
+                    <button type="submit" class="bg-black cursor-pointer text-white p-2 rounded flex justify-center items-center gap-2 group w-full transition-all ease-in-out duration-[250ms] px-4 hover:bg-blue-950"><span class="translate-x-4 group-hover:translate-x-0 transition-all ease-in-out duration-200 font-semibold">Envoyer</span><span>
+                        <svg viewBox="0 0 24 24"  fill="none" class="w-6 scale-0 opacity-0 -translate-x-24 group-hover:translate-x-0 group-hover:scale-100 group-hover:opacity-100 transition-all ease-in-out duration-200" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.7639 12H10.0556M3 8.00003H5.5M4 12H5.5M4.5 16H5.5M9.96153 12.4896L9.07002 15.4486C8.73252 16.5688 8.56376 17.1289 8.70734 17.4633C8.83199 17.7537 9.08656 17.9681 9.39391 18.0415C9.74792 18.1261 10.2711 17.8645 11.3175 17.3413L19.1378 13.4311C20.059 12.9705 20.5197 12.7402 20.6675 12.4285C20.7961 12.1573 20.7961 11.8427 20.6675 11.5715C20.5197 11.2598 20.059 11.0295 19.1378 10.5689L11.3068 6.65342C10.2633 6.13168 9.74156 5.87081 9.38789 5.95502C9.0808 6.02815 8.82627 6.24198 8.70128 6.53184C8.55731 6.86569 8.72427 7.42461 9.05819 8.54246L9.96261 11.5701C10.0137 11.7411 10.0392 11.8266 10.0493 11.9137C10.0583 11.991 10.0582 12.069 10.049 12.1463C10.0387 12.2334 10.013 12.3188 9.96153 12.4896Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    </span></button>
+                  </div>
+                    
+                    
+                </form>
             </div>
           </div>
-          <div id="split2"></div>
+      </section>
+    </main>
 
-          <div id="vtTopic" class="mt-24 w-[860px] max-w-[95%] mx-auto pb-36 opacity-0 blur-md">
-            <h2 class="text-4xl font-bold mb-2 text-start">Mon sujet.</h2>
+    <footer class="w-full flex flex-col justify-center items-center p-4">
+      <small class="text-sm font-semibold">Copyright Nicolas Carpita 2025</small>
+      <small class="text-xs text-black/90 italic">Réalisé en HTML/CSS/JavaScript</small>
 
-            <p class=" font-semibold text-start">J'ai décidé de choisir <b>Le Cloud Computing</b> comme sujet de veille technologique, et plus particulièrement <b>Microsoft Azure</b> : Je vous justifie donc ce choix, et sa pertinence dans le developpement web.</p>
+    </footer>
+
+    <!-- Modal projets -->
+    <section class="fixed top-0 left-0 w-screen h-screen z-50 projectModal overflow-auto bg-white" x-show="projectModal"
+    x-transition:enter="transition-all ease-in-out duration-500"
+    x-transition:enter-start="translate-x-[100%] blur-md"
+    x-transition:enter-end="translate-x-0 blur-0"
+    x-transition:leave="transition-all ease-in-out duration-300"
+    x-transition:leave-start="translate-x-0 opacity-100"
+    x-transition:leave-end="translate-x-[100%] opacity-0 blur-3xl">
+      <div class="w-full h-full relative">
+        <div class="h-20 w-full bg-black/50 backdrop-blur-sm flex items-center fixed top-0 left-0">
+          <button class="mx-2" @click="projectModal = false; document.querySelector('body').classList.remove('!overflow-hidden');" x-show="projectModal" x-transition:enter="transition transform ease-in-out duration-500"
+          x-transition:enter-start="opacity-0 rotate-90"
+          x-transition:enter-end="opacity-100 rotate-0"
+          x-transition:leave="transition transform ease-in-out duration-300"
+          x-transition:leave-start="opacity-100 rotate-0" x-transition:leave-end="opacity-0 rotate-90">
+              <svg viewBox="0 0 24 24" width="60" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.99486 7.00636C6.60433 7.39689 6.60433 8.03005 6.99486 8.42058L10.58 12.0057L6.99486 15.5909C6.60433 15.9814 6.60433 16.6146 6.99486 17.0051C7.38538 17.3956 8.01855 17.3956 8.40907 17.0051L11.9942 13.4199L15.5794 17.0051C15.9699 17.3956 16.6031 17.3956 16.9936 17.0051C17.3841 16.6146 17.3841 15.9814 16.9936 15.5909L13.4084 12.0057L16.9936 8.42059C17.3841 8.03007 17.3841 7.3969 16.9936 7.00638C16.603 6.61585 15.9699 6.61585 15.5794 7.00638L11.9942 10.5915L8.40907 7.00636C8.01855 6.61584 7.38538 6.61584 6.99486 7.00636Z" fill="#ffffff"></path> </g></svg>
+          </button>
+          <div class="flex w-full justify-center items-center">
+              <h1 class="titleProjectReciever"></h1>
+          </div>
+        </div>
+        <div class="h-full projectReciever w-[950px] mx-auto max-w-[95%]"></div>
+      </div>
+
+    </section>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
 
 
-            <div class="grid grid-cols-10 w-[800px] max-w-[95%] gap-[20px] items-center my-[80px] mx-[30px]">
-                <a class="col-span-3 opacity-0 -translate-x-100 transition-all ease-in-out duration-500" id="azureLeft" href="https://azure.microsoft.com/fr-fr" target="_blank"><img src="Images/veilleTech/microsoft_azure.png" alt="" class="w-[70%]"></a>
-                <div class="feedlyPre col-span-7 opacity-0 translate-x-100 transition-all ease-in-out duration-500" id="azureRight">
+<div class="overflow-hidden globalVt hidden">
+  <!-- Veille Technologique -->
+  <section class="relative !max-w-screen overflow-hidden pt-64 z-20 " id="veilleTechno">
+    <div class="w-full flex justify-center items-start gap-2 sm:gap-4 pinnedVt" >
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold pb-4 z-20 opacity-0" id="veilleTitle">Veille Technologique</h1>
+      <div id="rssWrapper">
+        <svg id="rssLogo" viewBox="0 0 44 44" class=" w-8 sm:w-12 mt-[2px] opacity-0 scale-[2000%]" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>RSS-color</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Color-" transform="translate(-800.000000, -760.000000)" fill="#FF9A00"> <path d="M800.000471,797.714286 C800.000471,794.243 802.81487,791.428571 806.286118,791.428571 C809.757367,791.428571 812.571765,794.243 812.571765,797.714286 C812.571765,801.185571 809.757367,804 806.286118,804 C802.81487,804 800.000471,801.185571 800.000471,797.714286 Z M844,804 L835.619661,804 C835.619661,784.358714 819.641547,768.380429 800.000471,768.380429 L800.000471,760 C824.261497,760 844,779.738714 844,804 Z M829.333543,804 L820.953204,804 C820.953204,792.446857 811.553019,783.048143 800,783.048143 L800,774.666143 C816.174541,774.666143 829.333543,787.825286 829.333543,804 Z" id="RSS"> </path> </g> </g> </g></svg>
+      </div>
+    </div>
+    <!-- VT content -->
+    <div class="w-full flex flex-col justify-center items-center text-white text-center">
+      <div class="introWrapper w-full opacity-0 blur-md">
+        <div class="flex flex-col gap-[20px] sm:text-xl font-semibold max-w-[95%] mx-auto items-center" id="feedlyIntro">
+            <p class="w-[860px] !max-w-[95%] text-center">Dans le domaine informatique, la veille technologique est primordiale : Elle nous permet de rester au courant des dernières avancées sur nos domaines de compétences, afin de les intégrer à notre workflow et rester ainsi à la pointe du progrès !</p>
+            <p class="w-[860px] max-w-[95%]">Cependant, suivre toutes les dernières actualités peut être compliqué mais heureusement, certains outils peuvent nous faciliter la vie.</p>
+        </div>
+      </div>
+      
+      
+
+      <div class="flex flex-col max-w-[95%]" id="howItWorks">
+        <p class="w-[950px] max-w-[95%] font-semibold text-md sm:text-xl mx-auto mb-2 sm:mb-6 opacity-0 blur-md" id="lastVtContent">Je vous présente ici l'outil que j'utilise pour rester alerte, ainsi que la facon dont je m'en sert :</p>
+        <div class="flex max-sm:flex-col max-w-[900px] mx-auto items-center justify-center sm:gap-1 mb-8 feedlyBox">
+          <a href="https://feedly.com/" target="_blank" class="left max-sm:px-6 -translate-x-1/2 opacity-0 blur-md"><img src="Images/veilleTech/feedly.png" alt=""></a>
+          <div class="flex flex-col items-start right translate-x-1/2 opacity-0 blur-md">
+              <h2 class="text-[3em] font-bold tracking-[2px] max-sm:hidden" class="">FEEDLY.</h2>
+              <p class="max-sm:text-sm sm:text-start max-sm:mx-4 max-sm:-mt-4">Feedly est un outil qui permet de selectionner divers themes ou sources, et d'etre notifié dès qu'une nouveauté apparait sur notre séléction.</p>
+          </div>
+        </div>
+        <div class="w-[860px] max-w-[95%] flex flex-col items-start justify-start gap-2 sm:gap-4 text-start mx-auto translate-y-1/2 opacity-0 blur-md" id="feedlyTuto">
+          <h4 class="tracking-[1px] uppercase w-[900px] max-w-[95%] font-semibold">Comment ça marche ?</h4>
+          <p class="max-sm:text-sm">Pour utiliser Feedly, il faut tout d'abord se créer un compte sur le site web, ensuite, nous pouvons séléctionner des sources/centres d'intêrets, et les classer librement par dossiers.</p>
+          <p class="max-sm:text-sm">Le service dispose d'une offre gratuite et payante, l'offre gratuite limitant le nombre de rubriques possible, et n'autorisant pas l'accès aux fonctionnalités "IA" (agrégation des news par centre d'interêts) entre autres que le site propose... </p>
+        </div>
+      </div>
+
+      <div id="vtPart2" class="max-w-[95%]">
+        <div class="w-[950px] max-w-[95%] mx-auto mt-24">
+          <div class="flex flex-col text-start intro">
+            <h2 class="text-4xl font-bold mb-2 orgaTitle -translate-x-[100%] opacity-0 blur-xl">Mon organisation.</h2>
+            <p class=" font-semibold orgaLabel translate-x-[100%] opacity-0 blur-xl">j'ai organisé ma veille au travers de 4 rubriques, regroupant chacunes plusieurs sources sur un theme bien particulier, voyons en détails :</p>
+          </div>
+  
+          <div class="grid grid-cols-2 mt-8 grid-rows-2 py-2 gap-[0.5rem] h-[20rem]">
+            <div class=" bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr rounded-bl rounded-tl-xl rounded-br-xl fold1 scale-0 opacity-0 hover:m-0">
+                <h2 class="text-start font-semibold">.Langages & Frameworks</h2>
+            </div>
+            <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr-md rounded-bl-md rounded-tl rounded-br fold2 scale-0 opacity-0 hover:m-0">
+                <h2 class="text-start font-semibold">.Cybersécurité</h2>
+            </div>
+            <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr-md rounded-bl-md rounded-tl rounded-br fold3 scale-0 opacity-0 hover:m-0">
+                <h2 class="text-start font-semibold">.Software & OS</h2>
+            </div>
+            <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr rounded-bl rounded-tl-md rounded-br-md fold4 scale-0 opacity-0 hover:m-0">
+                <h2 class="text-start font-semibold">.Actus Tech en général</h2>
+            </div>
+          </div>
+        </div>
+        <div id="split2"></div>
+
+        <div id="vtTopic" class="mt-24 w-[950px] max-w-[95%] mx-auto">
+
+          <div class="topicIntro ">
+            <div class="topicTitle opacity-0 blur-3xl scale-[95%]">
+              <h2 class="text-4xl font-bold mb-2 text-start">Mon sujet.</h2>
+
+              <p class=" font-semibold text-start">J'ai décidé de choisir <b>Le Cloud Computing</b> comme sujet de veille technologique, et plus particulièrement <b>Microsoft Azure</b> : Je vous justifie donc ce choix, et sa pertinence dans le developpement web.</p>
+            </div>
+            
+
+            <div class="grid grid-cols-10 w-[950px] max-w-[95%] gap-[20px] items-center my-[80px] mx-[30px]">
+                <a class="col-span-3 opacity-0 -translate-x-100" id="azureLeft" href="https://azure.microsoft.com/fr-fr" target="_blank"><img src="Images/veilleTech/microsoft_azure.png" alt="" class="w-[70%]"></a>
+                <div class="feedlyPre col-span-7 opacity-0 translate-x-100" id="azureRight">
                     <p class="italic text-start">
                         Microsoft Azure est une solution de cloud computing qui offre une variété de services à haute disponibilité et scalabilité. Azure permet, comme les autres solutions de cloud computing, de fournir ces services selon plusieurs niveaux d'abstraction.
                     </p>
                 </div>
             </div>
 
-
-
-            <p class="text-start">Les services de cloud computing ont commencés à voir le jour vers la fin des années 2000; poussés par la crise financière de 2008, ils apparaissent comme une solution plus flexible et moins cher que les services de "on premise". Leur essort à continué dans les années 2010, jusqu'en 2020 ou la crise de COVID-19 à exarcerbé les besoins de télétravail et de solutions à distance, galvanisant encore plus le secteur.</p>
-
-            <div class="opacity-0 blur-md topicPartial">
-              <h2 class="text-4xl font-bold mb-2 text-start mt-16">L'intêret du cloud computing</h2>
-
-
-              <p class="text-start text-white/85 mb-6">
-              Le cloud computing offre de nombreux avantages si on le compare avec des solutions "on premise" (sur une machine physique présente dans les locaux de l'entreprise) :
-              </p>
-              <ul class="list-disc list-outside flex flex-col gap-2 text-start ml-4">
-                  <li><b>La maintenance est simplifié, voir inexistante :</b> Le prestataire gère les cas d'indisponibilité.</li>
-                  <li><b>Le coût est bien souvent inférieur :</b> Le coût est basé sur notre usage et non sur notre infrastructure.</li>
-                  <li><b>La scalabilité est facile :</b> On peut facilement augmenter les performances requises pour un service.</li>
-                  <li><b>Travail collaboratif et accessibilité :</b> l'accès aux ressources est simplifié, car tout se fait via l'interface du prestataire.</li>
-                  <li><b>Simplification de la gestion et du déploiement des ressources :</b> On peut facilement gérer les ressources de maniére centralisée et simplifiee, grâce à un fort taux d'abstraction de l'infrastructure (SaaS, PaaS, IaaS).
-              </ul>
-
-
-
-              <p class="font-semibold text-lg mt-12" >Aujourd'hui, les 3 services de cloud computing les plus populaires sont Microsoft Azure, Amazon Web Service et Google Cloud.</p>
-            </div>
-
-            
-
-
-            <div id="companyUsage" class="opacity-0 blur-md topicPartial">
-              <h2 class="text-4xl font-bold mb-2 text-start mt-48">Mon Utilisation en Entreprise</h2>
-
-              <p class="text-start text-white/85 mb-6">Microsoft Azure est au coeur de l'architecture informatique de Aroma-Zone, prenant majoritairement la place de "ciment", liant les differents services utilisés par l'entreprise.</p>
-
-              <div class="grid grid-cols-2 gap-4 w-full mt-4">
-                <img src="Images/veilleTech/logicapp_example.png" alt="" class="rounded-sm">
-                <p class="text-start w-full">Je me sert essentiellement d'un service en particulier proposé par Azure : <b>Les Logic Apps</b> qui permettent d'automatiser des tâches, des processus ou des flux de données en utilisant du low-code, et ce, très facilement. L'avantage ici est la clarté du code, qui, ressemblant à un logigramme, ne nécéssite pas de connaissances sur un language particulier.</p>
-              </div>
-
-              <p class="mt-2 italic text-sm"><i>L'aspect PaaS des logic apps rends en outre leur création et leur utilisation quasi-instantané, sans préoccupation de l'infrastructure et du déploiement.</i></p>
-            </div>
-
-            
-
-            <div id="cloudEvolution" class="text-start opacity-0 blur-md topicPartial">
-              <h2 class="text-4xl font-bold mb-2 text-start mt-24">Les récentes avancées du cloud computing</h2>
-
-              <p>Aujourd'hui, le cloud computing, que ce soit via des changements technologiques majeurs ou pour répondre à des problématiques essentielles, continue à évoluer. </p>
-
-
-              <p style="font-weight: normal; margin-top: 30px;"><b>Le cloud souverain (hébergement localisé)</b>, par exemple, est une tendance qui se developpe de plus en plus, avec une volonté de respecter les lois en vigueur dans chaque pays.</p>
-
-              <p style="font-weight: normal; margin-top: 10px;">D'un autre coté, On compte également de nombreux projets qui s'orientent vers la création d'infrastructures neutres en carbone, plus saines pour l'environnement.</p>
-              <p style="font-weight: normal; margin-top: 30px;">D'un point de vue technologique maintenant, l'arrivée de l'IA générative dans les solutions de cloud computing se fait progressivement, permettant par exemple la création d'applications avec des fonctionnalités d'IA (Azure OpenAI Service).</p>
-
-              <p style="font-weight: normal; margin-top: 10px;">Egalement, des services comme le Cloud hybride (possibilité de mêler différentes infrastructures clouds ou clouds/locales) comme Azure ARC et Google Anthos on été developpés, permettant de mieux s'adapter aux besoins de chacun, que ce soit en terme de flexibilité ou de sécurité.</p>
-
-              <p style="font-weight: normal; margin-top: 10px;">Pour finir, on peut également penser à des solutions comme Azure Quantum, Google Quantum AI ou encore AWS bracket, qui permettent l'accès a des ordinateurs quantiques via le cloud, pour une utilisation scientifique.</p>
-            </div>
-
-            
-
-
-        </div>
-
-
-
-          
-          
-      </div>
-      </section>
-      <section class="h-[24rem] w-full z-10 flex items-end overflow-hidden relative">
-        <div class="absolute h-0 w-0 border-l-[200vw] border-l-transparent border-b-[12rem] border-t-[12rem] border-b-white border-t-transparent top-0 left-0 z-50"></div>
-
-        <div class="absolute h-0 w-0 border-r-[200vw] border-r-transparent border-t-[12rem] border-b-[12rem] border-t-black border-b-transparent bottom-0 left-0 z-50"></div>
-        <img src="Images/abstract.jpg" alt="" class="!w-full separator" id="veilleToContact">
-      </section>
-      
-      <section class="p-16 max-w-[1200px] mx-auto overflow-x-hidden z-20 bg-white">
-          <h1 class="font-bold text-6xl text-black mb-3">Me contacter</h1>
-          <p class="text-zinc-400/70">Vous pouvez me contacter par mail, via mes réseaux sociaux, ou en remplissant le formulaire ci-dessous !</p>
-          <div class="w-full flex justify-between mt-24">
-              <form action="POST" class="flex w-full gap-4 translate-x-0">
-                <div class="flex flex-col gap-4 w-1/3">
-                    <div class="flex gap-[2%]">
-                      <input type="text" name="Nom" id="nom" class="border w-[49%] p-1 rounded" placeholder="Nom">
-                      <input type="text" name="Prénom" id="prenom" class="border w-[49%] p-1 rounded" placeholder="Prénom">
-                  </div>
-                  
-                  <input type="email" name="Email" class="border w-full p-1 rounded" id="email" placeholder="Email">
-                  <input type="text" name="entreprise" id="entreprise" placeholder="Votre entreprise (facultatif)" class="border w-full p-1 rounded">
-                  <input type="text" name="Objet" id="objet" placeholder="Objet de votre demande" class="border w-full p-1 rounded">
-                  <div class="w-full h-full flex justify-center">
-                    <button type="submit" class="bg-slate-700 text-white p-2 rounded flex justify-center items-center gap-2 group w-full transition-all ease-in-out duration-[250ms] px-4 hover:bg-slate-500"><span class="translate-x-4 group-hover:translate-x-0 transition-all ease-in-out duration-200 font-semibold">Envoyer</span><span>
-                        <svg viewBox="0 0 24 24"  fill="none" class="w-6 scale-0 opacity-0 -translate-x-24 group-hover:translate-x-0 group-hover:scale-100 group-hover:opacity-100 transition-all ease-in-out duration-200" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.7639 12H10.0556M3 8.00003H5.5M4 12H5.5M4.5 16H5.5M9.96153 12.4896L9.07002 15.4486C8.73252 16.5688 8.56376 17.1289 8.70734 17.4633C8.83199 17.7537 9.08656 17.9681 9.39391 18.0415C9.74792 18.1261 10.2711 17.8645 11.3175 17.3413L19.1378 13.4311C20.059 12.9705 20.5197 12.7402 20.6675 12.4285C20.7961 12.1573 20.7961 11.8427 20.6675 11.5715C20.5197 11.2598 20.059 11.0295 19.1378 10.5689L11.3068 6.65342C10.2633 6.13168 9.74156 5.87081 9.38789 5.95502C9.0808 6.02815 8.82627 6.24198 8.70128 6.53184C8.55731 6.86569 8.72427 7.42461 9.05819 8.54246L9.96261 11.5701C10.0137 11.7411 10.0392 11.8266 10.0493 11.9137C10.0583 11.991 10.0582 12.069 10.049 12.1463C10.0387 12.2334 10.013 12.3188 9.96153 12.4896Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                    </span></button>
-                  </div>
-                </div>
-                <div class="w-2/3">
-                  <textarea name="message" id="message" class="border min-h-full p-1 pb-0 rounded w-full" placeholder="Votre message"></textarea>
-                </div>
-                  
-                  
-              </form>
+            <p class="text-start topicIntroPara opacity-0 blur-3xl scale-[95%]">Les services de cloud computing ont commencés à voir le jour vers la fin des années 2000; poussés par la crise financière de 2008, ils apparaissent comme une solution plus flexible et moins cher que les services de "on premise". Leur essort à continué dans les années 2010, jusqu'en 2020 ou la crise de COVID-19 à exarcerbé les besoins de télétravail et de solutions à distance, galvanisant encore plus le secteur.</p>
           </div>
           
-      </section>
-    </main>
 
-    <footer class="w-full flex flex-col justify-center items-center p-4">
-      <small class="text-sm">Copyright Nicolas Carpita 2025</small>
-      <small class="text-xs text-black/80 italic">Réalisé en HTML/CSS/JavaScript</small>
+          <div class="topicPartial">
+            <h2 class="text-4xl font-bold mb-2 text-start mt-16">L'intêret du cloud computing</h2>
 
-    </footer>
 
-    <script type="module" src="/src/main.js"></script>
-  </body>
-</html>
+            <p class="text-start text-white/85 mb-6">
+            Le cloud computing offre de nombreux avantages si on le compare avec des solutions "on premise" (sur une machine physique présente dans les locaux de l'entreprise) :
+            </p>
+            <ul class="list-disc list-outside flex flex-col gap-2 text-start ml-4">
+                <li><b>La maintenance est simplifié, voir inexistante :</b> Le prestataire gère les cas d'indisponibilité.</li>
+                <li><b>Le coût est bien souvent inférieur :</b> Le coût est basé sur notre usage et non sur notre infrastructure.</li>
+                <li><b>La scalabilité est facile :</b> On peut facilement augmenter les performances requises pour un service.</li>
+                <li><b>Travail collaboratif et accessibilité :</b> l'accès aux ressources est simplifié, car tout se fait via l'interface du prestataire.</li>
+                <li><b>Simplification de la gestion et du déploiement des ressources :</b> On peut facilement gérer les ressources de maniére centralisée et simplifiee, grâce à un fort taux d'abstraction de l'infrastructure (SaaS, PaaS, IaaS).
+            </ul>
+
+
+
+            <p class="font-semibold text-lg mt-12" >Aujourd'hui, les 3 services de cloud computing les plus populaires sont Microsoft Azure, Amazon Web Service et Google Cloud.</p>
+          </div>
+
+          <div class="border-b-3 border-b-white/10 pb-24">
+            <div id="cloudServices" class="topicPartial flex items-center justify-evenly max-sm:mt-8 mt-16">
+
+              <!-- AWS -->
+              <svg viewBox="0 0 16 16" class="size-24 md:size-32" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#FFFFFF" d="M4.51 7.687c0 .197.02.357.058.475.042.117.096.245.17.384a.233.233 0 01.037.123c0 .053-.032.107-.1.16l-.336.224a.255.255 0 01-.138.048c-.054 0-.107-.026-.16-.074a1.652 1.652 0 01-.192-.251 4.137 4.137 0 01-.165-.315c-.415.491-.936.737-1.564.737-.447 0-.804-.129-1.064-.385-.261-.256-.394-.598-.394-1.025 0-.454.16-.822.484-1.1.325-.278.756-.416 1.304-.416.18 0 .367.016.564.042.197.027.4.07.612.118v-.39c0-.406-.085-.689-.25-.854-.17-.166-.458-.246-.868-.246-.186 0-.377.022-.574.07a4.23 4.23 0 00-.575.181 1.525 1.525 0 01-.186.07.326.326 0 01-.085.016c-.075 0-.112-.054-.112-.166v-.262c0-.085.01-.15.037-.186a.399.399 0 01.15-.113c.185-.096.409-.176.67-.24.26-.07.537-.101.83-.101.633 0 1.096.144 1.394.432.293.288.442.726.442 1.314v1.73h.01zm-2.161.811c.175 0 .356-.032.548-.096.191-.064.362-.182.505-.342a.848.848 0 00.181-.341c.032-.129.054-.283.054-.465V7.03a4.43 4.43 0 00-.49-.09 3.996 3.996 0 00-.5-.033c-.357 0-.618.07-.793.214-.176.144-.26.347-.26.614 0 .25.063.437.196.566.128.133.314.197.559.197zm4.273.577c-.096 0-.16-.016-.202-.054-.043-.032-.08-.106-.112-.208l-1.25-4.127a.938.938 0 01-.049-.214c0-.085.043-.133.128-.133h.522c.1 0 .17.016.207.053.043.032.075.107.107.208l.894 3.535.83-3.535c.026-.106.058-.176.1-.208a.365.365 0 01.214-.053h.425c.102 0 .17.016.213.053.043.032.08.107.101.208l.841 3.578.92-3.578a.458.458 0 01.107-.208.346.346 0 01.208-.053h.495c.085 0 .133.043.133.133 0 .027-.006.054-.01.086a.76.76 0 01-.038.133l-1.283 4.127c-.032.107-.069.177-.111.209a.34.34 0 01-.203.053h-.457c-.101 0-.17-.016-.213-.053-.043-.038-.08-.107-.101-.214L8.213 5.37l-.82 3.439c-.026.107-.058.176-.1.213-.043.038-.118.054-.213.054h-.458zm6.838.144a3.51 3.51 0 01-.82-.096c-.266-.064-.473-.134-.612-.214-.085-.048-.143-.101-.165-.15a.378.378 0 01-.031-.149v-.272c0-.112.042-.166.122-.166a.3.3 0 01.096.016c.032.011.08.032.133.054.18.08.378.144.585.187.213.042.42.064.633.064.336 0 .596-.059.777-.176a.575.575 0 00.277-.508.52.52 0 00-.144-.373c-.095-.102-.276-.193-.537-.278l-.772-.24c-.388-.123-.676-.305-.851-.545a1.275 1.275 0 01-.266-.774c0-.224.048-.422.143-.593.096-.17.224-.32.384-.438.16-.122.34-.213.553-.277.213-.064.436-.091.67-.091.118 0 .24.005.357.021.122.016.234.038.346.06.106.026.208.052.303.085.096.032.17.064.224.096a.46.46 0 01.16.133.289.289 0 01.047.176v.251c0 .112-.042.171-.122.171a.552.552 0 01-.202-.064 2.427 2.427 0 00-1.022-.208c-.303 0-.543.048-.708.15-.165.1-.25.256-.25.475 0 .149.053.277.16.379.106.101.303.202.585.293l.756.24c.383.123.66.294.825.513.165.219.244.47.244.748 0 .23-.047.437-.138.619a1.436 1.436 0 01-.388.47c-.165.133-.362.23-.591.299-.24.075-.49.112-.761.112z"></path> <g fill="#F90" fill-rule="evenodd" clip-rule="evenodd"> <path d="M14.465 11.813c-1.75 1.297-4.294 1.986-6.481 1.986-3.065 0-5.827-1.137-7.913-3.027-.165-.15-.016-.353.18-.235 2.257 1.313 5.04 2.109 7.92 2.109 1.941 0 4.075-.406 6.039-1.239.293-.133.543.192.255.406z"></path> <path d="M15.194 10.98c-.223-.287-1.479-.138-2.048-.069-.17.022-.197-.128-.043-.24 1-.705 2.645-.502 2.836-.267.192.24-.053 1.89-.99 2.68-.143.123-.281.06-.218-.1.213-.53.687-1.72.463-2.003z"></path> </g> </g></svg>
+
+
+              <!-- Azure -->
+
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-24 md:size-32" viewBox="0 0 96 96">
+                  <defs>
+                      <linearGradient id="e399c19f-b68f-429d-b176-18c2117ff73c" x1="-1032.172" x2="-1059.213" y1="145.312" y2="65.426" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stop-color="#114a8b"/>
+                          <stop offset="1" stop-color="#0669bc"/>
+                      </linearGradient>
+                      <linearGradient id="ac2a6fc2-ca48-4327-9a3c-d4dcc3256e15" x1="-1023.725" x2="-1029.98" y1="108.083" y2="105.968" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stop-opacity=".3"/>
+                          <stop offset=".071" stop-opacity=".2"/>
+                          <stop offset=".321" stop-opacity=".1"/>
+                          <stop offset=".623" stop-opacity=".05"/>
+                          <stop offset="1" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="a7fee970-a784-4bb1-af8d-63d18e5f7db9" x1="-1027.165" x2="-997.482" y1="147.642" y2="68.561" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stop-color="#3ccbf4"/>
+                          <stop offset="1" stop-color="#2892df"/>
+                      </linearGradient>
+                  </defs>
+                  <path fill="url(#e399c19f-b68f-429d-b176-18c2117ff73c)" d="M33.338 6.544h26.038l-27.03 80.087a4.152 4.152 0 0 1-3.933 2.824H8.149a4.145 4.145 0 0 1-3.928-5.47L29.404 9.368a4.152 4.152 0 0 1 3.934-2.825z"/>
+                  <path fill="#0078d4" d="M71.175 60.261h-41.29a1.911 1.911 0 0 0-1.305 3.309l26.532 24.764a4.171 4.171 0 0 0 2.846 1.121h23.38z"/>
+                  <path fill="url(#ac2a6fc2-ca48-4327-9a3c-d4dcc3256e15)" d="M33.338 6.544a4.118 4.118 0 0 0-3.943 2.879L4.252 83.917a4.14 4.14 0 0 0 3.908 5.538h20.787a4.443 4.443 0 0 0 3.41-2.9l5.014-14.777 17.91 16.705a4.237 4.237 0 0 0 2.666.972H81.24L71.024 60.261l-29.781.007L59.47 6.544z"/>
+                  <path fill="url(#a7fee970-a784-4bb1-af8d-63d18e5f7db9)" d="M66.595 9.364a4.145 4.145 0 0 0-3.928-2.82H33.648a4.146 4.146 0 0 1 3.928 2.82l25.184 74.62a4.146 4.146 0 0 1-3.928 5.472h29.02a4.146 4.146 0 0 0 3.927-5.472z"/>
+              </svg>
+
+              <!-- Google Cloud -->
+
+              <svg viewBox="0 -25 256 256" class="size-24 md:size-32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M170.2517,56.8186 L192.5047,34.5656 L193.9877,25.1956 C153.4367,-11.6774 88.9757,-7.4964 52.4207,33.9196 C42.2667,45.4226 34.7337,59.7636 30.7167,74.5726 L38.6867,73.4496 L83.1917,66.1106 L86.6277,62.5966 C106.4247,40.8546 139.8977,37.9296 162.7557,56.4286 L170.2517,56.8186 Z" fill="#EA4335"> </path> <path d="M224.2048,73.9182 C219.0898,55.0822 208.5888,38.1492 193.9878,25.1962 L162.7558,56.4282 C175.9438,67.2042 183.4568,83.4382 183.1348,100.4652 L183.1348,106.0092 C198.4858,106.0092 210.9318,118.4542 210.9318,133.8052 C210.9318,149.1572 198.4858,161.2902 183.1348,161.2902 L127.4638,161.2902 L121.9978,167.2242 L121.9978,200.5642 L127.4638,205.7952 L183.1348,205.7952 C223.0648,206.1062 255.6868,174.3012 255.9978,134.3712 C256.1858,110.1682 244.2528,87.4782 224.2048,73.9182" fill="#4285F4"> </path> <path d="M71.8704,205.7957 L127.4634,205.7957 L127.4634,161.2897 L71.8704,161.2897 C67.9094,161.2887 64.0734,160.4377 60.4714,158.7917 L52.5844,161.2117 L30.1754,183.4647 L28.2234,191.0387 C40.7904,200.5277 56.1234,205.8637 71.8704,205.7957" fill="#34A853"> </path> <path d="M71.8704,61.4255 C31.9394,61.6635 -0.2366,94.2275 0.0014,134.1575 C0.1344,156.4555 10.5484,177.4455 28.2234,191.0385 L60.4714,158.7915 C46.4804,152.4705 40.2634,136.0055 46.5844,122.0155 C52.9044,108.0255 69.3704,101.8085 83.3594,108.1285 C89.5244,110.9135 94.4614,115.8515 97.2464,122.0155 L129.4944,89.7685 C115.7734,71.8315 94.4534,61.3445 71.8704,61.4255" fill="#FBBC05"> </path> </g> </g></svg>
+            </div>
+          </div>
+
+          <div id="companyUsage" class=" topicPartial">
+            <h2 class="text-4xl font-bold mb-2 text-start mt-48">Mon Utilisation en Entreprise</h2>
+
+            <p class="text-start text-white/85 mb-6">Microsoft Azure est au coeur de l'architecture informatique de Aroma-Zone, prenant majoritairement la place de "ciment", liant les differents services utilisés par l'entreprise.</p>
+
+            <div class="grid grid-cols-2 gap-4 w-full mt-4">
+              <img src="Images/veilleTech/logicapp_example.png" alt="" class="rounded-sm">
+              <p class="text-start w-full">Je me sert essentiellement d'un service en particulier proposé par Azure : <b>Les Logic Apps</b> qui permettent d'automatiser des tâches, des processus ou des flux de données en utilisant du low-code, et ce, très facilement. L'avantage ici est la clarté du code, qui, ressemblant à un logigramme, ne nécéssite pas de connaissances sur un language particulier.</p>
+            </div>
+
+            <p class="mt-2 italic text-sm"><i>L'aspect PaaS des logic apps rends en outre leur création et leur utilisation quasi-instantané, sans préoccupation de l'infrastructure et du déploiement.</i></p>
+          </div>
+
+          <div id="cloudEvolution" class="text-start topicPartial">
+            <h2 class="text-4xl font-bold mb-2 text-start mt-24">Les récentes avancées du cloud computing</h2>
+
+            <p>Aujourd'hui, le cloud computing, que ce soit via des changements technologiques majeurs ou pour répondre à des problématiques essentielles, continue à évoluer. </p>
+
+
+            <p style="font-weight: normal; margin-top: 30px;"><b>Le cloud souverain (hébergement localisé)</b>, par exemple, est une tendance qui se developpe de plus en plus, avec une volonté de respecter les lois en vigueur dans chaque pays.</p>
+
+            <p style="font-weight: normal; margin-top: 10px;">D'un autre coté, On compte également de nombreux projets qui s'orientent vers la création d'infrastructures neutres en carbone, plus saines pour l'environnement.</p>
+            <p style="font-weight: normal; margin-top: 30px;">D'un point de vue technologique maintenant, l'arrivée de l'IA générative dans les solutions de cloud computing se fait progressivement, permettant par exemple la création d'applications avec des fonctionnalités d'IA (Azure OpenAI Service).</p>
+
+            <p style="font-weight: normal; margin-top: 10px;">Egalement, des services comme le Cloud hybride (possibilité de mêler différentes infrastructures clouds ou clouds/locales) comme Azure ARC et Google Anthos on été developpés, permettant de mieux s'adapter aux besoins de chacun, que ce soit en terme de flexibilité ou de sécurité.</p>
+
+            <p style="font-weight: normal; margin-top: 10px;" class="lastVtElement pb-48">Pour finir, on peut également penser à des solutions comme Azure Quantum, Google Quantum AI ou encore AWS bracket, qui permettent l'accès a des ordinateurs quantiques via le cloud, pour une utilisation scientifique.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    
+  </section>
+  <!-- Transition -->
+  <section class="h-[22rem] max-h-[40rem] w-full z-10 flex items-end relative vtContactSeparator">
+    <!-- <div class="absolute h-0 w-0 border-l-[200vw] border-l-transparent border-b-[12rem] border-t-[12rem] border-b-white border-t-transparent top-0 left-0 z-40 whiteOverlay"></div>
+    <div class="absolute h-0 w-0 border-r-[200vw] border-r-transparent border-t-[12rem] border-b-[12rem] border-t-black border-b-transparent bottom-0 left-0 z-50 blackOverlay"></div> -->
+
+    <svg width="100%" height="150" class="z-40 absolute top-0 blackOverlay" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 100 0 L 0 70 L 0 0 Z" fill="black" />
+    </svg>
+
+    <svg width="100%" height="150" class="z-40 absolute bottom-0 whiteOverlay" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0 100 L 100 30 L 100 100 Z" fill="white" />
+    </svg>
+    
+    <img src="Images/abstract.jpg" alt="" class="!w-full separator" id="veilleToContact" data-speed="auto">
+  </section>
+</div>

@@ -16,7 +16,7 @@ body {
 
 
 .timelineContainer {
-  @apply pl-[50px] pr-[50px] max-sm:pr-[25px] relative w-auto sm:w-[50%] pt-10 max-sm:w-[calc(100vw-40px)]  ;
+  @apply pl-[50px] pr-[50px] max-sm:pr-[25px] relative w-auto sm:w-[50%] pt-10 max-sm:w-[calc(100vw-40px)] ;
 }
 
 .timelineContainer .text-box.left {
@@ -33,7 +33,7 @@ body {
 }
 
 .text-box {
-  @apply opacity-0 transition-all duration-300 ease-in-out border-2 border-black bg-black;
+  @apply opacity-0 transition-all duration-300 ease-in-out  !cursor-pointer h-32 bg-black p-1 px-2 sm:p-4 sm:px-6 ;
 }
 
 .timelineContainer .text-box.active {
@@ -50,4 +50,25 @@ body {
 .ftTest {
   font-family: "Fascinate Inline", system-ui;
   font-weight: 400;
+}
+
+input, textarea {
+  @apply border border-black/10 px-2 focus:outline-slate-400 shadow-inner placeholder-black/20;
+}
+
+textarea {
+  @apply resize-none pt-2 focus:outline-slate-400;
+}
+
+.projectCard {
+  @apply w-full lg:w-[49%] 2xl:w-[32%]  bg-slate-900/80 rounded grid grid-rows-3 mb-4 lg:mb-[2%] scale-[0.1%] opacity-0 blur-xl border border-zinc-200;
+}
+
+
+.moon {
+  background: radial-gradient(circle,  
+  #faeb99 20%,  /* Centre bien jaune (doré) */
+  #f7e5b1 50%,  /* Transition vers une teinte plus douce */
+  #fef3c7 80%);
+  box-shadow: 0 0 50px rgba(227, 220, 177, 0.6);
 }
