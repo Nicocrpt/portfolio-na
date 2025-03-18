@@ -19,6 +19,43 @@ gsap.registerPlugin(Flip,ScrollTrigger,Observer,ScrollToPlugin,MotionPathPlugin,
 window.alpine = Alpine
 Alpine.start()
 
+
+window.onload = function() {
+  setTimeout(() => {
+    document.querySelector(".loader").style.display = "none";
+    document.querySelector('body').classList.remove('overflow-hidden')
+  }, 0)
+  
+}
+
+
+window.addEventListener('beforeunload', function () {
+  sessionStorage.setItem('scrollPosition', window.scrollY);
+});
+window.addEventListener('load', function () {
+  const savedScrollPosition = sessionStorage.getItem('scrollPosition');
+  console.log(this.sessionStorage.getItem('scrollPosition'))
+  
+  // if (savedScrollPosition !== null) {
+    // Remonter tout en haut temporairement
+    window.scrollTo(0, 0);
+
+    // Restaurer la position du scroll après 100ms (pour éviter les "flickers")
+  //   setTimeout(function () {
+  //     window.scrollTo(0, savedScrollPosition);
+  //   }, 100);
+  // }
+});
+
+window.onbeforeunload = function() {
+  sessionStorage.setItem('scrollPosition', window.scrollY);
+  // Défilement vers le haut de la page
+  window.scrollTo(0, 0);
+  window.scrollTo(0, sessionStorage.getItem('scrollPosition'))
+};
+
+
+
 const homeTl = gsap.timeline(
   {
     scrollTrigger: {
@@ -35,10 +72,22 @@ gsap.to('#homeSection', {
     trigger: '#homeSection',
     start: "top",
     end:`top+=${document.querySelector('#homeSection').offsetHeight/4}px`,
-    scrub: 1,
+    scrub: true,
     pin: true,
     pinSpacing: true
-  }
+  },
+  // onComplete : () => {
+  //   gsap.to('.cloudLayer3', {
+  //     scrollTrigger : {
+  //       trigger : '.cloudLayer3',
+  //       start: `top ${document.querySelector('.cloudLayer3').getBoundingClientRect().top}px`,
+  //       end: `top 0%`,
+  //       markers: true,
+  //       scrub: true,
+  //     },
+  //     y: 50
+  //   })
+  // }
 })
 
 homeTl.to('.mainTitle', {y: 1000, duration: 10, ease: "sine.inOut"})
@@ -57,6 +106,9 @@ homeTl.to('.mainTitle', {y: 1000, duration: 10, ease: "sine.inOut"})
   },
   duration: 8, // Temps total pour l'animation (scrub prend en charge la vitesse liée au scroll)
 }, "-=10");
+
+
+
 
 
 gsap.to('.navBar', {
@@ -765,32 +817,6 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   let monElement = document.getElementById("feedlyIntro");
-//   let nextElement = document.querySelector("#lastvtContent");
-
-//   let height = monElement.getBoundingClientRect().height;
-
-//   nextElement.style.marginTop = `-${height+300}px`;
-//    // Décale l'élément suivant vers le haut
-// });
-
-
-
-
-
-        // Ce script va être exécuté dès que la page est chargée
-      //   window.onbeforeunload = function() {
-      //     // Défilement vers le haut de la page
-      //     window.scrollTo(0, 0);
-      // };
-
-      // window.addEventListener("resize", () => {
-      //   ScrollTrigger.refresh();
-      // });
-      
-
-
       function getDynamicStart(element, viewportRatio) {
         let el = document.querySelector(element);
         if (!el) return "top 10%"; // Sécurité si l'élément n'existe pas
@@ -976,25 +1002,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+
+
+// // Test 1 trainée
+
 // document.addEventListener('DOMContentLoaded', () => {
 //   const shootingStarsContainer = document.querySelector('.shooting-stars');
 
-//   // Fonction pour générer une étoile filante
+//   // Fonction pour générer une étoile filante avec une traînée
 //   function createShootingStar() {
 //     const shootingStar = document.createElement('div');
 //     shootingStar.classList.add('shooting-star');
 
-//     // Positionner l'étoile filante à des coordonnées aléatoires
-//     const startX = Math.random() * window.innerWidth;
-//     const startY = -10; // Commence au-dessus de l'écran
+//     // Création de la traînée
+//     const trail = document.createElement('div');
+//     trail.classList.add('trail');
+//     shootingStar.appendChild(trail);
 
+//     // Positionner l'étoile filante et la traînée à des coordonnées aléatoires
+//     const startX = Math.random() * window.innerWidth;
+//     console.log(startX)
+//     const startY = -10; // Commence au-dessus de l'écran
 //     shootingStar.style.left = `${startX}px`;
 //     shootingStar.style.top = `${startY}px`;
 
 //     // Ajouter l'étoile filante au conteneur
 //     shootingStarsContainer.appendChild(shootingStar);
 
-//     // Supprimer l'étoile après l'animation
+//     // Supprimer l'étoile et sa traînée après l'animation
 //     setTimeout(() => {
 //       shootingStar.remove();
 //     }, 2000); // 2s pour correspondre à la durée de l'animation
@@ -1005,14 +1042,11 @@ document.addEventListener("DOMContentLoaded", () => {
 // });
 
 
-
-// Test 1 trainée
-
 document.addEventListener('DOMContentLoaded', () => {
   const shootingStarsContainer = document.querySelector('.shooting-stars');
 
-  // Fonction pour générer une étoile filante avec une traînée
-  function createShootingStar() {
+  // Fonction pour générer une étoile filante avec une traînée et un angle
+  function createShootingStar(angle = -45) { // L'angle par défaut est -45° (diagonale descendante)
     const shootingStar = document.createElement('div');
     shootingStar.classList.add('shooting-star');
 
@@ -1021,23 +1055,117 @@ document.addEventListener('DOMContentLoaded', () => {
     trail.classList.add('trail');
     shootingStar.appendChild(trail);
 
-    // Positionner l'étoile filante et la traînée à des coordonnées aléatoires
-    const startX = Math.random() * window.innerWidth;
-    console.log(startX)
+    // Positionner l'étoile filante à une position horizontale aléatoire
+    const startX = Math.random() * window.innerWidth; // Largeur de l'écran
     const startY = -10; // Commence au-dessus de l'écran
+
+    // Position verticale aléatoire (entre 0 et la hauteur de l'écran)
+    const randomVerticalTranslation = window.innerHeight+10; // Valeur entre 200px et 1000px pour l'exemple
+
+    // Calcul du point d'arrivée en utilisant l'angle
+    const angleInRadians = angle * (Math.PI / 180); // Convertir l'angle en radians
+     // Calcul de la translation horizontale
+    const endY = startY + randomVerticalTranslation; 
+    const endX = startX + randomVerticalTranslation * Math.tan(angleInRadians);  // Calcul de la translation verticale
+
+    // Définir les positions de départ et de fin avec des variables CSS
     shootingStar.style.left = `${startX}px`;
     shootingStar.style.top = `${startY}px`;
+    shootingStar.style.setProperty('--end-x', `${endX}px`);
+    shootingStar.style.setProperty('--end-y', `${endY}px`);
 
     // Ajouter l'étoile filante au conteneur
     shootingStarsContainer.appendChild(shootingStar);
 
+    // Durée de l'animation (ici 2 secondes)
+    shootingStar.style.animation = `moveShootingStar 1s linear forwards`;
+
     // Supprimer l'étoile et sa traînée après l'animation
     setTimeout(() => {
       shootingStar.remove();
-    }, 2000); // 2s pour correspondre à la durée de l'animation
+    }, 1000); // 2s pour correspondre à la durée de l'animation
   }
 
   // Créer des étoiles filantes toutes les 3 à 6 secondes
-  setInterval(createShootingStar, Math.random() * 3000 + 3000);
+  setInterval(() => {
+    let angle = 30
+    createShootingStar(angle);  // Passer l'angle à la fonction
+  }, Math.random() * 3000 + 3000);
 });
+
+
  
+
+// Test lignes de code
+
+document.addEventListener("DOMContentLoaded", function () {
+  const lineContainer = document.querySelector(".line-container");
+
+  const lineInterval = 1500; // Intervalle pour créer de nouvelles lignes en millisecondes
+
+  // Fonction pour générer une ligne aléatoire
+  function createLine() {
+    const line = document.createElement("div");
+    line.classList.add("line");
+    line.classList.add('rounded-full', 'backdrop-blur-md')
+
+    // Hauteur entre 5px et 12px
+    line.style.height = `${Math.floor(Math.random() * 8) + 5}px`;
+
+    // Largeur aléatoire entre 50% et 150% de la largeur de la page
+    const lineWidth = Math.floor(Math.random() * 20) + 50; // entre 50% et 150%
+    line.style.width = `${lineWidth}%`;
+
+    // Position verticale aléatoire
+    line.style.top = `${Math.floor(Math.random() * 100)}%`;
+
+    // Couleur aléatoire
+    line.style.backgroundColor = getRandomColor();
+
+    // Calcul de la position de départ : hors de l'écran
+    const direction = Math.random() > 0.5 ? "left" : "right"; // Direction aléatoire (gauche ou droite)
+    const screenWidth = window.innerWidth; // Largeur de la fenêtre du navigateur
+    const lineLength = (lineWidth / 100) * screenWidth; // Longueur de la ligne en pixels
+
+    // Si la direction est à gauche
+    const startPosition = direction === "left" ? -lineLength : screenWidth; // Position de départ (gauche ou droite)
+    
+    // Calcul de la position de fin : la ligne doit sortir complètement de l'écran à gauche
+    const endPosition = direction === "left" ? screenWidth : -lineLength; // Sortie du côté opposé
+
+    // Définir la position de départ et de fin dans les variables CSS personnalisées
+    line.style.setProperty("--start-position", `${startPosition}px`);
+    line.style.setProperty("--end-position", `${endPosition}px`);
+
+    // Ajouter la ligne au conteneur
+    lineContainer.appendChild(line);
+
+    // Durée de l'animation aléatoire entre 3s et 7s
+    const duration = Math.floor(Math.random() * 10) + 5; // Durée de l'animation en secondes
+    line.style.setProperty("--animation-duration", `${duration}s`);
+
+    // Supprimer la ligne après l'animation
+    setTimeout(() => {
+      line.remove();
+    }, duration * 1000);
+  }
+
+  // Fonction pour générer une couleur aléatoire
+  function getRandomColor() {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  // Générer des lignes à intervalles réguliers
+  setInterval(createLine, lineInterval);
+});
+
+
+
+
+
+
