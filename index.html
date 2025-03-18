@@ -10,7 +10,7 @@
   <body x-data="{ burgerMenu: false, projectModal: false }" class="">
 
     <header class="">
-      <div class="navBar z-50 fixed top-0 w-full h-16 navbar transition-color ease-in-out duration-300 flex items-center " >
+      <div class="navBar z-50 fixed top-0 w-full h-16 flex items-center bg-transparent bg-opacity-80 " >
           <nav class="flex items-center gap-10 mx-6 md:mx-8 lg:mx-10 justify-between flex-row-reverse md:flex-row md:justify-start w-full">
               <div>
                 <h1 class="text-white text-2xl font-bold ftTest">Nicolas Carpita</h1>
@@ -63,10 +63,10 @@
 
     <main class="!max-w-screen !overflow-x-hidden relative">
       <!-- Home -->
-      <section id="homeSection" class="h-screen w-full relative flex items-center justify-center !overflow-hidden" style="background: rgb(0,21,33);background: linear-gradient(180deg, rgba(0,21,33,1) 0%, rgba(0,39,62,1) 57%, rgba(0,66,102,1) 100%);">
+      <section id="homeSection" class="h-screen w-full relative z-10 flex items-center justify-center" style="background: rgb(0,21,33);background: linear-gradient(180deg, rgba(0,21,33,1) 0%, rgba(0,39,62,1) 57%, rgba(0,66,102,1) 100%);">
 
 
-        <div class="galaxy-background absolute top-0 left-0 -mt-48 -ml-12 opacity-60 w-[calc(100vw+3rem)] h-screen">
+        <div class="galaxy-background absolute top-0 left-0 -mt-48 -ml-12 opacity-50 w-[calc(100vw+3rem)] h-screen">
           <svg id="milkyway" class="w-full" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 1920 1080" preserveaspectratio="xMidYMid slice">
             <defs>
               <radialGradient id="milkyway-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
@@ -155,39 +155,43 @@
           <h1 class="text-white text-5xl md:text-8xl font-bold text-center">Nicolas Carpita</h1>
           <p class="text-white font-semibold text-center text-xl md:text-2xl profession">Développeur FullStack</p>
           <div class="flex items-center justify-center mt-4 gap-4 z-40">
-            <div class="relative group">
+            <div class="relative group linkedin">
               <svg class="absolute top-0 left-0 h-12 fill opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-200 pointer-events-none" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#ED5565;" d="M512,255.996C512,397.389,397.404,512,256.004,512C114.627,512,0,397.389,0,255.996 C0,114.611,114.627,0,256.004,0C397.404,0,512,114.611,512,255.996z"></path> <g> <path style="fill:#DA4453;" d="M291.349,241.559c-37.845,7.953-75.751,9.008-112.658,3.148 c-29.906-4.742-59.282-14.008-87.313-27.531c-38.032-18.337-64.72-40.454-75.345-50.485c-2.72,7.258-5.095,14.68-7.157,22.234 c14.626,12.579,39.657,31.22,72.814,47.259c29.938,14.5,61.345,24.438,93.345,29.547c16.875,2.688,33.907,4.039,51.063,4.039 c23.094,0,46.407-2.445,69.626-7.328c74.501-15.656,131.463-13.898,166.151-9.664c24,2.922,40.906,7.406,50.031,10.273 c0.062-2.344,0.094-4.695,0.094-7.055c0-5.141-0.156-10.242-0.438-15.312c-10.5-2.93-25.906-6.438-45.906-8.938 C399.561,223.473,334.381,232.52,291.349,241.559z"></path> <path style="fill:#DA4453;" d="M503,323.56c-12.438,3.562-43.812,11.938-83.438,17.938c-85.118,12.906-142.307,5.188-175.276-3.562 c-74.095-19.657-135.689-17.032-174.347-11.376c-25.562,3.75-44.625,9.219-55.969,13.063c2.344,6.75,4.969,13.391,7.844,19.875 c10.562-3.5,28.438-8.547,52.125-11.953c36.501-5.25,94.721-7.594,164.878,11.016c28.219,7.484,59.907,11.234,94.689,11.234 c27.906,0,57.836-2.422,89.618-7.25c30.282-4.609,55.532-10.438,71.907-14.688C498.062,339.936,500.75,331.841,503,323.56z"></path> <path style="fill:#DA4453;" d="M355.287,454.968c-12.5-7.75-27.281-13-44.001-15.594c-20.281-3.172-43.501-2.422-69.001,2.219 c-72.657,13.25-155.877-1.141-165.628-2.922c9.657,9.469,20.032,18.172,31.063,26.048c34.376,3.875,88.063,7.031,138.377-2.126 c40.157-7.312,73.564-3.969,96.627,9.688c9.875,5.875,15.844,12.375,19.156,16.875c6.562-2.984,12.961-6.234,19.18-9.734 C376.904,473.062,368.975,463.468,355.287,454.968z"></path> <path style="fill:#DA4453;" d="M489.344,150.557c-14,1.61-48.438,4.993-89.783,4.907c-70.461-0.148-128.837-10.258-168.775-29.243 c-49.563-23.547-99.221-31.953-132.127-34.859c-14.719-1.297-27.376-1.656-37.313-1.617c-5.969,6.969-11.562,14.266-16.75,21.859 c19.281-1.18,98.752-3.297,177.034,33.883c43.469,20.649,103.408,31.18,178.213,31.305c0.438,0,0.875,0,1.312,0 c49.689,0,88.502-4.711,96.408-5.742C495.125,164.073,492.375,157.237,489.344,150.557z"></path> <path style="fill:#DA4453;" d="M436.968,74.931C402.123,74.986,326.631,72.58,284.13,52.36 c-39.157-18.633-90.502-28.336-125.627-33.133c-12.094,4.985-23.72,10.868-34.813,17.571c22.845,2.008,99.846,10.352,151.253,34.82 c45.845,21.806,122.431,24.696,159.807,24.696c11.095,0,18.72-0.258,21.095-0.344C449.938,88.611,443.656,81.587,436.968,74.931z"></path> <ellipse style="fill:#DA4453;" cx="170.69" cy="394.67" rx="64" ry="32"></ellipse> </g> </g></svg>
 
-              <svg viewBox="0 0 32 32" class="h-12 fill-zinc-300 absolute top-0 left-0 opacity-0 group-hover:opacity-100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="SVGRepo_iconCarrier">
-                  <!-- Rectangle ajusté pour remplir l'espace -->
-                  <rect x="0" y="0" width="32" height="32" rx="16" class="group-hover:fill-transparent transition-all ease-in-out duration-200"></rect>
-                  <path d="M12.6186 9.69215C12.6186 10.6267 11.8085 11.3843 10.8093 11.3843C9.81004 11.3843 9 10.6267 9 9.69215C9 8.7576 9.81004 8 10.8093 8C11.8085 8 12.6186 8.7576 12.6186 9.69215Z" fill="white"></path>
-                  <path d="M9.24742 12.6281H12.3402V22H9.24742V12.6281Z" fill="white" class="group-hover:fill-white"></path>
-                  <path d="M17.3196 12.6281H14.2268V22H17.3196C17.3196 22 17.3196 19.0496 17.3196 17.2049C17.3196 16.0976 17.6977 14.9855 19.2062 14.9855C20.911 14.9855 20.9008 16.4345 20.8928 17.5571C20.8824 19.0244 20.9072 20.5219 20.9072 22H24V17.0537C23.9738 13.8954 23.1508 12.4401 20.4433 12.4401C18.8354 12.4401 17.8387 13.1701 17.3196 13.8305V12.6281Z" fill="white"></path>
-                </g>
-              </svg>
+              <img src="Images/linkedin-center.png" alt="" class="h-12 absolute top-0 left-0 opacity-0 scale-[120%] group-hover:opacity-100 transition-all ease-in-out duration-200">
 
-              <svg id="linkedin-logo" class="h-12 fill-zinc-300 group-hover:opacity-0 transition-all ease-in-out duration-300" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M41.4,508.1H-8.5V348.4h49.9 V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7c18.4,0,29.7,11.9,30.1,27.7 C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4c-14.9,0-23.2,10-27,19.6 c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6c35.5,0,63.3,23,63.3,72.4V508.1z "></path> </g></svg>
+              <img src="Images/linkedin-test.png" alt="" class="emptyLogo h-12 group-hover:opacity-0 transition-all ease-in-out duration-200">
 
               
             </div>
 
+            <div class="relative group instagram">
+              <svg class="absolute top-0 left-0 h-12 fill opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-200 pointer-events-none" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#5D9CEC;" d="M511.996,256c0,141.375-114.594,256-255.992,256c-141.391,0-256-114.625-256-256 c0-141.391,114.609-256,256-256C397.402,0,511.996,114.609,511.996,256z"></path> <g> <path style="fill:#4A89DC;" d="M288.004,128H34.254c-4,6.906-7.688,14.031-11.031,21.328h264.781 c5.891,0,10.672-4.781,10.672-10.672S293.895,128,288.004,128z"></path> <path style="fill:#4A89DC;" d="M463.965,405.328H266.676c-5.891,0-10.672,4.781-10.672,10.672s4.781,10.656,10.672,10.656h180.133 C452.902,419.875,458.621,412.75,463.965,405.328z"></path> <path style="fill:#4A89DC;" d="M149.332,341.328H14.566c2.578,7.266,5.469,14.391,8.656,21.328h126.109 c5.891,0,10.672-4.766,10.672-10.656S155.223,341.328,149.332,341.328z"></path> <path style="fill:#4A89DC;" d="M362.676,266.656c0,5.891,4.766,10.672,10.656,10.672h137.789 c0.594-7.031,0.875-14.141,0.875-21.328H373.332C367.441,256,362.676,260.766,362.676,266.656z"></path> <path style="fill:#4A89DC;" d="M74.676,245.328c0-5.891-4.781-10.672-10.672-10.672H0.879C0.301,241.703,0.004,248.812,0.004,256 h64C69.895,256,74.676,251.219,74.676,245.328z"></path> <path style="fill:#4A89DC;" d="M181.332,64c5.891,0,10.672-4.781,10.672-10.672s-4.781-10.672-10.672-10.672h-66.875 C104.707,49.141,95.426,56.281,86.676,64H181.332z"></path> <path style="fill:#4A89DC;" d="M341.332,266.656c0,17.688-28.641,32-64,32c-35.344,0-64-14.312-64-32c0-17.672,28.656-32,64-32 C312.691,234.656,341.332,248.984,341.332,266.656z"></path> </g> </g></svg>
+              
+              <img src="Images/instagram-logo.png" alt="" class="h-12 absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-200">
 
-            <svg fill="#ffffff"  class="h-12 fill-zinc-300 hover:fill-white transition-all ease-in-out duration-200 " version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M113,446c24.8,0,45.1-20.2,45.1-45.1c0-9.8-3.2-18.9-8.5-26.3c-8.2-11.3-21.5-18.8-36.5-18.8s-28.3,7.4-36.5,18.8 c-5.3,7.4-8.5,16.5-8.5,26.3C68,425.8,88.2,446,113,446z"></path> <polygon points="211.4,345.9 211.4,308.1 211.4,302.5 205.8,302.5 168,302.6 168.2,346 "></polygon> <path d="M183,401c0,38.6-31.4,70-70,70c-38.6,0-70-31.4-70-70c0-9.3,1.9-18.2,5.2-26.3H10v104.8C10,493,21,504,34.5,504h157 c13.5,0,24.5-11,24.5-24.5V374.7h-38.2C181.2,382.8,183,391.7,183,401z"></path> <path d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M241,374.7v104.8 c0,27.3-22.2,49.5-49.5,49.5h-157C7.2,529-15,506.8-15,479.5V374.7v-52.3c0-27.3,22.2-49.5,49.5-49.5h157 c27.3,0,49.5,22.2,49.5,49.5V374.7z"></path> </g> </g></svg>
+              <img src="Images/instagram-empty.png" alt="" class="emptyLogo h-12 group-hover:opacity-0 transition-all ease-in-out duration-200">
 
-            <svg viewBox="0 0 20 20" class="h-12 group" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>github [#142]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" class="fill-zinc-300 group-hover:fill-white transition-all ease-in-out duration-200"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]"> </path> </g> </g> </g> </g></svg>
+
+            </div>
+            
+            <div class="relative group github overflow-hidden">
+              <svg class="absolute top-0 left-0 h-12 fill opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-200 pointer-events-none" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.008 512.008" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#FC6E51;" d="M512.004,256.004c0,141.393-114.596,256.004-255.996,256.004 c-141.385,0-256.004-114.611-256.004-256.004C0.004,114.627,114.623,0,256.008,0C397.408,0,512.004,114.627,512.004,256.004z"></path> <g> <path style="fill:#E9573F;" d="M448.003,213.347c0,29.454-28.656,53.329-64.001,53.329c-35.336,0-63.993-23.875-63.993-53.329 c0-29.469,28.657-53.344,63.993-53.344C419.347,160.003,448.003,183.878,448.003,213.347z"></path> <path style="fill:#E9573F;" d="M227.016,384.006c0,17.672-19.102,32-42.665,32c-23.562,0-42.672-14.328-42.672-32 s19.11-32,42.672-32C207.914,352.006,227.016,366.334,227.016,384.006z"></path> <path style="fill:#E9573F;" d="M163.827,234.676c0,23.562-23.876,42.672-53.329,42.672c-29.461,0-53.337-19.109-53.337-42.672 s23.875-42.673,53.337-42.673C139.951,192.003,163.827,211.112,163.827,234.676z"></path> <path style="fill:#E9573F;" d="M320.009,96.002c-1.156,0-2.281,0.203-3.312,0.531c-0.5,0.172-50.376,16.344-104.251,20.875 c-51.946,4.359-86.619-7.797-106.564-18.766c-18.321-10.062-27.93-21-30.431-24.11c-5.078,5.047-9.945,10.312-14.586,15.782 c5.094,5.781,15.859,16.422,33.407,26.282c32.148,18.094,67.829,23.031,97.188,23.031c8.148,0,15.813-0.375,22.774-0.969 c55.274-4.641,105.228-20.594,109.087-21.859c4.266-1.391,7.359-5.391,7.359-10.125C330.681,100.783,325.9,96.002,320.009,96.002z"></path> <path style="fill:#E9573F;" d="M506.848,307.442c-9.469,1.922-59.407,11.781-108.689,15.922 c-100.806,8.469-136.057-12.125-136.4-12.328c-1.656-1.062-3.625-1.688-5.75-1.688c-5.891,0-10.672,4.766-10.672,10.656 c0,3.781,1.969,7.094,4.922,8.984c1.078,0.703,11.297,6.953,34.906,11.829c19.188,3.969,41.454,5.953,66.58,5.953 c15.062,0,31.164-0.719,48.195-2.141c40.595-3.406,81.596-10.595,101.127-14.313C503.316,322.833,505.254,315.208,506.848,307.442z "></path> <path style="fill:#E9573F;" d="M343.541,416.006c-2.094,0-4.031,0.609-5.672,1.641c-0.469,0.297-47.345,29.36-99.705,33.751 c-53.696,4.5-100.025-2.891-129.439-9.875c-18.235-4.344-32.407-9.062-41.259-12.345c11.266,12.267,23.711,23.423,37.149,33.298 c24.422,5.751,59.423,11.626,100.376,11.626c11.235,0,22.923-0.438,34.954-1.453c57.673-4.828,107.189-35.642,109.268-36.938 c3-1.891,4.984-5.235,4.984-9.032C354.197,420.787,349.432,416.006,343.541,416.006z"></path> </g> </g></svg>
+
+              <img src="Images/github-logo.png" alt="" class="h-12 absolute -bottom-[5px] left-[2px] opacity-0 scale-[75%] group-hover:opacity-100 transition-all ease-in-out duration-200">
+              <img src="Images/github-empty.png" alt="" class="emptyLogo h-12 group-hover:opacity-0 transition-all ease-in-out duration-200">
+            </div>
           </div>
         </div>
         <div class="size-[200px] rounded-full bg-amber-100 absolute moon z-10 left-0 bottom-0" :style="'left: -' + $el.offsetWidth + 'px;'"></div>
         
 
-        
+        <!-- Cloud Layer 3 -->
 
-        <svg xmlns="http://www.w3.org/2000/svg" class="absolute -bottom-4 min-w-full h-full left-0 bg-transparent z-30 pointer-events-none" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1440" height="560" preserveAspectRatio="none" viewBox="0 0 1440 560">
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute -bottom-6 min-w-full h-full left-0 bg-transparent z-30 pointer-events-none" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"  preserveAspectRatio="none" viewBox="0 0 1440 560">
           <g mask="url(&quot;#SvgjsMask1001&quot;)" fill="none">
               <!-- <path d="M1488 560L0 560 L0 321.9Q83.73 285.63, 120 369.36Q169.87 299.23, 240 349.1Q243.3 280.4, 312 283.71Q377.58 229.29, 432 294.88Q514.37 257.25, 552 339.61Q622.04 289.65, 672 359.69Q704.36 272.04, 792 304.4Q821.2 261.6, 864 290.8Q951.93 258.73, 984 346.66Q1037.63 280.3, 1104 333.93Q1184.52 294.45, 1224 374.97Q1228.26 307.23, 1296 311.48Q1349.21 244.69, 1416 297.9Q1479.97 289.87, 1488 353.84z" class="fill-zinc-600/80"></path> -->
-              <path d="M1464 560L0 560 L0 356.62Q97.78 334.4, 120 432.19Q135.69 375.88, 192 391.58Q234.28 361.86, 264 404.13Q339.57 359.7, 384 435.28Q387.07 366.35, 456 369.42Q507.88 301.3, 576 353.18Q652.93 310.12, 696 387.05Q763.85 334.89, 816 402.74Q858.38 373.12, 888 415.5Q909.33 364.83, 960 386.16Q1026.8 332.96, 1080 399.75Q1153.83 353.57, 1200 427.4Q1201.56 356.96, 1272 358.52Q1337.26 303.78, 1392 369.04Q1451.7 356.74, 1464 416.44z" class="fill-zinc-400/92 backdrop-blur-md"></path>
+              <path d="M1464 560L0 560 L0 356.62Q97.78 334.4, 120 432.19Q135.69 375.88, 192 391.58Q234.28 361.86, 264 404.13Q339.57 359.7, 384 435.28Q387.07 366.35, 456 369.42Q507.88 301.3, 576 353.18Q652.93 310.12, 696 387.05Q763.85 334.89, 816 402.74Q858.38 373.12, 888 415.5Q909.33 364.83, 960 386.16Q1026.8 332.96, 1080 399.75Q1153.83 353.57, 1200 427.4Q1201.56 356.96, 1272 358.52Q1337.26 303.78, 1392 369.04Q1451.7 356.74, 1464 416.44z" class="fill-zinc-400/92 backdrop-blur-md cloudLayer3"></path>
           </g>
           <defs>
               <mask id="SvgjsMask1001">
@@ -198,7 +202,7 @@
 
 
         <!-- Cloud Layer 2 -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="absolute bottom-0 min-w-full h-full left-0 bg-transparent z-40 pointer-events-none" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1440" height="560" preserveAspectRatio="none" viewBox="0 0 1440 560">
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute bottom-0 min-w-full h-full left-0 bg-transparent z-40 pointer-events-none" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" preserveAspectRatio="none" viewBox="0 0 1440 560">
           <g mask="url(&quot;#SvgjsMask1001&quot;)" fill="none">
               <path d="M1464 560L0 560 L0 459.76Q33.95 421.71, 72 455.66Q99.92 411.58, 144 439.49Q201.98 425.47, 216 483.44Q287.34 434.78, 336 506.12Q349.22 447.34, 408 460.55Q434.57 415.12, 480 441.69Q570.63 412.32, 600 502.96Q635.27 418.24, 720 453.51Q794.73 408.24, 840 482.96Q906.69 429.65, 960 496.34Q970.99 435.33, 1032 446.32Q1081.12 375.44, 1152 424.56Q1230.49 383.06, 1272 461.55Q1298.23 415.78, 1344 442.02Q1397.88 375.89, 1464 429.77z" class="fill-zinc-300/96 z-10"></path>
           </g>
@@ -210,9 +214,11 @@
         </svg>
 
         <!-- Cloud Layer 1 -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="absolute bottom-0 min-w-full h-full left-0 bg-transparent z-50 pointer-events-none" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1440" height="560" preserveAspectRatio="none" viewBox="0 0 1440 560">
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute bottom-0 min-w-full h-full left-0 bg-transparent z-50 pointer-events-none" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"  preserveAspectRatio="none" viewBox="0 0 1440 560">
           <g mask="url(&quot;#SvgjsMask1001&quot;)" fill="none">
-              <path d="M1512 560L0 560 L0 498.76Q86.34 465.1, 120 551.43Q150.95 510.38, 192 541.32Q274.71 504.03, 312 586.73Q312.22 514.95, 384 515.17Q409.45 468.62, 456 494.06Q511.45 477.51, 528 532.97Q554.91 487.88, 600 514.79Q683.66 478.45, 720 562.12Q747.49 517.61, 792 545.09Q833.26 466.35, 912 507.61Q965.64 441.25, 1032 494.9Q1092.75 483.65, 1104 544.4Q1127.12 495.52, 1176 518.64Q1231.88 502.52, 1248 558.4Q1253.12 491.52, 1320 496.64Q1386.53 443.17, 1440 509.71Q1481.38 479.09, 1512 520.46z" fill="white" class="relative z-50"></path>
+              <!-- <path d="M1512 560L0 560 L0 498.76Q86.34 465.1, 120 551.43Q150.95 510.38, 192 541.32Q274.71 504.03, 312 586.73Q312.22 514.95, 384 515.17Q409.45 468.62, 456 494.06Q511.45 477.51, 528 532.97Q554.91 487.88, 600 514.79Q683.66 478.45, 720 562.12Q747.49 517.61, 792 545.09Q833.26 466.35, 912 507.61Q965.64 441.25, 1032 494.9Q1092.75 483.65, 1104 544.4Q1127.12 495.52, 1176 518.64Q1231.88 502.52, 1248 558.4Q1253.12 491.52, 1320 496.64Q1386.53 443.17, 1440 509.71Q1481.38 479.09, 1512 520.46z" fill="white" class="relative z-50"></path> -->
+              <rect  x="0" y="0"></rect>
+              <path d="M1464 560L0 560 L0 459.11Q70.21 457.32, 72 527.54Q88.7 472.24, 144 488.93Q216.52 441.45, 264 513.96Q291.2 421.16, 384 448.36Q432.5 424.87, 456 473.37Q546.73 444.1, 576 534.83Q618.83 457.66, 696 500.49Q786.1 470.59, 816 560.68Q841.29 513.97, 888 539.27Q911.54 490.81, 960 514.35Q984.38 466.73, 1032 491.11Q1050.02 437.13, 1104 455.16Q1187.75 418.91, 1224 502.66Q1317.58 476.24, 1344 569.81Q1363.19 469, 1464 488.19z" fill="rgba(255, 255, 255, 1)" class="cloudLayer1"></path>
           </g>
           <defs>
               <mask id="SvgjsMask1001">
@@ -220,6 +226,7 @@
               </mask>
           </defs>
         </svg>
+
 
 
         <svg id="starrySky" class="absolute top-0 left-0" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"></svg>
@@ -235,16 +242,21 @@
 
       </section>
       <!-- A propos de moi B -->
-      <section class="min-h-screen w-full bg-white text-black z-50 presentationSection pt-48">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center presentationTitle " id="">A propos de moi</h1>
-        <div class="w-[950px] skillsContent mx-auto flex flex-col gap-4">
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur nesciunt repudiandae dignissimos facere sunt qui, ea blanditiis incidunt earum praesentium voluptates ratione quod sit assumenda unde, expedita suscipit recusandae. Exercitationem.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eaque nemo atque consectetur soluta illo dignissimos voluptatibus consequatur quisquam, reiciendis, pariatur officia excepturi dolorum molestias eos commodi, repellendus accusamus et!</p>
+      <section class=" w-full bg-white text-black relative presentationSection py-24 z-20">
+        <div class="w-[1170px] max-w-[95%] presentationContent flex mx-auto mt-24 gap-4 justify-center items-center bg-zinc-100/60 p-[50px] rounded shadow">
+          <div class="flex flex-col w-[70%] gap-4">
+            <h1 class="text-4xl font-semibold mb-4">Presentation</h1>
+            <p>Je m'appelle Nicolas Carpita et vous souhaite la bienvenue sur mon portfolio. J'ai 26 ans et porte depuis toujours un intêret envers le monde du numérique. D'un naturel curieux, j'ai longtemps cherché quelle voie suivre pour construire une carrière professionnelle. C'est en 2023 que je décide, après plusieurs années à travailler en tant qu'opérateur logistique, que j'ai décidé de franchir le pas et suivre un BTS SIO (option SLAM) pour découvrir la programmation et ainsi m'ouvrir de nouvelles perspectives d'avenir.</p>
+            <p>En dehors de l'aspect professionnel, j'aime particulièrement le cinéma, les jeux vidéos (ainsi que tout autres formes d'art bien sûr) et suis adepte de la randonnée/trek en haute montagne, ou toute autre activité qui prône un certain dépassement de soi.</p>
+          </div>
+          <div class="w-[30%] overflow-hidden relative shadow-inner h-80 rounded-sm">
+            <img src="Images/photo-perso.jpg" alt="" class="scale-[200%] absolute -left-[50%] bottom-[11%] presentationImage">
+          </div>
         </div>
         
       </section>
       <!-- Mon parcours W -->
-      <section class="py-16 two pb-0">
+      <section class="py-16 two pb-0 parcoursSec">
         <div class="w-full flex flex-col justify-center items-center">
           <div class="flex items-start gap-4">
             <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold pb-4">Mon parcours</h1>
@@ -262,60 +274,81 @@
                 <div class="timelineLabel bg-black max-sm:-left-[15px] sm:-right-[15px]">
                     <svg fill="#ffffff" width="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-q</title><polygon points="256 370.43 96 279 96 377.42 256 466.3 416 377.42 416 279 256 370.43"></polygon><polygon points="512.25 192 256 45.57 -0.25 192 256 338.43 464 219.57 464 384 512 384 512 192.14 512.25 192"></polygon></g></svg>
                 </div>
-                <div @click="$el.classList.toggle('!h-72'); $el.querySelector('.moreInfos').classList.toggle('opacity-0');setTimeout(() => { $el.querySelector('.moreInfos').classList.toggle('duration-500'); }, 500);" class="text-box left  text-white rounded-[6px] text-[15px] flex flex-col justify-between">
-                    <div>
+
+                <div class="text-box left transition-all ease-in-out duration-300 text-white rounded-[6px] text-[15px] flex flex-col justify-between" >
+                  <div class="absolute bottom-[12px] -right-[30px] h-[6px] w-[30px] bg-black"></div>
+                  <div class="w-full allInfos transition-all ease-in-out duration-300" :style="`max-height: ${$el.querySelector('.infos').offsetHeight}px`">
+                    <div class="infos">
                       <h2 class="font-bold text-2xl">IFC Avignon</h2>
                       <small>2023 - 2025</small>
                       <p>BTS Service informatique aux Organisations, option SLAM</p>
                     </div>
-                    <p class="moreInfos mt-4 text-sm opacity-0 transition-all ease-in-out duration-500">En suivant ce BTS orienté sur l'informatique, j'ai appris les bases du développement web et applicatif, en plus de solides connaissances en culture générale, en anglais ainsi qu'en droit, management et économie. </p>
+                    <p class="moreInfos pt-4 text-sm opacity-0 transition-all ease-in-out duration-300 scale-y-0">En suivant ce BTS orienté sur l'informatique, j'ai appris les bases du développement web et applicatif, en plus de solides connaissances en culture générale, en anglais ainsi qu'en droit, management et économie. </p>
+                  </div> 
                 </div>
             </div>
             <div class="timelineContainer max-sm:left-10 left-1/2">
                 <div class="timelineLabel -left-[15px] bg-black">
                     <svg viewBox="0 0 512 512" width="30px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>work-case-filled</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="work-case" fill="#ffffff" transform="translate(42.666667, 64.000000)"> <path d="M1.20792265e-13,197.76 C54.5835501,218.995667 112.186031,231.452204 170.666667,234.666667 L170.666667,277.333333 L256,277.333333 L256,234.666667 C314.339546,231.013 371.833936,218.86731 426.666667,198.613333 L426.666667,362.666667 L1.20792265e-13,362.666667 L1.20792265e-13,197.76 Z M277.333333,-1.42108547e-14 L298.666667,21.3333333 L298.666667,64 L426.666667,64 L426.666667,175.146667 C361.254942,199.569074 292.110481,212.488551 222.293333,213.333333 L222.293333,213.333333 L206.933333,213.333333 C136.179047,212.568604 66.119345,199.278929 7.10542736e-15,174.08 L7.10542736e-15,174.08 L7.10542736e-15,64 L128,64 L128,21.3333333 L149.333333,-1.42108547e-14 L277.333333,-1.42108547e-14 Z M256,42.6666667 L170.666667,42.6666667 L170.666667,64 L256,64 L256,42.6666667 Z" id="Combined-Shape-Copy"> </path> </g> </g> </g></svg>
                 </div>
-                <div @click="$el.classList.toggle('!h-72'); $el.querySelector('.moreInfos').classList.toggle('opacity-0');setTimeout(() => { $el.querySelector('.moreInfos').classList.toggle('duration-500'); }, 500);" class="text-box right text-white rounded-[6px] text-[15px] flex flex-col justify-between">
-                  <div class="">
-                    <h2 class="font-bold text-2xl">GREENLOG Aroma-Zone</h2>
-                    <small>2018 - 2024</small>
-                    <p>Opérateur d'expédition logistique</p>
+                <div class="text-box left transition-all ease-in-out duration-300 text-white rounded-[6px] text-[15px] flex flex-col justify-between">
+                  <div class="w-full allInfos transition-all ease-in-out duration-300" :style="`max-height: ${$el.querySelector('.infos').offsetHeight}px`">
+                    <div class="infos">
+                      <h2 class="font-bold text-2xl">GREENLOG Aroma-Zone</h2>
+                      <small>2018 - 2024</small>
+                      <p>Opérateur d'expédition logistique</p>
+                    </div>
+                    <p class="moreInfos pt-4 text-sm opacity-0 transition-all ease-in-out duration-300 scale-y-0">Mon travail en tant qu'opérateur logistique pendant plusieurs années m'a permis de me confronter au monde du travail, de développer ma capacité à travailler au sein d'une équipe, ainsi que de remplir les objectifs mis en place par l'entreprise, en touchant à plusieurs tâches relatives à la logistique (préparation de commandes, gestion de stock...) </p>
                   </div>
-                    <p class="moreInfos mt-4 text-sm opacity-0 transition-all ease-in-out duration-500">Mon travail en tant qu'opérateur logistique pendant plusieurs années m'a permis de me confronter au monde du travail, de développer ma capacité à travailler au sein d'une équipe, ainsi que de remplir les objectifs mis en place par l'entreprise, en touchant à plusieurs tâches relatives à la logistique (préparation de commandes, gestion de stock...) </p>
                 </div>
             </div>
             <div class="timelineContainer max-sm:left-10">
                 <div class="timelineLabel bg-black max-sm:-left-[15px] sm:-right-[15px]">
                     <svg fill="#ffffff" width="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-q</title><polygon points="256 370.43 96 279 96 377.42 256 466.3 416 377.42 416 279 256 370.43"></polygon><polygon points="512.25 192 256 45.57 -0.25 192 256 338.43 464 219.57 464 384 512 384 512 192.14 512.25 192"></polygon></g></svg>
                 </div>
-                <div @click="$el.classList.toggle('!h-72'); $el.querySelector('.moreInfos').classList.toggle('opacity-0'); $el.classList.toggle('bg-black');setTimeout(() => { $el.querySelector('.moreInfos').classList.toggle('duration-500'); }, 500);"  class="text-box left text-white rounded-[6px] text-[15px] flex flex-col justify-between">
-                  <div class="">
-                    <h2 class="font-bold text-2xl">Acfa Multimédia (Montpellier)</h2>
-                    <small>2016 - 2018</small>
-                    <p>Formation Sound Designer</p>
+                <div class="text-box right transition-all ease-in-out duration-300 text-white rounded-[6px] text-[15px] flex flex-col justify-between">
+                  <div class="w-full allInfos transition-all ease-in-out duration-300" :style="`max-height: ${$el.querySelector('.infos').offsetHeight}px`">
+                    <div class="infos">
+                      <h2 class="font-bold text-2xl">Acfa Multimédia (Montpellier)</h2>
+                      <small>2016 - 2018</small>
+                      <p>Formation Sound Designer</p>
+                    </div>
+                    <p class="moreInfos pt-4 text-sm opacity-0 transition-all ease-in-out duration-300 scale-y-0">En suivant ce BTS orienté sur l'informatique, j'ai appris les bases du développement web et applicatif, en plus de solides connaissances en culture générale, en anglais ainsi qu'en droit, management et économie. </p>
                   </div>
-                  <p class="moreInfos mt-4 text-sm opacity-0 transition-all ease-in-out duration-500">En suivant ce BTS orienté sur l'informatique, j'ai appris les bases du développement web et applicatif, en plus de solides connaissances en culture générale, en anglais ainsi qu'en droit, management et économie. </p>
                 </div>
             </div>
             <div class="timelineContainer max-sm:left-10 left-1/2">
                 <div class="timelineLabel bg-black -left-[15px]" @click="$el.classList.toggle('!h-72'); console.log('hello')">
                     <svg fill="#ffffff" width="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-q</title><polygon points="256 370.43 96 279 96 377.42 256 466.3 416 377.42 416 279 256 370.43"></polygon><polygon points="512.25 192 256 45.57 -0.25 192 256 338.43 464 219.57 464 384 512 384 512 192.14 512.25 192"></polygon></g></svg>
                 </div>
-                <div @click="$el.classList.toggle('!h-72'); $el.querySelector('.moreInfos').classList.toggle('opacity-0');setTimeout(() => { $el.querySelector('.moreInfos').classList.toggle('duration-500'); }, 500);" class="text-box right  text-white rounded-[6px] text-[15px] flex flex-col justify-between">
-                  <div>
-                    <h2 class="font-bold text-2xl">Lycée Ismael Dauphin</h2>
-                    <small>2014</small>
-                    <p>Baccalauréat scientifique (spécialisation Mathématiques)</p>
+                <div class="text-box right transition-all ease-in-out duration-300 text-white rounded-[6px] text-[15px] flex flex-col justify-between">
+                  <div class="w-full allInfos transition-all ease-in-out duration-300" :style="`max-height: ${$el.querySelector('.infos').offsetHeight}px`">
+                    <div class="infos">
+                      <h2 class="font-bold text-2xl">Lycée Ismael Dauphin</h2>
+                      <small>2014</small>
+                      <p>Baccalauréat scientifique (spécialisation Mathématiques)</p>
+                    </div>
+                    <p class="moreInfos pt-4 text-sm opacity-0 transition-all ease-in-out duration-300 scale-y-0">En suivant ce BTS orienté sur l'informatique, j'ai appris les bases du développement web et applicatif, en plus de solides connaissances en culture générale, en anglais ainsi qu'en droit, management et économie. </p>
                   </div>
-                  <p class="moreInfos mt-4 text-sm opacity-0 transition-all ease-in-out duration-500">En suivant ce BTS orienté sur l'informatique, j'ai appris les bases du développement web et applicatif, en plus de solides connaissances en culture générale, en anglais ainsi qu'en droit, management et économie. </p>
                 </div>
             </div>
         </div>
       </section>
       <!-- Mes connaissances B -->
-      <section class="min-h-screen flex justify-center items-center skillsSec">
-        <div class="skillsContent w-full h-full flex flex-col justify-center items-center">
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi dolor architecto aut nostrum natus? Vitae, ratione cupiditate quasi aliquam quisquam laboriosam aspernatur et libero quidem nemo velit, facere mollitia quibusdam similique earum sequi itaque fugit eos. Aperiam temporibus natus reprehenderit aut, optio nam facere quia, debitis expedita deleniti architecto iste exercitationem consequuntur veniam dicta tempora necessitatibus mollitia dolorum qui consequatur assumenda odio asperiores? Molestias, natus optio fugit, sint consequatur illo tempora nihil velit voluptates eveniet adipisci veritatis, sit ut harum sequi. Inventore quia obcaecati ducimus animi architecto vel quibusdam ad! Sunt debitis unde mollitia ullam. Laborum, numquam corrupti sequi, illo nihil, dolorem voluptatem laudantium voluptas quis asperiores quibusdam rem. Molestias obcaecati totam odio officiis nobis excepturi doloribus, explicabo neque veritatis harum inventore id sapiente ut dolore fugiat dicta perspiciatis illum iste deserunt exercitationem. Vero aspernatur nobis esse aliquam inventore quo numquam perferendis accusantium sapiente deleniti ullam exercitationem eum, veniam debitis quisquam maxime officiis facere. Aut corrupti aliquam blanditiis magnam molestias voluptatibus commodi iste itaque enim nostrum vitae autem error dolorem sunt dignissimos doloremque saepe ipsum, neque architecto. Doloremque ad suscipit id placeat dolorem rerum quasi ab dignissimos fugiat, dicta quam dolor? Quo atque labore fugit esse unde repudiandae ducimus nihil.</p>
+      <section class="min-h-screen skillsSec py-24 ">
+        <div class="skillsSecTitle w-full flex flex-col justify-center items-center pt-24">
+          <h1 class="font-bold text-5xl sm:text-4xl md:text-6xl mb-4 sm:mb-3 text-center opacity-0">Mes Compétences</h1>
+          <p class="text-white/50 font-semibold max-sm:text-sm text-center md:mb-16 opacity-0 blur-2xl">Les compétences que j'ai acquises en cours de formation et en entreprise</p>
+        </div>
+        <div class="skillsContent h-full flex flex-col justify-center items-center w-[950px] max-w-[95%] mx-auto">
+          <h2 class="text-2xl font-semibold mb-4 text-white">Languages de programmation</h2>
+          <div class="flex justify-between w-full">
+            <div class="w-[63%] h-72 bg-red-600 rounded-xs"></div>
+            <div class="w-[36%] h-72 bg-yellow-400 rounded-xs"></div>
+          </div>
+          <div class="w-full h-72 bg-green-600 mt-[1%] rounded-xs"></div>
+          <h2 class="text-2xl font-semibold mb-4 mt-12 text-white">Les logiciels que j'utilise</h2>
+          <div class="w-full h-72 bg-sky-600 rounded-xs"></div>
         </div>
         
       </section>
@@ -779,6 +812,8 @@
     </section>
 
     <script type="module" src="/src/main.js"></script>
+
+
   </body>
 </html>
 

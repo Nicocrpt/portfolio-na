@@ -34,7 +34,6 @@ gsap.to('#homeSection', {
   scrollTrigger: {
     trigger: '#homeSection',
     start: "top",
-    markers: true,
     end:`top+=${document.querySelector('#homeSection').offsetHeight/4}px`,
     scrub: 1,
     pin: true,
@@ -46,21 +45,31 @@ homeTl.to('.mainTitle', {y: 1000, duration: 10, ease: "sine.inOut"})
 .to('.moon', {
   motionPath: {
     path: [
-      { x: 0, y: 0 },
+      { x: 0, y: 0,  },
       
-      { x: `${window.innerWidth/2}px`, y: `-${window.innerHeight - document.querySelector('.moon').offsetHeight*1.5}px` }, // Point culminant (centre haut)
-      { x: `${window.innerWidth + document.querySelector('.moon').offsetHeight}px`, y: 0 },
+      { x: `${window.innerWidth/2+document.querySelector('.moon').offsetWidth}px`, y: `-${window.innerHeight - document.querySelector('.moon').offsetHeight*1.5}px` }, // Point culminant (centre haut)
+      { x: `${window.innerWidth + document.querySelector('.moon').offsetWidth}px`, y: 0 },
        // Point de départ (en bas à gauche)
       // Point final (en bas à droite)
     ], // L'intensité de l'arc
     autoRotate: true,
-    curviness: 1 // Si on veut que l'élément suive l'orientation de la trajectoire
+    curviness: 2,
   },
   duration: 8, // Temps total pour l'animation (scrub prend en charge la vitesse liée au scroll)
 }, "-=10");
 
 
-
+gsap.to('.navBar', {
+  scrollTrigger: {
+    trigger: '.cloudLayer3',
+    scrub: true,
+    start: `top+=${document.querySelector('#homeSection').offsetHeight/4}px ${document.querySelector('.navBar').offsetHeight}px`,
+    end: `top+=${(document.querySelector('#homeSection').offsetHeight/4) + (document.querySelector('.cloudLayer1').getBoundingClientRect().top - document.querySelector('.cloudLayer3').getBoundingClientRect().top)}px ${document.querySelector('.navBar').offsetHeight}px`
+  },
+  backgroundColor: "black",
+  ease: "power2.inOut",
+  backdropFilter: "blur(10px)",
+})
 
 const timeline = gsap.timeline({
   scrollTrigger: {
@@ -71,9 +80,16 @@ const timeline = gsap.timeline({
   }
 })
 
-timeline.to('.skillsTitle', {opacity:1,filter: "blur(0px)" , duration: 2, })
-// .to('.skillsTitle', {opacity:1, duration: 6})
-// .to('.skillsTitle', {opacity:0, duration: 1})
+gsap.to('.presentationImage', {
+  scrollTrigger: {
+    trigger: '.presentationImage',
+    start: `top+=${document.querySelector('.presentationImage').closest('div').offsetHeight/2}px 100%`,
+    end: `top+=${document.querySelector('.presentationImage').closest('div').offsetHeight/2}px 20%`,
+    scrub: 0.5,
+    force3D: false
+  },
+  y: -(document.querySelector('.presentationImage').getBoundingClientRect().bottom - document.querySelector('.presentationImage').closest('div').getBoundingClientRect().bottom)
+})
 
 
 
@@ -142,7 +158,134 @@ items.forEach(function (item) {
   })
 })
 
+function updateHeights() {
+  document.querySelectorAll('.allInfos').forEach(container => {
+    const infos = container.querySelector('.infos');
+    const moreInfos = container.querySelector('.moreInfos');
+    
+    if (container.style.maxHeight !== `${infos.offsetHeight}px`) {
+      container.style.maxHeight = `${infos.offsetHeight + moreInfos.offsetHeight}px`;
+    } else {
+      container.style.maxHeight = `${infos.offsetHeight}px`;
+    }
+  });
+}
 
+function toggleInfo(element) {
+  const container = element.querySelector('.allInfos');
+  const infos = element.querySelector('.infos');
+  const moreInfos = element.querySelector('.moreInfos');
+
+  if (container.style.maxHeight === `${infos.offsetHeight}px`) {
+    container.style.maxHeight = `${infos.offsetHeight + moreInfos.offsetHeight}px`;
+  } else {
+    container.style.maxHeight = `${infos.offsetHeight}px`;
+  }
+  moreInfos.classList.toggle('opacity-0');
+  moreInfos.classList.toggle('scale-y-0');
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  const textBoxes = document.querySelectorAll('.text-box');
+  
+  textBoxes.forEach(function(element) {
+    element.addEventListener('click', function() {
+      toggleInfo(element); // Appelle la fonction toggleInfo avec l'élément cliqué
+    });
+  });
+});
+
+window.addEventListener('resize', updateHeights);
+
+
+// SECTION COMPETENCES
+
+gsap.to('.skillsSecTitle h1', {
+  scrollTrigger: {
+    trigger: '.skillsSecTitle h1',
+    start: "top 80%",
+    end: "bottom 80%",
+    scrub: true,
+    force3D: false
+  },
+  opacity: 1
+})
+gsap.to('.skillsSecTitle p', {
+  scrollTrigger: {
+    trigger: '.skillsSecTitle h1',
+    start: "top 80%",
+    end: "bottom 80%",
+    scrub: true,
+    force3D: false
+  },
+  delay: 0.5,
+  opacity: 1,
+  filter: "blur(0px)",
+  y:0
+})
+
+let skillsCounter = 0
+
+gsap.to('.timeline', {
+  scrollTrigger: {
+    trigger: '.skillsSecTitle',
+    onUpdate: self => {
+      console.log(getVisiblePercentage(document.querySelector('.timeline')))
+      if (getVisiblePercentage(document.querySelector('.timeline')) < 50 && skillsCounter === 0) {
+        skillsCounter = 1
+        gsap.to('.timeline', {
+          scrollTrigger: {
+            markers: true,
+            trigger: '.skillsSecTitle',
+            start: `top ${document.querySelector('.skillsSecTitle').getBoundingClientRect().top}px`,
+            end: `top ${document.querySelector('.skillsSecTitle').getBoundingClientRect().top/1.5}px`,
+            scrub: true,
+            force3D: false
+          },
+          opacity: 0
+        })
+      }
+      if (document.querySelector('.timeline').style.opacity === '0' && skillsCounter === 1) {
+        skillsCounter = 2
+        gsap.to('.parcoursSec', {
+          scrollTrigger: {
+            markers: true,
+            trigger: '.skillsSecTitle',
+            start: `top ${document.querySelector('.skillsSecTitle').getBoundingClientRect().top}px`,
+            end: `top ${document.querySelector('.skillsSecTitle').getBoundingClientRect().top/3}px`,
+            scrub: true,
+            force3D: false
+          },
+          backgroundColor: "black",
+        })
+
+        gsap.to('.skillsSec', {
+          scrollTrigger: {
+            markers: true,
+            trigger: '.skillsSecTitle',
+            start: `top ${document.querySelector('.skillsSecTitle').getBoundingClientRect().top}px`,
+            end: `top ${document.querySelector('.skillsSecTitle').getBoundingClientRect().top/3}px`,
+            scrub: true,
+            force3D: false
+          },
+          backgroundColor: "black",
+        })
+
+        gsap.to('.skillsSecTitle h1', {
+          scrollTrigger: {
+            markers: true,
+            trigger: '.skillsSecTitle',
+            start: `top ${document.querySelector('.skillsSecTitle').getBoundingClientRect().top}px`,
+            end: `top ${document.querySelector('.skillsSecTitle').getBoundingClientRect().top/3}px`,
+            scrub: true,
+            force3D: false
+          },
+          color: "white"
+        })
+      }
+    }
+  }
+})
 
 
 // SECTION COMPANY
