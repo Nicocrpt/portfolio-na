@@ -67,30 +67,51 @@ const homeTl = gsap.timeline(
   }
 );
 
-gsap.to('#homeSection', {
+gsap.to('.homeBackground', {
   scrollTrigger: {
-    trigger: '#homeSection',
-    start: "top",
-    end:`top+=${document.querySelector('#homeSection').offsetHeight/4}px`,
+    trigger: '.homeBackground',
+    start: "bottom 100%",
+    end:`bottom`,
     scrub: true,
     pin: true,
-    pinSpacing: true
+    pinSpacing: false
+  }
+})
+gsap.to('.homeBackground', {
+  scrollTrigger: {
+    trigger: '.homeBackground',
+    start: `top+=${document.querySelector('.homeBackground').offsetHeight/4}px ${document.querySelector('.homeBackground').offsetHeight/4} `,
+    end:`bottom+=${document.querySelector('#homeSection').offsetHeight/4}px`,
+    scrub: true
   },
-  // onComplete : () => {
-  //   gsap.to('.cloudLayer3', {
-  //     scrollTrigger : {
-  //       trigger : '.cloudLayer3',
-  //       start: `top ${document.querySelector('.cloudLayer3').getBoundingClientRect().top}px`,
-  //       end: `top 0%`,
-  //       markers: true,
-  //       scrub: true,
-  //     },
-  //     y: 50
-  //   })
-  // }
+  y: document.querySelector('.homeBackground').offsetHeight - document.querySelector('#homeSection').offsetHeight,
+  ease: "linear"
+})
+gsap.to('.cloudLayer3', {
+  scrollTrigger: {
+    trigger: '.cloudLayer3',
+    start: `top ${document.querySelector('.cloudLayer3').getBoundingClientRect().top}px`,
+    end:`bottom ${document.querySelector('.cloudLayer3').getBoundingClientRect().top *(0/100)}px`,
+    scrub: true,
+    force3D: false
+  },
+  y: `${(window.innerHeight - document.querySelector('.cloudLayer3').getBoundingClientRect().top)/3}px` ,
+  ease: "linear",
+})
+gsap.to('.cloudLayer2', {
+  scrollTrigger: {
+    trigger: '.cloudLayer2',
+    start: `top ${document.querySelector('.cloudLayer3').getBoundingClientRect().top}px`,
+    end:`bottom ${document.querySelector('.cloudLayer3').getBoundingClientRect().top *(0/100)}px`,
+    scrub: true,
+    force3D: false
+  },
+  y: `${(window.innerHeight - document.querySelector('.cloudLayer2').getBoundingClientRect().top)/4}px`,
+  ease: "linear",
 })
 
-homeTl.to('.mainTitle', {y: 1000, duration: 10, ease: "sine.inOut"})
+
+homeTl.to('.mainTitle', {y: 2000, duration: 10, ease: "power2.inOut"})
 .to('.moon', {
   motionPath: {
     path: [
@@ -145,32 +166,6 @@ gsap.to('.presentationImage', {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*-------------------------------------
 TimeLine
 -------------------------------------*/
@@ -209,7 +204,6 @@ items.forEach(function (item) {
     },
   })
 })
-
 function updateHeights() {
   document.querySelectorAll('.allInfos').forEach(container => {
     const infos = container.querySelector('.infos');
@@ -222,7 +216,6 @@ function updateHeights() {
     }
   });
 }
-
 function toggleInfo(element) {
   const container = element.querySelector('.allInfos');
   const infos = element.querySelector('.infos');
@@ -245,9 +238,10 @@ document.addEventListener("DOMContentLoaded", function() {
       toggleInfo(element); // Appelle la fonction toggleInfo avec l'élément cliqué
     });
   });
+  window.addEventListener('resize', updateHeights);
 });
 
-window.addEventListener('resize', updateHeights);
+
 
 
 // SECTION COMPETENCES
@@ -276,18 +270,42 @@ gsap.to('.skillsSecTitle p', {
   y:0
 })
 
-let skillsCounter = 0
+gsap.to('.gradientBackground', {
+  scrollTrigger: {
+    trigger: '.presentationSection',
+    start: "top",
+    end: "bottom 100%",
+    scrub: true,
+    force3D: false
+  },
+    opacity:1,
+  ease : "power3.in"
+})
 
+gsap.to('.clouds', {
+  scrollTrigger: {
+    trigger: '.presentationSection',
+    start: "top",
+    markers: true,
+    end: "bottom 90%",
+    scrub: 1,
+    force3D: false
+  },
+  opacity:0.8,
+  ease : "power3.in"
+})
+
+
+let skillsCounter = 0
 gsap.to('.timeline', {
   scrollTrigger: {
     trigger: '.skillsSecTitle',
     onUpdate: self => {
       console.log(getVisiblePercentage(document.querySelector('.timeline')))
-      if (getVisiblePercentage(document.querySelector('.timeline')) < 50 && skillsCounter === 0) {
+      if (getVisiblePercentage(document.querySelector('.timeline')) < 60 && skillsCounter === 0) {
         skillsCounter = 1
         gsap.to('.timeline', {
           scrollTrigger: {
-            markers: true,
             trigger: '.skillsSecTitle',
             start: `top ${document.querySelector('.skillsSecTitle').getBoundingClientRect().top}px`,
             end: `top ${document.querySelector('.skillsSecTitle').getBoundingClientRect().top/1.5}px`,
@@ -295,44 +313,6 @@ gsap.to('.timeline', {
             force3D: false
           },
           opacity: 0
-        })
-      }
-      if (document.querySelector('.timeline').style.opacity === '0' && skillsCounter === 1) {
-        skillsCounter = 2
-        gsap.to('.parcoursSec', {
-          scrollTrigger: {
-            markers: true,
-            trigger: '.skillsSecTitle',
-            start: `top ${document.querySelector('.skillsSecTitle').getBoundingClientRect().top}px`,
-            end: `top ${document.querySelector('.skillsSecTitle').getBoundingClientRect().top/3}px`,
-            scrub: true,
-            force3D: false
-          },
-          backgroundColor: "black",
-        })
-
-        gsap.to('.skillsSec', {
-          scrollTrigger: {
-            markers: true,
-            trigger: '.skillsSecTitle',
-            start: `top ${document.querySelector('.skillsSecTitle').getBoundingClientRect().top}px`,
-            end: `top ${document.querySelector('.skillsSecTitle').getBoundingClientRect().top/3}px`,
-            scrub: true,
-            force3D: false
-          },
-          backgroundColor: "black",
-        })
-
-        gsap.to('.skillsSecTitle h1', {
-          scrollTrigger: {
-            markers: true,
-            trigger: '.skillsSecTitle',
-            start: `top ${document.querySelector('.skillsSecTitle').getBoundingClientRect().top}px`,
-            end: `top ${document.querySelector('.skillsSecTitle').getBoundingClientRect().top/3}px`,
-            scrub: true,
-            force3D: false
-          },
-          color: "white"
         })
       }
     }
@@ -499,49 +479,7 @@ gsap.to('#mesProjets', {
   scrollTrigger: {
     trigger: '.projectSecTitle',
     onUpdate: self => {
-      if (getVisiblePercentage(document.querySelector('.companyContent')) < 30 && countProject === 0) {
-        countProject += 1
-        gsap.to('.companyContent', {
-          scrollTrigger: {
-            trigger: '.projectSecTitle',
-            start: `top ${document.querySelector('.projectSecTitle').getBoundingClientRect().top}px`,
-            end: `top ${document.querySelector('.projectSecTitle').getBoundingClientRect().top/1.5}px`,
-            scrub: true
-          },
-          opacity: 0,
-        })
-      }
-      if (window.getComputedStyle(document.querySelector('.companyContent')).opacity === "0" && countProject === 1) {
-        countProject += 1
-        gsap.to('.companySec', {
-          scrollTrigger: {
-            trigger: '.projectSecTitle',
-            start: `top ${document.querySelector('.projectSecTitle').getBoundingClientRect().top}px`,
-            end: `top ${document.querySelector('.projectSecTitle').getBoundingClientRect().top/1.5}px`,
-            scrub: true
-          },
-          backgroundColor: "white",
-        })
-        gsap.to('#mesProjets', {
-          scrollTrigger: {
-            trigger: '.projectSecTitle',
-            start: `top ${document.querySelector('.projectSecTitle').getBoundingClientRect().top}px`,
-            end: `top ${document.querySelector('.projectSecTitle').getBoundingClientRect().top/1.5}px`,
-            scrub: true
-          },
-          backgroundColor: "white",
-        })
-        gsap.to('.projectSecTitle h1', {
-          scrollTrigger: {
-            trigger: '.projectSecTitle',
-            start: `top ${document.querySelector('.projectSecTitle').getBoundingClientRect().top}px`,
-            end: `top ${document.querySelector('.projectSecTitle').getBoundingClientRect().top/1.5}px`,
-            scrub: true
-          },
-          color: "black",
-        })
-      }
-      if (window.getComputedStyle(document.querySelector('#mesProjets')).backgroundColor === "rgb(255, 255, 255)" && countProject === 2) {
+      if (countProject === 0) {
         countProject += 1
         const projectCards = document.querySelectorAll('.projectCard')
         let counterCard = 0
@@ -879,7 +817,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
 
 
-  function generateStars(svgId, numStars, scope = [2.5, 0.5]) {
+  function generateStars(svgId, numStars, scope = [2, 0.3]) {
     const svg = document.getElementById(svgId);
     const width = svg.viewBox.baseVal.width;
     const height = svg.viewBox.baseVal.height;
@@ -905,7 +843,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   generateStars("starrySky", 100);
-  generateStars("starrySky", 200, [1, 0.2]);
+  generateStars("starrySky", 200, [0.6, 0.2]);
 
   // Ajout de l'animation en CSS
   const style = document.createElement("style");
@@ -924,69 +862,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// function generateClouds(svgId, numClouds) {
-//     const svg = document.getElementById(svgId);
-//     const width = svg.viewBox.baseVal.width;
-//     const height = svg.viewBox.baseVal.height;
+function generateClouds(svgId, numClouds) {
+    const svg = document.querySelector(svgId);
+    const width = svg.viewBox.baseVal.width;
+    const height = svg.viewBox.baseVal.height;
 
-//     for (let i = 0; i < numClouds; i++) {
-//         const cloud = document.createElementNS("http://www.w3.org/2000/svg", "g");
-//         const x = Math.random() * width;
-//         const y = Math.random() * height * 0.7; // Limite la hauteur des nuages
-//         const scale = Math.random() * 0.4 + 0.6; // Échelle entre 0.6 et 1
-//         const opacity = Math.random() * 0.4 + 0.5; // Opacité entre 0.5 et 0.9
+    for (let i = 0; i < numClouds; i++) {
+        const cloud = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        cloud.classList.add('blur-[0.8px]')
+        const x = Math.random() * width;
+        const y = Math.random() * height * 0.7; // Limite la hauteur des nuages
+        const scale = Math.random() * 0.4 + 0.4; // Échelle entre 0.6 et 1
+        const opacity = Math.random() * 0.4 + 0.5; // Opacité entre 0.5 et 0.9
 
-//         // Créer une forme de nuage irrégulière avec plusieurs cercles de tailles et positions variées
-//         const numCircles = Math.floor(Math.random() * 4) + 4; // Nombre de cercles entre 4 et 7
-//         for (let j = 0; j < numCircles; j++) {
-//             const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-//             const cx = x + Math.random() * 80 - 40; // Espacement des cercles
-//             const cy = y + Math.random() * 30 - 10; // Variation en hauteur
-//             const radius = Math.random() * 20 + 20; // Taille des cercles
-//             const circleOpacity = Math.random() * 0.5 + 0.5; // Légère variation d'opacité
-//             const grayShade = Math.random() * 50 + 205; // Nuance de gris plus réaliste
+        // Créer une forme de nuage irrégulière avec plusieurs cercles de tailles et positions variées
+        const numCircles = Math.floor(Math.random() * 4) + 4; // Nombre de cercles entre 4 et 7
+        for (let j = 0; j < numCircles; j++) {
+            const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            const cx = x + Math.random() * 80 - 40; // Espacement des cercles
+            const cy = y + Math.random() * 30 - 10; // Variation en hauteur
+            const radius = Math.random() * 20 + 20; // Taille des cercles
+            const circleOpacity = Math.random() * 0.5 + 0.5; // Légère variation d'opacité
+            const grayShade = Math.random() * 50 + 205; // Nuance de gris plus réaliste
 
-//             // Appliquer une couleur de remplissage avec des nuances de gris
-//             circle.setAttribute("cx", cx);
-//             circle.setAttribute("cy", cy);
-//             circle.setAttribute("r", radius);
-//             circle.setAttribute("fill", `rgb(${grayShade}, ${grayShade}, ${grayShade})`);
-//             circle.setAttribute("fill-opacity", circleOpacity);
-//             cloud.appendChild(circle);
-//         }
+            // Appliquer une couleur de remplissage avec des nuances de gris
+            circle.setAttribute("cx", cx);
+            circle.setAttribute("cy", cy);
+            circle.setAttribute("r", radius);
+            circle.setAttribute("fill", `rgb(${grayShade}, ${grayShade}, ${grayShade})`);
+            circle.setAttribute("fill-opacity", circleOpacity);
+            cloud.appendChild(circle);
+        }
 
-//         cloud.setAttribute("transform", `scale(${scale})`);
-//         svg.appendChild(cloud);
+        cloud.setAttribute("transform", `scale(${scale})`);
+        svg.appendChild(cloud);
 
-//         // Animation de déplacement avec plus de réalisme
-//         const animationDuration = Math.random() * 30 + 30; // Durée de l'animation entre 15s et 30s
-//         const direction = Math.random() < 0.5 ? 1 : -1; // Direction aléatoire (gauche ou droite)
-//         const distance = Math.random() * 100 + 50; // Déplacement plus important pour plus de réalisme
+        // Animation de déplacement avec plus de réalisme
+        const animationDuration = Math.random() * 30 + 30; // Durée de l'animation entre 15s et 30s
+        const direction = Math.random() < 0.5 ? 1 : -1; // Direction aléatoire (gauche ou droite)
+        const distance = Math.random() * 100 + 50; // Déplacement plus important pour plus de réalisme
 
-//         // Ajouter une légère variation de vitesse
-//         cloud.style.animation = `moveClouds ${animationDuration}s linear infinite alternate`;
+        // Ajouter une légère variation de vitesse
+        cloud.style.animation = `moveClouds ${animationDuration}s linear infinite alternate`;
 
-//         // Ajouter une propriété CSS pour la distance
-//         cloud.style.setProperty('--distance', `${distance * direction}px`);
-//     }
-// }
+        // Ajouter une propriété CSS pour la distance
+        cloud.style.setProperty('--distance', `${distance * direction}px`);
+    }
+}
 
-// generateClouds("cloudySky", 5);
+generateClouds(".petitTest", 5);
 
-// Ajout de l'animation CSS pour simuler un déplacement lent
-// const styleCloud = document.createElement("style");
-// styleCloud.innerHTML = `
-//     @keyframes moveClouds {
-//         0% { transform: translateX(0); }
-//         100% { transform: translateX(var(--distance)); }
-//     }
-// `;
-// document.head.appendChild(styleCloud);
+const styleCloud = document.createElement("style");
+styleCloud.innerHTML = `
+    @keyframes moveClouds {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(var(--distance)); }
+    }
+`;
+document.head.appendChild(styleCloud);
 
 
 
   
-  // Ajout de l'événement pour le scroll et l'animation de la position
+
 
   
 
@@ -1000,47 +938,7 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
 
-
-
-
-
-
-
-// // Test 1 trainée
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const shootingStarsContainer = document.querySelector('.shooting-stars');
-
-//   // Fonction pour générer une étoile filante avec une traînée
-//   function createShootingStar() {
-//     const shootingStar = document.createElement('div');
-//     shootingStar.classList.add('shooting-star');
-
-//     // Création de la traînée
-//     const trail = document.createElement('div');
-//     trail.classList.add('trail');
-//     shootingStar.appendChild(trail);
-
-//     // Positionner l'étoile filante et la traînée à des coordonnées aléatoires
-//     const startX = Math.random() * window.innerWidth;
-//     console.log(startX)
-//     const startY = -10; // Commence au-dessus de l'écran
-//     shootingStar.style.left = `${startX}px`;
-//     shootingStar.style.top = `${startY}px`;
-
-//     // Ajouter l'étoile filante au conteneur
-//     shootingStarsContainer.appendChild(shootingStar);
-
-//     // Supprimer l'étoile et sa traînée après l'animation
-//     setTimeout(() => {
-//       shootingStar.remove();
-//     }, 2000); // 2s pour correspondre à la durée de l'animation
-//   }
-
-//   // Créer des étoiles filantes toutes les 3 à 6 secondes
-//   setInterval(createShootingStar, Math.random() * 3000 + 3000);
-// });
-
+// etoiles filantes
 
 document.addEventListener('DOMContentLoaded', () => {
   const shootingStarsContainer = document.querySelector('.shooting-stars');
