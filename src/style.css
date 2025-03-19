@@ -33,14 +33,14 @@ body {
 }
 
 .text-box {
-  @apply opacity-0 transition-all duration-500 ease-in-out  !cursor-pointer bg-black p-1 px-2 sm:p-4 sm:px-6 ;
+  @apply opacity-0 transition-all duration-500 ease-in-out  !cursor-pointer bg-black/70 backdrop-blur-sm p-1 px-2 sm:p-4 sm:px-6 ;
 }
 
 .timelineContainer .text-box.active {
   @apply !opacity-100 translate-x-0;
 }
 .timelineLabel {
-  @apply rounded-full border border-black border-2 py-1 px-1 flex justify-center items-center absolute !w-[30px] h-[30px] bottom-0 z-10 scale-0 transition-all duration-100 opacity-0;
+  @apply rounded-full border border-neutral-700 bg-neutral-700 border-2 py-1 px-1 flex justify-center items-center absolute !w-[30px] h-[30px] bottom-0 z-10 scale-0 transition-all duration-100 opacity-0;
 }
 
 .timelineLabel.further {

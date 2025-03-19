@@ -62,7 +62,7 @@ const homeTl = gsap.timeline(
       trigger: '.mainTitle',
       start: `top ${document.querySelector('.mainTitle').offsetTop}px`,
       end: `bottom+=${(window.innerHeight - (document.querySelector('.mainTitle').offsetHeight + document.querySelector('.mainTitle').offsetTop))/1.5}px`,
-      scrub: true,
+      scrub: 1,
     },
   }
 );
@@ -274,20 +274,20 @@ gsap.to('.gradientBackground', {
   scrollTrigger: {
     trigger: '.presentationSection',
     start: "top",
-    end: "bottom 100%",
+    end: `bottom-=${document.querySelector('.mountainsContainer').offsetHeight/5}px 100%`,
     scrub: true,
+    markers: true,
     force3D: false
   },
     opacity:1,
-  ease : "power3.in"
+  ease : "power2.in"
 })
 
 gsap.to('.clouds', {
   scrollTrigger: {
     trigger: '.presentationSection',
     start: "top",
-    markers: true,
-    end: "bottom 90%",
+    end: "bottom-=100px 110%",
     scrub: 1,
     force3D: false
   },
@@ -856,76 +856,73 @@ document.addEventListener("DOMContentLoaded", () => {
   document.head.appendChild(style);
 
 
-
-
-
-
-
-
 function generateClouds(svgId, numClouds) {
-    const svg = document.querySelector(svgId);
-    const width = svg.viewBox.baseVal.width;
-    const height = svg.viewBox.baseVal.height;
+  const svg = document.querySelector(svgId);
+  const width = svg.viewBox.baseVal.width;
+  const height = svg.viewBox.baseVal.height;
 
-    for (let i = 0; i < numClouds; i++) {
-        const cloud = document.createElementNS("http://www.w3.org/2000/svg", "g");
-        cloud.classList.add('blur-[0.8px]')
-        const x = Math.random() * width;
-        const y = Math.random() * height * 1; // Limite la hauteur des nuages
-        const scale = Math.random() * 0.4 + 0.4; // Échelle entre 0.6 et 1
-        const opacity = Math.random() * 0.4 + 0.5; // Opacité entre 0.5 et 0.9
+  for (let i = 0; i < numClouds; i++) {
+      const cloud = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      cloud.classList.add('blur-[0.8px]');
+      
+      const x = Math.random() * width;
+      const y = Math.random() * height * 1; // Limite la hauteur des nuages
+      const scale = Math.random() * 0.4 + 0.4; // Échelle entre 0.6 et 1
+      const opacity = Math.random() * 0.4 + 0.5; // Opacité entre 0.5 et 0.9
 
-        // Créer une forme de nuage irrégulière avec plusieurs cercles de tailles et positions variées
-        const numCircles = Math.floor(Math.random() * 4) + 4; // Nombre de cercles entre 4 et 7
-        for (let j = 0; j < numCircles; j++) {
-            const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-            const cx = x + Math.random() * 80 - 40; // Espacement des cercles
-            const cy = y + Math.random() * 30 - 10; // Variation en hauteur
-            const radius = Math.random() * 20 + 20; // Taille des cercles
-            const circleOpacity = Math.random() * 0.5 + 0.5; // Légère variation d'opacité
-            const grayShade = Math.random() * 50 + 205; // Nuance de gris plus réaliste
+      // Créer une forme de nuage irrégulière avec plusieurs cercles de tailles et positions variées
+      const numCircles = Math.floor(Math.random() * 4) + 4; // Nombre de cercles entre 4 et 7
+      for (let j = 0; j < numCircles; j++) {
+          const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          const cx = x + Math.random() * 80 - 40; // Espacement des cercles
+          const cy = y + Math.random() * 30 - 10; // Variation en hauteur
+          const radius = Math.random() * 20 + 20; // Taille des cercles
+          const circleOpacity = Math.random() * 0.5 + 0.5; // Légère variation d'opacité
+          const grayShade = Math.random() * 30 + 225; // Nuance de gris plus réaliste
 
-            // Appliquer une couleur de remplissage avec des nuances de gris
-            circle.setAttribute("cx", cx);
-            circle.setAttribute("cy", cy);
-            circle.setAttribute("r", radius);
-            circle.setAttribute("fill", `rgb(${grayShade}, ${grayShade}, ${grayShade})`);
-            circle.setAttribute("fill-opacity", circleOpacity);
-            cloud.appendChild(circle);
-        }
+          // Appliquer une couleur de remplissage avec des nuances de gris
+          circle.setAttribute("cx", cx);
+          circle.setAttribute("cy", cy);
+          circle.setAttribute("r", radius);
+          circle.setAttribute("fill", `rgb(${grayShade}, ${grayShade}, ${grayShade})`);
+          circle.setAttribute("fill-opacity", circleOpacity);
+          cloud.appendChild(circle);
+      }
 
-        cloud.setAttribute("transform", `scale(${scale})`);
-        svg.appendChild(cloud);
+      cloud.setAttribute("transform", `scale(${scale})`);
+      
+      // Ajouter le nuage dans l'élément SVG
+      svg.appendChild(cloud);
 
-        // Animation de déplacement avec plus de réalisme
-        const animationDuration = Math.random() * 30 + 30; // Durée de l'animation entre 15s et 30s
-        const direction = Math.random() < 0.5 ? 1 : -1; // Direction aléatoire (gauche ou droite)
-        const distance = Math.random() * 100 + 50; // Déplacement plus important pour plus de réalisme
+      // Animation de déplacement avec plus de réalisme
+      const animationDuration = Math.random() * 30 + 30; // Durée de l'animation entre 15s et 30s
+      const direction = Math.random() < 0.5 ? 1 : -1; // Direction aléatoire (gauche ou droite)
+      const distance = Math.random() * 100 + 50; // Déplacement plus important pour plus de réalisme
 
-        // Ajouter une légère variation de vitesse
-        cloud.style.animation = `moveClouds ${animationDuration}s linear infinite alternate`;
+      // Ajouter une animation de mouvement
+      cloud.style.animation = `moveClouds ${animationDuration}s linear infinite alternate`;
 
-        // Ajouter une propriété CSS pour la distance
-        cloud.style.setProperty('--distance', `${distance * direction}px`);
-    }
+      // Ajouter une propriété CSS pour la distance
+      cloud.style.setProperty('--distance', `${distance * direction}px`);
+
+      // Ajouter un z-index aléatoire entre 0 et 40 (exclus)
+      const zIndex = Math.floor(Math.random() * 40); // z-index entre 0 et 39
+      cloud.style.zIndex = zIndex;
+  }
 }
 
+// Générer 5 nuages
 generateClouds("#cloudySky", 5);
 
+// Ajouter les styles pour l'animation
 const styleCloud = document.createElement("style");
 styleCloud.innerHTML = `
-    @keyframes moveClouds {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(var(--distance)); }
-    }
+  @keyframes moveClouds {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(var(--distance)); }
+  }
 `;
 document.head.appendChild(styleCloud);
-
-
-
-  
-
-
   
 
 
@@ -1018,7 +1015,8 @@ document.addEventListener("DOMContentLoaded", function () {
     line.style.top = `${Math.floor(Math.random() * 100)}%`;
 
     // Couleur aléatoire
-    line.style.backgroundColor = getRandomColor();
+    const colorsArray = ['#20dbd8', '#82e8b3', '#b60e1a', '#c37b0f', '#ced370']
+    line.style.backgroundColor = colorsArray[Math.floor(Math.random() * colorsArray.length)];
 
     // Calcul de la position de départ : hors de l'écran
     const direction = Math.random() > 0.5 ? "left" : "right"; // Direction aléatoire (gauche ou droite)
