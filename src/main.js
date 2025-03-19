@@ -871,7 +871,7 @@ function generateClouds(svgId, numClouds) {
         const cloud = document.createElementNS("http://www.w3.org/2000/svg", "g");
         cloud.classList.add('blur-[0.8px]')
         const x = Math.random() * width;
-        const y = Math.random() * height * 0.7; // Limite la hauteur des nuages
+        const y = Math.random() * height * 1; // Limite la hauteur des nuages
         const scale = Math.random() * 0.4 + 0.4; // Échelle entre 0.6 et 1
         const opacity = Math.random() * 0.4 + 0.5; // Opacité entre 0.5 et 0.9
 
@@ -910,7 +910,7 @@ function generateClouds(svgId, numClouds) {
     }
 }
 
-generateClouds(".petitTest", 5);
+generateClouds("#cloudySky", 5);
 
 const styleCloud = document.createElement("style");
 styleCloud.innerHTML = `

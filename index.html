@@ -368,7 +368,7 @@
             </div>
         </div>
         <div class="utility"></div>
-        <svg class="w-full min-w-full max-sm:w-[600px] h-full scale-x-[105%] pointer-events-none petitTest" viewBox="0 0 750 500" :style="`margin-top: -${(document.querySelector('#hills2').getBoundingClientRect().top - document.querySelector('.utility').getBoundingClientRect().top)/1.5}px`">
+        <svg class="w-full min-w-full max-sm:w-[600px] h-full scale-x-[105%] pointer-events-none" viewBox="0 0 750 500" :style="`margin-top: -${(document.querySelector('#hills2').getBoundingClientRect().top - document.querySelector('.utility').getBoundingClientRect().top)/1.5}px`">
           <rect id="bg" opacity="0.8" fill="transparent" />
           <g>
               <g id="hills2">
@@ -381,9 +381,12 @@
               </g>
           </g>
         </svg>
+
+
+        
         
 
-        <div class="clouds absolute -bottom-[20%] h-full w-full opacity-0 z-10">
+        <div class="clouds absolute bottom-0 w-full opacity-0 z-10" :style="`height: ${document.querySelector(.presentationSection).offsetHeight - (document.querySelector('.timeline').offsetHeight)}px`">
           <svg id="cloudySky" class="h-full z-10 w-full" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"></svg>
         </div>
 
