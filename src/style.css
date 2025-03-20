@@ -33,7 +33,7 @@ body {
 }
 
 .text-box {
-  @apply opacity-0 transition-all duration-500 ease-in-out  !cursor-pointer bg-black/70 backdrop-blur-sm p-1 px-2 sm:p-4 sm:px-6 ;
+  @apply opacity-0 transition-all duration-500 ease-in-out  !cursor-pointer bg-black/80 backdrop-blur-sm p-1 px-2 sm:p-4 sm:px-6 ;
 }
 
 .timelineContainer .text-box.active {
@@ -47,10 +47,6 @@ body {
   @apply transition-all duration-100 opacity-0 border-none w-[30px] h-[30px] p-0;
 }
 
-.ftTest {
-  font-family: "Fascinate Inline", system-ui;
-  font-weight: 400;
-}
 
 input, textarea {
   @apply border border-black/10 px-2 focus:outline-slate-400 shadow-inner placeholder-black/20;
@@ -61,7 +57,19 @@ textarea {
 }
 
 .projectCard {
-  @apply w-full lg:w-[49%] 2xl:w-[32%]  bg-slate-900/80 rounded grid grid-rows-3 mb-4 lg:mb-[2%] scale-[0.1%] opacity-0 blur-xl border border-zinc-200 shadow-md;
+  @apply  max-md:!aspect-[16/10] !aspect-[3/2] w-full md:w-[49%] xl:w-[32%]  bg-slate-900/80 rounded grid grid-rows-3 mb-4 lg:mb-[2%] border border-zinc-500 shadow-md opacity-0 scale-[0.1%] bg-cover bg-center;
+}
+
+.projectCardContent {
+  @apply w-full absolute h-full top-2/3 group-hover:top-0 bg-slate-900/40 rounded row-span-full transition-all ease-in-out duration-300 grid grid-rows-3 backdrop-blur;
+}
+
+.projectCardText {
+  @apply  max-xl:text-xs text-white opacity-0 blur group-hover:opacity-100 group-hover:blur-none transition-all ease-in-out duration-500 text-sm text-center;
+}
+
+.projectCardBtn {
+  @apply bg-zinc-100 rounded cursor-pointer px-3 py-1 hover:bg-white;
 }
 
 
