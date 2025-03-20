@@ -5,8 +5,8 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nicolas Carpita - Developpeur FullStack</title>
-    <script type="module" crossorigin src="./assets/index-jZk6kEC5.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BaSicLSK.css">
+    <script type="module" crossorigin src="./assets/index-mON6d2X9.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CWWWTtuS.css">
   </head>
   <body class="relative" x-data="{ burgerMenu: false, projectModal: false, scrolled: false}" class="overflow-hidden">
 
@@ -95,110 +95,109 @@
     </header>
 
     <main class="!max-w-screen !overflow-x-hidden relative">
-      <!-- Home -->
-      <section id="homeSection" class="h-screen w-full relative z-10 flex items-center justify-center" >
 
-        <div class="homeBackground absolute h-[110%] bottom-0 w-full" style="background: rgb(0,21,33);background: linear-gradient(180deg, rgba(0,21,33,1) 0%, rgba(0,39,62,1) 57%, rgba(0,66,102,1) 100%);">
+      <div class="homeBackground fixed top-0 h-screen w-screen flex justify-center items-center" style="background: rgb(0,21,33);background: linear-gradient(180deg, rgba(0,21,33,1) 0%, rgba(0,39,62,1) 57%, rgba(0,66,102,1) 100%);">
 
-          <!-- Voie lactée -->
-          <div class="galaxy-background absolute top-0 left-0 -mt-32 -ml-12 opacity-50 w-[calc(100vw+3rem)] h-full">
-            <svg id="milkyway" class="w-full" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 1920 1080" preserveaspectratio="xMidYMid slice">
-              <defs>
-                <radialGradient id="milkyway-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                  <stop offset="0%" style="stop-color: rgba(255, 255, 255, 0.9); stop-opacity: 0.7" />
-                  <stop offset="100%" style="stop-color: rgba(255, 255, 255, 0.1); stop-opacity: 0" />
-                </radialGradient>
-                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blurred"/>
-                  <feMerge>
-                    <feMergeNode in="blurred"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
-              </defs>
-              <g id="stars">
-                <circle cx="150" cy="250" r="2" fill="white" />
-                <circle cx="450" cy="600" r="3" fill="white" />
-                <circle cx="800" cy="200" r="1.5" fill="white" />
-                <circle cx="1200" cy="900" r="4" fill="white" />
-                <circle cx="1600" cy="500" r="2.5" fill="white" />
-                <circle cx="1700" cy="700" r="1" fill="white" />
-                <circle cx="300" cy="900" r="2" fill="white" />
-                <circle cx="1000" cy="800" r="1.8" fill="white" />
-                <circle cx="1800" cy="400" r="2.3" fill="white" />
-                <circle cx="1400" cy="300" r="2" fill="white" />
-  
-              </g>
-              <g id="clouds" class="opacity-10" fill="url(#milkyway-gradient)" filter="url(#glow)">
-                <path d="M0,500 C400,600 700,800 1200,500 C1600,350 1800,700 1920,500 C1800,300 1400,100 1200,300 C1000,500 700,300 400,400 C0,500 0,500" />
-                <path d="M0,700 C200,850 600,900 1000,600 C1400,400 1600,500 1920,400 C1800,250 1400,300 1000,500 C600,700 200,800 0,700" />
-              </g>
-            </svg>
-            
-              <defs>
-                <!-- Dégradé lumineux pour la voie lactée -->
-                <radialGradient id="milkyway-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                  <stop offset="0%" style="stop-color: rgba(255, 255, 255, 0.9); stop-opacity: 0.7" />
-                  <stop offset="100%" style="stop-color: rgba(255, 255, 255, 0.1); stop-opacity: 0" />
-                </radialGradient>
-            
-                <!-- Dégradé chromatique pour les nuages (couleurs différentes) -->
-                <linearGradient id="cloud-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style="stop-color: rgba(255, 0, 128, 0.8);" /> <!-- Rose ou magenta -->
-                  <stop offset="30%" style="stop-color: rgba(75, 0, 130, 0.6);" /> <!-- Violet -->
-                  <stop offset="60%" style="stop-color: rgba(0, 255, 255, 0.5);" /> <!-- Cyan clair -->
-                  <stop offset="100%" style="stop-color: rgba(0, 0, 139, 0.4);" /> <!-- Bleu nuit -->
-                </linearGradient>
-            
-                <!-- Filtre pour un effet de flou lumineux -->
-                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blurred"/>
-                  <feMerge>
-                    <feMergeNode in="blurred"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
-              </defs>
-            
-              <g id="stars">
-                <!-- Création des étoiles aléatoires -->
-                <circle class="star" cx="150" cy="250" r="2" fill="white" />
-                <circle class="star" cx="450" cy="600" r="3" fill="white" />
-                <circle class="star" cx="800" cy="200" r="1.5" fill="white" />
-                <circle class="star" cx="1200" cy="900" r="4" fill="white" />
-                <circle class="star" cx="1600" cy="500" r="2.5" fill="white" />
-                <circle class="star" cx="1700" cy="700" r="1" fill="white" />
-                <circle class="star" cx="300" cy="900" r="2" fill="white" />
-                <circle class="star" cx="1000" cy="800" r="1.8" fill="white" />
-                <circle class="star" cx="1800" cy="400" r="2.3" fill="white" />
-                <circle class="star" cx="1400" cy="300" r="2" fill="white" />
-                <!-- Ajouter encore plus d'étoiles ici pour plus de densité -->
-              </g>
-            
-              <!-- Nébuleuse et nuages lumineux avec effet chromatique -->
-              <g id="clouds" fill="url(#cloud-gradient)" filter="url(#glow)">
-                <path d="M0,500 C400,600 700,800 1200,500 C1600,350 1800,700 1920,500 C1800,300 1400,100 1200,300 C1000,500 700,300 400,400 C0,500 0,500" />
-                <path d="M0,700 C200,850 600,900 1000,600 C1400,400 1600,500 1920,400 C1800,250 1400,300 1000,500 C600,700 200,800 0,700" />
-              </g>
-            </svg>
-            
-  
-            
-          </div>
 
-          <!-- Ciel étoilé -->
-          <svg id="starrySky" class="absolute top-0 left-0 h-full" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"></svg>
+        <!-- Voie lactée -->
+        <div class="galaxy-background absolute top-0 left-0 -mt-32 -ml-12 opacity-50 w-[calc(100vw+3rem)] h-full">
+          <svg id="milkyway" class="w-full" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 1920 1080" preserveaspectratio="xMidYMid slice">
+            <defs>
+              <radialGradient id="milkyway-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" style="stop-color: rgba(255, 255, 255, 0.9); stop-opacity: 0.7" />
+                <stop offset="100%" style="stop-color: rgba(255, 255, 255, 0.1); stop-opacity: 0" />
+              </radialGradient>
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blurred"/>
+                <feMerge>
+                  <feMergeNode in="blurred"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            <g id="stars">
+              <circle cx="150" cy="250" r="2" fill="white" />
+              <circle cx="450" cy="600" r="3" fill="white" />
+              <circle cx="800" cy="200" r="1.5" fill="white" />
+              <circle cx="1200" cy="900" r="4" fill="white" />
+              <circle cx="1600" cy="500" r="2.5" fill="white" />
+              <circle cx="1700" cy="700" r="1" fill="white" />
+              <circle cx="300" cy="900" r="2" fill="white" />
+              <circle cx="1000" cy="800" r="1.8" fill="white" />
+              <circle cx="1800" cy="400" r="2.3" fill="white" />
+              <circle cx="1400" cy="300" r="2" fill="white" />
 
-          <!-- Etoiles filantes container -->
-          <div class="shooting-stars absolute top60 left-0 w-full h-full z-10"></div>
+            </g>
+            <g id="clouds" class="opacity-10" fill="url(#milkyway-gradient)" filter="url(#glow)">
+              <path d="M0,500 C400,600 700,800 1200,500 C1600,350 1800,700 1920,500 C1800,300 1400,100 1200,300 C1000,500 700,300 400,400 C0,500 0,500" />
+              <path d="M0,700 C200,850 600,900 1000,600 C1400,400 1600,500 1920,400 C1800,250 1400,300 1000,500 C600,700 200,800 0,700" />
+            </g>
+          </svg>
+          
+            <defs>
+              <!-- Dégradé lumineux pour la voie lactée -->
+              <radialGradient id="milkyway-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" style="stop-color: rgba(255, 255, 255, 0.9); stop-opacity: 0.7" />
+                <stop offset="100%" style="stop-color: rgba(255, 255, 255, 0.1); stop-opacity: 0" />
+              </radialGradient>
+          
+              <!-- Dégradé chromatique pour les nuages (couleurs différentes) -->
+              <linearGradient id="cloud-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color: rgba(255, 0, 128, 0.8);" /> <!-- Rose ou magenta -->
+                <stop offset="30%" style="stop-color: rgba(75, 0, 130, 0.6);" /> <!-- Violet -->
+                <stop offset="60%" style="stop-color: rgba(0, 255, 255, 0.5);" /> <!-- Cyan clair -->
+                <stop offset="100%" style="stop-color: rgba(0, 0, 139, 0.4);" /> <!-- Bleu nuit -->
+              </linearGradient>
+          
+              <!-- Filtre pour un effet de flou lumineux -->
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blurred"/>
+                <feMerge>
+                  <feMergeNode in="blurred"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+          
+            <g id="stars">
+              <!-- Création des étoiles aléatoires -->
+              <circle class="star" cx="150" cy="250" r="2" fill="white" />
+              <circle class="star" cx="450" cy="600" r="3" fill="white" />
+              <circle class="star" cx="800" cy="200" r="1.5" fill="white" />
+              <circle class="star" cx="1200" cy="900" r="4" fill="white" />
+              <circle class="star" cx="1600" cy="500" r="2.5" fill="white" />
+              <circle class="star" cx="1700" cy="700" r="1" fill="white" />
+              <circle class="star" cx="300" cy="900" r="2" fill="white" />
+              <circle class="star" cx="1000" cy="800" r="1.8" fill="white" />
+              <circle class="star" cx="1800" cy="400" r="2.3" fill="white" />
+              <circle class="star" cx="1400" cy="300" r="2" fill="white" />
+              <!-- Ajouter encore plus d'étoiles ici pour plus de densité -->
+            </g>
+          
+            <!-- Nébuleuse et nuages lumineux avec effet chromatique -->
+            <g id="clouds" fill="url(#cloud-gradient)" filter="url(#glow)">
+              <path d="M0,500 C400,600 700,800 1200,500 C1600,350 1800,700 1920,500 C1800,300 1400,100 1200,300 C1000,500 700,300 400,400 C0,500 0,500" />
+              <path d="M0,700 C200,850 600,900 1000,600 C1400,400 1600,500 1920,400 C1800,250 1400,300 1000,500 C600,700 200,800 0,700" />
+            </g>
+          </svg>
+          
 
-          <!-- Lune -->
-
+          
         </div>
-      
-        <div class="size-[200px] rounded-full bg-amber-100 absolute moon z-10 left-0 bottom-0" :style="'left: -' + $el.offsetWidth + 'px;'"></div>
 
-        <div class="mainTitle pb-20 z-40">
+        <!-- Ciel étoilé -->
+        <svg id="starrySky" class="absolute top-0 left-0 h-full" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"></svg>
+
+        <!-- Etoiles filantes container -->
+        <div class="shooting-stars absolute top60 left-0 w-full h-full z-10"></div>
+
+        <!-- Lune -->
+
+      </div>
+      <!-- Home -->
+      <section id="homeSection" class="h-screen w-full relative z-10 flex items-center justify-center pointer-events-none" >
+
+        <div class="mainTitle pb-20 z-40 fixed top-1/3">
           <h1 class="text-white text-5xl md:text-8xl font-bold text-center">Nicolas Carpita</h1>
           <p class="text-white font-semibold text-center text-xl md:text-2xl profession">Développeur FullStack</p>
           <div class="flex items-center justify-center mt-4 gap-4 z-40">
@@ -230,11 +229,13 @@
             </div>
           </div>
         </div>
+      
+        <div class="size-[200px] rounded-full bg-amber-100 absolute moon z-10 left-0 bottom-0" :style="'left: -' + $el.offsetWidth + 'px;'"></div>
         
 
         <!-- Cloud Layer 3 -->
 
-        <svg xmlns="http://www.w3.org/2000/svg" class="absolute -bottom-6 min-w-full h-full left-0 bg-transparent z-30 pointer-events-none" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"  preserveAspectRatio="none" viewBox="0 0 1440 560">
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute -bottom-6 min-w-full h-full left-0 bg-transparent -z-10 pointer-events-none" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"  preserveAspectRatio="none" viewBox="0 0 1440 560">
           <g mask="url(&quot;#SvgjsMask1001&quot;)" fill="none">
               <!-- <path d="M1488 560L0 560 L0 321.9Q83.73 285.63, 120 369.36Q169.87 299.23, 240 349.1Q243.3 280.4, 312 283.71Q377.58 229.29, 432 294.88Q514.37 257.25, 552 339.61Q622.04 289.65, 672 359.69Q704.36 272.04, 792 304.4Q821.2 261.6, 864 290.8Q951.93 258.73, 984 346.66Q1037.63 280.3, 1104 333.93Q1184.52 294.45, 1224 374.97Q1228.26 307.23, 1296 311.48Q1349.21 244.69, 1416 297.9Q1479.97 289.87, 1488 353.84z" class="fill-zinc-600/80"></path> -->
               <path d="M1464 560L0 560 L0 356.62Q97.78 334.4, 120 432.19Q135.69 375.88, 192 391.58Q234.28 361.86, 264 404.13Q339.57 359.7, 384 435.28Q387.07 366.35, 456 369.42Q507.88 301.3, 576 353.18Q652.93 310.12, 696 387.05Q763.85 334.89, 816 402.74Q858.38 373.12, 888 415.5Q909.33 364.83, 960 386.16Q1026.8 332.96, 1080 399.75Q1153.83 353.57, 1200 427.4Q1201.56 356.96, 1272 358.52Q1337.26 303.78, 1392 369.04Q1451.7 356.74, 1464 416.44z" class="fill-zinc-400/92 backdrop-blur-md cloudLayer3"></path>
@@ -447,7 +448,7 @@
           <div class="skillsRealContent relative z-10 w-full">
             <h2 class="text-2xl font-semibold mb-4 text-white">Languages de programmation</h2>
             <div class="flex justify-between w-full max-sm:gap-2">
-              <div class="w-[63%] h-auto bg-red-600 rounded-xs p-4">
+              <div class="w-[63%] h-auto bg-red-700 rounded-xs p-4">
                 <h3 class="text-white font-semibold sm:text-xl mb-6 max-sm:text-center">Back-end & base de données</h3>
                 
                 <div class="w-full flex max-sm:flex-wrap max-sm:gap-4 justify-evenly">
@@ -482,7 +483,7 @@
                 </div>
                 
               </div>
-              <div class="w-[36%] h-auto bg-yellow-500 rounded-xs p-4">
+              <div class="w-[36%] h-auto bg-yellow-600 rounded-xs p-4">
                 <h3 class="text-white font-semibold sm:text-xl mb-6 max-sm:text-center">Front-end</h3>
                 
                 <div class="w-full flex max-sm:flex-col max-sm:gap-4 justify-evenly">
@@ -510,7 +511,7 @@
               </div>
             </div>
 
-            <div class="w-full h-auto bg-green-600 mt-[1%] max-sm:mt-2 rounded-xs p-4">
+            <div class="w-full h-auto bg-green-700 mt-[1%] max-sm:mt-2 rounded-xs p-4">
               <h3 class="text-white font-semibold sm:text-xl mb-6">Frameworks</h3>
                 
               <div class="w-full flex justify-evenly">
@@ -543,7 +544,7 @@
             </div>
 
             <h2 class="text-2xl font-semibold mb-4 mt-12 text-white">Les logiciels & outils que j'utilise</h2>
-            <div class="w-full h-auto bg-sky-600 rounded-xs flex max-sm:flex-wrap max-sm:gap-4 justify-evenly p-4">
+            <div class="w-full h-auto bg-sky-700 rounded-xs flex max-sm:flex-wrap max-sm:gap-4 justify-evenly p-4">
 
               <!-- VSCODE -->
               <div class="flex flex-col items-center justify-center gap-2 w-20 max-sm:w-full">

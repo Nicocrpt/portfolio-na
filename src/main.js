@@ -28,28 +28,28 @@ window.onload = function() {
   
 }
 
-if (window.scrollY == 0) {
-  gsap.to('.homeBackground', {
-    scrollTrigger: {
-      trigger: '.homeBackground',
-      start: "bottom 100%",
-      end:`bottom`,
-      scrub: true,
-      pin: true,
-      pinSpacing: false
-    }
-  })
-  gsap.to('.homeBackground', {
-    scrollTrigger: {
-      trigger: '.homeBackground',
-      start: `top+=${document.querySelector('.homeBackground').offsetHeight/4}px ${document.querySelector('.homeBackground').offsetHeight/4} `,
-      end:`bottom+=${document.querySelector('#homeSection').offsetHeight/4}px`,
-      scrub: true
-    },
-    y: document.querySelector('.homeBackground').offsetHeight - document.querySelector('#homeSection').offsetHeight,
-    ease: "linear"
-  })
-}
+// if (window.scrollY == 0) {
+//   gsap.to('.homeBackground', {
+//     scrollTrigger: {
+//       trigger: '.homeBackground',
+//       start: "bottom 100%",
+//       end:`bottom`,
+//       scrub: true,
+//       pin: true,
+//       pinSpacing: false
+//     }
+//   })
+//   gsap.to('.homeBackground', {
+//     scrollTrigger: {
+//       trigger: '.homeBackground',
+//       start: `top+=${document.querySelector('.homeBackground').offsetHeight/4}px ${document.querySelector('.homeBackground').offsetHeight/4} `,
+//       end:`bottom+=${document.querySelector('#homeSection').offsetHeight/4}px`,
+//       scrub: true
+//     },
+//     y: document.querySelector('.homeBackground').offsetHeight - document.querySelector('#homeSection').offsetHeight,
+//     ease: "linear"
+//   })
+// }
 
 
 const homeTl = gsap.timeline(
@@ -87,22 +87,22 @@ gsap.to('.cloudLayer2', {
   ease: "linear",
 })
 
-homeTl.to('.mainTitle', {y: 2000, duration: 10, ease: "power2.inOut"})
-.to('.moon', {
-  motionPath: {
-    path: [
-      { x: 0, y: 0,  },
+// homeTl.to('.mainTitle', {y: 2000, duration: 10, ease: "power2.inOut"})
+// .to('.moon', {
+//   motionPath: {
+//     path: [
+//       { x: 0, y: 0,  },
       
-      { x: `${window.innerWidth/2+document.querySelector('.moon').offsetWidth}px`, y: `-${window.innerHeight - document.querySelector('.moon').offsetHeight*1.5}px` }, // Point culminant (centre haut)
-      { x: `${window.innerWidth + document.querySelector('.moon').offsetWidth}px`, y: 0 },
-       // Point de départ (en bas à gauche)
-      // Point final (en bas à droite)
-    ], // L'intensité de l'arc
-    autoRotate: true,
-    curviness: 2,
-  },
-  duration: 8, // Temps total pour l'animation (scrub prend en charge la vitesse liée au scroll)
-}, "-=10");
+//       { x: `${window.innerWidth/2+document.querySelector('.moon').offsetWidth}px`, y: `-${window.innerHeight - document.querySelector('.moon').offsetHeight*1.5}px` }, // Point culminant (centre haut)
+//       { x: `${window.innerWidth + document.querySelector('.moon').offsetWidth}px`, y: 0 },
+//        // Point de départ (en bas à gauche)
+//       // Point final (en bas à droite)
+//     ], // L'intensité de l'arc
+//     autoRotate: true,
+//     curviness: 2,
+//   },
+//   duration: 8, // Temps total pour l'animation (scrub prend en charge la vitesse liée au scroll)
+// }, "-=10");
 
 // gsap.to('.navBar', {
 //   scrollTrigger: {
