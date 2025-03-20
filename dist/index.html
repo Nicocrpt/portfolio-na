@@ -1,0 +1,1269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nicolas Carpita - Developpeur FullStack</title>
+    <script type="module" crossorigin src="./assets/index-jZk6kEC5.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BaSicLSK.css">
+  </head>
+  <body class="relative" x-data="{ burgerMenu: false, projectModal: false, scrolled: false}" class="overflow-hidden">
+
+    <section class="loader fixed w-screen h-screen z-[9999] bg-black flex justify-center items-center loader">
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="135" height="140" viewBox="0 0 135 140" fill="#fff">
+        <rect y="10" width="15" height="120" rx="6">
+            <animate attributeName="height" begin="0.5s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/>
+            <animate attributeName="y" begin="0.5s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/>
+        </rect>
+        <rect x="30" y="10" width="15" height="120" rx="6">
+            <animate attributeName="height" begin="0.25s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/>
+            <animate attributeName="y" begin="0.25s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/>
+        </rect>
+        <rect x="60" width="15" height="140" rx="6">
+            <animate attributeName="height" begin="0s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/>
+            <animate attributeName="y" begin="0s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/>
+        </rect>
+        <rect x="90" y="10" width="15" height="120" rx="6">
+            <animate attributeName="height" begin="0.25s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/>
+            <animate attributeName="y" begin="0.25s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/>
+        </rect>
+        <rect x="120" y="10" width="15" height="120" rx="6">
+            <animate attributeName="height" begin="0.5s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/>
+            <animate attributeName="y" begin="0.5s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/>
+        </rect>
+      </svg>
+    </section>
+
+    <header class="">
+      <div  class="transition-all ease-linear duration-300 navBar z-50 fixed top-0 w-full h-16 flex items-center" 
+        :class="scrolled ? 'bg-black/80 backdrop-blur' : 'bg-transparent'"
+        @scroll.window="scrolled = (window.scrollY > window.innerHeight*0.8)">
+          <nav class="flex items-center gap-10 mx-4 lg:mx-10 justify-between flex-row-reverse md:flex-row md:justify-start w-full">
+              <div class="flex justify-center max-md:flex-row-reverse items-center gap-4">
+                <svg class="h-12" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 502.74 502.74" xml:space="preserve" fill="#000000">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path style="fill:none;" d="M395.431,251.37c0,0.962-0.018,1.919-0.036,2.876C395.418,253.291,395.431,252.332,395.431,251.37z"></path> <path style="fill:#B68057;" d="M434.563,175.558c-0.695-1.68-5.984-4.57-20.336-4.57c-8.906,0-21.297,1.109-38.25,4.313 c-38.578,7.281-87.578,22.789-137.969,43.664c-50.391,20.875-96.008,44.555-128.43,66.688 c-37.219,25.398-42.375,38.883-41.25,41.609c1.733,4.199,19.547,7.848,60.63-0.13c-1.195-1.927-2.345-3.885-3.449-5.871 c-0.039-0.07-0.079-0.141-0.118-0.211c-0.462-0.834-0.915-1.674-1.361-2.518c-0.077-0.146-0.154-0.292-0.231-0.438 c-0.417-0.795-0.826-1.595-1.228-2.399c-0.098-0.197-0.196-0.394-0.294-0.591c-0.382-0.772-0.758-1.547-1.126-2.327 c-0.109-0.231-0.217-0.464-0.325-0.696c-0.353-0.758-0.701-1.517-1.041-2.282c-0.114-0.257-0.225-0.515-0.338-0.772 c-0.329-0.753-0.656-1.507-0.973-2.267c-0.003-0.006-0.005-0.012-0.008-0.018c5.518-10.29,33.918-28.665,74.006-48.367 c15.792-7.762,33.396-15.729,52.128-23.488c66.279-27.454,124.41-43.083,139.996-38.382c2.892,7.013,5.251,14.301,7.016,21.819 C426.293,194.911,436.297,179.738,434.563,175.558z"></path> <path style="fill:#FFD042;" d="M279.66,110.144c0.924,0.184,1.844,0.379,2.761,0.58 C281.504,110.523,280.584,110.328,279.66,110.144z"></path> <path style="fill:#FFD042;" d="M286.315,111.634c1.041,0.26,2.078,0.53,3.111,0.813 C288.394,112.165,287.357,111.894,286.315,111.634z"></path> <path style="fill:#FFD042;" d="M283.012,110.853c0.98,0.22,1.957,0.45,2.929,0.69C284.968,111.304,283.992,111.072,283.012,110.853 z"></path> <path style="fill:#FFD042;" d="M395.394,254.246c0.019-0.957,0.036-1.915,0.036-2.876c0-0.786-0.022-1.565-0.035-2.348 c-0.012,0.008-0.023,0.015-0.035,0.022c-0.051-3.104-0.212-6.178-0.464-9.227c0.015-0.01,0.029-0.019,0.044-0.029 c-0.604-7.305-1.758-14.452-3.418-21.405c0.031-0.021,0.061-0.042,0.092-0.063c-1.766-7.518-4.124-14.807-7.016-21.819 c-15.586-4.7-73.717,10.929-139.996,38.382c-18.732,7.759-36.336,15.726-52.128,23.488c-2.248,10.108-3.443,20.613-3.443,31.398 c0,41.168,17.304,78.272,45.001,104.516c-25.063-3.021-48.141-12.482-67.54-26.67c-0.012,0.003-0.024,0.006-0.036,0.009 c23.819,17.44,53.191,27.745,84.975,27.745c72.008,0,131.67-52.855,142.31-121.885c-0.067,0.041-0.133,0.082-0.201,0.122 C394.526,267.263,395.231,260.825,395.394,254.246z"></path> <path style="fill:#FFD042;" d="M336.357,135.08c-13.912-10.177-29.717-17.917-46.79-22.595 c17.057,4.682,32.842,12.433,46.744,22.606C336.326,135.087,336.341,135.083,336.357,135.08z"></path> <path style="fill:#FFD042;" d="M272.829,108.955c0.812,0.121,1.619,0.254,2.427,0.388 C274.448,109.209,273.641,109.076,272.829,108.955z"></path> <path style="fill:#FFD042;" d="M269.35,108.479c0.761,0.094,1.519,0.201,2.276,0.308 C270.869,108.68,270.112,108.573,269.35,108.479z"></path> <path style="fill:#FFD042;" d="M265.837,108.085c0.706,0.07,1.407,0.153,2.11,0.233 C267.244,108.238,266.542,108.155,265.837,108.085z"></path> <path style="fill:#FFD042;" d="M262.283,107.775c0.646,0.048,1.289,0.109,1.934,0.166 C263.572,107.885,262.929,107.824,262.283,107.775z"></path> <path style="fill:#FFD042;" d="M255.08,107.416c0.45,0.011,0.898,0.034,1.347,0.05C255.978,107.45,255.53,107.427,255.08,107.416z"></path> <path style="fill:#FFD042;" d="M258.699,107.552c0.573,0.029,1.142,0.07,1.713,0.105 C259.841,107.622,259.271,107.581,258.699,107.552z"></path> <path style="fill:#FFD042;" d="M276.269,109.511c0.867,0.151,1.73,0.313,2.592,0.479 C277.999,109.825,277.136,109.662,276.269,109.511z"></path> <path style="fill:#FFD042;" d="M128.965,327.129c-1.196-1.927-2.35-3.883-3.456-5.87c1.105,1.987,2.255,3.944,3.449,5.871 C128.961,327.13,128.963,327.13,128.965,327.129z"></path> <path style="fill:#FFD042;" d="M119.786,309.797c0.34,0.765,0.688,1.524,1.041,2.282 C120.474,311.322,120.126,310.562,119.786,309.797z"></path> <path style="fill:#FFD042;" d="M122.572,315.693c0.402,0.804,0.811,1.603,1.228,2.399 C123.383,317.297,122.974,316.497,122.572,315.693z"></path> <path style="fill:#FFD042;" d="M124.03,318.53c0.446,0.844,0.899,1.684,1.361,2.518C124.929,320.214,124.477,319.374,124.03,318.53 z"></path> <path style="fill:#FFD042;" d="M121.152,312.775c0.368,0.78,0.744,1.555,1.126,2.327 C121.896,314.33,121.521,313.554,121.152,312.775z"></path> <path style="fill:#FFD042;" d="M118.476,306.758c0.317,0.76,0.643,1.514,0.973,2.267 C119.119,308.272,118.793,307.517,118.476,306.758z"></path> <path style="fill:#DBB246;" d="M189.031,289.77c0-10.785,1.195-21.29,3.443-31.398c-40.088,19.702-68.488,38.078-74.006,48.367 c0.003,0.006,0.005,0.012,0.008,0.018c0.317,0.76,0.643,1.514,0.973,2.267c0.113,0.257,0.224,0.516,0.338,0.772 c0.34,0.765,0.688,1.525,1.041,2.282c0.108,0.232,0.215,0.464,0.325,0.696c0.368,0.78,0.744,1.555,1.126,2.327 c0.098,0.197,0.196,0.394,0.294,0.591c0.402,0.804,0.811,1.604,1.228,2.399c0.076,0.146,0.154,0.292,0.231,0.438 c0.446,0.844,0.899,1.684,1.361,2.518c0.039,0.071,0.079,0.141,0.118,0.211c1.106,1.987,2.26,3.943,3.456,5.87 c0.052-0.01,0.101-0.019,0.153-0.029c3.776,6.088,7.995,11.867,12.604,17.303c0.059-0.012,0.117-0.024,0.177-0.037 c1.97,2.32,3.965,4.608,6.075,6.797c-0.04,0.009-0.078,0.017-0.118,0.025c5.762,5.985,12.032,11.477,18.751,16.399 c-0.039,0.01-0.076,0.018-0.115,0.028c19.399,14.188,42.477,23.649,67.54,26.67C206.335,368.042,189.031,330.938,189.031,289.77z"></path> <path style="fill:#DBB246;" d="M336.311,135.091c-13.902-10.173-29.687-17.924-46.744-22.606c-0.047-0.013-0.094-0.025-0.141-0.038 c-1.032-0.282-2.069-0.553-3.111-0.813c-0.125-0.031-0.25-0.061-0.374-0.091c-0.973-0.24-1.949-0.47-2.929-0.69 c-0.197-0.044-0.394-0.085-0.591-0.128c-0.917-0.202-1.837-0.396-2.761-0.58c-0.266-0.053-0.533-0.102-0.799-0.153 c-0.862-0.167-1.725-0.329-2.592-0.479c-0.337-0.059-0.676-0.112-1.013-0.168c-0.807-0.135-1.615-0.267-2.427-0.388 c-0.4-0.06-0.802-0.112-1.202-0.168c-0.757-0.106-1.515-0.213-2.276-0.308c-0.467-0.058-0.936-0.107-1.404-0.161 c-0.703-0.08-1.404-0.163-2.11-0.233c-0.539-0.054-1.08-0.096-1.62-0.144c-0.644-0.057-1.287-0.118-1.934-0.166 c-0.622-0.046-1.247-0.08-1.871-0.118c-0.571-0.035-1.14-0.076-1.713-0.105c-0.755-0.038-1.514-0.06-2.272-0.086 c-0.449-0.015-0.897-0.038-1.347-0.05c-1.213-0.03-2.429-0.046-3.649-0.046c-72.03,0-131.706,52.886-142.32,121.946 c33.467-20.203,71.687-39.286,110.289-55.274C259.584,157.396,299.477,144.157,336.311,135.091z"></path> <path style="fill:#D49E6C;" d="M500.446,148.229v-0.004c-9.359-22.59-43.781-31.23-99.531-25.031 c-19.884,2.215-41.629,6.243-64.558,11.885c-0.015,0.004-0.031,0.008-0.046,0.011c-36.833,9.066-76.726,22.305-116.911,38.951 c-38.602,15.988-76.822,35.071-110.289,55.274C37.917,272.293-11.737,320.347,2.415,354.518 c7.398,17.844,31.414,26.914,68.148,26.914c26.028,0,58.493-4.599,95.893-13.807c0.012-0.003,0.024-0.006,0.036-0.009 c0.039-0.01,0.076-0.018,0.115-0.028c-6.719-4.922-12.989-10.414-18.751-16.399c-27.116,5.97-51.087,9.111-70.179,9.111 c-25.144,0-41.901-5.37-46.548-16.627c-13.104-31.747,75.128-98.287,197.071-148.621c78.701-32.485,152.217-50.281,197.977-50.283 c0.003,0,0.009,0,0.009,0v0v0c25.139,0,41.893,5.371,46.539,16.627c8.173,19.799-23.077,53.132-77.33,87.626 c0.013,0.782,0.035,1.562,0.035,2.348c0,0.962-0.013,1.921-0.036,2.876c-0.163,6.579-0.868,13.017-1.854,19.361 c0.068-0.041,0.133-0.082,0.201-0.122C473.159,225.421,513.054,178.686,500.446,148.229z"></path> <path style="fill:#D49E6C;" d="M231.253,202.447C99.035,257.022,29.891,319.706,38.524,340.621 c3.063,7.422,17.334,11.68,39.153,11.68c17.928,0,39.741-2.764,64.045-7.897c-4.61-5.436-8.828-11.216-12.604-17.303 c-0.052,0.01-0.101,0.019-0.153,0.029c-0.002,0-0.004,0.001-0.006,0.001c-41.083,7.978-58.897,4.329-60.63,0.13 c-1.125-2.727,4.031-16.211,41.25-41.609c32.422-22.133,78.039-45.813,128.43-66.688c50.391-20.875,99.39-36.383,137.969-43.664 c16.953-3.203,29.344-4.313,38.25-4.313c14.352,0,19.641,2.891,20.336,4.57c1.733,4.18-8.271,19.353-42.949,42.764 c-0.031,0.021-0.061,0.042-0.092,0.063c1.66,6.953,2.814,14.1,3.418,21.405c51.099-33.256,75.75-62.353,70.39-75.34 c-3.063-7.422-17.331-11.68-39.144-11.68v-8l-0.008,8C379.478,152.771,306.609,171.343,231.253,202.447z"></path> <path style="fill:#B68057;" d="M141.899,344.367c-0.059,0.013-0.117,0.024-0.177,0.037c-24.305,5.134-46.117,7.897-64.045,7.897 c-21.818,0-36.089-4.257-39.153-11.68c-8.633-20.915,60.511-83.599,192.729-138.174c75.356-31.104,148.225-49.676,194.925-49.678 l0.008-8c0,0-0.006,0-0.009,0c-45.76,0.002-119.276,17.798-197.977,50.283C106.257,245.387,18.025,311.927,31.129,343.674 c4.647,11.258,21.404,16.627,46.548,16.627c19.092,0,43.063-3.141,70.179-9.111c0.04-0.009,0.078-0.017,0.118-0.025 C145.864,348.975,143.869,346.687,141.899,344.367z"></path> <line style="fill:none;stroke:#B68057;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;" x1="426.186" y1="144.77" x2="426.186" y2="144.769"></line> <path style="fill:#B68057;" d="M465.33,164.449c5.361,12.987-19.291,42.084-70.39,75.34c-0.015,0.01-0.029,0.019-0.044,0.029 c0.252,3.049,0.413,6.124,0.464,9.227c0.012-0.007,0.023-0.015,0.035-0.022c54.253-34.494,85.502-67.827,77.33-87.626 c-4.646-11.256-21.4-16.627-46.539-16.627v8C447.999,152.769,462.267,157.026,465.33,164.449z"></path> </g> </g>
+                </svg>
+                <h1 class="text-white text-2xl font-bold">Nicolas Carpita</h1>
+              </div>
+              
+              <ul class=" items-center gap-4 lg:gap-5 text-zinc-300 lg:text-lg hidden md:flex">
+                  <li><a href="#sec1" id="homeLink" class="hover:text-white transition-color ease-in-out duration-300">Accueil</a></li>
+                  <li><a href="#sec2" id="compLink" class="hover:text-white transition-color ease-in-out duration-300">Compétences</a></li>
+                  <li><a href="#" onclick="document.querySelector('.projectSecTitle').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start' // Centre l'élément dans la fenêtre
+                })" class="hover:text-white transition-color ease-in-out duration-300">Projets</a></li>
+                  <li><a href="#" onclick="document.querySelector('#veilleTitle').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start' // Centre l'élément dans la fenêtre
+                })" id="veilleLink" class="hover:text-white transition-color ease-in-out duration-300">Veille technologique</a></li>
+                  <li><a href="#contact" id="contactLink" class="hover:text-white transition-color ease-in-out duration-300">Contact</a></li>
+              </ul>
+              <button class="block md:hidden" @click="burgerMenu = !burgerMenu">
+                  <svg viewBox="0 0 24 24" fill="none" width="50" height="50" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Menu / Hamburger_MD"> <path id="Vector" d="M5 17H19M5 12H19M5 7H19" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+              </button>
+          </nav>
+      </div>
+      <div class="fixed h-screen w-screen bg-black bg-opacity-80 backdrop-blur z-40" x-show="burgerMenu"
+      x-transition:enter="transform ease-in-out duration-300"
+      x-transition:enter-start="translate-x-[-100%]"
+      x-transition:enter-end="translate-x-0"
+      x-transition:leave="transform ease-in-out duration-300"
+      x-transition:leave-start="translate-x-0"
+      x-transition:leave-end="translate-x-[-100%]">
+          <div class="w-full h-full relative">
+              <button class="absolute top-5 right-5" @click="burgerMenu = false" x-show="burgerMenu" x-transition:enter="transition transform ease-in-out duration-300 delay-100"
+              x-transition:enter-start="opacity-0 rotate-90"
+              x-transition:enter-end="opacity-100 rotate-0"
+              x-transition:leave="transition transform ease-in-out duration-300"
+              x-transition:leave-start="opacity-100 rotate-0" x-transition:leave-end="opacity-0 rotate-90">
+                  <svg viewBox="0 0 24 24" width="50" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.99486 7.00636C6.60433 7.39689 6.60433 8.03005 6.99486 8.42058L10.58 12.0057L6.99486 15.5909C6.60433 15.9814 6.60433 16.6146 6.99486 17.0051C7.38538 17.3956 8.01855 17.3956 8.40907 17.0051L11.9942 13.4199L15.5794 17.0051C15.9699 17.3956 16.6031 17.3956 16.9936 17.0051C17.3841 16.6146 17.3841 15.9814 16.9936 15.5909L13.4084 12.0057L16.9936 8.42059C17.3841 8.03007 17.3841 7.3969 16.9936 7.00638C16.603 6.61585 15.9699 6.61585 15.5794 7.00638L11.9942 10.5915L8.40907 7.00636C8.01855 6.61584 7.38538 6.61584 6.99486 7.00636Z" fill="#ffffff"></path> </g></svg>
+              </button>
+              <div class="pt-24 px-14">
+                  <ul class=" justify-center gap-10 text-white text-4xl font-semibold flex flex-col">
+                      <li><a href="#sec1" @click="burgerMenu = false" id="homeLink" class="md:hover:text-white transition-color ease-in-out duration-300">Accueil</a></li>
+                      <li><a href="#sec2" @click="burgerMenu = false" id="compLink" class="md:hover:text-white transition-color ease-in-out duration-300">Compétences</a></li>
+                      <li><a href="#projets" @click="burgerMenu = false" id="projetLink" class="md:hover:text-white transition-color ease-in-out duration-300">Projets</a></li>
+                      <li><a href="#veille" @click="burgerMenu = false" id="veilleLink" class="md:hover:text-white transition-color ease-in-out duration-300">Veille technologique</a></li>
+                      <li><a href="#contact" @click="burgerMenu = false" id="contactLink" class="md:hover:text-white transition-color ease-in-out duration-300">Contact</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+    </header>
+
+    <main class="!max-w-screen !overflow-x-hidden relative">
+      <!-- Home -->
+      <section id="homeSection" class="h-screen w-full relative z-10 flex items-center justify-center" >
+
+        <div class="homeBackground absolute h-[110%] bottom-0 w-full" style="background: rgb(0,21,33);background: linear-gradient(180deg, rgba(0,21,33,1) 0%, rgba(0,39,62,1) 57%, rgba(0,66,102,1) 100%);">
+
+          <!-- Voie lactée -->
+          <div class="galaxy-background absolute top-0 left-0 -mt-32 -ml-12 opacity-50 w-[calc(100vw+3rem)] h-full">
+            <svg id="milkyway" class="w-full" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 1920 1080" preserveaspectratio="xMidYMid slice">
+              <defs>
+                <radialGradient id="milkyway-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                  <stop offset="0%" style="stop-color: rgba(255, 255, 255, 0.9); stop-opacity: 0.7" />
+                  <stop offset="100%" style="stop-color: rgba(255, 255, 255, 0.1); stop-opacity: 0" />
+                </radialGradient>
+                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blurred"/>
+                  <feMerge>
+                    <feMergeNode in="blurred"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+              <g id="stars">
+                <circle cx="150" cy="250" r="2" fill="white" />
+                <circle cx="450" cy="600" r="3" fill="white" />
+                <circle cx="800" cy="200" r="1.5" fill="white" />
+                <circle cx="1200" cy="900" r="4" fill="white" />
+                <circle cx="1600" cy="500" r="2.5" fill="white" />
+                <circle cx="1700" cy="700" r="1" fill="white" />
+                <circle cx="300" cy="900" r="2" fill="white" />
+                <circle cx="1000" cy="800" r="1.8" fill="white" />
+                <circle cx="1800" cy="400" r="2.3" fill="white" />
+                <circle cx="1400" cy="300" r="2" fill="white" />
+  
+              </g>
+              <g id="clouds" class="opacity-10" fill="url(#milkyway-gradient)" filter="url(#glow)">
+                <path d="M0,500 C400,600 700,800 1200,500 C1600,350 1800,700 1920,500 C1800,300 1400,100 1200,300 C1000,500 700,300 400,400 C0,500 0,500" />
+                <path d="M0,700 C200,850 600,900 1000,600 C1400,400 1600,500 1920,400 C1800,250 1400,300 1000,500 C600,700 200,800 0,700" />
+              </g>
+            </svg>
+            
+              <defs>
+                <!-- Dégradé lumineux pour la voie lactée -->
+                <radialGradient id="milkyway-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                  <stop offset="0%" style="stop-color: rgba(255, 255, 255, 0.9); stop-opacity: 0.7" />
+                  <stop offset="100%" style="stop-color: rgba(255, 255, 255, 0.1); stop-opacity: 0" />
+                </radialGradient>
+            
+                <!-- Dégradé chromatique pour les nuages (couleurs différentes) -->
+                <linearGradient id="cloud-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color: rgba(255, 0, 128, 0.8);" /> <!-- Rose ou magenta -->
+                  <stop offset="30%" style="stop-color: rgba(75, 0, 130, 0.6);" /> <!-- Violet -->
+                  <stop offset="60%" style="stop-color: rgba(0, 255, 255, 0.5);" /> <!-- Cyan clair -->
+                  <stop offset="100%" style="stop-color: rgba(0, 0, 139, 0.4);" /> <!-- Bleu nuit -->
+                </linearGradient>
+            
+                <!-- Filtre pour un effet de flou lumineux -->
+                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blurred"/>
+                  <feMerge>
+                    <feMergeNode in="blurred"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+            
+              <g id="stars">
+                <!-- Création des étoiles aléatoires -->
+                <circle class="star" cx="150" cy="250" r="2" fill="white" />
+                <circle class="star" cx="450" cy="600" r="3" fill="white" />
+                <circle class="star" cx="800" cy="200" r="1.5" fill="white" />
+                <circle class="star" cx="1200" cy="900" r="4" fill="white" />
+                <circle class="star" cx="1600" cy="500" r="2.5" fill="white" />
+                <circle class="star" cx="1700" cy="700" r="1" fill="white" />
+                <circle class="star" cx="300" cy="900" r="2" fill="white" />
+                <circle class="star" cx="1000" cy="800" r="1.8" fill="white" />
+                <circle class="star" cx="1800" cy="400" r="2.3" fill="white" />
+                <circle class="star" cx="1400" cy="300" r="2" fill="white" />
+                <!-- Ajouter encore plus d'étoiles ici pour plus de densité -->
+              </g>
+            
+              <!-- Nébuleuse et nuages lumineux avec effet chromatique -->
+              <g id="clouds" fill="url(#cloud-gradient)" filter="url(#glow)">
+                <path d="M0,500 C400,600 700,800 1200,500 C1600,350 1800,700 1920,500 C1800,300 1400,100 1200,300 C1000,500 700,300 400,400 C0,500 0,500" />
+                <path d="M0,700 C200,850 600,900 1000,600 C1400,400 1600,500 1920,400 C1800,250 1400,300 1000,500 C600,700 200,800 0,700" />
+              </g>
+            </svg>
+            
+  
+            
+          </div>
+
+          <!-- Ciel étoilé -->
+          <svg id="starrySky" class="absolute top-0 left-0 h-full" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"></svg>
+
+          <!-- Etoiles filantes container -->
+          <div class="shooting-stars absolute top60 left-0 w-full h-full z-10"></div>
+
+          <!-- Lune -->
+
+        </div>
+      
+        <div class="size-[200px] rounded-full bg-amber-100 absolute moon z-10 left-0 bottom-0" :style="'left: -' + $el.offsetWidth + 'px;'"></div>
+
+        <div class="mainTitle pb-20 z-40">
+          <h1 class="text-white text-5xl md:text-8xl font-bold text-center">Nicolas Carpita</h1>
+          <p class="text-white font-semibold text-center text-xl md:text-2xl profession">Développeur FullStack</p>
+          <div class="flex items-center justify-center mt-4 gap-4 z-40">
+            <div class="relative group linkedin">
+              <svg class="absolute top-0 left-0 h-12 fill opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-200 pointer-events-none" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#ED5565;" d="M512,255.996C512,397.389,397.404,512,256.004,512C114.627,512,0,397.389,0,255.996 C0,114.611,114.627,0,256.004,0C397.404,0,512,114.611,512,255.996z"></path> <g> <path style="fill:#DA4453;" d="M291.349,241.559c-37.845,7.953-75.751,9.008-112.658,3.148 c-29.906-4.742-59.282-14.008-87.313-27.531c-38.032-18.337-64.72-40.454-75.345-50.485c-2.72,7.258-5.095,14.68-7.157,22.234 c14.626,12.579,39.657,31.22,72.814,47.259c29.938,14.5,61.345,24.438,93.345,29.547c16.875,2.688,33.907,4.039,51.063,4.039 c23.094,0,46.407-2.445,69.626-7.328c74.501-15.656,131.463-13.898,166.151-9.664c24,2.922,40.906,7.406,50.031,10.273 c0.062-2.344,0.094-4.695,0.094-7.055c0-5.141-0.156-10.242-0.438-15.312c-10.5-2.93-25.906-6.438-45.906-8.938 C399.561,223.473,334.381,232.52,291.349,241.559z"></path> <path style="fill:#DA4453;" d="M503,323.56c-12.438,3.562-43.812,11.938-83.438,17.938c-85.118,12.906-142.307,5.188-175.276-3.562 c-74.095-19.657-135.689-17.032-174.347-11.376c-25.562,3.75-44.625,9.219-55.969,13.063c2.344,6.75,4.969,13.391,7.844,19.875 c10.562-3.5,28.438-8.547,52.125-11.953c36.501-5.25,94.721-7.594,164.878,11.016c28.219,7.484,59.907,11.234,94.689,11.234 c27.906,0,57.836-2.422,89.618-7.25c30.282-4.609,55.532-10.438,71.907-14.688C498.062,339.936,500.75,331.841,503,323.56z"></path> <path style="fill:#DA4453;" d="M355.287,454.968c-12.5-7.75-27.281-13-44.001-15.594c-20.281-3.172-43.501-2.422-69.001,2.219 c-72.657,13.25-155.877-1.141-165.628-2.922c9.657,9.469,20.032,18.172,31.063,26.048c34.376,3.875,88.063,7.031,138.377-2.126 c40.157-7.312,73.564-3.969,96.627,9.688c9.875,5.875,15.844,12.375,19.156,16.875c6.562-2.984,12.961-6.234,19.18-9.734 C376.904,473.062,368.975,463.468,355.287,454.968z"></path> <path style="fill:#DA4453;" d="M489.344,150.557c-14,1.61-48.438,4.993-89.783,4.907c-70.461-0.148-128.837-10.258-168.775-29.243 c-49.563-23.547-99.221-31.953-132.127-34.859c-14.719-1.297-27.376-1.656-37.313-1.617c-5.969,6.969-11.562,14.266-16.75,21.859 c19.281-1.18,98.752-3.297,177.034,33.883c43.469,20.649,103.408,31.18,178.213,31.305c0.438,0,0.875,0,1.312,0 c49.689,0,88.502-4.711,96.408-5.742C495.125,164.073,492.375,157.237,489.344,150.557z"></path> <path style="fill:#DA4453;" d="M436.968,74.931C402.123,74.986,326.631,72.58,284.13,52.36 c-39.157-18.633-90.502-28.336-125.627-33.133c-12.094,4.985-23.72,10.868-34.813,17.571c22.845,2.008,99.846,10.352,151.253,34.82 c45.845,21.806,122.431,24.696,159.807,24.696c11.095,0,18.72-0.258,21.095-0.344C449.938,88.611,443.656,81.587,436.968,74.931z"></path> <ellipse style="fill:#DA4453;" cx="170.69" cy="394.67" rx="64" ry="32"></ellipse> </g> </g></svg>
+
+              <img src="./assets/linkedin-center-MZSeqNW5.png" alt="" class="h-12 absolute top-0 left-0 opacity-0 scale-[120%] group-hover:opacity-100 transition-all ease-in-out duration-200">
+
+              <img src="./assets/linkedin-test-DSeip_Hu.png" alt="" class="emptyLogo h-12 group-hover:opacity-0 transition-all ease-in-out duration-200">
+
+              
+            </div>
+
+            <div class="relative group instagram">
+              <svg class="absolute top-0 left-0 h-12 fill opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-200 pointer-events-none" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#5D9CEC;" d="M511.996,256c0,141.375-114.594,256-255.992,256c-141.391,0-256-114.625-256-256 c0-141.391,114.609-256,256-256C397.402,0,511.996,114.609,511.996,256z"></path> <g> <path style="fill:#4A89DC;" d="M288.004,128H34.254c-4,6.906-7.688,14.031-11.031,21.328h264.781 c5.891,0,10.672-4.781,10.672-10.672S293.895,128,288.004,128z"></path> <path style="fill:#4A89DC;" d="M463.965,405.328H266.676c-5.891,0-10.672,4.781-10.672,10.672s4.781,10.656,10.672,10.656h180.133 C452.902,419.875,458.621,412.75,463.965,405.328z"></path> <path style="fill:#4A89DC;" d="M149.332,341.328H14.566c2.578,7.266,5.469,14.391,8.656,21.328h126.109 c5.891,0,10.672-4.766,10.672-10.656S155.223,341.328,149.332,341.328z"></path> <path style="fill:#4A89DC;" d="M362.676,266.656c0,5.891,4.766,10.672,10.656,10.672h137.789 c0.594-7.031,0.875-14.141,0.875-21.328H373.332C367.441,256,362.676,260.766,362.676,266.656z"></path> <path style="fill:#4A89DC;" d="M74.676,245.328c0-5.891-4.781-10.672-10.672-10.672H0.879C0.301,241.703,0.004,248.812,0.004,256 h64C69.895,256,74.676,251.219,74.676,245.328z"></path> <path style="fill:#4A89DC;" d="M181.332,64c5.891,0,10.672-4.781,10.672-10.672s-4.781-10.672-10.672-10.672h-66.875 C104.707,49.141,95.426,56.281,86.676,64H181.332z"></path> <path style="fill:#4A89DC;" d="M341.332,266.656c0,17.688-28.641,32-64,32c-35.344,0-64-14.312-64-32c0-17.672,28.656-32,64-32 C312.691,234.656,341.332,248.984,341.332,266.656z"></path> </g> </g></svg>
+              
+              <img src="./assets/instagram-logo-D55F6sV-.png" alt="" class="h-12 absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-200">
+
+              <img src="./assets/instagram-empty-DTZMMOHw.png" alt="" class="emptyLogo h-12 group-hover:opacity-0 transition-all ease-in-out duration-200">
+
+
+            </div>
+            
+            <div class="relative group github overflow-hidden">
+              <svg class="absolute top-0 left-0 h-12 fill opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-200 pointer-events-none" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.008 512.008" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#FC6E51;" d="M512.004,256.004c0,141.393-114.596,256.004-255.996,256.004 c-141.385,0-256.004-114.611-256.004-256.004C0.004,114.627,114.623,0,256.008,0C397.408,0,512.004,114.627,512.004,256.004z"></path> <g> <path style="fill:#E9573F;" d="M448.003,213.347c0,29.454-28.656,53.329-64.001,53.329c-35.336,0-63.993-23.875-63.993-53.329 c0-29.469,28.657-53.344,63.993-53.344C419.347,160.003,448.003,183.878,448.003,213.347z"></path> <path style="fill:#E9573F;" d="M227.016,384.006c0,17.672-19.102,32-42.665,32c-23.562,0-42.672-14.328-42.672-32 s19.11-32,42.672-32C207.914,352.006,227.016,366.334,227.016,384.006z"></path> <path style="fill:#E9573F;" d="M163.827,234.676c0,23.562-23.876,42.672-53.329,42.672c-29.461,0-53.337-19.109-53.337-42.672 s23.875-42.673,53.337-42.673C139.951,192.003,163.827,211.112,163.827,234.676z"></path> <path style="fill:#E9573F;" d="M320.009,96.002c-1.156,0-2.281,0.203-3.312,0.531c-0.5,0.172-50.376,16.344-104.251,20.875 c-51.946,4.359-86.619-7.797-106.564-18.766c-18.321-10.062-27.93-21-30.431-24.11c-5.078,5.047-9.945,10.312-14.586,15.782 c5.094,5.781,15.859,16.422,33.407,26.282c32.148,18.094,67.829,23.031,97.188,23.031c8.148,0,15.813-0.375,22.774-0.969 c55.274-4.641,105.228-20.594,109.087-21.859c4.266-1.391,7.359-5.391,7.359-10.125C330.681,100.783,325.9,96.002,320.009,96.002z"></path> <path style="fill:#E9573F;" d="M506.848,307.442c-9.469,1.922-59.407,11.781-108.689,15.922 c-100.806,8.469-136.057-12.125-136.4-12.328c-1.656-1.062-3.625-1.688-5.75-1.688c-5.891,0-10.672,4.766-10.672,10.656 c0,3.781,1.969,7.094,4.922,8.984c1.078,0.703,11.297,6.953,34.906,11.829c19.188,3.969,41.454,5.953,66.58,5.953 c15.062,0,31.164-0.719,48.195-2.141c40.595-3.406,81.596-10.595,101.127-14.313C503.316,322.833,505.254,315.208,506.848,307.442z "></path> <path style="fill:#E9573F;" d="M343.541,416.006c-2.094,0-4.031,0.609-5.672,1.641c-0.469,0.297-47.345,29.36-99.705,33.751 c-53.696,4.5-100.025-2.891-129.439-9.875c-18.235-4.344-32.407-9.062-41.259-12.345c11.266,12.267,23.711,23.423,37.149,33.298 c24.422,5.751,59.423,11.626,100.376,11.626c11.235,0,22.923-0.438,34.954-1.453c57.673-4.828,107.189-35.642,109.268-36.938 c3-1.891,4.984-5.235,4.984-9.032C354.197,420.787,349.432,416.006,343.541,416.006z"></path> </g> </g></svg>
+
+              <img src="./assets/github-logo-DLNq_n0c.png" alt="" class="h-12 absolute -bottom-[5px] left-[2px] opacity-0 scale-[75%] group-hover:opacity-100 transition-all ease-in-out duration-200">
+              <img src="./assets/github-empty-B4hsX490.png" alt="" class="emptyLogo h-12 group-hover:opacity-0 transition-all ease-in-out duration-200">
+            </div>
+          </div>
+        </div>
+        
+
+        <!-- Cloud Layer 3 -->
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute -bottom-6 min-w-full h-full left-0 bg-transparent z-30 pointer-events-none" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"  preserveAspectRatio="none" viewBox="0 0 1440 560">
+          <g mask="url(&quot;#SvgjsMask1001&quot;)" fill="none">
+              <!-- <path d="M1488 560L0 560 L0 321.9Q83.73 285.63, 120 369.36Q169.87 299.23, 240 349.1Q243.3 280.4, 312 283.71Q377.58 229.29, 432 294.88Q514.37 257.25, 552 339.61Q622.04 289.65, 672 359.69Q704.36 272.04, 792 304.4Q821.2 261.6, 864 290.8Q951.93 258.73, 984 346.66Q1037.63 280.3, 1104 333.93Q1184.52 294.45, 1224 374.97Q1228.26 307.23, 1296 311.48Q1349.21 244.69, 1416 297.9Q1479.97 289.87, 1488 353.84z" class="fill-zinc-600/80"></path> -->
+              <path d="M1464 560L0 560 L0 356.62Q97.78 334.4, 120 432.19Q135.69 375.88, 192 391.58Q234.28 361.86, 264 404.13Q339.57 359.7, 384 435.28Q387.07 366.35, 456 369.42Q507.88 301.3, 576 353.18Q652.93 310.12, 696 387.05Q763.85 334.89, 816 402.74Q858.38 373.12, 888 415.5Q909.33 364.83, 960 386.16Q1026.8 332.96, 1080 399.75Q1153.83 353.57, 1200 427.4Q1201.56 356.96, 1272 358.52Q1337.26 303.78, 1392 369.04Q1451.7 356.74, 1464 416.44z" class="fill-zinc-400/92 backdrop-blur-md cloudLayer3"></path>
+          </g>
+          <defs>
+              <mask id="SvgjsMask1001">
+                  <rect width="1440" height="560" fill="#ffffff"></rect>
+              </mask>
+          </defs>
+        </svg>
+
+
+        <!-- Cloud Layer 2 -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute bottom-0 min-w-full h-full left-0 bg-transparent z-40 pointer-events-none" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" preserveAspectRatio="none" viewBox="0 0 1440 560">
+          <g mask="url(&quot;#SvgjsMask1001&quot;)" fill="none">
+              <path d="M1464 560L0 560 L0 459.76Q33.95 421.71, 72 455.66Q99.92 411.58, 144 439.49Q201.98 425.47, 216 483.44Q287.34 434.78, 336 506.12Q349.22 447.34, 408 460.55Q434.57 415.12, 480 441.69Q570.63 412.32, 600 502.96Q635.27 418.24, 720 453.51Q794.73 408.24, 840 482.96Q906.69 429.65, 960 496.34Q970.99 435.33, 1032 446.32Q1081.12 375.44, 1152 424.56Q1230.49 383.06, 1272 461.55Q1298.23 415.78, 1344 442.02Q1397.88 375.89, 1464 429.77z" class="fill-zinc-300/96 z-10 cloudLayer2"></path>
+          </g>
+          <defs>
+              <mask id="SvgjsMask1001">
+                  <rect width="1440" height="560" fill="#ffffff"></rect>
+              </mask>
+          </defs>
+        </svg>
+
+        <!-- Cloud Layer 1 -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute bottom-0 min-w-full h-full left-0 bg-transparent z-50 pointer-events-none" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"  preserveAspectRatio="none" viewBox="0 0 1440 560">
+          <g mask="url(&quot;#SvgjsMask1001&quot;)" fill="none">
+              <!-- <path d="M1512 560L0 560 L0 498.76Q86.34 465.1, 120 551.43Q150.95 510.38, 192 541.32Q274.71 504.03, 312 586.73Q312.22 514.95, 384 515.17Q409.45 468.62, 456 494.06Q511.45 477.51, 528 532.97Q554.91 487.88, 600 514.79Q683.66 478.45, 720 562.12Q747.49 517.61, 792 545.09Q833.26 466.35, 912 507.61Q965.64 441.25, 1032 494.9Q1092.75 483.65, 1104 544.4Q1127.12 495.52, 1176 518.64Q1231.88 502.52, 1248 558.4Q1253.12 491.52, 1320 496.64Q1386.53 443.17, 1440 509.71Q1481.38 479.09, 1512 520.46z" fill="white" class="relative z-50"></path> -->
+              <rect  x="0" y="0"></rect>
+              <path d="M1464 560L0 560 L0 459.11Q70.21 457.32, 72 527.54Q88.7 472.24, 144 488.93Q216.52 441.45, 264 513.96Q291.2 421.16, 384 448.36Q432.5 424.87, 456 473.37Q546.73 444.1, 576 534.83Q618.83 457.66, 696 500.49Q786.1 470.59, 816 560.68Q841.29 513.97, 888 539.27Q911.54 490.81, 960 514.35Q984.38 466.73, 1032 491.11Q1050.02 437.13, 1104 455.16Q1187.75 418.91, 1224 502.66Q1317.58 476.24, 1344 569.81Q1363.19 469, 1464 488.19z" fill="rgba(255, 255, 255, 1)" class="cloudLayer1"></path>
+          </g>
+          <defs>
+              <mask id="SvgjsMask1001">
+                  <rect width="1440" height="560" fill="#ffffff"></rect>
+              </mask>
+          </defs>
+        </svg>
+
+        <!-- <svg id="cloudySky" class="absolute top-0 left-0 z-10" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"></svg> -->
+
+
+      </section>
+      <!-- Introduction -->
+      <section class="w-full bg-white text-black relative presentationSection pt-24 z-20">
+        <div class="gradientBackground absolute w-full h-full opacity-0 z-0" style="background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(248,253,255,1) 14%, rgba(204,239,255,1) 28%, rgba(180,232,241,1) 45%, rgba(209,198,165,1) 66%, rgba(255,169,129,1) 100%);"></div>
+        <div class="skyBackground absolute w-full h-full opacity-0" style="background: rgb(204,239,255)"></div>
+        <div class="w-[1170px] max-w-[95%] presentationContent flex mx-auto mt-24 gap-4 justify-center items-center bg-zinc-100/60 p-[50px] rounded shadow">
+          <div class="flex flex-col w-[70%] gap-4">
+            <h1 class="text-4xl font-semibold mb-4">Presentation</h1>
+            <p>Je m'appelle Nicolas Carpita et vous souhaite la bienvenue sur mon portfolio. J'ai 26 ans et porte depuis toujours un intêret envers le monde du numérique. D'un naturel curieux, j'ai longtemps cherché quelle voie suivre pour construire une carrière professionnelle. C'est en 2023 que je décide, après plusieurs années à travailler en tant qu'opérateur logistique, que j'ai décidé de franchir le pas et suivre un BTS SIO (option SLAM) pour découvrir la programmation et ainsi m'ouvrir de nouvelles perspectives d'avenir.</p>
+            <p>En dehors de l'aspect professionnel, j'aime particulièrement le cinéma, les jeux vidéos (ainsi que tout autres formes d'art bien sûr) et suis adepte de la randonnée/trek en haute montagne, ou toute autre activité qui prône un certain dépassement de soi.</p>
+          </div>
+          <div class="w-[30%] overflow-hidden relative shadow-inner h-80 rounded-sm">
+            <img src="./assets/photo-perso-C6L4RmOG.jpg" alt="" class="scale-[200%] absolute -left-[50%] bottom-[11%] presentationImage">
+          </div>
+        </div>
+        
+
+        <div class="w-full flex flex-col justify-center items-center mt-32 relative z-20">
+          <div class="flex items-start gap-4">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold pb-4">Mon parcours</h1>
+            <svg id="parcoursLogo" viewBox="0 0 24 24" class="mt-[2px] sm:mt-[4px] w-[40px] sm:w-[50px] md:w-[60px]" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>route_fill</title> <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Map" transform="translate(-288.000000, -48.000000)" fill-rule="nonzero"> <g id="route_fill" transform="translate(288.000000, 48.000000)"> <path d="M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z" id="MingCute" fill-rule="nonzero"> </path> <path d="M18,16 C19.6569,16 21,17.3431 21,19 C21,20.6569 19.6569,22 18,22 C16.3431,22 15,20.6569 15,19 C15,17.3431 16.3431,16 18,16 Z M15.5,4 C17.9853,4 20,6.01472 20,8.5 C20,10.9853 17.9853,13 15.5,13 L8.5,13 C7.11929,13 6,14.1193 6,15.5 C6,16.8807 7.11929,18 8.5,18 L13,18 C13.5523,18 14,18.4477 14,19 C14,19.5523 13.5523,20 13,20 L8.5,20 C6.01472,20 4,17.9853 4,15.5 C4,13.0147 6.01472,11 8.5,11 L15.5,11 C16.8807,11 18,9.88071 18,8.5 C18,7.11929 16.8807,6 15.5,6 L11,6 C10.4477,6 10,5.55228 10,5 C10,4.44772 10.4477,4 11,4 L15.5,4 Z M6,2 C7.65685,2 9,3.34315 9,5 C9,6.65685 7.65685,8 6,8 C4.34315,8 3,6.65685 3,5 C3,3.34315 4.34315,2 6,2 Z" id="形状" fill="#000000"> </path> </g> </g> </g> </g>
+            </svg>
+          </div>
+          <p class="text-stone-500 mx-6 text-center">Résumé de mes experiences professionnelles et pédagogiques, et du savoir faire et des compétences que j'en ai tiré.</p>
+        </div>
+        <div class="timeline z-50 relative z-20 sm:max-w-[1200px] sm:mx-auto mt-[100px] after:content-[''] after:absolute after:w-[6px] after:rounded-full after:h-full after:bg-black/70 after:backdrop-blur-sm after:top-0 after:left-10 sm:after:left-1/2 after:-translate-x-1/2 after:-z-10">
+          <svg viewBox="0 0 32 32" class="timelineLabel !bg-transparent further w-[30px] left-[25px] sm:left-[calc(50%-15px)] -top-6 absolute z-20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>arrow-up-circle</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-362.000000, -1089.000000)" class="fill-neutral-700"> <path d="M384.535,1105.54 C384.145,1105.93 383.512,1105.93 383.121,1105.54 L379,1101.41 L379,1112 C379,1112.55 378.553,1113 378,1113 C377.447,1113 377,1112.55 377,1112 L377,1101.41 L372.879,1105.54 C372.488,1105.93 371.854,1105.93 371.465,1105.54 C371.074,1105.14 371.074,1104.51 371.465,1104.12 L377.121,1098.46 C377.361,1098.22 377.689,1098.15 378,1098.21 C378.311,1098.15 378.639,1098.22 378.879,1098.46 L384.535,1104.12 C384.926,1104.51 384.926,1105.14 384.535,1105.54 L384.535,1105.54 Z M378,1089 C369.163,1089 362,1096.16 362,1105 C362,1113.84 369.163,1121 378,1121 C386.837,1121 394,1113.84 394,1105 C394,1096.16 386.837,1089 378,1089 L378,1089 Z" id="arrow-up-circle" sketch:type="MSShapeGroup"> </path> </g> </g> </g>
+          </svg>
+            <div class="timelineContainer max-sm:left-10">
+                <div class="timelineLabel bg-black max-sm:-left-[15px] sm:-right-[15px]">
+                    <svg fill="#ffffff" width="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-q</title><polygon points="256 370.43 96 279 96 377.42 256 466.3 416 377.42 416 279 256 370.43"></polygon><polygon points="512.25 192 256 45.57 -0.25 192 256 338.43 464 219.57 464 384 512 384 512 192.14 512.25 192"></polygon></g></svg>
+                </div>
+
+                <div class="text-box left transition-all ease-in-out duration-300 text-white rounded-[6px] text-[15px] flex flex-col justify-between" >
+                  <!-- <div class="absolute bottom-[12px] -right-[30px] h-[6px] w-[30px] bg-black"></div> -->
+                  <div class="w-full allInfos transition-all ease-in-out duration-300" :style="`max-height: ${$el.querySelector('.infos').offsetHeight}px`">
+                    <div class="infos">
+                      <h2 class="font-bold text-2xl">IFC Avignon</h2>
+                      <small>2023 - 2025</small>
+                      <p>BTS Service informatique aux Organisations, option SLAM</p>
+                    </div>
+                    <p class="moreInfos pt-4 text-sm opacity-0 transition-all ease-in-out duration-300 scale-y-0">En suivant ce BTS orienté sur l'informatique, j'ai appris les bases du développement web et applicatif, en plus de solides connaissances en culture générale, en anglais ainsi qu'en droit, management et économie. </p>
+                  </div> 
+                </div>
+            </div>
+            <div class="timelineContainer max-sm:left-10 left-1/2">
+                <div class="timelineLabel -left-[15px] bg-black">
+                    <svg viewBox="0 0 512 512" width="30px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>work-case-filled</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="work-case" fill="#ffffff" transform="translate(42.666667, 64.000000)"> <path d="M1.20792265e-13,197.76 C54.5835501,218.995667 112.186031,231.452204 170.666667,234.666667 L170.666667,277.333333 L256,277.333333 L256,234.666667 C314.339546,231.013 371.833936,218.86731 426.666667,198.613333 L426.666667,362.666667 L1.20792265e-13,362.666667 L1.20792265e-13,197.76 Z M277.333333,-1.42108547e-14 L298.666667,21.3333333 L298.666667,64 L426.666667,64 L426.666667,175.146667 C361.254942,199.569074 292.110481,212.488551 222.293333,213.333333 L222.293333,213.333333 L206.933333,213.333333 C136.179047,212.568604 66.119345,199.278929 7.10542736e-15,174.08 L7.10542736e-15,174.08 L7.10542736e-15,64 L128,64 L128,21.3333333 L149.333333,-1.42108547e-14 L277.333333,-1.42108547e-14 Z M256,42.6666667 L170.666667,42.6666667 L170.666667,64 L256,64 L256,42.6666667 Z" id="Combined-Shape-Copy"> </path> </g> </g> </g></svg>
+                </div>
+                <div class="text-box right transition-all ease-in-out duration-300 text-white rounded-[6px] text-[15px] flex flex-col justify-between">
+                  <div class="w-full allInfos transition-all ease-in-out duration-300" :style="`max-height: ${$el.querySelector('.infos').offsetHeight}px`">
+                    <div class="infos">
+                      <h2 class="font-bold text-2xl">GREENLOG Aroma-Zone</h2>
+                      <small>2018 - 2024</small>
+                      <p>Opérateur d'expédition logistique</p>
+                    </div>
+                    <p class="moreInfos pt-4 text-sm opacity-0 transition-all ease-in-out duration-300 scale-y-0">Mon travail en tant qu'opérateur logistique pendant plusieurs années m'a permis de me confronter au monde du travail, de développer ma capacité à travailler au sein d'une équipe, ainsi que de remplir les objectifs mis en place par l'entreprise, en touchant à plusieurs tâches relatives à la logistique (préparation de commandes, gestion de stock...) </p>
+                  </div>
+                </div>
+            </div>
+            <div class="timelineContainer max-sm:left-10">
+                <div class="timelineLabel bg-black max-sm:-left-[15px] sm:-right-[15px]">
+                    <svg fill="#ffffff" width="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-q</title><polygon points="256 370.43 96 279 96 377.42 256 466.3 416 377.42 416 279 256 370.43"></polygon><polygon points="512.25 192 256 45.57 -0.25 192 256 338.43 464 219.57 464 384 512 384 512 192.14 512.25 192"></polygon></g></svg>
+                </div>
+                <div class="text-box left transition-all ease-in-out duration-300 text-white rounded-[6px] text-[15px] flex flex-col justify-between">
+                  <div class="w-full allInfos transition-all ease-in-out duration-300" :style="`max-height: ${$el.querySelector('.infos').offsetHeight}px`">
+                    <div class="infos">
+                      <h2 class="font-bold text-2xl">Acfa Multimédia (Montpellier)</h2>
+                      <small>2016 - 2018</small>
+                      <p>Formation Sound Designer</p>
+                    </div>
+                    <p class="moreInfos pt-4 text-sm opacity-0 transition-all ease-in-out duration-300 scale-y-0">En suivant ce BTS orienté sur l'informatique, j'ai appris les bases du développement web et applicatif, en plus de solides connaissances en culture générale, en anglais ainsi qu'en droit, management et économie. </p>
+                  </div>
+                </div>
+            </div>
+            <div class="timelineContainer max-sm:left-10 left-1/2">
+                <div class="timelineLabel bg-black -left-[15px]" @click="$el.classList.toggle('!h-72'); console.log('hello')">
+                    <svg fill="#ffffff" width="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-q</title><polygon points="256 370.43 96 279 96 377.42 256 466.3 416 377.42 416 279 256 370.43"></polygon><polygon points="512.25 192 256 45.57 -0.25 192 256 338.43 464 219.57 464 384 512 384 512 192.14 512.25 192"></polygon></g></svg>
+                </div>
+                <div class="text-box right transition-all ease-in-out duration-300 text-white rounded-[6px] text-[15px] flex flex-col justify-between">
+                  <div class="w-full allInfos transition-all ease-in-out duration-300" :style="`max-height: ${$el.querySelector('.infos').offsetHeight}px`">
+                    <div class="infos">
+                      <h2 class="font-bold text-2xl">Lycée Ismael Dauphin</h2>
+                      <small>2014</small>
+                      <p>Baccalauréat scientifique (spécialisation Mathématiques)</p>
+                    </div>
+                    <p class="moreInfos pt-4 text-sm opacity-0 transition-all ease-in-out duration-300 scale-y-0">En suivant ce BTS orienté sur l'informatique, j'ai appris les bases du développement web et applicatif, en plus de solides connaissances en culture générale, en anglais ainsi qu'en droit, management et économie. </p>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="utility"></div>
+        <div class="h-auto relative mountainsContainer">
+          <svg class="w-full min-w-full max-sm:w-[600px] h-full scale-x-[105%] pointer-events-none opacity-0" viewBox="0 0 750 500" :style="`margin-top: -${(document.querySelector('#hills2').getBoundingClientRect().top - document.querySelector('.utility').getBoundingClientRect().top)/1.5}px`">
+            <rect id="bg" opacity="0.8" fill="transparent" />
+            <g>
+                <g id="hills2">
+                    <path id="h2-6" d="M524.28,418.82c6.36,0,80.19-14.81,103.12-36.53S655.28,345.8,679,359.64s33.69,18.54,46.63,18.82a158.62,158.62,0,0,1,23.88,2.4V447L632,458.92Z" class="fill-slate-500" />
+                    <path id="h2-5" d="M294.06,498.2l49.09-66.93s-64-6.48-93.59-31.29-63.47-49.78-87.15-41.46-81.7,4.44-98.73,15S.1,387.08.1,387.08l.37,60.18L209.75,498.2Z" class="fill-slate-700" />
+                    <path id="h2-4" d="M264.94,449.2s61-16.39,94.07-37.28,61.37-37.2,73.53-36.12,69.9-40,80.18-42.62,13.55-.37,29,1.85,22-5.27,34.52,6.39,43.29,34.86,75.51,48.52c25.88,11,91.48,28.88,91.48,28.88l-31.58,67.73-326.93,9.27Z" class="fill-slate-800" />
+                    <path id="h2-3" d="M.47,469.58V420s113.73-2.74,171.72-26.68,101.69-72.29,134.53-52,31.37-18.48,61.9,13.28S446.68,393.48,478,406.86s113.08,26.06,113.08,26.06l-59.28,53.4L272.55,485Z" class="fill-slate-900" />
+                    <path id="h2-2" d="M749.55,500V398.27l-38.48-6.67s-29.86,12.13-63,11.53-39.61-7.26-70.33-13.41-72.58,21.4-105.61,21.4-75.5-17.78-110.64-17.78c-24.85,0-90.08,20.12-110.82,18.48s-51.11-20.42-82-6.26S.47,409.26.47,409.26V500Z"
+                        fill="black" class="absolute bottom-0 z-50"/>
+                </g>
+            </g>
+          </svg>
+
+          <svg class="w-full min-w-full max-sm:w-[600px] h-full scale-x-[105%] pointer-events-none absolute bottom-0 z-0" viewBox="0 0 750 500" >
+            <rect id="bg" opacity="0.8" fill="transparent" />
+            <g>
+                <g id="hill1">
+                    <path id="h2-6" d="M524.28,418.82c6.36,0,80.19-14.81,103.12-36.53S655.28,345.8,679,359.64s33.69,18.54,46.63,18.82a158.62,158.62,0,0,1,23.88,2.4V447L632,458.92Z" class="fill-slate-500" />
+                </g>
+            </g>
+          </svg>
+          <svg class="w-full min-w-full max-sm:w-[600px] h-full scale-x-[105%] pointer-events-none absolute bottom-0 z-10" viewBox="0 0 750 500" >
+            <rect id="bg" opacity="0.8" fill="transparent" />
+            <g>
+                <g id="hill2">
+                    <path id="h2-5" d="M294.06,498.2l49.09-66.93s-64-6.48-93.59-31.29-63.47-49.78-87.15-41.46-81.7,4.44-98.73,15S.1,387.08.1,387.08l.37,60.18L209.75,498.2Z" class="fill-slate-700" />
+                </g>
+            </g>
+          </svg>
+          <svg class="w-full min-w-full max-sm:w-[600px] h-full scale-x-[105%] pointer-events-none absolute bottom-0 z-20" viewBox="0 0 750 500" >
+            <rect id="bg" opacity="0.8" fill="transparent" />
+            <g>
+                <g id="hill3">
+                    <path id="h2-4" d="M264.94,449.2s61-16.39,94.07-37.28,61.37-37.2,73.53-36.12,69.9-40,80.18-42.62,13.55-.37,29,1.85,22-5.27,34.52,6.39,43.29,34.86,75.51,48.52c25.88,11,91.48,28.88,91.48,28.88l-31.58,67.73-326.93,9.27Z" class="fill-slate-800" />
+                </g>
+            </g>
+          </svg>
+          <svg class="w-full min-w-full max-sm:w-[600px] h-full scale-x-[105%] pointer-events-none absolute bottom-0 z-30" viewBox="0 0 750 500" >
+            <rect id="bg" opacity="0.8" fill="transparent" />
+            <g>
+                <g id="hill2">
+                    <path id="h2-3" d="M.47,469.58V420s113.73-2.74,171.72-26.68,101.69-72.29,134.53-52,31.37-18.48,61.9,13.28S446.68,393.48,478,406.86s113.08,26.06,113.08,26.06l-59.28,53.4L272.55,485Z" class="fill-slate-900" />
+                    <path id="h2-2" d="M749.55,500V398.27l-38.48-6.67s-29.86,12.13-63,11.53-39.61-7.26-70.33-13.41-72.58,21.4-105.61,21.4-75.5-17.78-110.64-17.78c-24.85,0-90.08,20.12-110.82,18.48s-51.11-20.42-82-6.26S.47,409.26.47,409.26V500Z"
+                        fill="black" class="absolute bottom-0 z-50"/>
+                </g>
+            </g>
+          </svg>
+          <svg class="w-full min-w-full max-sm:w-[600px] h-full scale-x-[105%] pointer-events-none absolute bottom-0 z-40" viewBox="0 0 750 500" >
+            <rect id="bg" opacity="0.8" fill="transparent" />
+            <g>
+                <g id="hill1">
+                    <path id="h2-2" d="M749.55,500V398.27l-38.48-6.67s-29.86,12.13-63,11.53-39.61-7.26-70.33-13.41-72.58,21.4-105.61,21.4-75.5-17.78-110.64-17.78c-24.85,0-90.08,20.12-110.82,18.48s-51.11-20.42-82-6.26S.47,409.26.47,409.26V500Z"
+                        fill="black" class="absolute bottom-0 z-50"/>
+                </g>
+            </g>
+          </svg>
+        </div>
+
+        <div class="clouds absolute bottom-0 w-full opacity-0 z-10" :style="`height: ${document.querySelector(.presentationSection).offsetHeight - (document.querySelector('.timeline').offsetHeight)}px`">
+          <svg id="cloudySky" class="h-full z-10 w-full" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"></svg>
+        </div>
+
+          
+      </section>
+      <!-- Mes connaissances B -->
+      <section class="min-h-screen bg-black text-white skillsSec py-24 relative z-20 ">
+
+        <div class="skillsSecTitle w-full flex flex-col justify-center items-center z-50 relative">
+          <h1 class="font-bold text-4xl sm:text-4xl md:text-6xl mb-4 sm:mb-3 text-center">Mes Compétences</h1>
+          <p class="text-white/50 font-semibold max-sm:text-sm text-center sm:mb-16 mb-8">Les compétences que j'ai acquises en cours de formation et en entreprise</p>
+        </div>
+        <div class="skillsContent h-full flex flex-col justify-center items-center w-[950px] max-w-[95%] mx-auto relative z-50">
+          <div class="skillsRealContent relative z-10 w-full">
+            <h2 class="text-2xl font-semibold mb-4 text-white">Languages de programmation</h2>
+            <div class="flex justify-between w-full max-sm:gap-2">
+              <div class="w-[63%] h-auto bg-red-600 rounded-xs p-4">
+                <h3 class="text-white font-semibold sm:text-xl mb-6 max-sm:text-center">Back-end & base de données</h3>
+                
+                <div class="w-full flex max-sm:flex-wrap max-sm:gap-4 justify-evenly">
+                  <!-- PHP -->
+                  <div class="flex flex-col items-center justify-center gap-2 w-20 ">
+                    <svg fill="#ffffff" class="h-20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="m12 5.601c-.035 0-.076 0-.116 0-1.61 0-3.18.175-4.69.507l.144-.027c-1.442.303-2.718.751-3.91 1.343l.094-.042c-1.011.487-1.867 1.139-2.57 1.93l-.007.008c-.571.624-.927 1.453-.945 2.364v.004c.019.914.374 1.741.946 2.367l-.002-.003c.71.799 1.566 1.451 2.529 1.917l.048.021c1.098.549 2.374.998 3.71 1.282l.106.019c1.366.305 2.936.48 4.546.48h.123-.006.116c1.61 0 3.18-.175 4.69-.507l-.144.027c1.442-.303 2.718-.751 3.91-1.343l-.094.042c1.011-.487 1.867-1.139 2.57-1.93l.007-.008c.571-.624.927-1.453.945-2.364v-.004c-.018-.915-.374-1.744-.947-2.371l.002.003c-.71-.799-1.566-1.451-2.529-1.917l-.048-.021c-1.098-.549-2.374-.998-3.71-1.282l-.106-.019c-1.366-.305-2.936-.48-4.546-.48-.041 0-.082 0-.123 0h.006zm-3.12 7.264c-.131.119-.28.221-.442.301l-.011.005c-.141.068-.308.131-.482.179l-.021.005c-.172.062-.371.099-.579.099-.008 0-.016 0-.024 0h.001-1.972l-.32 1.963h-1.447l1.28-6.675h2.773c.018 0 .04-.001.062-.001.36 0 .706.063 1.026.179l-.021-.007c.295.108.546.276.748.489l.001.001c.175.223.3.493.354.789l.002.011c.025.146.04.314.04.486 0 .196-.019.387-.055.573l.003-.019c-.036.179-.083.335-.142.485l.007-.019q-.086.221-.184.417-.122.196-.27.393c-.096.129-.201.242-.317.343l-.003.002zm4.172.589.565-2.822c.024-.107.038-.229.038-.355 0-.026-.001-.052-.002-.078v.004c-.001-.109-.043-.208-.111-.283-.069-.06-.151-.106-.241-.134l-.005-.001c-.125-.04-.269-.062-.418-.062-.017 0-.034 0-.051.001h.002-1.126l-.736 3.73h-1.423l1.28-6.48h1.423l-.343 1.767h1.28c.022 0 .047-.001.073-.001.331 0 .653.041.961.117l-.027-.006c.249.055.466.172.641.332l-.001-.001c.156.123.267.298.306.498l.001.005c.014.089.022.191.022.295 0 .17-.021.335-.062.492l.003-.014-.589 2.994zm7.902-2.184c-.04.181-.082.328-.132.473l.009-.031c-.054.159-.12.297-.201.425l.005-.008c-.069.155-.151.288-.248.408l.003-.004c-.098.122-.203.23-.317.329l-.003.003c-.131.119-.28.221-.442.301l-.011.005c-.141.068-.308.131-.482.179l-.021.005c-.172.062-.371.099-.579.099-.008 0-.016 0-.024 0h.001-1.972l-.343 1.959h-1.423l1.28-6.675h2.749c.022-.001.047-.001.073-.001.365 0 .716.063 1.041.18l-.022-.007c.287.104.529.272.718.488l.002.002c.19.222.325.497.378.799l.002.01c.022.131.035.281.035.435 0 .221-.026.435-.075.641l.004-.019zm-2.7-1.547h-.978l-.513 2.749h.856.052c.25 0 .496-.023.734-.066l-.025.004c.204-.036.386-.109.546-.212l-.006.003c.136-.122.25-.263.339-.421l.004-.008c.103-.188.18-.407.219-.638l.002-.012c.031-.129.048-.278.048-.431 0-.074-.004-.147-.012-.218l.001.009c-.014-.158-.072-.301-.161-.419l.001.002c-.116-.108-.255-.192-.409-.243l-.008-.002c-.186-.062-.399-.097-.621-.097-.023 0-.046 0-.068.001h.003zm-11.19 0h-.978l-.515 2.749h.858.052c.25 0 .496-.023.734-.066l-.025.004c.204-.036.386-.109.546-.212l-.006.003c.136-.122.25-.263.339-.421l.004-.008c.103-.188.18-.407.219-.638l.002-.012c.031-.129.048-.278.048-.431 0-.074-.004-.147-.012-.218l.001.009c-.014-.158-.072-.301-.161-.419l.001.002c-.116-.108-.255-.192-.409-.243l-.008-.002c-.186-.062-.399-.097-.621-.097-.023 0-.046 0-.068.001h.003z"></path></g></svg>
+                    <p class="text-sm font-semibold">PHP</p>
+                  </div>
+                  
+
+                  <!-- MySQL -->
+                  <div class="flex flex-col items-center justify-center gap-2 w-20">
+                    <svg fill="#ffffff" class="h-20" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M21.875 7.568c-0.156 0-0.26 0.021-0.365 0.047v0.016h0.016c0.073 0.135 0.193 0.24 0.286 0.365 0.073 0.141 0.135 0.286 0.203 0.427l0.021-0.021c0.125-0.089 0.188-0.229 0.188-0.443-0.052-0.063-0.063-0.13-0.109-0.188-0.052-0.089-0.167-0.135-0.24-0.203zM7.693 25.161h-1.234c-0.042-2.083-0.167-4.042-0.359-5.88h-0.010l-1.88 5.88h-0.943l-1.865-5.88h-0.016c-0.135 1.76-0.224 3.724-0.26 5.88h-1.125c0.073-2.625 0.255-5.083 0.547-7.375h1.531l1.781 5.417h0.010l1.797-5.417h1.458c0.323 2.688 0.516 5.146 0.573 7.375zM13.047 19.719c-0.5 2.729-1.167 4.714-1.984 5.948-0.646 0.953-1.349 1.432-2.115 1.432-0.203 0-0.453-0.063-0.755-0.188v-0.656c0.151 0.021 0.323 0.036 0.516 0.036 0.359 0 0.646-0.104 0.865-0.297 0.26-0.24 0.391-0.51 0.391-0.807 0-0.208-0.099-0.625-0.307-1.26l-1.349-4.208h1.214l0.969 3.146c0.219 0.719 0.313 1.214 0.271 1.5 0.536-1.417 0.906-2.969 1.115-4.646zM29.484 25.161h-3.51v-7.375h1.182v6.469h2.328zM25.057 25.339l-1.354-0.667c0.12-0.099 0.234-0.208 0.339-0.333 0.578-0.672 0.865-1.677 0.865-3 0-2.443-0.958-3.661-2.875-3.661-0.938 0-1.672 0.307-2.198 0.927-0.573 0.677-0.865 1.677-0.865 2.995 0 1.297 0.255 2.245 0.766 2.854 0.469 0.542 1.172 0.818 2.115 0.818 0.349 0 0.672-0.042 0.964-0.13l1.766 1.031 0.484-0.833zM20.667 23.682c-0.302-0.479-0.448-1.25-0.448-2.313 0-1.859 0.563-2.786 1.693-2.786 0.589 0 1.026 0.224 1.302 0.667 0.297 0.484 0.448 1.245 0.448 2.297 0 1.87-0.568 2.813-1.693 2.813-0.594 0-1.026-0.224-1.307-0.667zM18.458 23.12c0 0.625-0.229 1.141-0.693 1.536-0.458 0.401-1.068 0.604-1.844 0.604-0.724 0-1.417-0.229-2.099-0.688l0.318-0.635c0.583 0.292 1.109 0.438 1.589 0.438 0.443 0 0.792-0.099 1.042-0.292 0.25-0.198 0.401-0.474 0.401-0.823 0-0.438-0.307-0.813-0.865-1.125-0.516-0.286-1.552-0.875-1.552-0.875-0.563-0.411-0.839-0.849-0.839-1.573 0-0.599 0.208-1.078 0.625-1.443 0.422-0.375 0.958-0.557 1.625-0.557 0.682 0 1.307 0.182 1.87 0.547l-0.286 0.635c-0.479-0.203-0.953-0.307-1.417-0.307-0.38 0-0.672 0.094-0.875 0.276s-0.328 0.411-0.328 0.698c0 0.438 0.313 0.813 0.885 1.135 0.526 0.286 1.583 0.891 1.583 0.891 0.578 0.406 0.865 0.844 0.865 1.557zM30.964 15.313c-0.714-0.016-1.266 0.057-1.729 0.255-0.13 0.052-0.344 0.052-0.365 0.219 0.073 0.073 0.083 0.188 0.146 0.286 0.109 0.177 0.292 0.417 0.464 0.542 0.188 0.146 0.375 0.292 0.568 0.417 0.349 0.214 0.74 0.339 1.083 0.552 0.193 0.125 0.391 0.286 0.583 0.417 0.099 0.068 0.161 0.188 0.286 0.229v-0.026c-0.063-0.078-0.078-0.193-0.141-0.286-0.089-0.089-0.177-0.167-0.266-0.255-0.26-0.349-0.578-0.651-0.927-0.901-0.286-0.193-0.911-0.464-1.026-0.792l-0.016-0.021c0.193-0.016 0.422-0.089 0.609-0.141 0.302-0.078 0.583-0.063 0.896-0.141 0.141-0.036 0.281-0.078 0.427-0.125v-0.078c-0.161-0.161-0.281-0.38-0.448-0.531-0.453-0.391-0.953-0.776-1.469-1.094-0.281-0.182-0.635-0.297-0.932-0.448-0.104-0.052-0.286-0.078-0.344-0.167-0.161-0.198-0.255-0.453-0.37-0.688-0.255-0.49-0.505-1.031-0.729-1.552-0.161-0.349-0.255-0.693-0.453-1.016-0.917-1.516-1.917-2.432-3.448-3.333-0.328-0.188-0.724-0.266-1.141-0.365-0.224-0.010-0.443-0.026-0.667-0.036-0.146-0.063-0.286-0.229-0.411-0.313-0.51-0.323-1.823-1.016-2.193-0.099-0.24 0.583 0.354 1.151 0.563 1.443 0.151 0.208 0.344 0.438 0.453 0.667 0.063 0.156 0.078 0.318 0.141 0.479 0.141 0.391 0.276 0.828 0.464 1.193 0.099 0.188 0.203 0.385 0.328 0.552 0.073 0.099 0.198 0.141 0.224 0.302-0.125 0.182-0.135 0.448-0.203 0.667-0.323 1.010-0.198 2.255 0.255 3 0.146 0.224 0.484 0.714 0.938 0.526 0.401-0.161 0.313-0.667 0.427-1.115 0.026-0.109 0.010-0.177 0.063-0.25v0.021c0.13 0.25 0.255 0.49 0.37 0.74 0.271 0.438 0.755 0.891 1.156 1.193 0.214 0.161 0.38 0.438 0.646 0.536v-0.026h-0.021c-0.057-0.078-0.13-0.115-0.203-0.177-0.161-0.161-0.339-0.359-0.469-0.536-0.37-0.5-0.703-1.052-0.995-1.62-0.146-0.281-0.271-0.583-0.385-0.859-0.052-0.104-0.052-0.266-0.141-0.318-0.135 0.193-0.333 0.359-0.427 0.604-0.172 0.38-0.188 0.854-0.255 1.344-0.031 0.010-0.016 0-0.031 0.021-0.286-0.073-0.385-0.365-0.49-0.615-0.271-0.635-0.313-1.651-0.083-2.38 0.063-0.188 0.328-0.776 0.224-0.953-0.057-0.172-0.234-0.271-0.328-0.406-0.12-0.167-0.24-0.38-0.323-0.568-0.214-0.5-0.318-1.052-0.552-1.552-0.104-0.229-0.292-0.469-0.443-0.682-0.172-0.24-0.359-0.411-0.49-0.693-0.047-0.099-0.109-0.26-0.036-0.365 0.016-0.073 0.052-0.099 0.125-0.12 0.115-0.099 0.448 0.026 0.563 0.083 0.328 0.13 0.604 0.255 0.88 0.443 0.125 0.089 0.26 0.255 0.422 0.302h0.188c0.286 0.063 0.604 0.016 0.87 0.099 0.474 0.151 0.901 0.37 1.286 0.609 1.167 0.745 2.125 1.797 2.776 3.052 0.109 0.203 0.156 0.391 0.255 0.604 0.182 0.443 0.417 0.885 0.604 1.307s0.365 0.849 0.635 1.198c0.135 0.188 0.667 0.286 0.911 0.38 0.177 0.083 0.453 0.156 0.609 0.25 0.307 0.188 0.609 0.401 0.896 0.609 0.146 0.099 0.589 0.323 0.615 0.5z"></path> </g></svg>
+                    <p class="text-sm font-semibold">MySQL</p>
+                  </div>
+                   <!-- Python -->
+                   <div class="flex flex-col items-center justify-center gap-2 w-20">
+                    <svg viewBox="0 0 20 20" class="h-20 scale-[90%]" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>python [#127]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-340.000000, -7599.000000)" fill="#ffffff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M296.744,7457.45798 C296.262,7457.45798 295.872,7457.06594 295.872,7456.58142 C295.872,7456.0969 296.262,7455.70587 296.744,7455.70587 C297.226,7455.70587 297.616,7456.0969 297.616,7456.58142 C297.616,7457.06594 297.226,7457.45798 296.744,7457.45798 M294.072,7459 C299.15,7459 298.833,7456.78649 298.833,7456.78649 L298.827,7454.49357 L293.982,7454.49357 L293.982,7453.80499 L300.751,7453.80499 C300.751,7453.80499 304,7454.17591 304,7449.02614 C304,7443.87636 301.165,7444.0583 301.165,7444.0583 L299.472,7444.0583 L299.472,7446.44873 C299.472,7446.44873 299.563,7449.29855 296.682,7449.29855 L291.876,7449.29855 C291.876,7449.29855 289.176,7449.25533 289.176,7451.9222 L289.176,7456.33112 C289.176,7456.33112 288.766,7459 294.072,7459 M291.257,7440.54202 C291.739,7440.54202 292.128,7440.93406 292.128,7441.41858 C292.128,7441.9031 291.739,7442.29413 291.257,7442.29413 C290.775,7442.29413 290.385,7441.9031 290.385,7441.41858 C290.385,7440.93406 290.775,7440.54202 291.257,7440.54202 M293.928,7439 C288.851,7439 289.168,7441.21351 289.168,7441.21351 L289.174,7443.50643 L294.019,7443.50643 L294.019,7444.19501 L287.249,7444.19501 C287.249,7444.19501 284,7443.82409 284,7448.97386 C284,7454.12364 286.836,7453.9417 286.836,7453.9417 L288.528,7453.9417 L288.528,7451.55127 C288.528,7451.55127 288.437,7448.70145 291.319,7448.70145 L296.124,7448.70145 C296.124,7448.70145 298.824,7448.74467 298.824,7446.0778 L298.824,7441.66888 C298.824,7441.66888 299.234,7439 293.928,7439" id="python-[#127]"> </path> </g> </g> </g> </g></svg>
+                    <p class="text-sm font-semibold">Python</p>
+                   </div>
+
+                   <!-- Csharp -->
+                  <div class="flex flex-col items-center justify-center gap-2 w-20">
+                    <svg fill="#ffffff" class="h-20 scale-[90%]" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zM9.426 7.12a5.55 5.55 0 0 1 1.985.38v1.181a4.5 4.5 0 0 0-2.25-.566 3.439 3.439 0 0 0-2.625 1.087 4.099 4.099 0 0 0-1.012 2.906 3.9 3.9 0 0 0 .945 2.754 3.217 3.217 0 0 0 2.482 1.023 4.657 4.657 0 0 0 2.464-.634l-.004 1.08a5.543 5.543 0 0 1-2.625.555 4.211 4.211 0 0 1-3.228-1.297 4.793 4.793 0 0 1-1.212-3.409 5.021 5.021 0 0 1 1.365-3.663 4.631 4.631 0 0 1 3.473-1.392 5.55 5.55 0 0 1 .12-.004 5.55 5.55 0 0 1 .122 0zm5.863.155h.836l-.555 2.652h1.661l.567-2.652h.81l-.555 2.652 1.732-.004-.15.697H17.91l-.412 1.98h1.852l-.176.698h-1.816l-.58 2.625h-.83l.567-2.625h-1.65l-.555 2.625h-.81l.555-2.625h-1.74l.131-.698h1.748l.401-1.976h-1.826l.138-.697h1.826zm.142 3.345L15 12.6h1.673l.423-1.98z"></path></g></svg>
+                    <p class="text-sm font-semibold">CSharp</p>
+                  </div>
+                   <!-- SQLSERVER -->
+                  <div class="flex flex-col items-center justify-center gap-2 w-20">
+                    <svg fill="#ffffff" class="h-20" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>microsoftsqlserver</title> <path d="M16.776 27.848h0.008c0.019 0.047-0.719 2.087-0.987 2.734-0.061 0.145-0.082 0.181-0.115 0.179q-0.897-0.113-1.791-0.25c-1.132-0.172-3.028-0.504-3.506-0.612l-0.111-0.025 0.679-0.152c1.455-0.327 2.153-0.504 2.862-0.721 1.059-0.328 1.944-0.677 2.797-1.083l-0.125 0.054c0.076-0.039 0.173-0.080 0.271-0.116l0.020-0.006zM11.124 26.522c0.006 0.006-0.316 0.522-0.882 1.415-0.24 0.376-0.511 0.806-0.604 0.952-0.094 0.147-0.23 0.372-0.302 0.5l-0.134 0.231-0.067-0.017c-0.162-0.044-1.311-0.45-1.613-0.57-0.429-0.17-0.777-0.333-1.114-0.514l0.057 0.028c-0.299-0.149-0.555-0.314-0.793-0.503l0.009 0.007 1.381-0.377c1.989-0.542 3.090-0.854 3.811-1.080 0.136-0.041 0.249-0.074 0.25-0.071zM11.926 26.5c0.004-0.004 0.206 0.067 0.452 0.16 0.447 0.178 1.009 0.357 1.584 0.501l0.099 0.021c0.713 0.185 1.579 0.34 2.463 0.435l0.083 0.007c0.1 0.008 0.152 0.020 0.137 0.030-0.031 0.020-0.7 0.242-1.191 0.397q-2.889 0.879-5.793 1.703c-0.003 0-0.007 0-0.011 0-0.068 0-0.132-0.019-0.187-0.051l0.002 0.001c0.080-0.115 0.16-0.215 0.244-0.311l-0.003 0.003c0.613-0.73 1.22-1.538 1.781-2.379l0.063-0.1q0.137-0.21 0.275-0.419zM8.302 23.909l0.146 0.164c0.605 0.684 1.308 1.264 2.092 1.72l0.040 0.022c0.093 0.047 0.173 0.1 0.245 0.161l-0.002-0.001q-2.698 0.978-5.411 1.912-0.046-0.028-0.090-0.060l-0.084-0.060 0.131-0.19c0.425-0.616 0.96-1.293 2.131-2.702zM7.721 23.687c0.011 0.011-0.567 0.838-1.375 1.969l-0.734 1.028c-0.121 0.174-0.306 0.447-0.411 0.61l-0.191 0.295-0.202-0.171c-0.305-0.268-0.581-0.55-0.836-0.851l-0.010-0.012c-0.346-0.409-0.609-0.901-0.753-1.441l-0.006-0.026c-0.047-0.217-0.050-0.327-0.004-0.341q1.207-0.291 2.417-0.569l1.625-0.381c0.261-0.063 0.477-0.113 0.48-0.111zM18.077 23.333l0.003 0.004c0 0.1-0.229 1.035-0.42 1.712-0.16 0.566-0.295 1.010-0.544 1.796q-0.095 0.318-0.21 0.63c-1.418-0.246-2.677-0.611-3.875-1.096l0.126 0.045q-0.407-0.159-0.799-0.354c0.163-0.092 0.363-0.189 0.569-0.273l0.038-0.014c2.068-0.901 4.21-1.928 4.942-2.369 0.048-0.035 0.104-0.062 0.165-0.079l0.004-0.001zM13.591 21.767c-0.025 0.084-0.052 0.154-0.083 0.222l0.004-0.011c-0.538 1.267-1.066 2.309-1.651 3.314l0.075-0.14q-0.15 0.275-0.315 0.541c-0.006 0-0.142-0.082-0.305-0.181-0.921-0.554-1.705-1.225-2.363-2.007l-0.012-0.014-0.080-0.1 0.415-0.114c1.572-0.423 2.898-0.894 4.176-1.452l-0.19 0.074c0.178-0.075 0.325-0.136 0.327-0.132zM14.313 21.53c0.099 0.047 0.179 0.092 0.257 0.14l-0.011-0.006c1.001 0.57 2.161 1.034 3.385 1.332l0.093 0.019 0.105 0.025-0.144 0.079c-0.602 0.335-2.588 1.161-4.616 1.921q-0.321 0.12-0.641 0.242c-0.030 0.015-0.064 0.027-0.1 0.033l-0.002 0c0-0.005 0.084-0.165 0.186-0.357 0.501-0.908 0.983-1.983 1.381-3.098l0.049-0.157c0.029-0.091 0.055-0.169 0.059-0.172zM7.229 20.261c0.019 0 0.014 0.035-0.015 0.201q-0.037 0.242-0.051 0.487c-0.005 0.069-0.008 0.149-0.008 0.229 0 0.585 0.151 1.135 0.416 1.612l-0.009-0.017c0.092 0.187 0.165 0.342 0.161 0.345-0.034 0.029-3.037 0.907-3.981 1.166l-0.544 0.15c-0.034 0.010-0.036 0.003-0.025-0.075 0.231-0.9 0.694-1.671 1.32-2.273l0.002-0.002c0.426-0.449 0.918-0.83 1.462-1.128l0.031-0.015q0.614-0.352 1.24-0.681zM18.491 18.92v0.192c-0.014 1.331-0.129 2.624-0.339 3.885l0.020-0.146c-0.907-0.265-1.694-0.598-2.432-1.008l0.060 0.030c-0.412-0.217-0.759-0.434-1.090-0.671l0.028 0.019c0.004-0.005 0.192-0.104 0.417-0.221 0.984-0.509 1.797-0.993 2.58-1.517l-0.096 0.060c0.277-0.185 0.694-0.486 0.786-0.567zM10.658 18.602c-0.156 0.381-0.305 0.689-0.47 0.988l0.025-0.050c-0.439 0.857-0.924 1.701-1.566 2.73l-0.227 0.36c-0.023 0.034-0.033 0.023-0.102-0.117-0.153-0.304-0.274-0.656-0.346-1.026l-0.004-0.026c-0.027-0.18-0.043-0.388-0.043-0.599 0-0.267 0.025-0.527 0.072-0.78l-0.004 0.026c0.059-0.284 0.056-0.277 0.19-0.345 0.577-0.296 2.457-1.177 2.475-1.161zM11.568 18.227l0.012 0.005c0.025 0.046 0.048 0.1 0.068 0.156l0.002 0.008c0.21 0.515 0.462 0.96 0.764 1.366l-0.012-0.016c0.378 0.497 0.795 0.932 1.258 1.314l0.013 0.011c0.029 0.025 0.037 0.020-0.702 0.3q-1.421 0.536-2.867 1c-0.409 0.132-0.755 0.244-0.769 0.25-0.041 0.014-0.029-0.011 0.091-0.197 0.625-1.019 1.226-2.208 1.732-3.446l0.061-0.168c0.077-0.2 0.152-0.4 0.166-0.445 0.010-0.054 0.048-0.098 0.099-0.115l0.001-0c0.024-0.013 0.051-0.020 0.081-0.021h0zM14.536 17.057c0.006 0.137 0.010 0.299 0.010 0.46 0 0.302-0.013 0.602-0.038 0.898l0.003-0.039c-0.107 0.858-0.29 1.635-0.547 2.376l0.024-0.081c-0.306-0.259-0.582-0.528-0.838-0.816l-0.007-0.008c-0.314-0.355-0.592-0.753-0.82-1.183l-0.016-0.033c-0.092-0.173-0.177-0.377-0.245-0.589l-0.008-0.027c0.070-0.050 2.463-0.975 2.481-0.959zM15.165 16.816c0.15 0.056 0.28 0.129 0.397 0.218l-0.004-0.003c0.753 0.486 1.653 0.995 2.582 1.456l0.167 0.075c0.17 0.075 0.189 0.045-0.2 0.309-0.892 0.596-1.917 1.156-2.991 1.626l-0.13 0.051q-0.205 0.094-0.414 0.177c0.010-0.093 0.029-0.178 0.056-0.259l-0.003 0.009c0.278-0.949 0.452-2.043 0.483-3.174l0-0.018c0.002-0.452 0.002-0.455 0.046-0.466h0.008zM18.224 15.813c0.131 0.671 0.216 1.455 0.238 2.255l0 0.020c0.005 0.041 0.008 0.088 0.008 0.136 0 0.061-0.005 0.121-0.014 0.179l0.001-0.006c-0.035 0-0.769-0.431-1.29-0.757q-0.738-0.465-1.452-0.965c-0.044-0.035-0.039-0.036 0.332-0.164 0.631-0.217 2.129-0.697 2.177-0.697zM19.599 15.007l-6.008 1.959-5.223 2.307-1.462 0.387q-0.559 0.529-1.185 1.075c-0.462 0.401-0.895 0.765-1.225 1.027-0.436 0.362-0.826 0.749-1.18 1.167l-0.011 0.014c-0.359 0.426-0.656 0.919-0.867 1.455l-0.012 0.036c-0.079 0.232-0.124 0.499-0.124 0.777 0 0.553 0.18 1.064 0.485 1.477l-0.005-0.007c0.853 1.079 1.957 1.921 3.227 2.445l0.053 0.019c0.788 0.341 1.749 0.672 2.738 0.934l0.149 0.034c1.786 0.425 3.893 0.737 6.048 0.869l0.108 0.005c0.113 0.007 0.244 0.010 0.377 0.010 0.148 0 0.294-0.005 0.439-0.014l-0.020 0.001c0.188-0.303 0.384-0.668 0.559-1.044l0.028-0.068c0.836-1.607 1.563-3.48 2.084-5.438l0.044-0.196c0.257-1.126 0.45-2.463 0.538-3.828l0.004-0.077c0.034-0.442 0.046-1.916 0.020-2.417-0.035-0.783-0.117-1.516-0.244-2.234l0.015 0.102c-0.011-0.041-0.017-0.088-0.017-0.136 0-0.018 0.001-0.036 0.003-0.053l-0 0.002c0.017-0.012 0.074-0.031 0.812-0.246zM14.214 4.5c0.019 0.001 0.040 0.040 0.096 0.164 0.155 0.34 0.637 1.26 0.754 1.437 0.037 0.059 0.1 0.062-0.541-0.041-1.537-0.247-2.036-0.331-2.036-0.341 0.030-0.026 0.064-0.049 0.101-0.066l0.003-0.001c0.524-0.297 0.977-0.614 1.396-0.969l-0.013 0.011 0.219-0.184zM8.776 3.414l0.639 0.797c0.352 0.437 0.705 0.873 0.782 0.967 0.047 0.052 0.092 0.109 0.132 0.17l0.003 0.005c-0.017 0.014-0.925-0.162-1.406-0.274q-0.508-0.108-1.003-0.265l-0.25-0.080 0.001-0.061c0.004-0.306 0.39-0.759 1.045-1.22zM8.955 3.271l0.176 0.060c1.353 0.403 2.955 0.72 4.601 0.89l0.116 0.010c0.15 0.013 0.277 0.026 0.281 0.030-0.078 0.049-0.171 0.099-0.268 0.145l-0.017 0.007c-0.644 0.322-1.353 0.716-1.844 1.023-0.085 0.059-0.181 0.113-0.283 0.157l-0.011 0.004q-0.107-0.015-0.212-0.034l-0.18-0.029-0.456-0.444c-0.801-0.775-1.426-1.375-1.668-1.6zM13.331 1.237h0.006c0.004 0.004 0.021 0.131 0.040 0.281 0.091 0.715 0.246 1.362 0.463 1.979l-0.020-0.067c0.167 0.5 0.17 0.471-0.030 0.415-0.462-0.129-2.539-0.485-4.041-0.694q-0.224-0.029-0.446-0.066c-0.019-0.019 1.083-0.596 1.572-0.825 0.626-0.29 2.333-1 2.457-1.023zM13.407 1.004c-0.1-0.012-1.713 0.569-2.749 0.988-1.215 0.464-2.258 0.999-3.234 1.63l0.067-0.041c-0.242 0.166-0.445 0.369-0.605 0.604l-0.005 0.008c-0.017 0.045-0.026 0.097-0.026 0.151 0 0.001 0 0.002 0 0.003v-0l0.61 0.575 1.447 0.462 3.448 0.617 3.94 0.677 0.040-0.337-0.035-0.006-0.519-0.083-0.106-0.185q-0.803-1.417-1.471-2.905c-0.223-0.49-0.448-1.098-0.634-1.722l-0.028-0.108c-0.085-0.304-0.094-0.322-0.14-0.329zM12.159 15.326c-0.275 0.353-0.553 0.667-0.85 0.962l-0.001 0.001c-0.829 0.851-1.753 1.602-2.757 2.239l-0.062 0.037c-0.135 0.086-0.257 0.162-0.275 0.172-0.029 0.017 0.010-0.027 0.482-0.542 0.297-0.324 0.525-0.592 0.785-0.928 0.121-0.174 0.272-0.318 0.446-0.429l0.006-0.004c0.671-0.485 2.208-1.526 2.226-1.508zM12.863 15.152c0.021-0.004 0.050 0.035 0.174 0.219 0.252 0.376 0.431 0.823 0.506 1.304l0.002 0.019 0.010 0.091-0.621 0.24c-1.112 0.432-2.138 0.858-2.832 1.175-0.194 0.090-0.535 0.252-0.759 0.365s-0.406 0.2-0.406 0.195 0.14-0.111 0.312-0.235c1.29-0.925 2.411-1.962 3.392-3.121l0.022-0.027c0.094-0.115 0.18-0.215 0.191-0.222l0.008-0.002zM11.335 13.952c0.387 0.187 0.72 0.403 1.023 0.654l-0.008-0.007c-0.077 0.081-0.163 0.152-0.257 0.212l-0.006 0.003c-0.431 0.311-1.087 0.805-1.466 1.107-0.4 0.319-0.414 0.329-0.369 0.259 0.208-0.3 0.41-0.643 0.586-1.002l0.021-0.047c0.125-0.254 0.253-0.568 0.363-0.891l0.017-0.059c0.023-0.087 0.056-0.163 0.098-0.232l-0.002 0.004zM17.071 12.546c0.011 0.011-0.615 0.887-0.986 1.382-0.445 0.591-1.237 1.581-1.782 2.224q-0.209 0.255-0.432 0.496c-0.012 0.004-0.019-0.062-0.020-0.166-0.005-0.596-0.147-1.157-0.395-1.657l0.010 0.022c-0.104-0.21-0.121-0.26-0.1-0.28 0.085-0.077 1.408-0.832 2.242-1.278 0.574-0.307 1.453-0.755 1.463-0.743zM18.019 12.309l0.221 0.144c0.597 0.393 1.109 0.773 1.598 1.179l-0.030-0.024c0.257 0.215 0.756 0.662 0.858 0.77l0.055 0.059-0.367 0.103q-2.818 0.769-5.561 1.779c-0.209 0.076-0.387 0.14-0.4 0.14-0.026 0-0.052 0.024 0.416-0.407 1.136-1.036 2.14-2.184 3.006-3.435l0.044-0.067zM14.41 10.824c-0.076 0.354-0.158 0.647-0.255 0.933l0.017-0.059c-0.293 0.865-0.646 1.612-1.072 2.309l0.028-0.050-0.112 0.184-0.254-0.246c-0.241-0.246-0.52-0.454-0.827-0.616l-0.018-0.009c-0.084-0.038-0.156-0.081-0.224-0.13l0.004 0.002c0-0.037 0.775-0.741 1.372-1.247 0.429-0.362 1.33-1.083 1.34-1.072zM15.004 10.719c0.064 0.012 0.654 0.287 1.098 0.51 0.406 0.204 1.022 0.532 1.053 0.561 0.004 0.004-0.212 0.116-0.482 0.251-0.854 0.427-1.585 0.83-2.347 1.296-0.219 0.134-0.4 0.242-0.406 0.242-0.019 0-0.012-0.016 0.11-0.239 0.395-0.721 0.713-1.557 0.91-2.438l0.012-0.064c0.018-0.077 0.037-0.125 0.051-0.121zM25.111 9.682c0.099 0.034 0.184 0.076 0.263 0.128l-0.004-0.003c1.152 0.666 2.147 1.421 3.038 2.283l-0.004-0.004c0.242 0.237 0.834 0.854 0.825 0.858l-0.454 0.036c-2.513 0.227-4.799 0.622-7.020 1.182l0.309-0.066c-0.16 0.037-0.297 0.070-0.307 0.070-0.009 0 0.166-0.175 0.389-0.39 1.136-1.011 2.063-2.229 2.726-3.598l0.030-0.069c0.11-0.222 0.204-0.416 0.207-0.427h0.003zM24.764 9.591c0.009 0.010-0.292 0.481-0.48 0.75-0.275 0.392-0.671 0.907-1.576 2.046l-1.192 1.502q-0.163 0.212-0.336 0.416c-0.042-0.053-0.084-0.112-0.124-0.174l-0.005-0.009c-0.525-0.777-1.132-1.445-1.821-2.018l-0.016-0.013q-0.166-0.139-0.337-0.272c-0.035-0.024-0.065-0.049-0.092-0.078l-0-0c0-0.012 0.771-0.342 1.36-0.582q1.71-0.687 3.471-1.237c0.552-0.169 1.14-0.337 1.148-0.33zM11.505 9.578c0.012-0.012 0.642 0.135 0.986 0.231 0.668 0.187 1.205 0.372 1.729 0.582l-0.115-0.040c0 0.005-0.121 0.111-0.269 0.235-0.594 0.496-1.167 1.016-1.853 1.678q-0.185 0.186-0.385 0.356c-0.009 0-0.012-0.029-0.008-0.062 0.040-0.341 0.063-0.736 0.063-1.136 0-0.566-0.045-1.122-0.133-1.663l0.008 0.059c-0.013-0.070-0.022-0.152-0.025-0.235l-0-0.003zM19.728 7.689c0.041 0 0.869 0.225 1.296 0.354 1.245 0.372 2.271 0.756 3.265 1.198l-0.172-0.068 0.331 0.15-0.234 0.054c-2.031 0.457-3.779 1.013-5.459 1.701l0.226-0.082c-0.134 0.055-0.25 0.1-0.259 0.1 0.025-0.088 0.057-0.165 0.097-0.237l-0.003 0.006c0.438-0.879 0.748-1.902 0.874-2.981l0.004-0.044c0.007-0.084 0.022-0.151 0.034-0.151zM19.383 7.635c-0.018 0.223-0.054 0.427-0.106 0.625l0.006-0.025c-0.297 0.999-0.686 1.869-1.171 2.675l0.029-0.052c-0.064 0.119-0.127 0.22-0.196 0.316l0.006-0.008c-0.106-0.045-0.196-0.093-0.281-0.148l0.007 0.004c-0.493-0.292-1.078-0.584-1.685-0.836l-0.096-0.035q-0.176-0.069-0.347-0.15c-0.030-0.027 1.428-0.993 2.202-1.457 0.619-0.371 1.615-0.926 1.632-0.908zM14.559 6.68c0.014-0.013 1.879 0.31 2.727 0.472 0.632 0.121 1.546 0.312 1.601 0.336 0.027 0.010-0.067 0.062-0.371 0.2-1.147 0.504-2.124 1.044-3.045 1.66l0.071-0.045c-0.232 0.155-0.426 0.282-0.43 0.282-0.006-0.063-0.009-0.136-0.009-0.209 0-0.027 0-0.055 0.001-0.082l-0 0.004c0-0.005 0-0.011 0-0.018 0-0.885-0.18-1.727-0.504-2.494l0.016 0.042c-0.021-0.042-0.040-0.092-0.055-0.144l-0.001-0.006zM14.247 6.635c0.075 0.146 0.132 0.316 0.16 0.495l0.001 0.010c0.14 0.544 0.22 1.168 0.22 1.811 0 0.232-0.010 0.462-0.031 0.689l0.002-0.029-0.015 0.047-0.234-0.075c-0.485-0.155-1.275-0.387-1.952-0.575q-0.354-0.091-0.7-0.212c0.256-0.284 0.518-0.546 0.793-0.794l0.009-0.008c0.519-0.453 1.088-0.899 1.68-1.314l0.066-0.044zM10.314 5.888c0.091 0.009 0.174 0.024 0.255 0.045l-0.011-0.002c0.774 0.17 2.156 0.437 3.043 0.587 0.101 0.012 0.192 0.032 0.28 0.062l-0.010-0.003c-0.035 0.031-0.075 0.057-0.12 0.076l-0.003 0.001c-0.149 0.075-0.752 0.436-0.953 0.571-0.482 0.319-0.903 0.657-1.29 1.029l0.003-0.003q-0.12 0.123-0.246 0.24c-0.019-0.047-0.037-0.105-0.050-0.163l-0.001-0.008c-0.244-0.87-0.521-1.608-0.851-2.316l0.039 0.093q-0.049-0.101-0.089-0.206zM8.077 5.271c0.068 0.016 0.126 0.035 0.181 0.056l-0.010-0.003c0.17 0.058 0.395 0.125 0.657 0.199 0.182 0.050 0.384 0.105 0.599 0.159 0.272 0.070 0.499 0.13 0.501 0.134 0.030 0.034 0.489 1.497 0.645 2.058 0.060 0.215 0.105 0.394 0.101 0.397-0.041-0.051-0.079-0.108-0.11-0.169l-0.003-0.006c-0.626-1.039-1.406-1.916-2.321-2.628l-0.021-0.016q-0.113-0.086-0.22-0.18zM6.908 4.135c-0.030 0.059-0.048 0.128-0.048 0.202 0 0.070 0.016 0.136 0.044 0.194l-0.001-0.003c0.114 0.197 0.256 0.364 0.422 0.502l0.003 0.002s2.018 1.969 2.266 2.254c1.023 1.118 1.65 2.613 1.65 4.254 0 0.021-0 0.043-0 0.064l0-0.003c0.001 0.050 0.002 0.109 0.002 0.168 0 1.128-0.265 2.193-0.736 3.138l0.018-0.041c-1.527 2.742-3.544 5.030-5.954 6.82l-0.057 0.040 0.45-0.15c0.456-0.317 0.985-0.635 1.533-0.919l0.081-0.038c2.067-1.14 4.539-2.27 7.096-3.225l0.4-0.131c4.265-1.603 9.372-3.016 14.634-3.989l0.991-0.152-0.062-0.1c-0.31-0.491-0.61-0.909-0.933-1.309l0.020 0.026c-0.886-1.084-1.955-1.981-3.165-2.653l-0.056-0.028c-2.024-1.075-4.373-1.893-6.854-2.328l-0.144-0.021q-1.365-0.257-2.738-0.469-2.456-0.377-4.904-0.8c-0.531-0.094-1.325-0.226-1.851-0.34-0.488-0.104-0.891-0.215-1.284-0.346l0.083 0.024c-0.335-0.131-0.806-0.259-0.907-0.643z"></path> </g></svg>
+                    <p class="text-sm font-semibold">SQL Server</p>
+                  </div>
+                </div>
+                
+              </div>
+              <div class="w-[36%] h-auto bg-yellow-500 rounded-xs p-4">
+                <h3 class="text-white font-semibold sm:text-xl mb-6 max-sm:text-center">Front-end</h3>
+                
+                <div class="w-full flex max-sm:flex-col max-sm:gap-4 justify-evenly">
+                  <!-- HTML 5 -->
+                   <div class="flex flex-col items-center justify-center gap-2 w-20 max-sm:w-full">
+                    <svg class="" fill="#ffffff" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="c133de6af664cd4f011a55de6b000d0b"> <path display="inline" d="M108.669,0.501h23.032v22.756h21.069V0.501h23.034V69.41h-23.032V46.334h-21.069V69.41h-23.032V0.501 H108.669z M206.091,23.353h-20.275V0.501h63.594v22.852h-20.285V69.41h-23.032V23.353H206.091z M259.502,0.501h24.02l14.771,24.213 l14.759-24.213h24.023V69.41h-22.938V35.256l-15.845,24.5h-0.395l-15.856-24.5V69.41h-22.539V0.501z M348.54,0.501h23.038v46.133 h32.391V69.41H348.54V0.501z M74.987,100.926l32.946,369.533l147.844,41.04L404.031,470.4l32.981-369.475H74.987z M368.289,188.62 l-2.063,22.977l-0.906,10.188h-0.149H256h-0.158h-63.956l4.142,46.407h59.814H256h92.98h12.214l-1.106,12.172l-10.65,119.32 l-0.682,7.652L256,433.045v0.008l-0.208,0.059l-92.839-25.774l-6.351-71.161h20.97h24.527l3.227,36.146l50.474,13.632l0.042-0.013 v-0.004l50.551-13.64l5.257-58.781H256h-0.158H154.578L143.439,188.62l-1.085-12.157h113.488H256h113.374L368.289,188.62z"> </path> </g> </g></svg>
+                    <p class="font-semibold text-sm">HTML</p>
+                   </div>
+                  
+
+                  <!-- CSS -->
+                  <div class="flex flex-col items-center justify-center gap-2 w-20 max-sm:w-full">
+                    <svg class="w-20 max-sm:w-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7.50159 0H10.0797V1.07812H8.57971V2.15625H10.0797V3.23438H7.50159V0Z" fill="#ffffff"></path> <path d="M10.5953 0H13.1735V0.9375H11.6735V1.125H13.1735V3.28125H10.5953V2.29688H12.0953V2.10938H10.5953V0Z" fill="#ffffff"></path> <path d="M13.6891 0H16.2672V0.9375H14.7672V1.125H16.2672V3.28125H13.6891V2.29688H15.1891V2.10938H13.6891V0Z" fill="#ffffff"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9912 24L5.04739 22.0723L3 4.71655H21L18.9541 22.0696L11.9912 24ZM7.04736 12.5727L7.23814 14.7013L14.6153 14.7013L14.3682 17.4619L11.9941 18.1027L11.992 18.1034L9.62135 17.4633L9.4698 15.7656H7.33301L7.63123 19.1079L11.9915 20.3183L16.3579 19.1078L16.8901 13.1443L16.9421 12.5727L17.3264 8.26428H6.66406L6.85756 10.3929H14.9936L14.7999 12.5727L7.04736 12.5727Z" fill="#ffffff"></path> </g></svg>
+                    <p class="font-semibold text-sm">CSS</p>
+                  </div>
+                  
+
+                  <!-- Javascript -->
+                  <div class="flex flex-col items-center justify-center gap-2 w-20 max-sm:w-full">
+                    <svg class="w-20 max-sm:w-full" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>javascript [#155]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-420.000000, -7479.000000)" fill="#ffffff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M379.328,7337.432 C377.583,7337.432 376.455,7336.6 375.905,7335.512 L375.905,7335.512 L377.435,7334.626 C377.838,7335.284 378.361,7335.767 379.288,7335.767 C380.066,7335.767 380.563,7335.378 380.563,7334.841 C380.563,7334.033 379.485,7333.717 378.724,7333.391 C377.368,7332.814 376.468,7332.089 376.468,7330.558 C376.468,7329.149 377.542,7328.075 379.221,7328.075 C380.415,7328.075 381.275,7328.491 381.892,7329.578 L380.429,7330.518 C380.107,7329.941 379.758,7329.713 379.221,7329.713 C378.67,7329.713 378.321,7330.062 378.321,7330.518 C378.321,7331.082 378.67,7331.31 379.476,7331.659 C381.165,7332.383 382.443,7332.952 382.443,7334.814 C382.443,7336.506 381.114,7337.432 379.328,7337.432 L379.328,7337.432 Z M375,7334.599 C375,7336.546 373.801,7337.575 372.136,7337.575 C370.632,7337.575 369.731,7337 369.288,7336 L369.273,7336 L369.266,7336 L369.262,7336 L370.791,7334.931 C371.086,7335.454 371.352,7335.825 371.996,7335.825 C372.614,7335.825 373,7335.512 373,7334.573 L373,7328 L375,7328 L375,7334.599 Z M364,7339 L384,7339 L384,7319 L364,7319 L364,7339 Z" id="javascript-[#155]"> </path> </g> </g> </g> </g></svg>
+                    <p class="font-semibold text-sm">JavaScript</p>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+
+            <div class="w-full h-auto bg-green-600 mt-[1%] max-sm:mt-2 rounded-xs p-4">
+              <h3 class="text-white font-semibold sm:text-xl mb-6">Frameworks</h3>
+                
+              <div class="w-full flex justify-evenly">
+                <!-- Tailwind -->
+                <div class="flex flex-col items-center justify-center gap-2 w-20 max-sm:w-full">
+                  <svg viewBox="0 0 32 32" class="h-20" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>file_type_tailwind</title><path d="M9,13.7q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q11.1,10.9,9,13.7ZM2,22.1q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q4.1,19.3,2,22.1Z" style="fill:#ffffff"></path></g></svg>
+                  <p class="font-semibold text-sm">TailwindCSS</p>
+                </div>
+
+                <!-- Laravel -->
+                <div class="flex flex-col items-center justify-center gap-2 w-20 max-sm:w-full">
+                  <svg fill="#ffffff" class="h-20" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>laravel</title> <path d="M13.143 23.585l10.46-5.97-4.752-2.736-10.453 6.019zM24.084 11.374l-4.757-2.736v5.417l4.758 2.737zM24.559 5.078l-4.756 2.736 4.756 2.736 4.755-2.737zM9.911 18.928l2.76-1.589v-11.934l-4.758 2.738v11.934zM7.437 1.846l-4.756 2.737 4.756 2.737 4.753-2.737zM2.204 5.406v18.452l10.464 6.022v-5.471l-5.472-3.096c-0.018-0.013-0.032-0.027-0.051-0.039-0.014-0.013-0.030-0.023-0.044-0.034l-0.001-0.003c-0.015-0.015-0.028-0.031-0.039-0.049l-0.001-0.001c-0.014-0.013-0.025-0.028-0.035-0.045l-0.001-0.001h-0.003c-0.008-0.015-0.016-0.035-0.024-0.055l-0.001-0.004c-0.007-0.015-0.015-0.032-0.022-0.051l-0.001-0.003c-0.004-0.020-0.008-0.045-0.010-0.070l-0-0.002c-0.003-0.015-0.006-0.033-0.008-0.051l-0-0.001v-12.759l-2.757-1.59zM24.085 23.857v-5.422l-10.464 5.974v5.47zM29.789 14.055v-5.417l-4.756 2.737v5.417zM30.725 7.69c0.011 0.038 0.018 0.081 0.018 0.126v0 6.513c-0 0.176-0.095 0.329-0.237 0.411l-0.002 0.001-5.468 3.149v6.241c-0 0.175-0.095 0.328-0.236 0.411l-0.002 0.001-11.416 6.57c-0.024 0.013-0.052 0.025-0.081 0.033l-0.003 0.001-0.030 0.013c-0.036 0.011-0.078 0.017-0.121 0.017s-0.085-0.006-0.125-0.018l0.003 0.001c-0.015-0.004-0.027-0.009-0.039-0.016l0.001 0.001c-0.031-0.011-0.057-0.021-0.082-0.033l0.004 0.002-11.413-6.57c-0.144-0.084-0.239-0.237-0.239-0.412v0-19.548c0-0.044 0.007-0.087 0.019-0.127l-0.001 0.003c0.004-0.015 0.013-0.025 0.018-0.040 0.009-0.029 0.019-0.053 0.030-0.076l-0.001 0.003c0.008-0.016 0.018-0.030 0.029-0.042l-0 0 0.042-0.057 0.047-0.034c0.018-0.015 0.034-0.030 0.052-0.043h0.001l5.708-3.285c0.068-0.040 0.15-0.064 0.237-0.064s0.169 0.024 0.239 0.065l-0.002-0.001 5.71 3.285c0.019 0.013 0.035 0.027 0.051 0.042l-0-0 0.048 0.034c0.016 0.018 0.025 0.038 0.042 0.057 0.012 0.012 0.022 0.026 0.031 0.041l0.001 0.001c0.010 0.020 0.020 0.044 0.029 0.069l0.001 0.004 0.016 0.040c0.011 0.035 0.018 0.076 0.018 0.118 0 0.002 0 0.004-0 0.006v-0 12.208l4.756-2.737v-6.241c0-0.001 0-0.002 0-0.002 0-0.043 0.006-0.085 0.017-0.125l-0.001 0.003c0.004-0.013 0.013-0.025 0.016-0.040 0.010-0.030 0.020-0.054 0.032-0.078l-0.002 0.004c0.009-0.015 0.023-0.025 0.032-0.042 0.015-0.019 0.027-0.038 0.042-0.054 0.014-0.013 0.029-0.025 0.045-0.035l0.001-0.001c0.018-0.013 0.033-0.029 0.052-0.040h0.001l5.708-3.286c0.068-0.040 0.15-0.064 0.237-0.064s0.169 0.024 0.239 0.065l-0.002-0.001 5.708 3.286c0.020 0.013 0.034 0.027 0.053 0.039 0.015 0.013 0.032 0.023 0.046 0.035 0.016 0.018 0.028 0.038 0.043 0.056 0.011 0.012 0.021 0.026 0.030 0.040l0.001 0.001c0.012 0.022 0.022 0.047 0.030 0.073l0.001 0.003c0.008 0.012 0.014 0.025 0.019 0.039l0 0.001z"></path> </g></svg>
+                  <p class="text-sm font-semibold">Laravel</p>
+                </div>
+
+                 <!-- Vite -->
+                <div class="flex flex-col items-center justify-center gap-2 w-20 max-sm:w-full">
+                  <svg class="h-20" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>file_type_vite</title><path d="M29.8836 6.146L16.7418 29.6457c-.2714.4851-.9684.488-1.2439.0052L2.0956 6.1482c-.3-.5262.1498-1.1635.746-1.057l13.156 2.3516a.7144.7144 0 00.2537-.0004l12.8808-2.3478c.5942-.1083 1.0463.5241.7515 1.0513z" fill="url(#paint0_linear)"></path><path d="M22.2644 2.0069l-9.7253 1.9056a.3571.3571 0 00-.2879.3294l-.5982 10.1038c-.014.238.2045.4227.4367.3691l2.7077-.6248c.2534-.0585.4823.1647.4302.4194l-.8044 3.9393c-.0542.265.1947.4918.4536.4132l1.6724-.5082c.2593-.0787.5084.1487.4536.414l-1.2784 6.1877c-.08.387.4348.598.6495.2662L16.5173 25 24.442 9.1848c.1327-.2648-.096-.5667-.387-.5106l-2.787.5379c-.262.0505-.4848-.1934-.4109-.4497l1.8191-6.306c.074-.2568-.1496-.5009-.4118-.4495z" fill="url(#paint1_linear)"></path><defs id="defs50"><linearGradient id="paint0_linear" x1="6.0002" y1="32.9999" x2="235" y2="344" gradientUnits="userSpaceOnUse" gradientTransform="matrix(.07142 0 0 .07142 1.3398 1.8944)"><stop stop-color="#e0e0e0" id="stop38"></stop><stop offset="1" stop-color="#eaeaea" id="stop40"></stop></linearGradient><linearGradient id="paint1_linear" x1="194.651" y1="8.8182" x2="236.076" y2="292.989" gradientUnits="userSpaceOnUse" gradientTransform="matrix(.07142 0 0 .07142 1.3398 1.8944)"><stop stop-color="#FFFFFF" id="stop43"></stop><stop offset=".0833" stop-color="#FFFFFF" id="stop45"></stop><stop offset="1" stop-color="#FFFFFF" id="stop47"></stop></linearGradient></defs></g></svg>
+                  <p class="text-sm font-semibold">Vite</p>
+                </div>
+
+                <!-- Alpine JS -->
+              <div class="flex flex-col items-center justify-center gap-2 w-20 max-sm:w-full">
+                <svg class="h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="#fefefe" fill-rule="evenodd" d="M98.444 35.562 126 62.997 98.444 90.432 70.889 62.997z" clip-rule="evenodd"/><path fill="#ffffff" fill-rule="evenodd" d="m29.556 35.562 57.126 56.876H31.571L2 62.997z" clip-rule="evenodd"/></svg>
+                <p class="text-sm font-semibold">Alpine JS</p>
+              </div>
+
+                 
+              </div>
+            </div>
+
+            <h2 class="text-2xl font-semibold mb-4 mt-12 text-white">Les logiciels & outils que j'utilise</h2>
+            <div class="w-full h-auto bg-sky-600 rounded-xs flex max-sm:flex-wrap max-sm:gap-4 justify-evenly p-4">
+
+              <!-- VSCODE -->
+              <div class="flex flex-col items-center justify-center gap-2 w-20 max-sm:w-full">
+                <svg class="h-20" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>file_type_vscode</title><path d="M29.01,5.03,23.244,2.254a1.742,1.742,0,0,0-1.989.338L2.38,19.8A1.166,1.166,0,0,0,2.3,21.447c.025.027.05.053.077.077l1.541,1.4a1.165,1.165,0,0,0,1.489.066L28.142,5.75A1.158,1.158,0,0,1,30,6.672V6.605A1.748,1.748,0,0,0,29.01,5.03Z" style="fill:#f5f5f5"></path><path d="M29.01,26.97l-5.766,2.777a1.745,1.745,0,0,1-1.989-.338L2.38,12.2A1.166,1.166,0,0,1,2.3,10.553c.025-.027.05-.053.077-.077l1.541-1.4A1.165,1.165,0,0,1,5.41,9.01L28.142,26.25A1.158,1.158,0,0,0,30,25.328V25.4A1.749,1.749,0,0,1,29.01,26.97Z" style="fill:#fafafa"></path><path d="M23.244,29.747a1.745,1.745,0,0,1-1.989-.338A1.025,1.025,0,0,0,23,28.684V3.316a1.024,1.024,0,0,0-1.749-.724,1.744,1.744,0,0,1,1.989-.339l5.765,2.772A1.748,1.748,0,0,1,30,6.6V25.4a1.748,1.748,0,0,1-.991,1.576Z" style="fill:#ffffff"></path></g></svg>
+                <p class="text-sm font-semibold">VSCode</p>
+              </div>
+
+              <!-- VSStudio -->
+              <div class="flex flex-col items-center justify-center gap-2 w-20 max-sm:w-full">
+                <svg class="h-20 scale-[90%]" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <linearGradient x1="49.9999997%" y1="0.00244053108%" x2="49.9999997%" y2="99.999641%" id="linearGradient-1"> <stop stop-color="#FFFFFF" offset="0%"> </stop> <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"> </stop> </linearGradient> </defs> <g> <path d="M36.9866667,200.406215 C33.9280235,203.019746 29.6590738,203.689992 25.9466667,202.139549 L6.56,194.006215 C2.60661593,192.357112 0.0232284231,188.503034 0,184.219549 L0,70.4595487 C0.0232284231,66.1760633 2.60661593,62.3219852 6.56,60.6728821 L25.9466667,52.6728821 C29.6590738,51.122439 33.9280235,51.7926847 36.9866667,54.4062154 L41.3333333,58.0062154 C39.5360867,56.7141841 37.1664204,56.5381696 35.1980103,57.5504947 C33.2296003,58.5628199 31.9944221,60.5927545 32,62.8062154 L32,191.872882 C31.9944221,194.086343 33.2296003,196.116278 35.1980103,197.128603 C37.1664204,198.140928 39.5360867,197.964913 41.3333333,196.672882 L36.9866667,200.406215 Z" fill="#eeeeee" fill-rule="nonzero"> </path> <path d="M6.56,194.006215 C2.60661593,192.357112 0.0232284231,188.503034 0,184.219549 L0,183.339549 C0.0268934047,185.858586 1.58492217,188.107394 3.9339112,189.017627 C6.28290023,189.927861 8.94941357,189.316063 10.6666667,187.472882 L176,4.67288206 C180.797767,-0.101060222 188.080373,-1.3397438 194.186667,1.57954873 L246.933333,26.9662154 C252.477775,29.6321062 256.002663,35.2408256 256,41.3928821 L256,42.0062154 C255.996628,38.1026642 253.745578,34.5500434 250.217325,32.8799659 C246.689073,31.2098885 242.514491,31.7209739 239.493333,34.1928821 L41.3333333,196.672882 L36.9866667,200.406215 C33.9280235,203.019746 29.6590738,203.689992 25.9466667,202.139549 L6.56,194.006215 Z" fill="#f5f5f5" fill-rule="nonzero"> </path> <path d="M6.56,60.6728821 C2.60661593,62.3219852 0.0232284231,66.1760633 0,70.4595487 L0,71.3395487 C0.0268934047,68.8205111 1.58492217,66.5717033 3.9339112,65.6614701 C6.28290023,64.7512369 8.94941357,65.3630345 10.6666667,67.2062154 L176,250.006215 C180.797767,254.780158 188.080373,256.018841 194.186667,253.099549 L246.933333,227.712882 C252.477775,225.046991 256.002663,219.438272 256,213.286215 L256,212.672882 C255.996628,216.576433 253.745578,220.129054 250.217325,221.799132 C246.689073,223.469209 242.514491,222.958124 239.493333,220.486215 L41.3333333,58.0062154 L36.9866667,54.2728821 C33.9010187,51.7044121 29.634528,51.0860801 25.9466667,52.6728821 L6.56,60.6728821 Z" fill="#fafafa" fill-rule="nonzero"> </path> <path d="M194.186667,253.099549 C188.080373,256.018841 180.797767,254.780158 176,250.006215 C178.687118,252.67399 182.713996,253.466025 186.211298,252.014645 C189.7086,250.563265 191.991405,247.152711 192,243.366215 L192,11.3662154 C192.012965,7.57001396 189.738069,4.13973417 186.235938,2.67467621 C182.733808,1.20961825 178.694002,1.99824786 176,4.67288206 C180.797767,-0.101060222 188.080373,-1.3397438 194.186667,1.57954873 L246.933333,26.9395487 C252.477775,29.6054395 256.002663,35.214159 256,41.3662154 L256,213.312882 C256.002663,219.464938 252.477775,225.073658 246.933333,227.739549 L194.186667,253.099549 Z" fill="#ffffff" fill-rule="nonzero"> </path> <path d="M183.706667,254.272882 C187.232219,255.077301 190.926299,254.663714 194.186667,253.099549 L246.933333,227.739549 C252.477775,225.073658 256.002663,219.464938 256,213.312882 L256,41.3662154 C256.002663,35.214159 252.477775,29.6054395 246.933333,26.9395487 L194.186667,1.57954873 C190.454554,-0.214455828 186.172257,-0.491658077 182.24,0.806215393 C179.888439,1.59407912 177.752219,2.9178052 176,4.67288206 L90.9866667,98.6995487 L41.3333333,58.0062154 L36.9866667,54.2728821 C34.3333065,52.0042454 30.7377412,51.1775642 27.36,52.0595487 C26.8727028,52.1672022 26.3987371,52.3281717 25.9466667,52.5395487 L6.56,60.6728821 C2.86046907,62.2004243 0.327434334,65.670476 0,69.6595487 C0,69.9262154 0,70.1928821 0,70.4595487 L0,184.219549 C0,184.486215 0,184.752882 0,185.019549 C0.327434334,189.008621 2.86046907,192.478673 6.56,194.006215 L25.9466667,202.006215 C26.3987371,202.217592 26.8727028,202.378562 27.36,202.486215 C30.7377412,203.3682 34.3333065,202.541519 36.9866667,200.272882 L41.3333333,196.672882 L90.9866667,155.979549 L176,250.006215 C178.119066,252.121513 180.789161,253.599766 183.706667,254.272882 L183.706667,254.272882 Z M192,73.1528821 L125.893333,127.339549 L192,181.526215 L192,73.1528821 Z M32,90.7262154 L65.0933333,127.339549 L32,163.952882 L32,90.7262154 Z" fill-opacity="0.25" fill="url(#linearGradient-1)"> </path> </g> </g></svg>
+                <p class="text-sm font-semibold whitespace-nowrap text-center">Visual Studio</p>
+              </div>
+
+              <!-- XAMPP -->
+              <div class="flex flex-col items-center justify-center gap-2 w-20 max-sm:w-full">
+                <svg fill="#ffffff" class="h-20 scale-[90%]" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>XAMPP icon</title><path d="M16.792,11.923c0.113,0.043,0.226,0.079,0.334,0.128c0.45,0.203,0.715,0.553,0.748,1.044 c0.041,0.634,0.044,1.271,0.002,1.905c-0.049,0.732-0.725,1.292-1.483,1.271c-0.735-0.021-1.369-0.62-1.397-1.341 c-0.017-0.441-0.003-0.884-0.006-1.326c-0.001-0.239-0.003-0.242-0.245-0.243c-1.363-0.001-2.726,0.008-4.089-0.003 c-0.888-0.007-1.421,0.482-1.471,1.46c-0.019,0.38-0.1,0.727-0.357,1.018c-0.397,0.451-0.898,0.601-1.472,0.466 c-0.554-0.131-0.867-0.522-1.035-1.048c-0.117-0.367-0.056-0.737,0.012-1.094c0.341-1.797,1.366-3.006,3.125-3.555 c0.357-0.112,0.731-0.166,1.105-0.166c0.94,0.001,1.881,0.001,2.821-0.001c0.128,0,0.257-0.012,0.385-0.021 c0.702-0.051,1.166-0.511,1.22-1.352c0.004-0.064,0-0.129,0.001-0.193c0.011-0.788,0.605-1.396,1.393-1.425 c0.787-0.029,1.438,0.527,1.493,1.318c0.076,1.083-0.265,2.046-0.913,2.907C16.903,11.751,16.819,11.816,16.792,11.923z M8.249,10.436c-0.258-0.008-0.571,0.018-0.882-0.035c-0.536-0.09-0.876-0.39-1.02-0.916C6.19,8.912,6.25,8.388,6.698,7.96 C7.154,7.526,7.694,7.4,8.285,7.645c0.52,0.216,0.859,0.731,0.89,1.293C9.2,9.382,9.178,9.828,9.182,10.272 c0.001,0.116-0.043,0.167-0.161,0.165C8.781,10.434,8.542,10.436,8.249,10.436z M21.682,0H2.318C1.102,0,0.116,0.986,0.116,2.202 v19.317c0,1.37,1.111,2.481,2.481,2.481h18.807c1.37,0,2.481-1.111,2.481-2.481V2.202C23.884,0.986,22.898,0,21.682,0z M20.125,12.473c0.519,0.804,0.733,1.69,0.677,2.657c-0.108,1.886-1.413,3.474-3.25,3.916c-2.585,0.623-4.566-0.923-5.233-2.794 c-0.109-0.304-0.16-0.622-0.224-0.985c-0.068,0.414-0.115,0.789-0.264,1.134c-0.697,1.617-1.884,2.603-3.665,2.799 c-2.104,0.232-4.048-1.067-4.632-3.084c-0.25-0.863-0.175-1.747-0.068-2.625c0.08-0.653,0.321-1.268,0.632-1.848 c0.057-0.106,0.057-0.184-0.01-0.285c-0.561-0.845-0.779-1.777-0.7-2.784C3.43,8.035,3.56,7.52,3.805,7.038 C4.52,5.626,6.09,4.427,8.193,4.626c1.849,0.175,3.562,1.77,3.83,3.564c0.013,0.09,0.039,0.178,0.068,0.311 c0.044-0.241,0.076-0.439,0.118-0.636c0.344-1.63,1.94-3.335,4.201-3.357c2.292-0.021,3.99,1.776,4.31,3.446 c0.17,0.888,0.089,1.776-0.103,2.663c-0.112,0.517-0.31,1.008-0.524,1.492C20.034,12.245,20.043,12.345,20.125,12.473z"></path></g></svg>
+                <p class="text-sm font-semibold">XAMPP</p>
+              </div>
+
+
+             <!-- GitHub -->
+              <div class="flex flex-col items-center justify-center gap-2 w-20 max-sm:w-full">
+                <svg viewBox="0 0 20 20" class="h-20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>github [#142]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#ffffff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]"> </path> </g> </g> </g> </g></svg>
+                <p class="text-sm font-semibold">GitHub</p>
+              </div>
+
+
+
+                <!-- Azure -->
+              <div class="flex flex-col items-center justify-center gap-2 w-20 max-sm:w-full">
+                <svg class="h-20" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.3702 13.6799L11.3702 1.67989C11.3006 1.47291 11.1652 1.29438 10.9846 1.17159C10.804 1.0488 10.5882 0.988513 10.3702 0.999896H5.63017C5.42052 0.999354 5.21598 1.0647 5.04551 1.18672C4.87504 1.30875 4.74724 1.48127 4.68015 1.67989L0.630165 13.6799C0.577646 13.8346 0.56382 13.9998 0.589943 14.1611C0.616066 14.3225 0.681335 14.4749 0.780007 14.6052C0.878678 14.7354 1.00778 14.8395 1.15598 14.9083C1.30419 14.9771 1.46699 15.0086 1.63017 14.9999H4.56016C4.76809 14.9984 4.97035 14.932 5.13883 14.8101C5.30731 14.6883 5.43363 14.5169 5.50016 14.3199L6.11015 12.5399L9.11015 14.8099C9.28448 14.9362 9.49495 15.0028 9.71018 14.9999H14.3902C14.5517 15.0052 14.7121 14.9712 14.8576 14.901C15.0032 14.8307 15.1295 14.7263 15.2259 14.5965C15.3222 14.4668 15.3856 14.3156 15.4107 14.156C15.4359 13.9963 15.422 13.833 15.3702 13.6799ZM9.75016 14.3399C9.67748 14.3399 9.60693 14.3153 9.55015 14.2699L3.90018 10.0799L3.81016 10.0099H6.81016L6.89017 9.79988L7.89017 7.26988L10.1302 13.8999C10.1482 13.9555 10.1515 14.0148 10.1399 14.072C10.1283 14.1293 10.1022 14.1826 10.064 14.2269C10.0258 14.2711 9.97689 14.3047 9.92191 14.3245C9.86694 14.3443 9.80778 14.3496 9.75016 14.3399V14.3399ZM14.4201 14.3399H10.7002C10.7749 14.1262 10.7749 13.8935 10.7002 13.6799L6.65018 1.67989H10.3702C10.4408 1.68024 10.5095 1.70258 10.5669 1.74379C10.6242 1.78501 10.6673 1.84308 10.6902 1.9099L14.7402 13.9099C14.7538 13.9597 14.756 14.012 14.7464 14.0628C14.7369 14.1136 14.7159 14.1615 14.6851 14.203C14.6542 14.2444 14.6144 14.2783 14.5685 14.302C14.5226 14.3257 14.4718 14.3387 14.4201 14.3399V14.3399Z"></path></g></svg>
+                <p class="text-sm font-semibold">Azure</p>
+              </div>
+                <!-- Postman -->
+
+              <div class="flex flex-col items-center justify-center gap-2 w-20 max-sm:w-full">
+                <svg fill="#ffffff" class="h-20" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18.036 0.131c-8.765-1.12-16.781 5.067-17.905 13.833-1.12 8.765 5.067 16.781 13.833 17.905 8.765 1.12 16.781-5.067 17.9-13.833 1.125-8.765-5.061-16.781-13.828-17.905zM21.328 10.115c-0.297 0-0.579 0.12-0.787 0.333l-5.937 5.932-0.411-0.407-0.855-0.859c5.849-5.833 6.907-5.891 7.989-5zM14.849 16.593l5.916-5.921c0.328-0.344 0.875-0.339 1.204 0.005 0.323 0.349 0.291 0.896-0.073 1.197l-6.265 5.5zM15.287 17.521l-1.469 0.317c-0.031 0.005-0.072-0.011-0.088-0.047-0.016-0.032-0.011-0.068 0.016-0.095l0.859-0.859zM11.547 16.907l1.568-1.563 1.172 1.172-2.641 0.567c-0.047 0.011-0.093-0.009-0.115-0.052-0.025-0.041-0.015-0.093 0.016-0.124zM6.688 24.984c-0.057-0.005-0.1-0.057-0.095-0.109 0.005-0.025 0.016-0.047 0.032-0.063h0.005l1.26-1.26 1.631 1.631zM9.921 23.307c-0.124 0.068-0.187 0.209-0.156 0.344l0.271 1.152c0.043 0.167-0.161 0.28-0.281 0.156h-0.005l-1.635-1.636 5.016-5.011 2.427-0.525 1.161 1.167c-1.672 1.468-3.959 2.932-6.797 4.353zM16.959 18.74l-1.12-1.12 6.265-5.5c0.057-0.052 0.109-0.109 0.156-0.167-0.192 1.792-2.703 4.323-5.301 6.787zM21.839 10.125h-0.005c-2.183-2.193 0.901-5.563 3.276-3.584l-2.145 2.152c-0.063 0.061-0.063 0.167 0 0.228l1.661 1.663c-0.932 0.463-2.052 0.276-2.787-0.459zM25.271 10.125c-0.109 0.109-0.229 0.208-0.359 0.291l-1.609-1.609 2.041-2.047c0.885 0.964 0.849 2.443-0.073 3.365zM25.14 8.068c-0.067 0.047-0.093 0.129-0.072 0.208 0.099 0.197 0.072 0.432-0.068 0.599-0.068 0.084-0.052 0.199 0.031 0.265 0.032 0.021 0.068 0.037 0.109 0.037 0.057 0 0.111-0.021 0.141-0.063 0.235-0.281 0.281-0.677 0.12-1.005-0.063-0.083-0.177-0.104-0.261-0.041z"></path> </g></svg>
+                <p class="text-sm font-semibold">Postman</p>
+              </div>
+
+
+                <!-- tablePlus -->
+              <div class="flex flex-col items-center justify-center gap-2 w-20 max-sm:w-full">
+                <img src="./assets/TablePlus-Logo-1-CVkyMUlT.png" alt="" class="h-20 scale-[115%]">
+                <p class="text-sm font-semibold">TablePlus</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="line-container absolute w-full h-full z-0 opacity-0 blur-lg "></div>
+      </section>
+      <!-- Mon entreprise W -->
+      <section class="min-h-screen text-white companySec py-48 bg-black relative z-50">
+        <div class="companySecTitle">
+          <h1 class="font-bold text-white text-5xl sm:text-4xl md:text-6xl  mb-4 sm:mb-3 text-center">Mon entreprise</h1>
+          <p class="text-white/50 font-semibold max-sm:text-sm text-center md:mb-16">Rapide présentation de l'entreprise qui m'a accueilli en alternance</p>
+        </div>
+        <div class="companyContent w-[950px] max-w-[95%] mx-auto">
+          <!-- Az presentation -->
+          <div class="flex justify-center items-center h-48 sm:gap-8 p-4 py-6 max-sm:flex-col max-sm:h-auto">
+            <img src="./assets/az-logo-small-BSZDvkFR.png" alt="" class="azLogo max-sm:hidden">
+            <img src="./assets/az-logo-CDWPMwCi.png" alt="" class="azLogo sm:hidden">
+            <div class="flex flex-col gap-2 max-sm:gap-1 justify-start h-full py-3 ">
+              <h3 class="font-semibold text-2xl">Aroma-Zone</h3>
+              <p class="max-sm:text-sm">Aroma-zone est une entreprise qui oriente son activité sur le <span class="font-semibold">bien être au naturel</span> en proposant à la vente des huiles essentielles, des produits cosmétiques naturels ainsi que les ingrédients nécéssaires pour pouvoir les préparer soi-même.</p>
+            </div>
+          </div>
+          
+          <div class="flex flex-row-reverse max-sm:flex-wrap justify-between sm:gap-[2%] mb-10">
+            <div class="parallaxAz1 relative w-1/3 max-sm:w-[42%] overflow-hidden sm:min-h-[300px]" >
+              <img src="./assets/az-product2-C-br6LAJ.jpg" alt="" class="w-full absolute bottom-0 max-h-none azProduct scale-[170%]">
+            </div>
+            <div class="w-2/3 max-sm:w-[56%] firstPartpar">
+              <p class="max-sm:text-sm pr-1">Le projet a débuté en 1999 par la création d’un site web à titre
+                purement informatif sur le sujet de l’aromathérapie. Très vite, le site se
+                met à proposer à la vente des huiles essentielles venant des quatre coins
+                du monde, et élargit peu à peu son catalogue.
+                <span class="max-sm:hidden">C’est finalement en 2005 que Aroma-Zone ouvre ses premiers locaux à
+                  Cabrières d’Avignon, et fait le choix judicieux d’ajouter le concept de
+                  cosmétique maison à son offre, et le succès est plus qu’au rendez-vous.</span></p>
+            </div>
+            <div class="w-full mt-[2%] sm:hidden text-sm">
+              <p>C’est finalement en 2005 que Aroma-Zone ouvre ses premiers locaux à
+                Cabrières d’Avignon, et fait le choix judicieux d’ajouter le concept de
+                cosmétique maison à son offre, et le succès est plus qu’au rendez-vous.</p>
+            </div>
+          </div>
+
+          <div class=" flex flex-row-reverse flex-wrap">
+            <div class="w-3/4 flex flex-col gap-2 pl-4">
+              <h3 class="text-xl font-semibold">Une entreprise expansion</h3>
+              <p class="max-sm:text-sm">C’est en 2016 que sont ouvert de nouveaux locaux à Chateauneuf-de-Gadagne,
+                ce dernier site s’occupant alors de la partie logistique quand le site
+                historique conserve l’aspect production. Aroma-Zone en profitera également
+                pour ouvrir progressivement quelques boutiques, notamment celle de Paris-
+                Haussmann.
+                <span class="max-sm:hidden">Années après années, Aroma-zone progresse, mais c’est avec la pandémie du
+                  COVID-19 que l’entreprise explose. Avec les doutes de la population,
+                  l’intérêt pour l domaine des huiles essentielles et du « naturel » grandit
+                  chez les consommateurs et le volume de commandes augmente grandement.</span></p>
+            </div>
+            <div class="parallaxAz2 bg-amber-600 w-1/4 relative overflow-hidden">
+              <div class="h-full w-fit azBoutiqueParent">
+                <img src="./assets/az-boutique%20copy-CkPtfgBq.jpg" alt="" class="h-full absolute left-0 max-w-none  azBoutique">
+              </div>
+            </div>
+            <div class="sm:hidden text-sm">
+              <p>Années après années, Aroma-zone progresse, mais c’est avec la pandémie duCOVID-19 que l’entreprise explose. Avec les doutes de la population, l’intérêt pour l domaine des huiles essentielles et du « naturel » grandit chez les consommateurs et le volume de commandes augmente grandement.
+              </p>
+            </div>
+          </div>
+
+         
+
+
+          <div class="mt-10">
+            <div class="flex flex-col gap-2 max-sm:text-sm">
+              <p>Aroma-Zone reste aujourd’hui leader dans son domaine, tout en prônant des
+              valeurs fortes dans le contexte sociétal actuel. L’entreprise dispose
+              aujourd’hui de nombreuses boutiques en France, et a considérablement
+              élargit son offre de base, en y ajoutant par exemple des compléments
+              alimentaires, et plus largement une gamme complète de produits finis, ce
+              que l’entreprise ne proposait pas avant.</p>
+
+              <p>Le principal objectif aujourd’hui est de s’étendre à l’international.
+              L’ouverture d’une première boutique en Belgique (Bruxelles), d'une suivante en préparation à Londres et la future
+              mise à disposition du site web en anglais sont les premiers pas vers ce
+              nouveau défi.</p>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+      <!-- Mes projets B -->
+      <section class="bg-black pt-24 flex justify-center items-center w-full relative z-50" id="mesProjets">
+        <div class="pt-16 mx-auto projetsContent md:w-[1000px] xl:w-[1300px] max-w-[95%]">
+          <div class="projectSecTitle">
+            <h1 class="font-bold text-5xl sm:text-4xl md:text-6xl text-white mb-4 sm:mb-3 text-center ">Mes Projets</h1>
+            <p class="text-zinc-400/70 max-sm:text-sm text-center md:mb-16">Ensemble des réalisations que j'ai effectué, que ce soit en entreprise ou en cours de formation</p>
+          </div>
+          
+          <div class="flex flex-wrap gap-[2%] mt-12 justify-start items-start mx-auto projectContent">
+
+              <!-- Projet 1 -->
+            <div class=" relative group overflow-hidden projectCard bg-[url('https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')]">
+                <div class="projectCardContent">
+                    <div class="w-full h-full flex justify-center items-center">
+                        <h2 class="text-white text-3xl font-semibold">Projet 1</h2>
+                    </div>
+                    <div class=" px-4 flex flex-col justify-between">
+                        <p class="projectCardText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto quis inventore fuga harum totam facilis accusantium dolores commodi perspiciatis quisquam officiis corporis sunt soluta, quia recusandae voluptatem sit, voluptas excepturi.</p>
+                    </div>
+                    <div class="flex justify-center items-center">
+                      <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-1').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="projectCardBtn">En savoir plus</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 2 -->
+
+            <div class=" relative group overflow-hidden projectCard bg-[url('Images/CsharpMdpProj.png')]">
+              <div class="projectCardContent">
+                  <div class="w-full h-full flex justify-center items-center">
+                      <h2 class="text-white text-3xl font-semibold">Projet 2</h2>
+                  </div>
+                  <div class=" px-4 flex flex-col justify-between">
+                      <p class="projectCardText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto quis inventore fuga harum totam facilis accusantium dolores commodi perspiciatis quisquam officiis corporis sunt soluta, quia recusandae voluptatem sit, voluptas excepturi.</p>
+                  </div>
+                  <div class="flex justify-center items-center">
+                    <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-2').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="projectCardBtn">En savoir plus</button>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Projet 3 -->
+
+            <div class=" relative group overflow-hidden projectCard bg-[url('Images/tableau-monday.png')]">
+              <div class="projectCardContent">
+                  <div class="w-full h-full flex justify-center items-center">
+                      <h2 class="text-white text-3xl font-semibold">Projet 3</h2>
+                  </div>
+                  <div class="px-4 flex flex-col justify-between">
+                      <p class="projectCardText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto quis inventore fuga harum totam facilis accusantium dolores commodi perspiciatis quisquam officiis corporis sunt soluta, quia recusandae voluptatem sit, voluptas excepturi.</p>
+                  </div>
+                  <div class="flex justify-center items-center">
+                    <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-3').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="projectCardBtn">En savoir plus</button>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Projet 4 -->
+
+            <div class=" relative group overflow-hidden projectCard bg-[url('Images/graphique.png')]">
+              <div class="projectCardContent">
+                  <div class="w-full h-full flex justify-center items-center">
+                      <h2 class="text-white text-3xl font-semibold">Projet 4</h2>
+                  </div>
+                  <div class="px-4 flex flex-col justify-between">
+                      <p class="projectCardText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto quis inventore fuga harum totam facilis accusantium dolores commodi perspiciatis quisquam officiis corporis sunt soluta, quia recusandae voluptatem sit, voluptas excepturi.</p>
+                  </div>
+                  <div class="flex justify-center items-center">
+                    <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-4').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="projectCardBtn">En savoir plus</button>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Projet 5 -->
+
+            <div class=" relative group overflow-hidden projectCard bg-[url('')]">
+              <div class="projectCardContent">
+                  <div class="w-full h-full flex justify-center items-center">
+                      <h2 class="text-white text-3xl font-semibold">Projet 5</h2>
+                  </div>
+                  <div class="px-4 flex flex-col justify-between">
+                      <p class="projectCardText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto quis inventore fuga harum totam facilis accusantium dolores commodi perspiciatis quisquam officiis corporis sunt soluta, quia recusandae voluptatem sit, voluptas excepturi.</p>
+                  </div>
+                  <div class="flex justify-center items-center">
+                    <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-5').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="projectCardBtn">En savoir plus</button>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Projet 6 -->
+
+            <div class=" relative group overflow-hidden projectCard bg-[url('')]">
+              <div class="projectCardContent">
+                  <div class="w-full h-full flex justify-center items-center">
+                      <h2 class="text-white text-3xl font-semibold">Projet 6</h2>
+                  </div>
+                  <div class="px-4 flex flex-col justify-between">
+                      <p class="projectCardText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto quis inventore fuga harum totam facilis accusantium dolores commodi perspiciatis quisquam officiis corporis sunt soluta, quia recusandae voluptatem sit, voluptas excepturi.</p>
+                  </div>
+                  <div class="flex justify-center items-center">
+                    <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-6').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="projectCardBtn">En savoir plus</button>
+                  </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+          
+
+        <div class="hidden absolute top-0 left-0 z-20 projet1 p-12  w-full h-[95vh] overflow-hidden">
+          <div class="project-1 w-full h-full flex flex-col justify-center items-center bg-red-500 overflow-scroll p-12 ">
+              <h2 class="text-white text-3xl font-semibold mt-36">Projet 1</h2>
+              <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, aliquam ad architecto ab, distinctio quos at ea explicabo, commodi voluptates quia sint illum necessitatibus recusandae? Voluptatem esse vero delectus unde, veritatis debitis pariatur? Adipisci tempora sed omnis quo. Animi quo exercitationem ullam numquam veniam magnam obcaecati sequi consectetur quae, voluptas dolor quisquam iste corporis. Unde deleniti eligendi fugiat nobis delectus! Nesciunt a blanditiis, quas, quibusdam, et maiores natus distinctio atque perferendis quidem nulla optio quae iste sit dolores mollitia commodi delectus dolore ipsum molestias incidunt officia sint harum alias. Harum dolores nisi aspernatur atque nostrum deserunt inventore nemo ipsam animi minus perferendis perspiciatis consequuntur autem vel non rem doloribus cum, aliquam fuga veniam? Libero ratione magni illo, possimus quia maxime pariatur, voluptates dicta inventore tenetur odio dignissimos quo est temporibus repellat. A atque impedit deserunt vitae quod corporis animi accusamus quisquam sapiente saepe sit provident laudantium, recusandae error sint hic. Autem fugit dolores consequuntur esse officiis libero recusandae sint inventore fuga minima veritatis sit voluptatibus, aperiam ratione commodi assumenda maiores voluptates facere! Quis, quod nemo nobis aliquid voluptate delectus, deserunt aspernatur laudantium quam sit nesciunt maiores illum in neque reiciendis maxime. Laudantium mollitia quidem error rem ratione saepe optio distinctio laborum pariatur quod! Minima doloribus ab omnis. Iusto, quisquam mollitia. Velit facilis doloribus earum itaque impedit enim nobis explicabo atque temporibus, porro at provident. Ipsam accusantium voluptatem, non quidem sapiente, praesentium consequuntur voluptas maxime, odio dolorum consectetur assumenda vitae quas rerum animi minus. Repellat excepturi recusandae consequuntur ipsum asperiores saepe maxime, beatae, amet voluptatem a molestias, incidunt sint doloremque omnis ex commodi quaerat! Odit quasi inventore obcaecati aliquid officia? Animi corrupti qui, obcaecati aliquam dolorum laboriosam temporibus modi! Sequi magni vitae laudantium, aliquam fugiat eligendi ipsam voluptas. Asperiores expedita sapiente maiores qui aspernatur excepturi, magni consequuntur odio architecto numquam a rem ea eos delectus quam possimus. Eius necessitatibus consequuntur assumenda modi totam voluptas asperiores tenetur. Aut architecto ad ipsa nesciunt reiciendis blanditiis consequuntur ab sit nihil veritatis iste, sunt ullam at, incidunt ex. Temporibus architecto beatae alias. Perferendis omnis velit enim eum. Temporibus magni reiciendis cupiditate nulla aperiam! Dolorum aperiam inventore dolores ratione amet, ipsa porro illum a! A dignissimos ab non animi voluptatum doloremque alias quod. Alias ipsam dicta molestias temporibus voluptates! Eveniet fugiat debitis dolores nemo voluptatibus aperiam molestiae cum mollitia dolorem labore aspernatur obcaecati earum, voluptate esse neque corporis maxime quidem error saepe illo velit reiciendis necessitatibus. Totam, voluptatem expedita odio quis autem saepe esse veniam illo eos commodi incidunt omnis, excepturi dolorum dicta! Eveniet obcaecati vitae tenetur quisquam deleniti voluptatibus neque ipsam, aspernatur officia fugit ducimus sint assumenda modi ex cum dignissimos molestias inventore, fuga debitis similique corporis, voluptatum in voluptas eius. Pariatur officia placeat facere porro expedita quas error nesciunt reprehenderit enim, mollitia odio maxime. Sunt, aut corporis tenetur voluptatum inventore vel sit porro recusandae aliquam est optio et non deleniti, quae consectetur quisquam facere consequatur iste doloribus soluta quo. Necessitatibus aliquam aut possimus doloribus odio magni nulla esse facilis tempore quam recusandae debitis exercitationem enim, cum similique earum minus dolorum minima eos vitae quod autem. Facere non iste at aperiam fuga modi et consequatur aliquid saepe praesentium fugit nisi magnam libero ipsa atque, blanditiis, id distinctio aut nulla sequi corrupti voluptate? In aliquam beatae minima expedita aut tempore, quod eligendi sunt officia reprehenderit. Laborum ipsa soluta, quidem tenetur iure optio nisi dolore suscipit quis dicta, ullam sapiente delectus laudantium, fugiat amet sunt vel. Aliquam vitae rem laboriosam iure necessitatibus nobis, esse cupiditate officiis, molestiae odit dignissimos error mollitia praesentium totam quisquam fuga sed? Minima natus eius rerum voluptates hic perspiciatis consequuntur ut obcaecati eaque nisi ullam nobis quis doloremque, voluptatibus, voluptate numquam nihil. Excepturi distinctio sapiente sed, consequatur expedita officiis maxime voluptates est ratione laborum sunt porro rerum natus illo maiores cupiditate eaque enim sint ex ad reiciendis ducimus nesciunt? Vel consequuntur voluptatum quasi obcaecati nemo repellendus inventore enim nulla! Eligendi officiis doloremque quam laborum cumque ipsa. Ullam ad fugiat labore nostrum explicabo dolores quos nulla quisquam minima mollitia? Illo unde reiciendis delectus molestias nulla quos est, vitae possimus. Unde non vel quo incidunt velit quod nemo iure voluptatum in officia perspiciatis, quos eius, nostrum deserunt error et. Dolore laboriosam quas aspernatur est, minima fugiat architecto! Consequatur, reprehenderit, reiciendis quam dolor iure, aliquam est architecto officia omnis dicta eaque vitae magnam laboriosam incidunt culpa. Vel quis, ipsa aliquid eveniet ipsam aut animi tempore odit ab incidunt illum voluptatibus fuga, iure sapiente enim perspiciatis sunt quo debitis sit distinctio laboriosam tenetur dicta! Nam modi explicabo quis. Consequuntur, aliquam a, soluta excepturi blanditiis numquam fuga, veritatis totam quod saepe voluptatum accusamus magnam velit dicta quos! Impedit dolore quis, assumenda labore eos eligendi repellendus debitis illo voluptatibus nulla, praesentium soluta dicta. Rem reiciendis itaque, debitis quisquam facilis dolor, ab, esse laboriosam aliquam dolorem soluta hic voluptatum omnis distinctio recusandae culpa voluptates illum ad a! Dolores, assumenda quaerat quidem ratione officia iste. Inventore molestias incidunt, porro, quaerat distinctio ipsum laudantium eligendi beatae animi at nisi magni ullam quod? Laudantium sit delectus, maxime sequi qui nihil molestiae, a doloribus amet aliquam voluptas nesciunt nam exercitationem asperiores ut consequatur fugiat dolorem reiciendis accusamus ipsa repellendus quo molestias mollitia. Repellat corrupti illo voluptates consequuntur quos atque, ratione, provident, accusamus rem facilis quam ut porro facere sapiente nesciunt tempore. Nulla illum corrupti odio aperiam laboriosam deserunt illo pariatur aliquid, explicabo eum aliquam fugit cumque quisquam dolorum commodi, delectus nesciunt, repellat minus iure excepturi! Aperiam, pariatur adipisci! A cum tempora sed dolorem adipisci praesentium excepturi sunt tempore explicabo dicta ratione, officia quaerat facere in ad. Animi repellat labore aliquid sunt est eligendi enim necessitatibus quibusdam saepe, eveniet fugiat neque, possimus officiis modi facilis esse dolor. Molestiae quaerat error et ratione quo vero repellat, veritatis minima explicabo totam sunt sed doloribus quibusdam accusamus consequatur commodi facere dicta! Rem, pariatur. Explicabo, dicta. Fugit, quia? Officia nam obcaecati placeat? Natus veritatis fugit deserunt possimus odio accusamus incidunt maiores nobis autem doloremque, asperiores et eaque consectetur placeat delectus minus quas nulla magni aliquam cupiditate laboriosam totam voluptatibus cumque iusto. Laboriosam alias, non, rem dignissimos voluptatem maxime quibusdam fugit culpa unde provident quo sint. Perferendis ipsa maxime officiis saepe amet sequi beatae magni mollitia quos eius adipisci consequatur ea quidem consectetur, voluptatibus ratione a labore veritatis excepturi eveniet quis perspiciatis itaque commodi quod. Eos, nobis accusantium saepe quod cum corrupti quibusdam maiores culpa libero hic nam veniam exercitationem aliquid labore numquam adipisci vitae et placeat sapiente nulla aperiam soluta sunt! Quisquam fuga voluptas et eius voluptates earum dolores! Natus eius adipisci qui animi ducimus sed sapiente impedit harum? Beatae ipsam cum ducimus non fugit laborum qui deserunt velit facilis molestias. Qui animi tempore neque ullam accusamus est quibusdam numquam ex aspernatur, magni molestiae perspiciatis pariatur rerum consequuntur officia assumenda voluptatum et nostrum reiciendis accusantium corrupti amet eum esse recusandae. Consectetur ea dolore culpa quibusdam eaque. Iure ullam, voluptatem unde inventore autem quos sed perspiciatis tempore iste quod, omnis vero, placeat et consequuntur labore. Commodi excepturi vero soluta error doloremque! Eius, nostrum consequatur alias suscipit odio laborum commodi est, porro nesciunt voluptatem aut beatae quae incidunt harum enim, delectus repellendus distinctio quis! Quisquam quod neque nam, quo impedit veritatis dolorum asperiores recusandae dicta voluptatibus est accusantium veniam ea tempore error a debitis, fugiat voluptate eligendi minima? Vitae, culpa, minima eius ad dolorum quidem quam sed vero error iste vel quibusdam reiciendis nesciunt perspiciatis doloremque, possimus ratione? Tenetur eius facilis consequuntur doloribus, quisquam cum labore. Rem voluptatibus explicabo obcaecati doloribus natus suscipit debitis sequi accusamus aliquam perferendis quibusdam magni eaque maxime error molestiae ipsa, dolor enim ratione illo officia non! Commodi ullam, ducimus sunt sint natus est odit perferendis ratione explicabo quaerat illo repudiandae quasi adipisci tempore id dolor. Accusamus iure quo praesentium quam, adipisci doloremque! Aliquam minima corporis debitis laborum nam rerum dolor sit dolorem fugiat esse dicta labore eveniet tempora perferendis culpa iste ex quasi, odio molestiae neque? Asperiores laudantium quis quaerat architecto fuga fugiat recusandae optio dolores suscipit in inventore velit, repudiandae consequatur debitis, consequuntur atque sint magni! Laudantium sequi sed qui cupiditate ab ea. Harum eligendi, non optio at natus quod in numquam amet, debitis eum, quo enim facilis obcaecati ab dolorum quaerat sapiente est libero laudantium corporis. Ullam nesciunt perferendis magnam quis sit dolores et obcaecati rem, dicta inventore perspiciatis vel veniam ex. Reiciendis, ipsum minima suscipit quos laudantium debitis magni, quidem eaque culpa temporibus, assumenda pariatur quia vel sint nostrum placeat harum amet in voluptates qui voluptatem eveniet. Et, architecto magni sapiente quasi optio debitis itaque, odit, impedit iusto cumque beatae delectus quidem. Similique aspernatur, architecto impedit accusamus dicta quaerat! Accusamus cum rem natus quos praesentium facere fuga sequi commodi rerum voluptatum quibusdam labore autem, sint odio ipsum, dolorum ratione voluptatibus sit quam, ab illo. Dignissimos provident rem deleniti reiciendis aut illum totam vel laudantium, tempore doloremque excepturi cumque! Quae corporis impedit dignissimos necessitatibus cumque quam, nisi vero enim deserunt, a quasi eaque, consequatur officiis iusto ab. Numquam rerum quasi laborum! Voluptates itaque, officia laudantium eos suscipit aperiam praesentium atque expedita vero eveniet ipsam ea animi numquam dolorum quas rerum natus maiores laboriosam sit corrupti veritatis dolore repellendus odio nulla! Facilis molestias voluptatem dolorem repellat excepturi, necessitatibus facere. Est sequi aut illo impedit, accusamus dignissimos. Iusto quo neque eum laboriosam, quis recusandae qui pariatur nisi, ducimus quam error? Nobis totam atque doloribus impedit, debitis harum consequatur corporis facilis aperiam beatae laborum blanditiis nulla necessitatibus eligendi eius cum recusandae. Rem quas quis rerum consectetur ullam sed, explicabo assumenda ab odit tempore quam repellendus incidunt atque temporibus, dolorum recusandae officiis esse omnis! Culpa, velit repellat. Quod ipsam architecto laudantium animi, quis itaque. Aspernatur voluptates quo minus alias ad! Ab distinctio laboriosam nemo fugit laudantium amet quod atque beatae porro delectus voluptatum, molestias incidunt unde fugiat ipsa dolores doloribus esse nihil magnam quos veniam repellat illo quibusdam. Hic voluptate sit laborum libero aliquam quis nihil natus, temporibus non veniam iusto pariatur tempora, at dolor officia recusandae quas eum? Veritatis et enim, recusandae cum beatae eum voluptatem vero sunt id, voluptates dolorem expedita reprehenderit quasi repellat libero. Ad dolorum deleniti fugiat. Magni soluta totam sed quo non voluptatum earum fugit debitis error enim cumque illo ad, reprehenderit maxime voluptas veritatis porro dolorem suscipit itaque eius, at dicta qui officiis. Libero, sequi! Error eaque nobis impedit et! Culpa aspernatur quae aut dolore dolor molestias magni enim magnam doloribus dolorem! Debitis alias, voluptas magnam odit voluptate culpa ut sit est porro voluptates! Delectus corporis soluta tempore. Cupiditate eos iusto perspiciatis ut expedita quaerat tempore consequatur atque veritatis at? Velit, hic qui excepturi ratione quod obcaecati dolores ducimus repellat exercitationem deleniti minima sequi aut odio ab quasi maxime, culpa dicta recusandae nemo praesentium voluptatem nobis provident pariatur sit! Quasi, numquam? Tempora labore ab, quo fugiat voluptatum qui alias rerum velit fugit, molestias quos possimus ad ratione similique perferendis, ipsum iure ipsam! Cupiditate inventore veritatis ratione, animi aspernatur corporis maiores soluta enim. Iste, ratione est. Earum necessitatibus neque eos qui soluta eveniet impedit, rerum omnis distinctio, iste recusandae nemo dicta odit velit doloremque sunt quam optio adipisci incidunt similique quasi. Laboriosam est quo, itaque, fugit alias dolore a at in ratione tempore quibusdam sed, vel sit pariatur. Necessitatibus recusandae asperiores nesciunt molestiae pariatur iure voluptates, amet magni facere quaerat. Ut maxime, doloribus odit expedita maiores recusandae perspiciatis quos quod! Ullam sequi modi dicta ab voluptates iste libero, enim consequuntur consequatur iure quisquam ipsum soluta officiis aperiam a tempora adipisci omnis necessitatibus delectus quae similique in cumque. Itaque dicta, explicabo, sed enim, animi distinctio blanditiis esse vel facilis impedit recusandae quia non! Sequi, consequatur! Deleniti voluptatum aliquid quaerat quae iure molestiae obcaecati numquam neque rem, fuga, at veritatis consequuntur doloremque expedita, voluptas sint corporis ratione unde rerum quia quos ipsum. Quo porro, est deserunt ipsum quas optio expedita corrupti laborum veniam dolorem nostrum sapiente delectus culpa aliquid magni nihil odio animi atque vitae tempora doloremque fugiat officiis? Dolores sint voluptatem ipsa quam pariatur soluta accusamus ipsam a provident mollitia quas delectus, vitae itaque minus eum sapiente autem similique officia ut enim? Libero, quo.
+              </p>
+          </div>
+
+          <div class="project-2 w-full h-full flex flex-col justify-center items-center bg-red-500 overflow-scroll p-12 ">
+            <h2 class="text-white text-3xl font-semibold mt-36">Projet 2</h2>
+          </div>
+
+          <div class="project-3 w-full h-full flex flex-col justify-center items-center bg-red-500 overflow-scroll p-12 ">
+            <h2 class="text-white text-3xl font-semibold mt-36">Projet 2</h2>
+          </div>
+
+          <div class="project-4 w-full h-full flex flex-col justify-center items-center bg-red-500 overflow-scroll p-12 ">
+            <h2 class="text-white text-3xl font-semibold mt-36">Projet 2</h2>
+          </div>
+
+          <div class="project-5 w-full h-full flex flex-col justify-center items-center bg-red-500 overflow-scroll p-12 ">
+            <h2 class="text-white text-3xl font-semibold mt-36">Projet 2</h2>
+          </div>
+
+          <div class="project-6 w-full h-full flex flex-col justify-center items-center bg-red-500 overflow-scroll p-12 ">
+            <h2 class="text-white text-3xl font-semibold mt-36">Projet 2</h2>
+          </div>
+        </div>
+      </section>
+      <!-- Veille Technologique + Transition -->
+        <!-- Veille Technologique -->
+        <section class="bg-black relative !max-w-screen overflow-hidden pt-64 z-20 " id="veilleTechno">
+          <div class="w-full flex justify-center items-start gap-2 sm:gap-4 pinnedVt" >
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold pb-4 z-20 text-white" id="veilleTitle">Veille Technologique</h1>
+            <div id="rssWrapper">
+              <svg id="rssLogo" viewBox="0 0 44 44" class=" w-8 sm:w-12 mt-[2px]" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>RSS-color</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Color-" transform="translate(-800.000000, -760.000000)" fill="#FF9A00"> <path d="M800.000471,797.714286 C800.000471,794.243 802.81487,791.428571 806.286118,791.428571 C809.757367,791.428571 812.571765,794.243 812.571765,797.714286 C812.571765,801.185571 809.757367,804 806.286118,804 C802.81487,804 800.000471,801.185571 800.000471,797.714286 Z M844,804 L835.619661,804 C835.619661,784.358714 819.641547,768.380429 800.000471,768.380429 L800.000471,760 C824.261497,760 844,779.738714 844,804 Z M829.333543,804 L820.953204,804 C820.953204,792.446857 811.553019,783.048143 800,783.048143 L800,774.666143 C816.174541,774.666143 829.333543,787.825286 829.333543,804 Z" id="RSS"> </path> </g> </g> </g></svg>
+            </div>
+          </div>
+          <!-- VT content -->
+          <div class="w-full flex flex-col justify-center items-center text-white text-center">
+            <div class="introWrapper w-full">
+              <div class="flex flex-col gap-[20px] sm:text-xl font-semibold max-w-[95%] mx-auto items-center mt-16 mb-24" id="feedlyIntro">
+                  <p class="w-[860px] !max-w-[95%] text-center">Dans le domaine informatique, la veille technologique est primordiale : Elle nous permet de rester au courant des dernières avancées sur nos domaines de compétences, afin de les intégrer à notre workflow et rester ainsi à la pointe du progrès !</p>
+                  <p class="w-[860px] max-w-[95%]">Cependant, suivre toutes les dernières actualités peut être compliqué mais heureusement, certains outils peuvent nous faciliter la vie.</p>
+              </div>
+            </div>
+            
+            
+  
+            <div class="flex flex-col max-w-[95%]" id="howItWorks">
+              <p class="w-[950px] max-w-[95%] font-semibold text-md sm:text-lg mx-auto mb-2 sm:mb-6 text-white" id="lastVtContent">Je vous présente ici l'outil que j'utilise pour rester alerte, ainsi que la facon dont je m'en sert :</p>
+              <div class="flex max-sm:flex-col max-w-[900px] mx-auto items-center justify-center sm:gap-1 mb-8 feedlyBox">
+                <a href="https://feedly.com/" target="_blank" class="left max-sm:px-6"><img src="./assets/feedly-Cz5VsEVH.png" alt=""></a>
+                <div class="flex flex-col items-start right">
+                    <h2 class="text-[3em] font-bold tracking-[2px] max-sm:hidden" class="">FEEDLY.</h2>
+                    <p class="max-sm:text-sm sm:text-start max-sm:mx-4 max-sm:-mt-4">Feedly est un outil qui permet de selectionner divers themes ou sources, et d'etre notifié dès qu'une nouveauté apparait sur notre séléction.</p>
+                </div>
+              </div>
+              <div class="w-[860px] max-w-[95%] flex flex-col items-start justify-start gap-2 sm:gap-4 text-start mx-auto" id="feedlyTuto">
+                <h4 class="tracking-[1px] uppercase w-[900px] max-w-[95%] font-semibold">Comment ça marche ?</h4>
+                <p class="max-sm:text-sm">Pour utiliser Feedly, il faut tout d'abord se créer un compte sur le site web, ensuite, nous pouvons séléctionner des sources/centres d'intêrets, et les classer librement par dossiers.</p>
+                <p class="max-sm:text-sm">Le service dispose d'une offre gratuite et payante, l'offre gratuite limitant le nombre de rubriques possible, et n'autorisant pas l'accès aux fonctionnalités "IA" (agrégation des news par centre d'interêts) entre autres que le site propose... </p>
+              </div>
+            </div>
+  
+            <div id="vtPart2" class="max-w-[95%]">
+              <div class="w-[950px] max-w-[95%] mx-auto mt-24">
+                <div class="flex flex-col text-start intro">
+                  <h2 class="text-4xl font-bold mb-2 orgaTitle">Mon organisation.</h2>
+                  <p class=" font-semibold orgaLabel">j'ai organisé ma veille au travers de 4 rubriques, regroupant chacunes plusieurs sources sur un theme bien particulier, voyons en détails :</p>
+                </div>
+        
+                <div class="grid grid-cols-2 mt-8 grid-rows-2 py-2 gap-[0.5rem] h-[20rem]">
+                  <div class=" bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr rounded-bl rounded-tl-md rounded-br-md fold1 hover:m-0 transition-all ease-in-out duration-200">
+                      <h2 class="text-start font-semibold">.Langages & Frameworks</h2>
+                  </div>
+                  <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr-md rounded-bl-md rounded-tl rounded-br fold2 hover:m-0 transition-all ease-in-out duration-200">
+                      <h2 class="text-start font-semibold">.Cybersécurité</h2>
+                  </div>
+                  <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr-md rounded-bl-md rounded-tl rounded-br fold3 hover:m-0 transition-all ease-in-out duration-200">
+                      <h2 class="text-start font-semibold">.Software & OS</h2>
+                  </div>
+                  <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr rounded-bl rounded-tl-md rounded-br-md fold4 hover:m-0 transition-all ease-in-out duration-200">
+                      <h2 class="text-start font-semibold">.Actus Tech en général</h2>
+                  </div>
+                </div>
+              </div>
+              <div id="split2"></div>
+  
+              <div id="vtTopic" class="mt-24 w-[950px] max-w-[95%] mx-auto">
+  
+                <div class="topicIntro ">
+                  <div class="topicTitle scale-[95%]">
+                    <h2 class="text-4xl font-bold mb-2 text-start">Mon sujet.</h2>
+  
+                    <p class=" font-semibold text-start">J'ai décidé de choisir <b>Le Cloud Computing</b> comme sujet de veille technologique, et plus particulièrement <b>Microsoft Azure</b> : Je vous justifie donc ce choix, et sa pertinence dans le developpement web.</p>
+                  </div>
+                  
+  
+                  <div class="grid grid-cols-10 w-[950px] max-w-[95%] gap-[20px] items-center my-[80px] mx-[30px]">
+                      <a class="col-span-3 " id="azureLeft" href="https://azure.microsoft.com/fr-fr" target="_blank"><img src="./assets/microsoft_azure-B3zeiNav.png" alt="" class="w-[70%]"></a>
+                      <div class="feedlyPre col-span-7" id="azureRight">
+                          <p class="italic text-start">
+                              Microsoft Azure est une solution de cloud computing qui offre une variété de services à haute disponibilité et scalabilité. Azure permet, comme les autres solutions de cloud computing, de fournir ces services selon plusieurs niveaux d'abstraction.
+                          </p>
+                      </div>
+                  </div>
+  
+                  <p class="text-start topicIntroPara scale-[95%]">Les services de cloud computing ont commencés à voir le jour vers la fin des années 2000; poussés par la crise financière de 2008, ils apparaissent comme une solution plus flexible et moins cher que les services de "on premise". Leur essort à continué dans les années 2010, jusqu'en 2020 ou la crise de COVID-19 à exarcerbé les besoins de télétravail et de solutions à distance, galvanisant encore plus le secteur.</p>
+                </div>
+                
+  
+                <div class="topicPartial">
+                  <h2 class="text-4xl font-bold mb-2 text-start mt-16">L'intêret du cloud computing</h2>
+  
+  
+                  <p class="text-start text-white/85 mb-6">
+                  Le cloud computing offre de nombreux avantages si on le compare avec des solutions "on premise" (sur une machine physique présente dans les locaux de l'entreprise) :
+                  </p>
+                  <ul class="list-disc list-outside flex flex-col gap-2 text-start ml-4">
+                      <li><b>La maintenance est simplifié, voir inexistante :</b> Le prestataire gère les cas d'indisponibilité.</li>
+                      <li><b>Le coût est bien souvent inférieur :</b> Le coût est basé sur notre usage et non sur notre infrastructure.</li>
+                      <li><b>La scalabilité est facile :</b> On peut facilement augmenter les performances requises pour un service.</li>
+                      <li><b>Travail collaboratif et accessibilité :</b> l'accès aux ressources est simplifié, car tout se fait via l'interface du prestataire.</li>
+                      <li><b>Simplification de la gestion et du déploiement des ressources :</b> On peut facilement gérer les ressources de maniére centralisée et simplifiee, grâce à un fort taux d'abstraction de l'infrastructure (SaaS, PaaS, IaaS).
+                  </ul>
+  
+  
+  
+                  <p class="font-semibold text-lg mt-12" >Aujourd'hui, les 3 services de cloud computing les plus populaires sont Microsoft Azure, Amazon Web Service et Google Cloud.</p>
+                </div>
+  
+                <div class="border-b-3 border-b-white/10 pb-24">
+                  <div id="cloudServices" class="topicPartial flex items-center justify-evenly max-sm:mt-8 mt-16">
+  
+                    <!-- AWS -->
+                    <svg viewBox="0 0 16 16" class="size-24 md:size-32" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#FFFFFF" d="M4.51 7.687c0 .197.02.357.058.475.042.117.096.245.17.384a.233.233 0 01.037.123c0 .053-.032.107-.1.16l-.336.224a.255.255 0 01-.138.048c-.054 0-.107-.026-.16-.074a1.652 1.652 0 01-.192-.251 4.137 4.137 0 01-.165-.315c-.415.491-.936.737-1.564.737-.447 0-.804-.129-1.064-.385-.261-.256-.394-.598-.394-1.025 0-.454.16-.822.484-1.1.325-.278.756-.416 1.304-.416.18 0 .367.016.564.042.197.027.4.07.612.118v-.39c0-.406-.085-.689-.25-.854-.17-.166-.458-.246-.868-.246-.186 0-.377.022-.574.07a4.23 4.23 0 00-.575.181 1.525 1.525 0 01-.186.07.326.326 0 01-.085.016c-.075 0-.112-.054-.112-.166v-.262c0-.085.01-.15.037-.186a.399.399 0 01.15-.113c.185-.096.409-.176.67-.24.26-.07.537-.101.83-.101.633 0 1.096.144 1.394.432.293.288.442.726.442 1.314v1.73h.01zm-2.161.811c.175 0 .356-.032.548-.096.191-.064.362-.182.505-.342a.848.848 0 00.181-.341c.032-.129.054-.283.054-.465V7.03a4.43 4.43 0 00-.49-.09 3.996 3.996 0 00-.5-.033c-.357 0-.618.07-.793.214-.176.144-.26.347-.26.614 0 .25.063.437.196.566.128.133.314.197.559.197zm4.273.577c-.096 0-.16-.016-.202-.054-.043-.032-.08-.106-.112-.208l-1.25-4.127a.938.938 0 01-.049-.214c0-.085.043-.133.128-.133h.522c.1 0 .17.016.207.053.043.032.075.107.107.208l.894 3.535.83-3.535c.026-.106.058-.176.1-.208a.365.365 0 01.214-.053h.425c.102 0 .17.016.213.053.043.032.08.107.101.208l.841 3.578.92-3.578a.458.458 0 01.107-.208.346.346 0 01.208-.053h.495c.085 0 .133.043.133.133 0 .027-.006.054-.01.086a.76.76 0 01-.038.133l-1.283 4.127c-.032.107-.069.177-.111.209a.34.34 0 01-.203.053h-.457c-.101 0-.17-.016-.213-.053-.043-.038-.08-.107-.101-.214L8.213 5.37l-.82 3.439c-.026.107-.058.176-.1.213-.043.038-.118.054-.213.054h-.458zm6.838.144a3.51 3.51 0 01-.82-.096c-.266-.064-.473-.134-.612-.214-.085-.048-.143-.101-.165-.15a.378.378 0 01-.031-.149v-.272c0-.112.042-.166.122-.166a.3.3 0 01.096.016c.032.011.08.032.133.054.18.08.378.144.585.187.213.042.42.064.633.064.336 0 .596-.059.777-.176a.575.575 0 00.277-.508.52.52 0 00-.144-.373c-.095-.102-.276-.193-.537-.278l-.772-.24c-.388-.123-.676-.305-.851-.545a1.275 1.275 0 01-.266-.774c0-.224.048-.422.143-.593.096-.17.224-.32.384-.438.16-.122.34-.213.553-.277.213-.064.436-.091.67-.091.118 0 .24.005.357.021.122.016.234.038.346.06.106.026.208.052.303.085.096.032.17.064.224.096a.46.46 0 01.16.133.289.289 0 01.047.176v.251c0 .112-.042.171-.122.171a.552.552 0 01-.202-.064 2.427 2.427 0 00-1.022-.208c-.303 0-.543.048-.708.15-.165.1-.25.256-.25.475 0 .149.053.277.16.379.106.101.303.202.585.293l.756.24c.383.123.66.294.825.513.165.219.244.47.244.748 0 .23-.047.437-.138.619a1.436 1.436 0 01-.388.47c-.165.133-.362.23-.591.299-.24.075-.49.112-.761.112z"></path> <g fill="#F90" fill-rule="evenodd" clip-rule="evenodd"> <path d="M14.465 11.813c-1.75 1.297-4.294 1.986-6.481 1.986-3.065 0-5.827-1.137-7.913-3.027-.165-.15-.016-.353.18-.235 2.257 1.313 5.04 2.109 7.92 2.109 1.941 0 4.075-.406 6.039-1.239.293-.133.543.192.255.406z"></path> <path d="M15.194 10.98c-.223-.287-1.479-.138-2.048-.069-.17.022-.197-.128-.043-.24 1-.705 2.645-.502 2.836-.267.192.24-.053 1.89-.99 2.68-.143.123-.281.06-.218-.1.213-.53.687-1.72.463-2.003z"></path> </g> </g></svg>
+  
+  
+                    <!-- Azure -->
+  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="size-24 md:size-32" viewBox="0 0 96 96">
+                        <defs>
+                            <linearGradient id="e399c19f-b68f-429d-b176-18c2117ff73c" x1="-1032.172" x2="-1059.213" y1="145.312" y2="65.426" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-color="#114a8b"/>
+                                <stop offset="1" stop-color="#0669bc"/>
+                            </linearGradient>
+                            <linearGradient id="ac2a6fc2-ca48-4327-9a3c-d4dcc3256e15" x1="-1023.725" x2="-1029.98" y1="108.083" y2="105.968" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-opacity=".3"/>
+                                <stop offset=".071" stop-opacity=".2"/>
+                                <stop offset=".321" stop-opacity=".1"/>
+                                <stop offset=".623" stop-opacity=".05"/>
+                                <stop offset="1" stop-opacity="0"/>
+                            </linearGradient>
+                            <linearGradient id="a7fee970-a784-4bb1-af8d-63d18e5f7db9" x1="-1027.165" x2="-997.482" y1="147.642" y2="68.561" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-color="#3ccbf4"/>
+                                <stop offset="1" stop-color="#2892df"/>
+                            </linearGradient>
+                        </defs>
+                        <path fill="url(#e399c19f-b68f-429d-b176-18c2117ff73c)" d="M33.338 6.544h26.038l-27.03 80.087a4.152 4.152 0 0 1-3.933 2.824H8.149a4.145 4.145 0 0 1-3.928-5.47L29.404 9.368a4.152 4.152 0 0 1 3.934-2.825z"/>
+                        <path fill="#0078d4" d="M71.175 60.261h-41.29a1.911 1.911 0 0 0-1.305 3.309l26.532 24.764a4.171 4.171 0 0 0 2.846 1.121h23.38z"/>
+                        <path fill="url(#ac2a6fc2-ca48-4327-9a3c-d4dcc3256e15)" d="M33.338 6.544a4.118 4.118 0 0 0-3.943 2.879L4.252 83.917a4.14 4.14 0 0 0 3.908 5.538h20.787a4.443 4.443 0 0 0 3.41-2.9l5.014-14.777 17.91 16.705a4.237 4.237 0 0 0 2.666.972H81.24L71.024 60.261l-29.781.007L59.47 6.544z"/>
+                        <path fill="url(#a7fee970-a784-4bb1-af8d-63d18e5f7db9)" d="M66.595 9.364a4.145 4.145 0 0 0-3.928-2.82H33.648a4.146 4.146 0 0 1 3.928 2.82l25.184 74.62a4.146 4.146 0 0 1-3.928 5.472h29.02a4.146 4.146 0 0 0 3.927-5.472z"/>
+                    </svg>
+  
+                    <!-- Google Cloud -->
+  
+                    <svg viewBox="0 -25 256 256" class="size-24 md:size-32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M170.2517,56.8186 L192.5047,34.5656 L193.9877,25.1956 C153.4367,-11.6774 88.9757,-7.4964 52.4207,33.9196 C42.2667,45.4226 34.7337,59.7636 30.7167,74.5726 L38.6867,73.4496 L83.1917,66.1106 L86.6277,62.5966 C106.4247,40.8546 139.8977,37.9296 162.7557,56.4286 L170.2517,56.8186 Z" fill="#EA4335"> </path> <path d="M224.2048,73.9182 C219.0898,55.0822 208.5888,38.1492 193.9878,25.1962 L162.7558,56.4282 C175.9438,67.2042 183.4568,83.4382 183.1348,100.4652 L183.1348,106.0092 C198.4858,106.0092 210.9318,118.4542 210.9318,133.8052 C210.9318,149.1572 198.4858,161.2902 183.1348,161.2902 L127.4638,161.2902 L121.9978,167.2242 L121.9978,200.5642 L127.4638,205.7952 L183.1348,205.7952 C223.0648,206.1062 255.6868,174.3012 255.9978,134.3712 C256.1858,110.1682 244.2528,87.4782 224.2048,73.9182" fill="#4285F4"> </path> <path d="M71.8704,205.7957 L127.4634,205.7957 L127.4634,161.2897 L71.8704,161.2897 C67.9094,161.2887 64.0734,160.4377 60.4714,158.7917 L52.5844,161.2117 L30.1754,183.4647 L28.2234,191.0387 C40.7904,200.5277 56.1234,205.8637 71.8704,205.7957" fill="#34A853"> </path> <path d="M71.8704,61.4255 C31.9394,61.6635 -0.2366,94.2275 0.0014,134.1575 C0.1344,156.4555 10.5484,177.4455 28.2234,191.0385 L60.4714,158.7915 C46.4804,152.4705 40.2634,136.0055 46.5844,122.0155 C52.9044,108.0255 69.3704,101.8085 83.3594,108.1285 C89.5244,110.9135 94.4614,115.8515 97.2464,122.0155 L129.4944,89.7685 C115.7734,71.8315 94.4534,61.3445 71.8704,61.4255" fill="#FBBC05"> </path> </g> </g></svg>
+                  </div>
+                </div>
+  
+                <div id="companyUsage" class=" topicPartial">
+                  <h2 class="text-4xl font-bold mb-2 text-start mt-24">Mon Utilisation en Entreprise</h2>
+  
+                  <p class="text-start text-white/85 mb-6">Microsoft Azure est au coeur de l'architecture informatique de Aroma-Zone, prenant majoritairement la place de "ciment", liant les differents services utilisés par l'entreprise.</p>
+  
+                  <div class="md:grid md:grid-cols-2 flex flex-col gap-4 w-full mt-4">
+                    <img src="./assets/logicapp_example-JXKY2jfI.png" alt="" class="rounded-sm">
+                    <p class="mt-2 mb-2 italic text-sm md:hidden"><i>L'aspect PaaS des logic apps rends en outre leur création et leur utilisation quasi-instantané, sans préoccupation de l'infrastructure et du déploiement.</i></p>
+                    <p class="text-start w-full">Je me sert essentiellement d'un service en particulier proposé par Azure : <b>Les Logic Apps</b> qui permettent d'automatiser des tâches, des processus ou des flux de données en utilisant du low-code, et ce, très facilement. L'avantage ici est la clarté du code, qui, ressemblant à un logigramme, ne nécéssite pas de connaissances sur un language particulier.</p>
+                  </div>
+  
+                  <p class="mt-2 italic text-sm max-md:hidden"><i>L'aspect PaaS des logic apps rends en outre leur création et leur utilisation quasi-instantané, sans préoccupation de l'infrastructure et du déploiement.</i></p>
+                </div>
+  
+                <div id="cloudEvolution" class="text-start topicPartial">
+                  <h2 class="text-4xl font-bold mb-2 text-start mt-24">Les récentes avancées du cloud computing</h2>
+  
+                  <p>Aujourd'hui, le cloud computing, que ce soit via des changements technologiques majeurs ou pour répondre à des problématiques essentielles, continue à évoluer. </p>
+  
+  
+                  <p style="font-weight: normal; margin-top: 30px;"><b>Le cloud souverain (hébergement localisé)</b>, par exemple, est une tendance qui se developpe de plus en plus, avec une volonté de respecter les lois en vigueur dans chaque pays.</p>
+  
+                  <p style="font-weight: normal; margin-top: 10px;">D'un autre coté, On compte également de nombreux projets qui s'orientent vers la création d'infrastructures neutres en carbone, plus saines pour l'environnement.</p>
+                  <p style="font-weight: normal; margin-top: 30px;">D'un point de vue technologique maintenant, l'arrivée de l'IA générative dans les solutions de cloud computing se fait progressivement, permettant par exemple la création d'applications avec des fonctionnalités d'IA (Azure OpenAI Service).</p>
+  
+                  <p style="font-weight: normal; margin-top: 10px;">Egalement, des services comme le Cloud hybride (possibilité de mêler différentes infrastructures clouds ou clouds/locales) comme Azure ARC et Google Anthos on été developpés, permettant de mieux s'adapter aux besoins de chacun, que ce soit en terme de flexibilité ou de sécurité.</p>
+  
+                  <p style="font-weight: normal; margin-top: 10px;" class="lastVtElement pb-48">Pour finir, on peut également penser à des solutions comme Azure Quantum, Google Quantum AI ou encore AWS bracket, qui permettent l'accès a des ordinateurs quantiques via le cloud, pour une utilisation scientifique.</p>
+                </div>
+  
+              </div>
+            </div>
+          </div>
+          
+        </section>
+        <!-- Transition -->
+        <section class="h-[22rem] max-h-[40rem] w-full z-10 flex items-end relative vtContactSeparator">
+          <!-- <div class="absolute h-0 w-0 border-l-[200vw] border-l-transparent border-b-[12rem] border-t-[12rem] border-b-white border-t-transparent top-0 left-0 z-40 whiteOverlay"></div>
+          <div class="absolute h-0 w-0 border-r-[200vw] border-r-transparent border-t-[12rem] border-b-[12rem] border-t-black border-b-transparent bottom-0 left-0 z-50 blackOverlay"></div> -->
+  
+          <svg width="100%" height="150" class="z-40 absolute top-0 blackOverlay" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 100 0 L 0 70 L 0 0 Z" fill="black" />
+          </svg>
+  
+          <svg width="100%" height="150" class="z-40 absolute bottom-0 whiteOverlay" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 0 100 L 100 30 L 100 100 Z" fill="white" />
+          </svg>
+          
+          <img src="./assets/abstract-BpBYstJi.jpg" alt="" class="!w-full separator" id="veilleToContact" data-speed="auto">
+        </section>
+
+
+      <!-- Contact -->
+      <section class=" pt-32  2xl:p-16 max-sm:pt-2 z-20 overflow-hidden bg-white contactSec pb-12 relative">
+          <div class="w-[950px] max-w-[95%] mx-auto h-full">
+            <h1 class="font-bold text-4xl sm:text-4xl md:text-6xl text-black mb-1 sm:mb-3 max-sm:text-center">Me contacter</h1>
+            <p class="text-zinc-400/70 max-sm:text-sm max-sm:text-center md:mb-16">Vous pouvez me contacter par mail, via mes réseaux sociaux, ou en remplissant le formulaire ci-dessous !</p>
+            <div class="w-full flex justify-between mt-8 2xl:mt-24 h-full">
+                <form action="POST" class="flex flex-col w-full gap-4 translate-x-0 h-full md:min-h-72">
+                  <div class="flex gap-4">
+                    <input type="text" name="Nom" id="nom" class="border w-full p-1 rounded" placeholder="Nom">
+                    <input type="text" name="Prénom" id="prenom" class="border w-full p-1 rounded" placeholder="Prénom">
+                  </div>
+                  <input type="email" name="Email" class="border w-full p-1 rounded" id="email" placeholder="Email">
+                  <div class="textArea">
+                    <textarea name="message" id="message" class="border min-h-[200px] sm:min-h-[200px]  p-1 pb-0 rounded w-full" placeholder="Votre message"></textarea>
+                  </div>
+                  <div class="w-full h-full flex justify-center">
+                    <button type="submit" class="bg-black cursor-pointer text-white p-2 rounded flex justify-center items-center gap-2 group w-full transition-all ease-in-out duration-[250ms] px-4 hover:bg-blue-950"><span class="translate-x-4 group-hover:translate-x-0 transition-all ease-in-out duration-200 font-semibold">Envoyer</span><span>
+                        <svg viewBox="0 0 24 24"  fill="none" class="w-6 scale-0 opacity-0 -translate-x-24 group-hover:translate-x-0 group-hover:scale-100 group-hover:opacity-100 transition-all ease-in-out duration-200" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.7639 12H10.0556M3 8.00003H5.5M4 12H5.5M4.5 16H5.5M9.96153 12.4896L9.07002 15.4486C8.73252 16.5688 8.56376 17.1289 8.70734 17.4633C8.83199 17.7537 9.08656 17.9681 9.39391 18.0415C9.74792 18.1261 10.2711 17.8645 11.3175 17.3413L19.1378 13.4311C20.059 12.9705 20.5197 12.7402 20.6675 12.4285C20.7961 12.1573 20.7961 11.8427 20.6675 11.5715C20.5197 11.2598 20.059 11.0295 19.1378 10.5689L11.3068 6.65342C10.2633 6.13168 9.74156 5.87081 9.38789 5.95502C9.0808 6.02815 8.82627 6.24198 8.70128 6.53184C8.55731 6.86569 8.72427 7.42461 9.05819 8.54246L9.96261 11.5701C10.0137 11.7411 10.0392 11.8266 10.0493 11.9137C10.0583 11.991 10.0582 12.069 10.049 12.1463C10.0387 12.2334 10.013 12.3188 9.96153 12.4896Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    </span></button>
+                  </div>
+                    
+                    
+                </form>
+            </div>
+          </div>
+      </section>
+    </main>
+
+    <footer class="w-full flex flex-col justify-center items-center p-4">
+      <small class="text-sm font-semibold">Copyright Nicolas Carpita 2025</small>
+      <small class="text-xs text-black/90 italic">Réalisé en HTML/CSS/JavaScript</small>
+
+    </footer>
+
+    <!-- Modal projets -->
+    <section class="fixed top-0 left-0 w-screen h-screen z-50 projectModal overflow-auto bg-black text-white" x-show="projectModal"
+    x-transition:enter="transition-all ease-in-out duration-300"
+    x-transition:enter-start="translate-x-[100%] blur-md"
+    x-transition:enter-end="translate-x-0 blur-0"
+    x-transition:leave="transition-all ease-in-out duration-300"
+    x-transition:leave-start="translate-x-0 opacity-100"
+    x-transition:leave-end="translate-x-[100%] opacity-0 blur-3xl">
+      <div class="w-full h-full relative">
+        <div class="h-20 w-full bg-black/50 backdrop-blur-sm flex items-center fixed top-0 left-0">
+          <button class="mx-2" @click="projectModal = false; document.querySelector('body').classList.remove('!overflow-hidden');" x-show="projectModal" x-transition:enter="transition transform ease-in-out duration-500"
+          x-transition:enter-start="opacity-0 rotate-90"
+          x-transition:enter-end="opacity-100 rotate-0"
+          x-transition:leave="transition transform ease-in-out duration-300"
+          x-transition:leave-start="opacity-100 rotate-0" x-transition:leave-end="opacity-0 rotate-90">
+              <svg viewBox="0 0 24 24" width="60" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.99486 7.00636C6.60433 7.39689 6.60433 8.03005 6.99486 8.42058L10.58 12.0057L6.99486 15.5909C6.60433 15.9814 6.60433 16.6146 6.99486 17.0051C7.38538 17.3956 8.01855 17.3956 8.40907 17.0051L11.9942 13.4199L15.5794 17.0051C15.9699 17.3956 16.6031 17.3956 16.9936 17.0051C17.3841 16.6146 17.3841 15.9814 16.9936 15.5909L13.4084 12.0057L16.9936 8.42059C17.3841 8.03007 17.3841 7.3969 16.9936 7.00638C16.603 6.61585 15.9699 6.61585 15.5794 7.00638L11.9942 10.5915L8.40907 7.00636C8.01855 6.61584 7.38538 6.61584 6.99486 7.00636Z" fill="#ffffff"></path> </g></svg>
+          </button>
+          <div class="flex w-full justify-center items-center">
+              <h1 class="titleProjectReciever"></h1>
+          </div>
+        </div>
+        <div class="h-full projectReciever w-[950px] mx-auto max-w-[95%]"></div>
+      </div>
+
+    </section>
+
+
+
+  </body>
+</html>
+
+
+<div class="overflow-hidden globalVt hidden">
+  <!-- Veille Technologique -->
+  <section class="relative !max-w-screen overflow-hidden pt-64 z-20 " id="veilleTechno">
+    <div class="w-full flex justify-center items-start gap-2 sm:gap-4 pinnedVt" >
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold pb-4 z-20 opacity-0" id="veilleTitle">Veille Technologique</h1>
+      <div id="rssWrapper">
+        <svg id="rssLogo" viewBox="0 0 44 44" class=" w-8 sm:w-12 mt-[2px] opacity-0 scale-[2000%]" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>RSS-color</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Color-" transform="translate(-800.000000, -760.000000)" fill="#FF9A00"> <path d="M800.000471,797.714286 C800.000471,794.243 802.81487,791.428571 806.286118,791.428571 C809.757367,791.428571 812.571765,794.243 812.571765,797.714286 C812.571765,801.185571 809.757367,804 806.286118,804 C802.81487,804 800.000471,801.185571 800.000471,797.714286 Z M844,804 L835.619661,804 C835.619661,784.358714 819.641547,768.380429 800.000471,768.380429 L800.000471,760 C824.261497,760 844,779.738714 844,804 Z M829.333543,804 L820.953204,804 C820.953204,792.446857 811.553019,783.048143 800,783.048143 L800,774.666143 C816.174541,774.666143 829.333543,787.825286 829.333543,804 Z" id="RSS"> </path> </g> </g> </g></svg>
+      </div>
+    </div>
+    <!-- VT content -->
+    <div class="w-full flex flex-col justify-center items-center text-white text-center">
+      <div class="introWrapper w-full opacity-0 blur-md">
+        <div class="flex flex-col gap-[20px] sm:text-xl font-semibold max-w-[95%] mx-auto items-center" id="feedlyIntro">
+            <p class="w-[860px] !max-w-[95%] text-center">Dans le domaine informatique, la veille technologique est primordiale : Elle nous permet de rester au courant des dernières avancées sur nos domaines de compétences, afin de les intégrer à notre workflow et rester ainsi à la pointe du progrès !</p>
+            <p class="w-[860px] max-w-[95%]">Cependant, suivre toutes les dernières actualités peut être compliqué mais heureusement, certains outils peuvent nous faciliter la vie.</p>
+        </div>
+      </div>
+      
+      
+
+      <div class="flex flex-col max-w-[95%]" id="howItWorks">
+        <p class="w-[950px] max-w-[95%] font-semibold text-md sm:text-xl mx-auto mb-2 sm:mb-6 opacity-0 blur-md" id="lastVtContent">Je vous présente ici l'outil que j'utilise pour rester alerte, ainsi que la facon dont je m'en sert :</p>
+        <div class="flex max-sm:flex-col max-w-[900px] mx-auto items-center justify-center sm:gap-1 mb-8 feedlyBox">
+          <a href="https://feedly.com/" target="_blank" class="left max-sm:px-6 -translate-x-1/2 opacity-0 blur-md"><img src="./assets/feedly-Cz5VsEVH.png" alt=""></a>
+          <div class="flex flex-col items-start right translate-x-1/2 opacity-0 blur-md">
+              <h2 class="text-[3em] font-bold tracking-[2px] max-sm:hidden" class="">FEEDLY.</h2>
+              <p class="max-sm:text-sm sm:text-start max-sm:mx-4 max-sm:-mt-4">Feedly est un outil qui permet de selectionner divers themes ou sources, et d'etre notifié dès qu'une nouveauté apparait sur notre séléction.</p>
+          </div>
+        </div>
+        <div class="w-[860px] max-w-[95%] flex flex-col items-start justify-start gap-2 sm:gap-4 text-start mx-auto translate-y-1/2 opacity-0 blur-md" id="feedlyTuto">
+          <h4 class="tracking-[1px] uppercase w-[900px] max-w-[95%] font-semibold">Comment ça marche ?</h4>
+          <p class="max-sm:text-sm">Pour utiliser Feedly, il faut tout d'abord se créer un compte sur le site web, ensuite, nous pouvons séléctionner des sources/centres d'intêrets, et les classer librement par dossiers.</p>
+          <p class="max-sm:text-sm">Le service dispose d'une offre gratuite et payante, l'offre gratuite limitant le nombre de rubriques possible, et n'autorisant pas l'accès aux fonctionnalités "IA" (agrégation des news par centre d'interêts) entre autres que le site propose... </p>
+        </div>
+      </div>
+
+      <div id="vtPart2" class="max-w-[95%]">
+        <div class="w-[950px] max-w-[95%] mx-auto mt-24">
+          <div class="flex flex-col text-start intro">
+            <h2 class="text-4xl font-bold mb-2 orgaTitle -translate-x-[100%] opacity-0 blur-xl">Mon organisation.</h2>
+            <p class=" font-semibold orgaLabel translate-x-[100%] opacity-0 blur-xl">j'ai organisé ma veille au travers de 4 rubriques, regroupant chacunes plusieurs sources sur un theme bien particulier, voyons en détails :</p>
+          </div>
+  
+          <div class="grid grid-cols-2 mt-8 grid-rows-2 py-2 gap-[0.5rem] h-[20rem]">
+            <div class=" bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr rounded-bl rounded-tl-xl rounded-br-xl fold1 scale-0 opacity-0 hover:m-0">
+                <h2 class="text-start font-semibold">.Langages & Frameworks</h2>
+            </div>
+            <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr-md rounded-bl-md rounded-tl rounded-br fold2 scale-0 opacity-0 hover:m-0">
+                <h2 class="text-start font-semibold">.Cybersécurité</h2>
+            </div>
+            <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr-md rounded-bl-md rounded-tl rounded-br fold3 scale-0 opacity-0 hover:m-0">
+                <h2 class="text-start font-semibold">.Software & OS</h2>
+            </div>
+            <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr rounded-bl rounded-tl-md rounded-br-md fold4 scale-0 opacity-0 hover:m-0">
+                <h2 class="text-start font-semibold">.Actus Tech en général</h2>
+            </div>
+          </div>
+        </div>
+        <div id="split2"></div>
+
+        <div id="vtTopic" class="mt-24 w-[950px] max-w-[95%] mx-auto">
+
+          <div class="topicIntro ">
+            <div class="topicTitle opacity-0 blur-3xl scale-[95%]">
+              <h2 class="text-4xl font-bold mb-2 text-start">Mon sujet.</h2>
+
+              <p class=" font-semibold text-start">J'ai décidé de choisir <b>Le Cloud Computing</b> comme sujet de veille technologique, et plus particulièrement <b>Microsoft Azure</b> : Je vous justifie donc ce choix, et sa pertinence dans le developpement web.</p>
+            </div>
+            
+
+            <div class="grid grid-cols-10 w-[950px] max-w-[95%] gap-[20px] items-center my-[80px] mx-[30px]">
+                <a class="col-span-3 opacity-0 -translate-x-100" id="azureLeft" href="https://azure.microsoft.com/fr-fr" target="_blank"><img src="./assets/microsoft_azure-B3zeiNav.png" alt="" class="w-[70%]"></a>
+                <div class="feedlyPre col-span-7 opacity-0 translate-x-100" id="azureRight">
+                    <p class="italic text-start">
+                        Microsoft Azure est une solution de cloud computing qui offre une variété de services à haute disponibilité et scalabilité. Azure permet, comme les autres solutions de cloud computing, de fournir ces services selon plusieurs niveaux d'abstraction.
+                    </p>
+                </div>
+            </div>
+
+            <p class="text-start topicIntroPara opacity-0 blur-3xl scale-[95%]">Les services de cloud computing ont commencés à voir le jour vers la fin des années 2000; poussés par la crise financière de 2008, ils apparaissent comme une solution plus flexible et moins cher que les services de "on premise". Leur essort à continué dans les années 2010, jusqu'en 2020 ou la crise de COVID-19 à exarcerbé les besoins de télétravail et de solutions à distance, galvanisant encore plus le secteur.</p>
+          </div>
+          
+
+          <div class="topicPartial">
+            <h2 class="text-4xl font-bold mb-2 text-start mt-16">L'intêret du cloud computing</h2>
+
+
+            <p class="text-start text-white/85 mb-6">
+            Le cloud computing offre de nombreux avantages si on le compare avec des solutions "on premise" (sur une machine physique présente dans les locaux de l'entreprise) :
+            </p>
+            <ul class="list-disc list-outside flex flex-col gap-2 text-start ml-4">
+                <li><b>La maintenance est simplifié, voir inexistante :</b> Le prestataire gère les cas d'indisponibilité.</li>
+                <li><b>Le coût est bien souvent inférieur :</b> Le coût est basé sur notre usage et non sur notre infrastructure.</li>
+                <li><b>La scalabilité est facile :</b> On peut facilement augmenter les performances requises pour un service.</li>
+                <li><b>Travail collaboratif et accessibilité :</b> l'accès aux ressources est simplifié, car tout se fait via l'interface du prestataire.</li>
+                <li><b>Simplification de la gestion et du déploiement des ressources :</b> On peut facilement gérer les ressources de maniére centralisée et simplifiee, grâce à un fort taux d'abstraction de l'infrastructure (SaaS, PaaS, IaaS).
+            </ul>
+
+
+
+            <p class="font-semibold text-lg mt-12" >Aujourd'hui, les 3 services de cloud computing les plus populaires sont Microsoft Azure, Amazon Web Service et Google Cloud.</p>
+          </div>
+
+          <div class="border-b-3 border-b-white/10 pb-24">
+            <div id="cloudServices" class="topicPartial flex items-center justify-evenly max-sm:mt-8 mt-16">
+
+              <!-- AWS -->
+              <svg viewBox="0 0 16 16" class="size-24 md:size-32" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#FFFFFF" d="M4.51 7.687c0 .197.02.357.058.475.042.117.096.245.17.384a.233.233 0 01.037.123c0 .053-.032.107-.1.16l-.336.224a.255.255 0 01-.138.048c-.054 0-.107-.026-.16-.074a1.652 1.652 0 01-.192-.251 4.137 4.137 0 01-.165-.315c-.415.491-.936.737-1.564.737-.447 0-.804-.129-1.064-.385-.261-.256-.394-.598-.394-1.025 0-.454.16-.822.484-1.1.325-.278.756-.416 1.304-.416.18 0 .367.016.564.042.197.027.4.07.612.118v-.39c0-.406-.085-.689-.25-.854-.17-.166-.458-.246-.868-.246-.186 0-.377.022-.574.07a4.23 4.23 0 00-.575.181 1.525 1.525 0 01-.186.07.326.326 0 01-.085.016c-.075 0-.112-.054-.112-.166v-.262c0-.085.01-.15.037-.186a.399.399 0 01.15-.113c.185-.096.409-.176.67-.24.26-.07.537-.101.83-.101.633 0 1.096.144 1.394.432.293.288.442.726.442 1.314v1.73h.01zm-2.161.811c.175 0 .356-.032.548-.096.191-.064.362-.182.505-.342a.848.848 0 00.181-.341c.032-.129.054-.283.054-.465V7.03a4.43 4.43 0 00-.49-.09 3.996 3.996 0 00-.5-.033c-.357 0-.618.07-.793.214-.176.144-.26.347-.26.614 0 .25.063.437.196.566.128.133.314.197.559.197zm4.273.577c-.096 0-.16-.016-.202-.054-.043-.032-.08-.106-.112-.208l-1.25-4.127a.938.938 0 01-.049-.214c0-.085.043-.133.128-.133h.522c.1 0 .17.016.207.053.043.032.075.107.107.208l.894 3.535.83-3.535c.026-.106.058-.176.1-.208a.365.365 0 01.214-.053h.425c.102 0 .17.016.213.053.043.032.08.107.101.208l.841 3.578.92-3.578a.458.458 0 01.107-.208.346.346 0 01.208-.053h.495c.085 0 .133.043.133.133 0 .027-.006.054-.01.086a.76.76 0 01-.038.133l-1.283 4.127c-.032.107-.069.177-.111.209a.34.34 0 01-.203.053h-.457c-.101 0-.17-.016-.213-.053-.043-.038-.08-.107-.101-.214L8.213 5.37l-.82 3.439c-.026.107-.058.176-.1.213-.043.038-.118.054-.213.054h-.458zm6.838.144a3.51 3.51 0 01-.82-.096c-.266-.064-.473-.134-.612-.214-.085-.048-.143-.101-.165-.15a.378.378 0 01-.031-.149v-.272c0-.112.042-.166.122-.166a.3.3 0 01.096.016c.032.011.08.032.133.054.18.08.378.144.585.187.213.042.42.064.633.064.336 0 .596-.059.777-.176a.575.575 0 00.277-.508.52.52 0 00-.144-.373c-.095-.102-.276-.193-.537-.278l-.772-.24c-.388-.123-.676-.305-.851-.545a1.275 1.275 0 01-.266-.774c0-.224.048-.422.143-.593.096-.17.224-.32.384-.438.16-.122.34-.213.553-.277.213-.064.436-.091.67-.091.118 0 .24.005.357.021.122.016.234.038.346.06.106.026.208.052.303.085.096.032.17.064.224.096a.46.46 0 01.16.133.289.289 0 01.047.176v.251c0 .112-.042.171-.122.171a.552.552 0 01-.202-.064 2.427 2.427 0 00-1.022-.208c-.303 0-.543.048-.708.15-.165.1-.25.256-.25.475 0 .149.053.277.16.379.106.101.303.202.585.293l.756.24c.383.123.66.294.825.513.165.219.244.47.244.748 0 .23-.047.437-.138.619a1.436 1.436 0 01-.388.47c-.165.133-.362.23-.591.299-.24.075-.49.112-.761.112z"></path> <g fill="#F90" fill-rule="evenodd" clip-rule="evenodd"> <path d="M14.465 11.813c-1.75 1.297-4.294 1.986-6.481 1.986-3.065 0-5.827-1.137-7.913-3.027-.165-.15-.016-.353.18-.235 2.257 1.313 5.04 2.109 7.92 2.109 1.941 0 4.075-.406 6.039-1.239.293-.133.543.192.255.406z"></path> <path d="M15.194 10.98c-.223-.287-1.479-.138-2.048-.069-.17.022-.197-.128-.043-.24 1-.705 2.645-.502 2.836-.267.192.24-.053 1.89-.99 2.68-.143.123-.281.06-.218-.1.213-.53.687-1.72.463-2.003z"></path> </g> </g></svg>
+
+
+              <!-- Azure -->
+
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-24 md:size-32" viewBox="0 0 96 96">
+                  <defs>
+                      <linearGradient id="e399c19f-b68f-429d-b176-18c2117ff73c" x1="-1032.172" x2="-1059.213" y1="145.312" y2="65.426" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stop-color="#114a8b"/>
+                          <stop offset="1" stop-color="#0669bc"/>
+                      </linearGradient>
+                      <linearGradient id="ac2a6fc2-ca48-4327-9a3c-d4dcc3256e15" x1="-1023.725" x2="-1029.98" y1="108.083" y2="105.968" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stop-opacity=".3"/>
+                          <stop offset=".071" stop-opacity=".2"/>
+                          <stop offset=".321" stop-opacity=".1"/>
+                          <stop offset=".623" stop-opacity=".05"/>
+                          <stop offset="1" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="a7fee970-a784-4bb1-af8d-63d18e5f7db9" x1="-1027.165" x2="-997.482" y1="147.642" y2="68.561" gradientTransform="matrix(1 0 0 -1 1075 158)" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stop-color="#3ccbf4"/>
+                          <stop offset="1" stop-color="#2892df"/>
+                      </linearGradient>
+                  </defs>
+                  <path fill="url(#e399c19f-b68f-429d-b176-18c2117ff73c)" d="M33.338 6.544h26.038l-27.03 80.087a4.152 4.152 0 0 1-3.933 2.824H8.149a4.145 4.145 0 0 1-3.928-5.47L29.404 9.368a4.152 4.152 0 0 1 3.934-2.825z"/>
+                  <path fill="#0078d4" d="M71.175 60.261h-41.29a1.911 1.911 0 0 0-1.305 3.309l26.532 24.764a4.171 4.171 0 0 0 2.846 1.121h23.38z"/>
+                  <path fill="url(#ac2a6fc2-ca48-4327-9a3c-d4dcc3256e15)" d="M33.338 6.544a4.118 4.118 0 0 0-3.943 2.879L4.252 83.917a4.14 4.14 0 0 0 3.908 5.538h20.787a4.443 4.443 0 0 0 3.41-2.9l5.014-14.777 17.91 16.705a4.237 4.237 0 0 0 2.666.972H81.24L71.024 60.261l-29.781.007L59.47 6.544z"/>
+                  <path fill="url(#a7fee970-a784-4bb1-af8d-63d18e5f7db9)" d="M66.595 9.364a4.145 4.145 0 0 0-3.928-2.82H33.648a4.146 4.146 0 0 1 3.928 2.82l25.184 74.62a4.146 4.146 0 0 1-3.928 5.472h29.02a4.146 4.146 0 0 0 3.927-5.472z"/>
+              </svg>
+
+              <!-- Google Cloud -->
+
+              <svg viewBox="0 -25 256 256" class="size-24 md:size-32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M170.2517,56.8186 L192.5047,34.5656 L193.9877,25.1956 C153.4367,-11.6774 88.9757,-7.4964 52.4207,33.9196 C42.2667,45.4226 34.7337,59.7636 30.7167,74.5726 L38.6867,73.4496 L83.1917,66.1106 L86.6277,62.5966 C106.4247,40.8546 139.8977,37.9296 162.7557,56.4286 L170.2517,56.8186 Z" fill="#EA4335"> </path> <path d="M224.2048,73.9182 C219.0898,55.0822 208.5888,38.1492 193.9878,25.1962 L162.7558,56.4282 C175.9438,67.2042 183.4568,83.4382 183.1348,100.4652 L183.1348,106.0092 C198.4858,106.0092 210.9318,118.4542 210.9318,133.8052 C210.9318,149.1572 198.4858,161.2902 183.1348,161.2902 L127.4638,161.2902 L121.9978,167.2242 L121.9978,200.5642 L127.4638,205.7952 L183.1348,205.7952 C223.0648,206.1062 255.6868,174.3012 255.9978,134.3712 C256.1858,110.1682 244.2528,87.4782 224.2048,73.9182" fill="#4285F4"> </path> <path d="M71.8704,205.7957 L127.4634,205.7957 L127.4634,161.2897 L71.8704,161.2897 C67.9094,161.2887 64.0734,160.4377 60.4714,158.7917 L52.5844,161.2117 L30.1754,183.4647 L28.2234,191.0387 C40.7904,200.5277 56.1234,205.8637 71.8704,205.7957" fill="#34A853"> </path> <path d="M71.8704,61.4255 C31.9394,61.6635 -0.2366,94.2275 0.0014,134.1575 C0.1344,156.4555 10.5484,177.4455 28.2234,191.0385 L60.4714,158.7915 C46.4804,152.4705 40.2634,136.0055 46.5844,122.0155 C52.9044,108.0255 69.3704,101.8085 83.3594,108.1285 C89.5244,110.9135 94.4614,115.8515 97.2464,122.0155 L129.4944,89.7685 C115.7734,71.8315 94.4534,61.3445 71.8704,61.4255" fill="#FBBC05"> </path> </g> </g></svg>
+            </div>
+          </div>
+
+          <div id="companyUsage" class=" topicPartial">
+            <h2 class="text-4xl font-bold mb-2 text-start mt-48">Mon Utilisation en Entreprise</h2>
+
+            <p class="text-start text-white/85 mb-6">Microsoft Azure est au coeur de l'architecture informatique de Aroma-Zone, prenant majoritairement la place de "ciment", liant les differents services utilisés par l'entreprise.</p>
+
+            <div class="grid grid-cols-2 gap-4 w-full mt-4">
+              <img src="./assets/logicapp_example-JXKY2jfI.png" alt="" class="rounded-sm">
+              <p class="text-start w-full">Je me sert essentiellement d'un service en particulier proposé par Azure : <b>Les Logic Apps</b> qui permettent d'automatiser des tâches, des processus ou des flux de données en utilisant du low-code, et ce, très facilement. L'avantage ici est la clarté du code, qui, ressemblant à un logigramme, ne nécéssite pas de connaissances sur un language particulier.</p>
+            </div>
+
+            <p class="mt-2 italic text-sm"><i>L'aspect PaaS des logic apps rends en outre leur création et leur utilisation quasi-instantané, sans préoccupation de l'infrastructure et du déploiement.</i></p>
+          </div>
+
+          <div id="cloudEvolution" class="text-start topicPartial">
+            <h2 class="text-4xl font-bold mb-2 text-start mt-24">Les récentes avancées du cloud computing</h2>
+
+            <p>Aujourd'hui, le cloud computing, que ce soit via des changements technologiques majeurs ou pour répondre à des problématiques essentielles, continue à évoluer. </p>
+
+
+            <p style="font-weight: normal; margin-top: 30px;"><b>Le cloud souverain (hébergement localisé)</b>, par exemple, est une tendance qui se developpe de plus en plus, avec une volonté de respecter les lois en vigueur dans chaque pays.</p>
+
+            <p style="font-weight: normal; margin-top: 10px;">D'un autre coté, On compte également de nombreux projets qui s'orientent vers la création d'infrastructures neutres en carbone, plus saines pour l'environnement.</p>
+            <p style="font-weight: normal; margin-top: 30px;">D'un point de vue technologique maintenant, l'arrivée de l'IA générative dans les solutions de cloud computing se fait progressivement, permettant par exemple la création d'applications avec des fonctionnalités d'IA (Azure OpenAI Service).</p>
+
+            <p style="font-weight: normal; margin-top: 10px;">Egalement, des services comme le Cloud hybride (possibilité de mêler différentes infrastructures clouds ou clouds/locales) comme Azure ARC et Google Anthos on été developpés, permettant de mieux s'adapter aux besoins de chacun, que ce soit en terme de flexibilité ou de sécurité.</p>
+
+            <p style="font-weight: normal; margin-top: 10px;" class="lastVtElement pb-48">Pour finir, on peut également penser à des solutions comme Azure Quantum, Google Quantum AI ou encore AWS bracket, qui permettent l'accès a des ordinateurs quantiques via le cloud, pour une utilisation scientifique.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    
+  </section>
+  <!-- Transition -->
+  <section class="h-[22rem] max-h-[40rem] w-full z-10 flex items-end relative vtContactSeparator">
+    <!-- <div class="absolute h-0 w-0 border-l-[200vw] border-l-transparent border-b-[12rem] border-t-[12rem] border-b-white border-t-transparent top-0 left-0 z-40 whiteOverlay"></div>
+    <div class="absolute h-0 w-0 border-r-[200vw] border-r-transparent border-t-[12rem] border-b-[12rem] border-t-black border-b-transparent bottom-0 left-0 z-50 blackOverlay"></div> -->
+
+    <svg width="100%" height="150" class="z-40 absolute top-0 blackOverlay" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 100 0 L 0 70 L 0 0 Z" fill="black" />
+    </svg>
+
+    <svg width="100%" height="150" class="z-40 absolute bottom-0 whiteOverlay" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0 100 L 100 30 L 100 100 Z" fill="white" />
+    </svg>
+    
+    <img src="./assets/abstract-BpBYstJi.jpg" alt="" class="!w-full separator" id="veilleToContact" data-speed="auto">
+  </section>
+</div>
