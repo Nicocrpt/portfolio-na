@@ -609,7 +609,6 @@ Projets
 // })
 const cardTl = gsap.timeline({
   scrollTrigger: {
-    markers: true,
     trigger: '.projectSecTitle',
     start: "top 60%",
   },
