@@ -254,7 +254,6 @@ textarea {
 .particle-container {
   position: relative;
   width: 100vw; /* Ajustable selon besoin */
-  height: 60vh; /* Ajustable selon besoin */
   overflow: hidden;
   background: rgba(255, 255, 255, 0); /* Léger fond pour voir la zone */
 }

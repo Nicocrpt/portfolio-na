@@ -615,161 +615,69 @@ Compétences
 
 
 
-
+const forest = window.innerWidth >= 640 ? document.querySelector('#forestLight') : document.querySelector('#forestLightSM');
 
 const forestTl = gsap.timeline({
   scrollTrigger: {
-    trigger: '#forestLight',
+    trigger: forest,
     markers: true,
-    start: `bottom-=${document.querySelector('#forestLight').getBoundingClientRect().height/2} 100%`,
-    end:`bottom-=${document.querySelector('#forestLight').getBoundingClientRect().height/5} `,
+    start: `bottom-=${forest.getBoundingClientRect().height/2} 100%`,
+    end:`bottom-=${forest.getBoundingClientRect().height/5} `,
     scrub: true,
     force3D: false
   },
   duration: 10
 })
 
+const frame = window.innerWidth >= 640 ? '.forestFrame' : '.forestFrameSM'
+console.log(document.querySelectorAll(frame))
 
-gsap.set('#forestFour', { y:`${document.querySelector('.forestFrame').getBoundingClientRect().height/14}px` })
+gsap.set(`#forestFour${window.innerWidth >= 640 ? '' : 'SM'}`, { y:`${document.querySelector(frame).getBoundingClientRect().height/14}px` })
 
-forestTl.to('#forestZero', {
+forestTl.to(`#forestZero${window.innerWidth >= 640 ? '' : 'SM'}`, {
   ease: "linear",
-  y:`${document.querySelector('.forestFrame').getBoundingClientRect().height/6}px`,
+  y:`${document.querySelector(frame).getBoundingClientRect().height/6}px`,
   duration: 10
 }, '-=10')
-.to('#forestOne', {
+.to(`#forestOne${window.innerWidth >= 640 ? '' : 'SM'}`, {
   ease: "linear",
-  y:`${document.querySelector('.forestFrame').getBoundingClientRect().height/8}px`,
+  y:`${document.querySelector(frame).getBoundingClientRect().height/8}px`,
   duration: 10
 }, "-=10")
-.to('#forestTwo', {
+.to(`#forestTwo${window.innerWidth >= 640 ? '' : 'SM'}`, {
   ease: "linear",
-  y:`${document.querySelector('.forestFrame').getBoundingClientRect().height/10}px`,
+  y:`${document.querySelector(frame).getBoundingClientRect().height/10}px`,
   duration: 10
 }, "-=10")
-.to('#forestThree', {
+.to(`#forestThree${window.innerWidth >= 640 ? '' : 'SM'}`, {
   ease: "linear",
-  y:`${document.querySelector('.forestFrame').getBoundingClientRect().height/12}px`,
+  y:`${document.querySelector(frame).getBoundingClientRect().height/12}px`,
   duration: 10
 }, "-=10")
-.to('#forestFour', {
+.to(`#forestFour${window.innerWidth >= 640 ? '' : 'SM'}`, {
   ease: "linear",
-  y:`${document.querySelector('.forestFrame').getBoundingClientRect().height/45}px`,
+  y:`${document.querySelector(frame).getBoundingClientRect().height/20}px`,
 duration: 10}, "-=10")
-.to('#forestFive', {
+.to(`#forestFive${window.innerWidth >= 640 ? '' : 'SM'}`, {
   ease: "linear",
-  y:`${document.querySelector('.forestFrame').getBoundingClientRect().height/18}px`,
+  y:`${document.querySelector(frame).getBoundingClientRect().height/18}px`,
   duration: 10
 }, "-=10")
-.to('#forestSeven', {
+.to(`#forestSeven${window.innerWidth >= 640 ? '' : 'SM'}`, {
   ease: "linear",
-  y:`${document.querySelector('.forestFrame').getBoundingClientRect().height/30}px`,
+  y:`${document.querySelector(frame).getBoundingClientRect().height/30}px`,
   duration: 10
 }, "-=10")
 
 
-
-// document.querySelectorAll('.forest-1').forEach((el) => {
-//   gsap.to(el, {
-//     scrollTrigger: {
-//       trigger: '#forestLight',
-//       start: `bottom-=${document.querySelector('#forestLight').getBoundingClientRect().height/2} 100%`,
-//       end:`bottom-=${document.querySelector('#forestLight').getBoundingClientRect().height/5} 25%`,
-//       scrub: true,
-//       force3D: false
-//     },
-//     ease: "linear",
-//     y: -1200,
-//   })
-// })
-
-// document.querySelectorAll('.forest-2').forEach((el) => {
-//   gsap.to(el, {
-//     scrollTrigger: {
-//       trigger: '#forestLight',
-//       start: `bottom-=${document.querySelector('#forestLight').getBoundingClientRect().height/2} 100%`,
-//       end:`bottom-=${document.querySelector('#forestLight').getBoundingClientRect().height/5} 25%`,
-//       scrub: true,
-//       force3D: false
-//     },
-//     ease: "linear",
-//     y: -1000
-//   })
-// })
-
-// document.querySelectorAll('.forest-3').forEach((el) => {
-//   gsap.to(el, {
-//     scrollTrigger: {
-//       trigger: '#forestLight',
-//       start: `bottom-=${document.querySelector('#forestLight').getBoundingClientRect().height/2} 100%`,
-//       end:`bottom-=${document.querySelector('#forestLight').getBoundingClientRect().height/5} 25%`,
-//       scrub: true,
-//       force3D: false
-//     },
-//     ease: "linear",
-//     y: -800
-//   })
-// })
-
-// document.querySelectorAll('.forest-4').forEach((el) => {
-//   gsap.to(el, {
-//     scrollTrigger: {
-//       trigger: '#forestLight',
-//       start: `bottom-=${document.querySelector('#forestLight').getBoundingClientRect().height/2} 100%`,
-//       end:`bottom-=${document.querySelector('#forestLight').getBoundingClientRect().height/5} 25%`,
-//       scrub: true,
-//       force3D: false
-//     },
-//     ease: "linear",
-//     y: -600
-//   })
-// })
-
-// document.querySelectorAll('.forest-5').forEach((el) => {
-//   gsap.to(el, {
-//     scrollTrigger: {
-//       trigger: '#forestLight',
-//       start: `bottom-=${document.querySelector('#forestLight').getBoundingClientRect().height/2} 100%`,
-//       end:`bottom-=${document.querySelector('#forestLight').getBoundingClientRect().height/5} 25%`,
-//       scrub: true,
-//     },
-//     ease: "linear",
-//     y: -400
-//   })
-// })
-
-// document.querySelectorAll('.forest-6').forEach((el) => {
-//   gsap.to(el, {
-//     scrollTrigger: {
-//       trigger: '#forestLight',
-//       start: `bottom-=${document.querySelector('#forestLight').getBoundingClientRect().height/2} 100%`,
-//       end:`bottom-=${document.querySelector('#forestLight').getBoundingClientRect().height/5} 25%`,
-//       scrub: true,
-//     },
-//     ease: "linear",
-//     y: -250
-//   })
-// })
-
-// document.querySelectorAll('.forest-7').forEach((el) => {
-//   gsap.to(el, {
-//     scrollTrigger: {
-//       trigger: '#forestLight',
-//       start: `bottom-=${document.querySelector('#forestLight').getBoundingClientRect().height/2} 100%`,
-//       end:`bottom-=${document.querySelector('#forestLight').getBoundingClientRect().height/5} 25%`,
-//       scrub: true,
-//     },
-//     ease: "linear",
-//     y: -200
-//   })
-// })
 
 
 
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("particle-container");
+  const container = window.innerWidth >= 640 ? document.querySelector(".particle-container") : document.querySelector(".particle-container-sm");
+  console.log(container)
   const numParticles = 30; // Nombre de particules
 
   for (let i = 0; i < numParticles; i++) {
