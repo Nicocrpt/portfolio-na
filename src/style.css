@@ -44,7 +44,7 @@ body {
 
 
 input, textarea {
-  @apply border border-black/10 px-2 focus:outline-slate-400 shadow-inner placeholder-black/20 bg-white;
+  @apply border border-black/10 px-2 focus:outline-slate-400 shadow-inner placeholder-black/20 bg-white/40;
 }
 
 textarea {

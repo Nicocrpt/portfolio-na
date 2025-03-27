@@ -19,7 +19,7 @@
      
          // Score recommandé : 0.5 (plus bas = risque de bot)
          if (!$captcha_success->success || $captcha_success->score < 0.5) {
-             echo "<p style='color:red;'>Vérification reCAPTCHA échouée.</p>";
+             echo "<p>Vérification CAPTCHA échouée.</p>";
              exit;
          }
      }
@@ -38,10 +38,8 @@
      "Content-Type: text/plain; charset=UTF-8\r\n";
  
      if(mail($to, $subject, $message, $headers)) {
-         echo 'OK';
-         echo "<p style='color:green;'>Votre message a bien été envoyé.</p>";
+         echo "<p>Votre message a bien été envoyé !</p>";
      } else {
-         echo 'KO';
-         echo "<p style='color:red;'>Erreur lors de l'envoi du message.</p>";
+         echo "<p>Erreur lors de l'envoi du message.</p>";
      }
  ?>
