@@ -44,10 +44,8 @@ function showInfos(element) {
 window.showInfos = showInfos;
 
 window.onload = function() {
-  setTimeout(() => {
     document.querySelector(".loader").style.display = "none";
     document.querySelector('body').classList.remove('overflow-hidden')
-  }, 0)
   
 }
 
@@ -1170,7 +1168,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
         let formData = new FormData(this);
         formData.append("recaptcha_token", token);
 
-        fetch("./src/contact.php", {
+        fetch("./server/contact.php", {
             method: "POST",
             body: formData
         })
