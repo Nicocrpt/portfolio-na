@@ -1,6 +1,7 @@
 <?php 
      if ($_SERVER["REQUEST_METHOD"] === "POST") {
          $nom = htmlspecialchars(trim($_POST['nom']));
+         $prenom = htmlspecialchars(trim($_POST['prenom']));
          $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
          $message = htmlspecialchars(trim($_POST['message']));
          $captcha = $_POST['recaptcha_token'];
