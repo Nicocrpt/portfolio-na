@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postbuild": "mkdir ./dist/server && cp ./server/contact.php ./dist/server/contact.php"
   },
   "devDependencies": {
     "vite": "^6.2.0"
