@@ -1176,7 +1176,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
         })
         .then(response => response.text())
         .then(data => {
-            document.getElementById("messageResult").style.color = "green"; 
+            document.getElementById("messageResult").style.backgroundColor = "green"; 
             document.getElementById("messageResult").innerHTML = data;
             document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
             document.getElementById("sendMessage").classList.toggle('opacity-0');
@@ -1186,7 +1186,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
             }, 3000)
         })
         .catch(error => {
-            document.getElementById("messageResult").style.color = "red";
+            document.getElementById("messageResult").style.backgroundColor = "red";
             document.getElementById("messageResult").innerHTML = "<p>Erreur lors de l'envoi du formulaire.</p>";
             document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
             document.getElementById("sendMessage").classList.toggle('opacity-0');
