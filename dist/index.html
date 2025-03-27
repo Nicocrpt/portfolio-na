@@ -5,8 +5,8 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nicolas Carpita - Developpeur FullStack</title>
-    <script type="module" crossorigin src="./assets/index-bHlT8Ese.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-D1aWRa4r.css">
+    <script type="module" crossorigin src="./assets/index-CuXQjxB_.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CZi6lfFH.css">
   </head>
   <body class="relative" x-data="{ burgerMenu: false, projectModal: false, scrolled: false}" class="overflow-hidden">
 
@@ -1025,8 +1025,7 @@
               <p>C'est dans ce contexte que j'ai rejoins l'équipe de développement Back-End de l'entreprise afin de participer à la restructuration et l'optimisation des processus informatiques dans l'entreprise afin de soutenir son impressionnante croissance.</p>
             </div>
           </div>
-        </div>
-        
+        </div>     
       </section>
       <!-- Mes projets B -->
       <section class="bg-black w-full relative z-20" id="mesProjets">
@@ -1925,6 +1924,7 @@ background: linear-gradient(180deg, rgba(179,244,239,1) 0%, rgba(193,250,246,1) 
             </div>
             <div class="w-full flex justify-between mt-8 2xl:mt-24 h-full">
                 <form method="POST" action="./src/contact.php" class="flex flex-col w-full gap-4 translate-x-0 h-full md:min-h-72" id="contactForm">
+                  <input type="hidden" name="recaptcha_token" id="recaptchaToken">
                   <div class="flex gap-4">
                     <input type="text" name="Nom" id="nom" class="border w-full p-1 rounded" placeholder="Nom">
                     <input type="text" name="Prénom" id="prenom" class="border w-full p-1 rounded" placeholder="Prénom">
@@ -1978,6 +1978,11 @@ background: linear-gradient(180deg, rgba(179,244,239,1) 0%, rgba(193,250,246,1) 
       </div>
 
     </section>
+
+    <!-- Modale validation formulaire -->
+    <div id="sendMessage" class="h-20 w-full fixed top-[75px] left-0  z-40 -translate-y-[200%] opacity-0 transition-all ease-in-out duration-300 flex items-center justify-center">
+      <div id="messageResult" class="py-2 px-4 text-center text-white rounded-md"></div>
+    </div>
 
 
 

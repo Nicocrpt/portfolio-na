@@ -1161,9 +1161,44 @@ document.querySelectorAll(".topicPartial").forEach(topic => {
 })
 
 
-function submitContactForm() {
-  document.querySelector('#contactForm');
-}
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+
+  grecaptcha.ready(() => {
+    grecaptcha.execute("6Le-gAErAAAAAAbFjKutBW9ctZgzc63wBI0D3TDe", { action: "submit" }).then((token) => {
+        let formData = new FormData(this);
+        formData.append("recaptcha_token", token);
+
+        fetch("./src/contact.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("messageResult").style.color = "green"; 
+            document.getElementById("messageResult").innerHTML = data;
+            document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
+            document.getElementById("sendMessage").classList.toggle('opacity-0');
+            setTimeout(() => {
+              document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
+              document.getElementById("sendMessage").classList.toggle('opacity-0');
+            }, 3000)
+        })
+        .catch(error => {
+            document.getElementById("messageResult").style.color = "red";
+            document.getElementById("messageResult").innerHTML = "<p>Erreur lors de l'envoi du formulaire.</p>";
+            document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
+            document.getElementById("sendMessage").classList.toggle('opacity-0');
+            setTimeout(() => {
+              document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
+              document.getElementById("sendMessage").classList.toggle('opacity-0');
+            }, 3000)
+        });
+    });
+  });
+
+});
 
 
 
