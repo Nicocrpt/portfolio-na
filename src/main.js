@@ -491,124 +491,7 @@ Compétences
 //   filter: 'blur(0px)'
 // })
 // });
-// let caveSVG = 0
-// switch (true) {
-//   case window.innerWidth >= 1280 :
-//     caveSVG = document.querySelector('.caveXL');
-//     break;
-//   case window.innerWidth < 640:
-//     caveSVG = document.querySelector('.caveSM');
-//     break;
-//   default :
-//     caveSVG = document.querySelector('.caveMD');
-//     break;
-// }
 
-// console.log(caveSVG)
-
-
-// const caveZeroColor = window.getComputedStyle(caveSVG.querySelector('.cave-0')).fill;
-// gsap.fromTo('.cave-0', 
-//   {fill: "black" },
-//   {
-//     fill: caveZeroColor,
-//     scrollTrigger: {
-//       trigger: caveSVG,
-//       start: "top 75%",
-//       end: "bottom 50%",
-//       scrub: 1
-//     },
-//     ease: "power1.Out"
-//   }  // La couleur de départ est le noir
-// )
-
-
-// const caveOneColor = window.getComputedStyle(caveSVG.querySelector('.cave-1')).fill;
-// gsap.fromTo('.cave-1', 
-//   {fill: "black" },
-//   {
-//     fill: caveOneColor,
-//     ease: "power1.in",
-//     scrollTrigger: {
-//       trigger: caveSVG,
-//       start: "top 75%",
-//       end: "bottom 90%",
-//       scrub: 1
-//     }
-//   }  // La couleur de départ est le noir
-// )
-
-// const caveTwoColor = window.getComputedStyle(caveSVG.querySelector('.cave-2')).fill;
-// gsap.fromTo('.cave-2', 
-//   {fill: "black" },
-//   {
-//     fill: caveTwoColor,
-//     ease: "power2.in",
-//     scrollTrigger: {
-//       trigger: caveSVG,
-//       start: "top 75%",
-//       end: "bottom 80%",
-//       scrub: 1
-//     }
-//   }  // La couleur de départ est le noir
-// )
-
-// const caveThreeColor = window.getComputedStyle(caveSVG.querySelector('.cave-3')).fill;
-// gsap.fromTo('.cave-3', 
-//   {fill: "black" },
-//   {
-//     fill: caveThreeColor,
-//     ease: "power3.in",
-//     scrollTrigger: {
-//       trigger: caveSVG,
-//       start: "top 75%",
-//       end: "bottom 70%",
-//       scrub: 1,
-//     }
-//   }  // La couleur de départ est le noir
-// )
-
-// const caveFourColor = window.getComputedStyle(caveSVG.querySelector('.cave-4')).fill;
-// gsap.fromTo('.cave-4', 
-//   {fill: "black" },
-//   {
-//     fill: caveFourColor,
-//     ease: "power4.in",
-//     scrollTrigger: {
-//       trigger: caveSVG,
-//       start: "top 75%",
-//       end: "bottom 60%",
-//       scrub: 1,
-//     }
-//   }  // La couleur de départ est le noir
-// )
-
-// const caveFiveColor = window.getComputedStyle(caveSVG.querySelector('.cave-5')).fill;
-// gsap.fromTo('.cave-5', 
-//   {fill: "black" },
-//   {
-//     fill: caveFiveColor,
-//     ease: "power4.in",
-//     scrollTrigger: {
-//       trigger: caveSVG,
-//       start: "top 75%",
-//       end: "bottom 50%",
-//       scrub: 1,
-//     }
-//   }  // La couleur de départ est le noir
-// )
-
-// gsap.from('#forestLight', {
-//   scrollTrigger: {
-//     trigger: '#forestLight',
-//     //markers: true,
-//     start: "top 75%",
-//     end:`top 50%`,
-//     scrub: true,
-//   },
-//   ease: "power1.out",
-//   fill: '#000000',
-// })
 
 
 const forest = window.innerWidth >= 640 ? document.querySelector('#forestLight') : document.querySelector('#forestLightSM');
@@ -616,7 +499,6 @@ const forest = window.innerWidth >= 640 ? document.querySelector('#forestLight')
 const forestTl = gsap.timeline({
   scrollTrigger: {
     trigger: forest,
-    markers: true,
     start: `bottom-=${forest.getBoundingClientRect().height/2} 100%`,
     end:`bottom-=${forest.getBoundingClientRect().height/5} `,
     scrub: true,
