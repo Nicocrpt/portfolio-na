@@ -613,8 +613,6 @@ Compétences
 // })
 
 
-
-
 const forest = window.innerWidth >= 640 ? document.querySelector('#forestLight') : document.querySelector('#forestLightSM');
 
 const forestTl = gsap.timeline({
@@ -1161,6 +1159,11 @@ document.querySelectorAll(".topicPartial").forEach(topic => {
     opacity: 0,
   })
 })
+
+
+function submitContactForm() {
+  document.querySelector('#contactForm');
+}
 
 
 

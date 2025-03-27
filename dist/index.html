@@ -5,8 +5,8 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nicolas Carpita - Developpeur FullStack</title>
-    <script type="module" crossorigin src="./assets/index-C6xKZVy6.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-_WG-58un.css">
+    <script type="module" crossorigin src="./assets/index-bHlT8Ese.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-D1aWRa4r.css">
   </head>
   <body class="relative" x-data="{ burgerMenu: false, projectModal: false, scrolled: false}" class="overflow-hidden">
 
@@ -1924,12 +1924,13 @@ background: linear-gradient(180deg, rgba(179,244,239,1) 0%, rgba(193,250,246,1) 
               </svg>
             </div>
             <div class="w-full flex justify-between mt-8 2xl:mt-24 h-full">
-                <form action="POST" class="flex flex-col w-full gap-4 translate-x-0 h-full md:min-h-72">
+                <form method="POST" action="./src/contact.php" class="flex flex-col w-full gap-4 translate-x-0 h-full md:min-h-72" id="contactForm">
                   <div class="flex gap-4">
                     <input type="text" name="Nom" id="nom" class="border w-full p-1 rounded" placeholder="Nom">
                     <input type="text" name="Prénom" id="prenom" class="border w-full p-1 rounded" placeholder="Prénom">
                   </div>
                   <input type="email" name="Email" class="border w-full p-1 rounded" id="email" placeholder="Email">
+                  <input type="text" name="Subject" class="border w-full p-1 rounded" id="subject" placeholder="Objet">
                   <div class="textArea">
                     <textarea name="message" id="message" class="border min-h-[200px] sm:min-h-[200px]  p-1 pb-0 rounded w-full" placeholder="Votre message"></textarea>
                   </div>
@@ -1944,7 +1945,7 @@ background: linear-gradient(180deg, rgba(179,244,239,1) 0%, rgba(193,250,246,1) 
             </div>
           </div>
 
-          <div class="w-full h-full bg-black absolute top-0 left-0 z-0 contactOverlay opacity-0"></div>
+          <div class="w-full h-full bg-black absolute top-0 left-0 z-0 contactOverlay opacity-0 pointer-events-none"></div>
         </div>
 
       </section>
