@@ -41,12 +41,24 @@ function showInfos(element) {
   text.classList.toggle('blur')
 }
 
+function injectImage(element) {
+  let wrapper = document.querySelector('#imageReceiver')
+  wrapper.innerHTML = element.outerHTML
+  let image = wrapper.children[0]
+  image.style.maxWidth = window.innerWidth > 450 ? '80%' : '99%'
+  image.style.maxHeight = '95%'
+  image.style.borderRadius = '2px'
+  if (image.classList.contains('aspect-16/9')) {
+    image.classList.remove('aspect-16/9')
+  }
+}
+
 window.showInfos = showInfos;
+window.injectImage = injectImage;
 
 window.onload = function() {
-    document.querySelector(".loader").style.display = "none";
+    document.querySelector(".loader-wrapper").style.display = "none";
     document.querySelector('body').classList.remove('overflow-hidden')
-  
 }
 
 
@@ -1079,7 +1091,6 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   });
 
 });
-
 
 
 

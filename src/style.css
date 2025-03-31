@@ -5,6 +5,85 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+
+
+:root {
+  --loader-size: 70px;
+  --planet-size: 10px;
+  --moon-loader-size: 34px;
+  --moon-size: 5px;
+  --sun-size: 21px;
+  --color: #fefefe;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  margin-top: calc(-1 * var(--loader-size) / 2);
+  margin-left: calc(-1 * var(--loader-size) / 2);
+}
+
+.moon-loader {
+  width: var(--moon-loader-size);
+  height: var(--moon-loader-size);
+  margin-top: calc(-1 * var(--moon-loader-size) / 2);
+  margin-left: calc(-1 * var(--moon-loader-size) / 2);
+}
+
+.loader-circle {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.21);
+  animation: rotate 4s linear infinite;
+}
+
+.loader-circle > div {
+  position: absolute;
+  width: var(--planet-size);
+  height: var(--planet-size);
+  margin-left: calc(var(--planet-size) / 2);
+  border-radius: 50%;
+  background-color: var(--color);
+}
+
+.loader-circle > div.loader-moon-size {
+  width: var(--moon-size);
+  height: var(--moon-size);
+  margin-left: calc(var(--moon-size) / 2);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.loader-sun {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--sun-size);
+  height: var(--sun-size);
+  background-color: var(--color);
+  border-radius: 50%;
+  margin-left: calc(-1 * var(--sun-size) / 2 + 1px);
+  margin-top: calc(-1 * var(--sun-size) / 2 + 1px);
+}
+
+
+
+
+
+
 #title {
   text-rendering: optimizeSpeed;
   image-rendering: optimizeSpeed;
@@ -44,7 +123,7 @@ body {
 
 
 input, textarea {
-  @apply border border-black/10 px-2 focus:outline-slate-400 shadow-inner placeholder-black/20 bg-white/40;
+  @apply border border-black/10 px-2 focus:outline-slate-400 shadow-inner placeholder-black/30 bg-neutral-200/40;
 }
 
 textarea {
@@ -68,13 +147,7 @@ textarea {
 }
 
 
-.moon {
-  background: radial-gradient(circle,  
-  #faeb99 20%,  /* Centre bien jaune (doré) */
-  #f7e5b1 50%,  /* Transition vers une teinte plus douce */
-  #fef3c7 80%);
-  box-shadow: 0 0 50px rgba(227, 220, 177, 0.6);
-}
+
 
 
 .galaxy-background {
