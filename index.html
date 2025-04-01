@@ -1159,8 +1159,10 @@ background: linear-gradient(180deg, rgba(249,74,41,1) 0%, rgba(249,112,41,1) 30%
               <h5 class="text-2xl font-semibold mb-4">Travaux</h5>
               <p>Quelques unes des modifications/corrections que j'ai apporté à l'outil de traduction durant l'année :</p>
               <div class="rapports flex flex-col gap-10 my-12">
-                <div class="flex w-full flex-row-reverse max-sm:flex-col rapport gap-4 border-b border-zinc-500">
-                  <img src="Images/format-int.png" alt="" class="sm:w-[40%]" @click="FsImage = true; injectImage($el)">
+                <div class="flex w-full flex-row-reverse max-sm:flex-col rapport gap-4 border-b border-zinc-500 h-fit">
+                  <div class="h-parent w-full sm:w-[40%] relative overflow-hidden">
+                    <img src="./Images/format-int.png" class="w-full h-full object-cover object-left cursor-pointer" @click="FsImage = true; injectImage($el)" />
+                  </div>
                   <div class="sm:w-[60%]">
                     <h6 class="text-lg font-semibold mb-2">Corriger les erreurs de formatage</h6>
                     <p class="pb-4">Comme expliqué plus haut, avant de procéder au réimport du contenu vers Contentful, les fichiers traduits sont formatés pour êtres compréhensibles par l'API du gestionnaire de contenu (qui attend du texte au format "Markdown"), cette phase de formatage est effectuée avec le langage JavaScript, qui, au passage, vérifie l'intégrité de certaines données (slugs par exemple). J'ai ici apporté plusieurs modifications comme la suppression de certains caractères Allemands mals gérés lors de l'import, la vérification de l'intégrité des slugs, ou encore, comme présenté sur l'image ci-jointe, la bonne gestion des valeurs numériques et booléennes, qui avaient la fâcheuse tendance à être converties en texte, rendant leur intégration dans Contentful impossible.
@@ -1168,7 +1170,9 @@ background: linear-gradient(180deg, rgba(249,74,41,1) 0%, rgba(249,112,41,1) 30%
                   </div>
                 </div>
                 <div class="flex w-full flex-row max-sm:flex-col rapport gap-4  border-b border-zinc-500">
-                  <img src="Images/fails-details.png" alt="" class="sm:w-[40%]" @click="FsImage = true; injectImage($el)">
+                  <div class="h-parent w-full sm:w-[40%] relative overflow-hidden">
+                    <img src="./Images/fails-details.png" class="w-full h-full object-cover object-left cursor-pointer" @click="FsImage = true; injectImage($el)" />
+                  </div>
                   <div class="sm:w-[60%]">
                     <h6 class="text-lg font-semibold mb-2">Gestion approfondie des erreurs d'import</h6>
                     <p class="pb-4">La plupart des erreurs rencontrées par l'outil se produisent lors de l'import de contenu. D'une part, la cause d'une erreur peut être très diverse, et il était à mon arrivée impossible de récupérer des informations détaillées sur les erreurs rencontrées, un simple message d'erreur sommaire était retourné (il fallait investiguer parfois longtemps pour trouver une piste...). D'autre part, si une erreur apparaissait, le message d'erreur s'affichait uniquement à l'instant ou l'erreur était rencontré, il n'existait pas de liste centralisant toutes les erreurs rencontrées durant un import, représentant encore du temps perdu. J'ai donc procédé à des modifications pour pouvoir afficher une liste des erreurs rencontrées durant un import à la fin de celui ci, en m'assurant au passage de récupérer un message d'erreur plus exhaustif, permettant de rapidement orienter les investigations.
@@ -1176,7 +1180,9 @@ background: linear-gradient(180deg, rgba(249,74,41,1) 0%, rgba(249,112,41,1) 30%
                   </div>
                 </div>
                 <div class="flex w-full flex-row-reverse max-sm:flex-col rapport gap-4  border-b border-zinc-500">
-                  <img src="Images/toggle-webhook.png" alt="" class="sm:w-[40%]" @click="FsImage = true; injectImage($el)">
+                  <div class="h-parent w-full sm:w-[40%] relative overflow-hidden">
+                    <img src="./Images/toggle-webhook.png" class="w-full h-full object-cover object-left cursor-pointer" @click="FsImage = true; injectImage($el)" />
+                  </div>
                   <div class="sm:w-[60%]">
                     <h6 class="text-lg font-semibold mb-2">Ajouts d'options de commandes</h6>
                     <p class="pb-4">Initialement, les commandes par lesquelles étaient lancées les procédures d'import et d'export étaient assez simples et peu flexibles. On m'a demandé de rajouter certaines options à ces commandes afin de pouvoir mieux personnaliser ces procédures, pour qu'elles puissent s'adapter à différents cas de figures. Parmi ces options, je pense par exemple à la possibilitée de compacter les exports (initialement séparés en fichiers individuels) par paquets du nombre de notre choix, la possibilité d'ajouter lors de l'export les règles de format à respecter pour chaque champ (maximum de caractères, etc) ou encore, comme présenté ci-joint, la possibilité de désactiver certains processus tiers (webHook) durant les imports conséquents.
@@ -1184,7 +1190,9 @@ background: linear-gradient(180deg, rgba(249,74,41,1) 0%, rgba(249,112,41,1) 30%
                   </div>
                 </div>
                 <div class="flex w-full flex-row max-sm:flex-col rapport gap-4  border-b border-zinc-500">
-                  <img src="Images/api-options.png" alt="" class="sm:w-[40%]" @click="FsImage = true; injectImage($el)">
+                  <div class="h-parent w-full sm:w-[40%] relative overflow-hidden">
+                    <img src="./Images/api-options.png" class="w-full h-full object-cover object-left cursor-pointer" @click="FsImage = true; injectImage($el)" />
+                  </div>
                   <div class="sm:w-[60%]">
                     <h6 class="text-lg font-semibold mb-2">Utilisation de l'outil via API</h6>
                     <p class="pb-4">En l'état initial des choses, l'outil n'était utilisable que par un développeur au travers de son éditeur de code, et même si les bases d'un fonctionnement par API avait déjà été intégré, cela n'a jamais été mis à profit. Un prestataire DevOps étrangé a donc été contacté pour déployer l'outil dans un conteneur sur une plateforme Cloud (Azure). L'avantage premier d'une telle approche est la possibilité, à terme, de pouvoir rendre l'utilisation de l'outil flexible et utilisable par "n'importe qui". Les ajouts d'options que j'ai effectué tout au long de l'année n'étant pas présente dans la structure initiale de l'API, j'ai du les intégrer pour permettre leur fonctionnement au travers d'une requête HTTP, en suivant les principes des outils <span class="font-semibold">API Platform</span> et <span class="font-semibold">Doctrine</span> disponibles dans le framework Symfony. Pour information, les données de requêtes effectuées par API sont stockées dans une base de donnée SQL qui fait office de file d'attente, les commandes correspondantes sont ensuite exécutées tour à tour avec les informations de la requête. Les tests pour ces requêtes ont étés effectués avec le logiciel <span class="font-semibold">Postman</span>.
@@ -1213,15 +1221,17 @@ background: linear-gradient(180deg, rgba(249,74,41,1) 0%, rgba(249,112,41,1) 30%
 
             <div class="vueEnsemble my-12">
               <h5 class="text-2xl font-semibold mb-4">Vue d'ensemble</h5>
-              <div class="flex max-sm:flex-col w-full gap-4">
+              <div class="flex max-sm:flex-col w-full gap-4 h-fit">
                 <div class="w-[50%] max-sm:w-full"> 
                   <p class="mb-2">
                     Dans le contexte de la traduction de son site web, Aroma-Zone a mis en place un processus complet concernant la traduction du contenu du site web. Cette traduction s'effectue par "batchs", ces derniers comprenant certaines pages à traduire choisies par les responsables du projet à un instant T. Pour assurer le suivi de ces batchs ainsi que de l'état de chaque page, les équipes concernées utilisent plusieurs fichiers Excels ou Google Docs partagés remplis intégralement à la main, et sans avoir de vrai "lieu de référence" où observer le suivi des évenements.
                  </p>
                 </div>
-                <div class="sm:w-[50%] h-full">
-                  <img src="./Images/google-doc.png" class="cursor-pointer" @click="FsImage = true; injectImage($el)" />
-                  <p class="text-sm max-sm:text-center">Exemple d'un google docs utilisé</p>
+                <div class="sm:max-w-[50%] flex flex-col items-center justify-start" >
+                  <div class="h-[90%] w-full relative overflow-hidden">
+                    <img src="./Images/google-doc.png" class="w-full h-full object-cover object-left cursor-pointer" @click="FsImage = true; injectImage($el)" />
+                  </div>
+                  <p class="text-sm max-sm:text-center pt-1">Exemple d'un google docs utilisé</p>
                 </div>
 
               </div>
