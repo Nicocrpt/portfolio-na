@@ -8,7 +8,25 @@
     <link rel="stylesheet" href="/src/style.css">
     <script src="https://www.google.com/recaptcha/api.js?render=6Le-gAErAAAAAAbFjKutBW9ctZgzc63wBI0D3TDe"></script>
   </head>
-  <body class="relative" x-data="{ burgerMenu: false, projectModal: false, scrolled: false}" class="overflow-hidden">
+  <body class="relative" x-data="{ burgerMenu: false, projectModal: false, scrolled: false, init() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const modalParam = urlParams.get('modal');
+    
+    if (modalParam) {
+      this.projectModal = true;
+      setTimeout(() => {
+        const targetElement = document.querySelector('.mes-projets');
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 300);
+    }
+  },
+    closeModal() {
+      // Ferme la modale et nettoie l'URL
+      this.projectModal = false;
+      history.pushState({}, document.title, window.location.pathname); // Nettoie l'URL en supprimant le paramètre 'modal'
+  } }" x-init="init" class="overflow-hidden">
 
     <section class="loader-wrapper fixed w-screen h-screen z-[9999] bg-black flex justify-center items-center">
 
@@ -33,23 +51,18 @@
         @scroll.window="scrolled = (window.scrollY > window.innerHeight*0.8)">
           <nav class="flex items-center gap-10 mx-4 lg:mx-10 justify-between flex-row-reverse md:flex-row md:justify-start w-full">
               <div class="flex justify-center max-md:flex-row-reverse items-center gap-4">
-                <svg class="h-12" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 502.74 502.74" xml:space="preserve" fill="#000000">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path style="fill:none;" d="M395.431,251.37c0,0.962-0.018,1.919-0.036,2.876C395.418,253.291,395.431,252.332,395.431,251.37z"></path> <path style="fill:#B68057;" d="M434.563,175.558c-0.695-1.68-5.984-4.57-20.336-4.57c-8.906,0-21.297,1.109-38.25,4.313 c-38.578,7.281-87.578,22.789-137.969,43.664c-50.391,20.875-96.008,44.555-128.43,66.688 c-37.219,25.398-42.375,38.883-41.25,41.609c1.733,4.199,19.547,7.848,60.63-0.13c-1.195-1.927-2.345-3.885-3.449-5.871 c-0.039-0.07-0.079-0.141-0.118-0.211c-0.462-0.834-0.915-1.674-1.361-2.518c-0.077-0.146-0.154-0.292-0.231-0.438 c-0.417-0.795-0.826-1.595-1.228-2.399c-0.098-0.197-0.196-0.394-0.294-0.591c-0.382-0.772-0.758-1.547-1.126-2.327 c-0.109-0.231-0.217-0.464-0.325-0.696c-0.353-0.758-0.701-1.517-1.041-2.282c-0.114-0.257-0.225-0.515-0.338-0.772 c-0.329-0.753-0.656-1.507-0.973-2.267c-0.003-0.006-0.005-0.012-0.008-0.018c5.518-10.29,33.918-28.665,74.006-48.367 c15.792-7.762,33.396-15.729,52.128-23.488c66.279-27.454,124.41-43.083,139.996-38.382c2.892,7.013,5.251,14.301,7.016,21.819 C426.293,194.911,436.297,179.738,434.563,175.558z"></path> <path style="fill:#FFD042;" d="M279.66,110.144c0.924,0.184,1.844,0.379,2.761,0.58 C281.504,110.523,280.584,110.328,279.66,110.144z"></path> <path style="fill:#FFD042;" d="M286.315,111.634c1.041,0.26,2.078,0.53,3.111,0.813 C288.394,112.165,287.357,111.894,286.315,111.634z"></path> <path style="fill:#FFD042;" d="M283.012,110.853c0.98,0.22,1.957,0.45,2.929,0.69C284.968,111.304,283.992,111.072,283.012,110.853 z"></path> <path style="fill:#FFD042;" d="M395.394,254.246c0.019-0.957,0.036-1.915,0.036-2.876c0-0.786-0.022-1.565-0.035-2.348 c-0.012,0.008-0.023,0.015-0.035,0.022c-0.051-3.104-0.212-6.178-0.464-9.227c0.015-0.01,0.029-0.019,0.044-0.029 c-0.604-7.305-1.758-14.452-3.418-21.405c0.031-0.021,0.061-0.042,0.092-0.063c-1.766-7.518-4.124-14.807-7.016-21.819 c-15.586-4.7-73.717,10.929-139.996,38.382c-18.732,7.759-36.336,15.726-52.128,23.488c-2.248,10.108-3.443,20.613-3.443,31.398 c0,41.168,17.304,78.272,45.001,104.516c-25.063-3.021-48.141-12.482-67.54-26.67c-0.012,0.003-0.024,0.006-0.036,0.009 c23.819,17.44,53.191,27.745,84.975,27.745c72.008,0,131.67-52.855,142.31-121.885c-0.067,0.041-0.133,0.082-0.201,0.122 C394.526,267.263,395.231,260.825,395.394,254.246z"></path> <path style="fill:#FFD042;" d="M336.357,135.08c-13.912-10.177-29.717-17.917-46.79-22.595 c17.057,4.682,32.842,12.433,46.744,22.606C336.326,135.087,336.341,135.083,336.357,135.08z"></path> <path style="fill:#FFD042;" d="M272.829,108.955c0.812,0.121,1.619,0.254,2.427,0.388 C274.448,109.209,273.641,109.076,272.829,108.955z"></path> <path style="fill:#FFD042;" d="M269.35,108.479c0.761,0.094,1.519,0.201,2.276,0.308 C270.869,108.68,270.112,108.573,269.35,108.479z"></path> <path style="fill:#FFD042;" d="M265.837,108.085c0.706,0.07,1.407,0.153,2.11,0.233 C267.244,108.238,266.542,108.155,265.837,108.085z"></path> <path style="fill:#FFD042;" d="M262.283,107.775c0.646,0.048,1.289,0.109,1.934,0.166 C263.572,107.885,262.929,107.824,262.283,107.775z"></path> <path style="fill:#FFD042;" d="M255.08,107.416c0.45,0.011,0.898,0.034,1.347,0.05C255.978,107.45,255.53,107.427,255.08,107.416z"></path> <path style="fill:#FFD042;" d="M258.699,107.552c0.573,0.029,1.142,0.07,1.713,0.105 C259.841,107.622,259.271,107.581,258.699,107.552z"></path> <path style="fill:#FFD042;" d="M276.269,109.511c0.867,0.151,1.73,0.313,2.592,0.479 C277.999,109.825,277.136,109.662,276.269,109.511z"></path> <path style="fill:#FFD042;" d="M128.965,327.129c-1.196-1.927-2.35-3.883-3.456-5.87c1.105,1.987,2.255,3.944,3.449,5.871 C128.961,327.13,128.963,327.13,128.965,327.129z"></path> <path style="fill:#FFD042;" d="M119.786,309.797c0.34,0.765,0.688,1.524,1.041,2.282 C120.474,311.322,120.126,310.562,119.786,309.797z"></path> <path style="fill:#FFD042;" d="M122.572,315.693c0.402,0.804,0.811,1.603,1.228,2.399 C123.383,317.297,122.974,316.497,122.572,315.693z"></path> <path style="fill:#FFD042;" d="M124.03,318.53c0.446,0.844,0.899,1.684,1.361,2.518C124.929,320.214,124.477,319.374,124.03,318.53 z"></path> <path style="fill:#FFD042;" d="M121.152,312.775c0.368,0.78,0.744,1.555,1.126,2.327 C121.896,314.33,121.521,313.554,121.152,312.775z"></path> <path style="fill:#FFD042;" d="M118.476,306.758c0.317,0.76,0.643,1.514,0.973,2.267 C119.119,308.272,118.793,307.517,118.476,306.758z"></path> <path style="fill:#DBB246;" d="M189.031,289.77c0-10.785,1.195-21.29,3.443-31.398c-40.088,19.702-68.488,38.078-74.006,48.367 c0.003,0.006,0.005,0.012,0.008,0.018c0.317,0.76,0.643,1.514,0.973,2.267c0.113,0.257,0.224,0.516,0.338,0.772 c0.34,0.765,0.688,1.525,1.041,2.282c0.108,0.232,0.215,0.464,0.325,0.696c0.368,0.78,0.744,1.555,1.126,2.327 c0.098,0.197,0.196,0.394,0.294,0.591c0.402,0.804,0.811,1.604,1.228,2.399c0.076,0.146,0.154,0.292,0.231,0.438 c0.446,0.844,0.899,1.684,1.361,2.518c0.039,0.071,0.079,0.141,0.118,0.211c1.106,1.987,2.26,3.943,3.456,5.87 c0.052-0.01,0.101-0.019,0.153-0.029c3.776,6.088,7.995,11.867,12.604,17.303c0.059-0.012,0.117-0.024,0.177-0.037 c1.97,2.32,3.965,4.608,6.075,6.797c-0.04,0.009-0.078,0.017-0.118,0.025c5.762,5.985,12.032,11.477,18.751,16.399 c-0.039,0.01-0.076,0.018-0.115,0.028c19.399,14.188,42.477,23.649,67.54,26.67C206.335,368.042,189.031,330.938,189.031,289.77z"></path> <path style="fill:#DBB246;" d="M336.311,135.091c-13.902-10.173-29.687-17.924-46.744-22.606c-0.047-0.013-0.094-0.025-0.141-0.038 c-1.032-0.282-2.069-0.553-3.111-0.813c-0.125-0.031-0.25-0.061-0.374-0.091c-0.973-0.24-1.949-0.47-2.929-0.69 c-0.197-0.044-0.394-0.085-0.591-0.128c-0.917-0.202-1.837-0.396-2.761-0.58c-0.266-0.053-0.533-0.102-0.799-0.153 c-0.862-0.167-1.725-0.329-2.592-0.479c-0.337-0.059-0.676-0.112-1.013-0.168c-0.807-0.135-1.615-0.267-2.427-0.388 c-0.4-0.06-0.802-0.112-1.202-0.168c-0.757-0.106-1.515-0.213-2.276-0.308c-0.467-0.058-0.936-0.107-1.404-0.161 c-0.703-0.08-1.404-0.163-2.11-0.233c-0.539-0.054-1.08-0.096-1.62-0.144c-0.644-0.057-1.287-0.118-1.934-0.166 c-0.622-0.046-1.247-0.08-1.871-0.118c-0.571-0.035-1.14-0.076-1.713-0.105c-0.755-0.038-1.514-0.06-2.272-0.086 c-0.449-0.015-0.897-0.038-1.347-0.05c-1.213-0.03-2.429-0.046-3.649-0.046c-72.03,0-131.706,52.886-142.32,121.946 c33.467-20.203,71.687-39.286,110.289-55.274C259.584,157.396,299.477,144.157,336.311,135.091z"></path> <path style="fill:#D49E6C;" d="M500.446,148.229v-0.004c-9.359-22.59-43.781-31.23-99.531-25.031 c-19.884,2.215-41.629,6.243-64.558,11.885c-0.015,0.004-0.031,0.008-0.046,0.011c-36.833,9.066-76.726,22.305-116.911,38.951 c-38.602,15.988-76.822,35.071-110.289,55.274C37.917,272.293-11.737,320.347,2.415,354.518 c7.398,17.844,31.414,26.914,68.148,26.914c26.028,0,58.493-4.599,95.893-13.807c0.012-0.003,0.024-0.006,0.036-0.009 c0.039-0.01,0.076-0.018,0.115-0.028c-6.719-4.922-12.989-10.414-18.751-16.399c-27.116,5.97-51.087,9.111-70.179,9.111 c-25.144,0-41.901-5.37-46.548-16.627c-13.104-31.747,75.128-98.287,197.071-148.621c78.701-32.485,152.217-50.281,197.977-50.283 c0.003,0,0.009,0,0.009,0v0v0c25.139,0,41.893,5.371,46.539,16.627c8.173,19.799-23.077,53.132-77.33,87.626 c0.013,0.782,0.035,1.562,0.035,2.348c0,0.962-0.013,1.921-0.036,2.876c-0.163,6.579-0.868,13.017-1.854,19.361 c0.068-0.041,0.133-0.082,0.201-0.122C473.159,225.421,513.054,178.686,500.446,148.229z"></path> <path style="fill:#D49E6C;" d="M231.253,202.447C99.035,257.022,29.891,319.706,38.524,340.621 c3.063,7.422,17.334,11.68,39.153,11.68c17.928,0,39.741-2.764,64.045-7.897c-4.61-5.436-8.828-11.216-12.604-17.303 c-0.052,0.01-0.101,0.019-0.153,0.029c-0.002,0-0.004,0.001-0.006,0.001c-41.083,7.978-58.897,4.329-60.63,0.13 c-1.125-2.727,4.031-16.211,41.25-41.609c32.422-22.133,78.039-45.813,128.43-66.688c50.391-20.875,99.39-36.383,137.969-43.664 c16.953-3.203,29.344-4.313,38.25-4.313c14.352,0,19.641,2.891,20.336,4.57c1.733,4.18-8.271,19.353-42.949,42.764 c-0.031,0.021-0.061,0.042-0.092,0.063c1.66,6.953,2.814,14.1,3.418,21.405c51.099-33.256,75.75-62.353,70.39-75.34 c-3.063-7.422-17.331-11.68-39.144-11.68v-8l-0.008,8C379.478,152.771,306.609,171.343,231.253,202.447z"></path> <path style="fill:#B68057;" d="M141.899,344.367c-0.059,0.013-0.117,0.024-0.177,0.037c-24.305,5.134-46.117,7.897-64.045,7.897 c-21.818,0-36.089-4.257-39.153-11.68c-8.633-20.915,60.511-83.599,192.729-138.174c75.356-31.104,148.225-49.676,194.925-49.678 l0.008-8c0,0-0.006,0-0.009,0c-45.76,0.002-119.276,17.798-197.977,50.283C106.257,245.387,18.025,311.927,31.129,343.674 c4.647,11.258,21.404,16.627,46.548,16.627c19.092,0,43.063-3.141,70.179-9.111c0.04-0.009,0.078-0.017,0.118-0.025 C145.864,348.975,143.869,346.687,141.899,344.367z"></path> <line style="fill:none;stroke:#B68057;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;" x1="426.186" y1="144.77" x2="426.186" y2="144.769"></line> <path style="fill:#B68057;" d="M465.33,164.449c5.361,12.987-19.291,42.084-70.39,75.34c-0.015,0.01-0.029,0.019-0.044,0.029 c0.252,3.049,0.413,6.124,0.464,9.227c0.012-0.007,0.023-0.015,0.035-0.022c54.253-34.494,85.502-67.827,77.33-87.626 c-4.646-11.256-21.4-16.627-46.539-16.627v8C447.999,152.769,462.267,157.026,465.33,164.449z"></path> </g> </g>
-                </svg>
+                <img src="/favicon.svg" alt="" class="w-8 md:mr-4">
+                  
                 <h1 class="text-white text-2xl font-bold">Nicolas Carpita</h1>
               </div>
               
               <ul class=" items-center gap-4 lg:gap-5 text-zinc-300 lg:text-lg hidden md:flex">
-                  <li><a href="#sec1" id="homeLink" class="hover:text-white transition-color ease-in-out duration-300">Accueil</a></li>
-                  <li><a href="#sec2" id="compLink" class="hover:text-white transition-color ease-in-out duration-300">Compétences</a></li>
-                  <li><a href="#" onclick="document.querySelector('.projectSecTitle').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start' // Centre l'élément dans la fenêtre
-                })" class="hover:text-white transition-color ease-in-out duration-300">Projets</a></li>
-                  <li><a href="#" onclick="document.querySelector('#veilleTitle').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start' // Centre l'élément dans la fenêtre
-                })" id="veilleLink" class="hover:text-white transition-color ease-in-out duration-300">Veille technologique</a></li>
+                  <li><a href="#homeSection" id="homeLink" class="hover:text-white transition-color ease-in-out duration-300">Accueil</a></li>
+                  <li><a href="#parcours" id="parcoursLink" class="hover:text-white transition-color ease-in-out duration-300">Parcours</a></li>
+                  <li><a href="#competences" id="compLink" class="hover:text-white transition-color ease-in-out duration-300">Compétences</a></li>
+                  <li><a href="#entreprise" id="companyLink" class="hover:text-white transition-color ease-in-out duration-300">Entreprise</a></li>
+                  <li><a href="#mesProjets" class="hover:text-white transition-color ease-in-out duration-300">Projets</a></li>
+                  <li><a href="#veilleTechno" id="veilleLink" class="hover:text-white transition-color ease-in-out duration-300">Veille technologique</a></li>
                   <li><a href="#contact" id="contactLink" class="hover:text-white transition-color ease-in-out duration-300">Contact</a></li>
               </ul>
               <button class="block md:hidden" @click="burgerMenu = !burgerMenu">
@@ -65,19 +78,15 @@
       x-transition:leave-start="translate-x-0"
       x-transition:leave-end="translate-x-[-100%]">
           <div class="w-full h-full relative">
-              <button class="absolute top-5 right-5" @click="burgerMenu = false" x-show="burgerMenu" x-transition:enter="transition transform ease-in-out duration-300 delay-100"
-              x-transition:enter-start="opacity-0 rotate-90"
-              x-transition:enter-end="opacity-100 rotate-0"
-              x-transition:leave="transition transform ease-in-out duration-300"
-              x-transition:leave-start="opacity-100 rotate-0" x-transition:leave-end="opacity-0 rotate-90">
-                  <svg viewBox="0 0 24 24" width="50" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.99486 7.00636C6.60433 7.39689 6.60433 8.03005 6.99486 8.42058L10.58 12.0057L6.99486 15.5909C6.60433 15.9814 6.60433 16.6146 6.99486 17.0051C7.38538 17.3956 8.01855 17.3956 8.40907 17.0051L11.9942 13.4199L15.5794 17.0051C15.9699 17.3956 16.6031 17.3956 16.9936 17.0051C17.3841 16.6146 17.3841 15.9814 16.9936 15.5909L13.4084 12.0057L16.9936 8.42059C17.3841 8.03007 17.3841 7.3969 16.9936 7.00638C16.603 6.61585 15.9699 6.61585 15.5794 7.00638L11.9942 10.5915L8.40907 7.00636C8.01855 6.61584 7.38538 6.61584 6.99486 7.00636Z" fill="#ffffff"></path> </g></svg>
-              </button>
-              <div class="pt-24 px-14">
-                  <ul class=" justify-center gap-10 text-white text-4xl font-semibold flex flex-col">
-                      <li><a href="#sec1" @click="burgerMenu = false" id="homeLink" class="md:hover:text-white transition-color ease-in-out duration-300">Accueil</a></li>
-                      <li><a href="#sec2" @click="burgerMenu = false" id="compLink" class="md:hover:text-white transition-color ease-in-out duration-300">Compétences</a></li>
-                      <li><a href="#projets" @click="burgerMenu = false" id="projetLink" class="md:hover:text-white transition-color ease-in-out duration-300">Projets</a></li>
-                      <li><a href="#veille" @click="burgerMenu = false" id="veilleLink" class="md:hover:text-white transition-color ease-in-out duration-300">Veille technologique</a></li>
+
+              <div class="h-screen">
+                  <ul class=" justify-center items-center h-full gap-6 text-white text-2xl font-semibold flex flex-col">
+                      <li><a href="#homeSection" @click="burgerMenu = false" id="homeLink" class="md:hover:text-white transition-color ease-in-out duration-300">Accueil</a></li>
+                      <li><a href="#parcours" @click="burgerMenu = false" id="homeLink" class="md:hover:text-white transition-color ease-in-out duration-300">Parcours</a></li>
+                      <li><a href="#competences" @click="burgerMenu = false" id="compLink" class="md:hover:text-white transition-color ease-in-out duration-300">Compétences</a></li>
+                      <li><a href="#entreprise" @click="burgerMenu = false" id="compLink" class="md:hover:text-white transition-color ease-in-out duration-300">Entreprise</a></li>
+                      <li><a href="#mesProjets" @click="burgerMenu = false" id="projetLink" class="md:hover:text-white transition-color ease-in-out duration-300">Projets</a></li>
+                      <li><a href="#veilleTechno" @click="burgerMenu = false" id="veilleLink" class="md:hover:text-white transition-color ease-in-out duration-300">Veille technologique</a></li>
                       <li><a href="#contact" @click="burgerMenu = false" id="contactLink" class="md:hover:text-white transition-color ease-in-out duration-300">Contact</a></li>
                   </ul>
               </div>
@@ -87,9 +96,8 @@
 
     <main class="!max-w-screen !overflow-x-hidden relative">
 
-      <div class="homeBackground fixed top-0 h-screen w-screen flex justify-center items-center pointer-events-none" style="background: rgb(0,21,33);background: linear-gradient(180deg, rgba(0,21,33,1) 0%, rgba(0,39,62,1) 57%, rgba(0,66,102,1) 100%);">
+      <div class="homeBackground fixed z-0 top-0 h-[100dvh] w-screen flex justify-center items-center pointer-events-none" style="background: rgb(0,21,33);background: linear-gradient(180deg, rgba(0,21,33,1) 0%, rgba(0,39,62,1) 57%, rgba(0,66,102,1) 100%);">
 
-        <div class="rounded-full bg-amber-100 moon z-30 opacity-0"></div>
         <!-- Voie lactée -->
         <div class="galaxy-background absolute top-0 left-0 -mt-32 -ml-12 opacity-50 w-[calc(100vw+3rem)] h-full pointer-events-none">
           <svg id="milkyway" class="w-full" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 1920 1080" preserveaspectratio="xMidYMid slice">
@@ -120,111 +128,51 @@
 
             </g>
             <g id="clouds" class="opacity-10" fill="url(#milkyway-gradient)" filter="url(#glow)">
-              <path d="M0,500 C400,600 700,800 1200,500 C1600,350 1800,700 1920,500 C1800,300 1400,100 1200,300 C1000,500 700,300 400,400 C0,500 0,500" />
-              <path d="M0,700 C200,850 600,900 1000,600 C1400,400 1600,500 1920,400 C1800,250 1400,300 1000,500 C600,700 200,800 0,700" />
-            </g>
-          </svg>
-          
-            <defs>
-              <!-- Dégradé lumineux pour la voie lactée -->
-              <radialGradient id="milkyway-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                <stop offset="0%" style="stop-color: rgba(255, 255, 255, 0.9); stop-opacity: 0.7" />
-                <stop offset="100%" style="stop-color: rgba(255, 255, 255, 0.1); stop-opacity: 0" />
-              </radialGradient>
-          
-              <!-- Dégradé chromatique pour les nuages (couleurs différentes) -->
-              <linearGradient id="cloud-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color: rgba(255, 0, 128, 0.8);" /> <!-- Rose ou magenta -->
-                <stop offset="30%" style="stop-color: rgba(75, 0, 130, 0.6);" /> <!-- Violet -->
-                <stop offset="60%" style="stop-color: rgba(0, 255, 255, 0.5);" /> <!-- Cyan clair -->
-                <stop offset="100%" style="stop-color: rgba(0, 0, 139, 0.4);" /> <!-- Bleu nuit -->
-              </linearGradient>
-          
-              <!-- Filtre pour un effet de flou lumineux -->
-              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blurred"/>
-                <feMerge>
-                  <feMergeNode in="blurred"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>
-          
-            <g id="stars">
-              <!-- Création des étoiles aléatoires -->
-              <circle class="star" cx="150" cy="250" r="2" fill="white" />
-              <circle class="star" cx="450" cy="600" r="3" fill="white" />
-              <circle class="star" cx="800" cy="200" r="1.5" fill="white" />
-              <circle class="star" cx="1200" cy="900" r="4" fill="white" />
-              <circle class="star" cx="1600" cy="500" r="2.5" fill="white" />
-              <circle class="star" cx="1700" cy="700" r="1" fill="white" />
-              <circle class="star" cx="300" cy="900" r="2" fill="white" />
-              <circle class="star" cx="1000" cy="800" r="1.8" fill="white" />
-              <circle class="star" cx="1800" cy="400" r="2.3" fill="white" />
-              <circle class="star" cx="1400" cy="300" r="2" fill="white" />
-              <!-- Ajouter encore plus d'étoiles ici pour plus de densité -->
-            </g>
-          
-            <!-- Nébuleuse et nuages lumineux avec effet chromatique -->
-            <g id="clouds" fill="url(#cloud-gradient)" filter="url(#glow)">
-              <path d="M0,500 C400,600 700,800 1200,500 C1600,350 1800,700 1920,500 C1800,300 1400,100 1200,300 C1000,500 700,300 400,400 C0,500 0,500" />
-              <path d="M0,700 C200,850 600,900 1000,600 C1400,400 1600,500 1920,400 C1800,250 1400,300 1000,500 C600,700 200,800 0,700" />
-            </g>
-          </svg>
-          
 
-          
+              <path d="M0,700 C200,850 600,900 1000,600 C1400,400 1600,500 1920,400 C1800,250 1400,300 1000,500 C600,700 200,800 0,700" />
+            </g>
+          </svg>
         </div>
 
         <!-- Ciel étoilé -->
-        <svg id="starrySky" class="absolute top-0 left-0 h-full pointer-events-none" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"></svg>
+        <!-- <svg id="starrySky" class="absolute top-0 left-0 h-full pointer-events-none" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"></svg> -->
+        <canvas id="starrySkyCanvas" class="absolute top-0 left-0 h-full w-full pointer-events-none"></canvas>
 
         <!-- Etoiles filantes container -->
         <div class="shooting-stars absolute top60 left-0 w-full h-full z-10 pointer-events-none"></div>
-
-        <!-- Lune -->
-
       </div>
+      
       <!-- Home -->
-      <section id="homeSection" class="h-screen w-full relative z-10 flex items-center justify-center" >
+      <section id="homeSection" class="h-[100dvh] w-full relative z-10 flex items-center justify-center" >
 
         <div class="mainTitle pb-20 z-40 fixed top-1/3 transition-all ease-in-out duration-300" :class="scrolled ? 'opacity-0' : 'opacity-100'">
           <h1 class="text-white text-5xl md:text-8xl font-bold text-center">Nicolas Carpita</h1>
           <p class="text-white font-semibold text-center text-xl md:text-2xl profession">Développeur FullStack</p>
           <div class="flex items-center justify-center mt-4 gap-4 z-40">
             <div class="relative group linkedin">
-              <svg class="absolute top-0 left-0 h-12 fill opacity-0 group-hover:opacity-100 max-sm:opacity-100 transition-all ease-in-out duration-200 pointer-events-none" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#ED5565;" d="M512,255.996C512,397.389,397.404,512,256.004,512C114.627,512,0,397.389,0,255.996 C0,114.611,114.627,0,256.004,0C397.404,0,512,114.611,512,255.996z"></path> <g> <path style="fill:#DA4453;" d="M291.349,241.559c-37.845,7.953-75.751,9.008-112.658,3.148 c-29.906-4.742-59.282-14.008-87.313-27.531c-38.032-18.337-64.72-40.454-75.345-50.485c-2.72,7.258-5.095,14.68-7.157,22.234 c14.626,12.579,39.657,31.22,72.814,47.259c29.938,14.5,61.345,24.438,93.345,29.547c16.875,2.688,33.907,4.039,51.063,4.039 c23.094,0,46.407-2.445,69.626-7.328c74.501-15.656,131.463-13.898,166.151-9.664c24,2.922,40.906,7.406,50.031,10.273 c0.062-2.344,0.094-4.695,0.094-7.055c0-5.141-0.156-10.242-0.438-15.312c-10.5-2.93-25.906-6.438-45.906-8.938 C399.561,223.473,334.381,232.52,291.349,241.559z"></path> <path style="fill:#DA4453;" d="M503,323.56c-12.438,3.562-43.812,11.938-83.438,17.938c-85.118,12.906-142.307,5.188-175.276-3.562 c-74.095-19.657-135.689-17.032-174.347-11.376c-25.562,3.75-44.625,9.219-55.969,13.063c2.344,6.75,4.969,13.391,7.844,19.875 c10.562-3.5,28.438-8.547,52.125-11.953c36.501-5.25,94.721-7.594,164.878,11.016c28.219,7.484,59.907,11.234,94.689,11.234 c27.906,0,57.836-2.422,89.618-7.25c30.282-4.609,55.532-10.438,71.907-14.688C498.062,339.936,500.75,331.841,503,323.56z"></path> <path style="fill:#DA4453;" d="M355.287,454.968c-12.5-7.75-27.281-13-44.001-15.594c-20.281-3.172-43.501-2.422-69.001,2.219 c-72.657,13.25-155.877-1.141-165.628-2.922c9.657,9.469,20.032,18.172,31.063,26.048c34.376,3.875,88.063,7.031,138.377-2.126 c40.157-7.312,73.564-3.969,96.627,9.688c9.875,5.875,15.844,12.375,19.156,16.875c6.562-2.984,12.961-6.234,19.18-9.734 C376.904,473.062,368.975,463.468,355.287,454.968z"></path> <path style="fill:#DA4453;" d="M489.344,150.557c-14,1.61-48.438,4.993-89.783,4.907c-70.461-0.148-128.837-10.258-168.775-29.243 c-49.563-23.547-99.221-31.953-132.127-34.859c-14.719-1.297-27.376-1.656-37.313-1.617c-5.969,6.969-11.562,14.266-16.75,21.859 c19.281-1.18,98.752-3.297,177.034,33.883c43.469,20.649,103.408,31.18,178.213,31.305c0.438,0,0.875,0,1.312,0 c49.689,0,88.502-4.711,96.408-5.742C495.125,164.073,492.375,157.237,489.344,150.557z"></path> <path style="fill:#DA4453;" d="M436.968,74.931C402.123,74.986,326.631,72.58,284.13,52.36 c-39.157-18.633-90.502-28.336-125.627-33.133c-12.094,4.985-23.72,10.868-34.813,17.571c22.845,2.008,99.846,10.352,151.253,34.82 c45.845,21.806,122.431,24.696,159.807,24.696c11.095,0,18.72-0.258,21.095-0.344C449.938,88.611,443.656,81.587,436.968,74.931z"></path> <ellipse style="fill:#DA4453;" cx="170.69" cy="394.67" rx="64" ry="32"></ellipse> </g> </g></svg>
-
-              <img src="Images/linkedin-center.png" alt="" class="h-12 absolute top-0 left-0 opacity-0 max-sm:opacity-100 scale-[120%] group-hover:opacity-100 transition-all ease-in-out duration-200">
-
-              <img src="Images/linkedin-test.png" alt="" class="emptyLogo h-12 group-hover:opacity-0 max-sm:opacity-0  transition-all ease-in-out duration-200">
-
+              
+              <a href="">
+                <svg class="h-12 fill-white sm:fill-white/80 sm:hover:fill-white transition-all ease-in-out duration-200" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M41.4,508.1H-8.5V348.4h49.9 V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7c18.4,0,29.7,11.9,30.1,27.7 C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4c-14.9,0-23.2,10-27,19.6 c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6c35.5,0,63.3,23,63.3,72.4V508.1z "></path> </g></svg>
+              </a>
               
             </div>
 
-            <div class="relative group instagram">
-              <svg class="absolute top-0 left-0 h-12 fill opacity-0 group-hover:opacity-100 max-sm:opacity-100 transition-all ease-in-out duration-200 pointer-events-none" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#5D9CEC;" d="M511.996,256c0,141.375-114.594,256-255.992,256c-141.391,0-256-114.625-256-256 c0-141.391,114.609-256,256-256C397.402,0,511.996,114.609,511.996,256z"></path> <g> <path style="fill:#4A89DC;" d="M288.004,128H34.254c-4,6.906-7.688,14.031-11.031,21.328h264.781 c5.891,0,10.672-4.781,10.672-10.672S293.895,128,288.004,128z"></path> <path style="fill:#4A89DC;" d="M463.965,405.328H266.676c-5.891,0-10.672,4.781-10.672,10.672s4.781,10.656,10.672,10.656h180.133 C452.902,419.875,458.621,412.75,463.965,405.328z"></path> <path style="fill:#4A89DC;" d="M149.332,341.328H14.566c2.578,7.266,5.469,14.391,8.656,21.328h126.109 c5.891,0,10.672-4.766,10.672-10.656S155.223,341.328,149.332,341.328z"></path> <path style="fill:#4A89DC;" d="M362.676,266.656c0,5.891,4.766,10.672,10.656,10.672h137.789 c0.594-7.031,0.875-14.141,0.875-21.328H373.332C367.441,256,362.676,260.766,362.676,266.656z"></path> <path style="fill:#4A89DC;" d="M74.676,245.328c0-5.891-4.781-10.672-10.672-10.672H0.879C0.301,241.703,0.004,248.812,0.004,256 h64C69.895,256,74.676,251.219,74.676,245.328z"></path> <path style="fill:#4A89DC;" d="M181.332,64c5.891,0,10.672-4.781,10.672-10.672s-4.781-10.672-10.672-10.672h-66.875 C104.707,49.141,95.426,56.281,86.676,64H181.332z"></path> <path style="fill:#4A89DC;" d="M341.332,266.656c0,17.688-28.641,32-64,32c-35.344,0-64-14.312-64-32c0-17.672,28.656-32,64-32 C312.691,234.656,341.332,248.984,341.332,266.656z"></path> </g> </g></svg>
-              
-              <img src="Images/instagram-logo.png" alt="" class="h-12 absolute top-0 left-0 opacity-0 max-sm:opacity-100 group-hover:opacity-100 transition-all ease-in-out duration-200">
-
-              <img src="Images/instagram-empty.png" alt="" class="emptyLogo h-12 group-hover:opacity-0 max-sm:opacity-0 transition-all ease-in-out duration-200">
-
-
-            </div>
+            <!-- Instagram -->
+            <a href="">
+              <svg class="h-12 fill-white sm:fill-white/80 sm:hover:fill-white transition-all ease-in-out duration-200" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 260 260" enable-background="new 0 0 260 260" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M164.58,64H95.42C78.1,64,64,78.1,64,95.42v69.16C64,181.9,78.1,196,95.42,196h69.16c17.32,0,31.42-14.1,31.42-31.42V95.42 C196,78.1,181.9,64,164.58,64z M130,171.1c-22.66,0-41.1-18.44-41.1-41.1s18.44-41.1,41.1-41.1s41.1,18.44,41.1,41.1 S152.66,171.1,130,171.1z M172.22,97.3c-5.3,0-9.6-4.3-9.6-9.61c0-5.3,4.3-9.6,9.6-9.6c5.31,0,9.61,4.3,9.61,9.6 C181.83,93,177.53,97.3,172.22,97.3z M130,102.9c-14.94,0-27.1,12.16-27.1,27.1s12.16,27.1,27.1,27.1s27.1-12.16,27.1-27.1 S144.94,102.9,130,102.9z M130,2C59.31,2,2,59.31,2,130s57.31,128,128,128s128-57.31,128-128S200.69,2,130,2z M210,164.58 c0,25.04-20.38,45.42-45.42,45.42H95.42C70.38,210,50,189.62,50,164.58V95.42C50,70.38,70.38,50,95.42,50h69.16 C189.62,50,210,70.38,210,95.42V164.58z"></path> </g></svg>
+            </a>
             
-            <div class="relative group github overflow-hidden">
-              <svg class="absolute top-0 left-0 h-12 fill opacity-0 group-hover:opacity-100 max-sm:opacity-100 transition-all ease-in-out duration-200 pointer-events-none" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.008 512.008" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#FC6E51;" d="M512.004,256.004c0,141.393-114.596,256.004-255.996,256.004 c-141.385,0-256.004-114.611-256.004-256.004C0.004,114.627,114.623,0,256.008,0C397.408,0,512.004,114.627,512.004,256.004z"></path> <g> <path style="fill:#E9573F;" d="M448.003,213.347c0,29.454-28.656,53.329-64.001,53.329c-35.336,0-63.993-23.875-63.993-53.329 c0-29.469,28.657-53.344,63.993-53.344C419.347,160.003,448.003,183.878,448.003,213.347z"></path> <path style="fill:#E9573F;" d="M227.016,384.006c0,17.672-19.102,32-42.665,32c-23.562,0-42.672-14.328-42.672-32 s19.11-32,42.672-32C207.914,352.006,227.016,366.334,227.016,384.006z"></path> <path style="fill:#E9573F;" d="M163.827,234.676c0,23.562-23.876,42.672-53.329,42.672c-29.461,0-53.337-19.109-53.337-42.672 s23.875-42.673,53.337-42.673C139.951,192.003,163.827,211.112,163.827,234.676z"></path> <path style="fill:#E9573F;" d="M320.009,96.002c-1.156,0-2.281,0.203-3.312,0.531c-0.5,0.172-50.376,16.344-104.251,20.875 c-51.946,4.359-86.619-7.797-106.564-18.766c-18.321-10.062-27.93-21-30.431-24.11c-5.078,5.047-9.945,10.312-14.586,15.782 c5.094,5.781,15.859,16.422,33.407,26.282c32.148,18.094,67.829,23.031,97.188,23.031c8.148,0,15.813-0.375,22.774-0.969 c55.274-4.641,105.228-20.594,109.087-21.859c4.266-1.391,7.359-5.391,7.359-10.125C330.681,100.783,325.9,96.002,320.009,96.002z"></path> <path style="fill:#E9573F;" d="M506.848,307.442c-9.469,1.922-59.407,11.781-108.689,15.922 c-100.806,8.469-136.057-12.125-136.4-12.328c-1.656-1.062-3.625-1.688-5.75-1.688c-5.891,0-10.672,4.766-10.672,10.656 c0,3.781,1.969,7.094,4.922,8.984c1.078,0.703,11.297,6.953,34.906,11.829c19.188,3.969,41.454,5.953,66.58,5.953 c15.062,0,31.164-0.719,48.195-2.141c40.595-3.406,81.596-10.595,101.127-14.313C503.316,322.833,505.254,315.208,506.848,307.442z "></path> <path style="fill:#E9573F;" d="M343.541,416.006c-2.094,0-4.031,0.609-5.672,1.641c-0.469,0.297-47.345,29.36-99.705,33.751 c-53.696,4.5-100.025-2.891-129.439-9.875c-18.235-4.344-32.407-9.062-41.259-12.345c11.266,12.267,23.711,23.423,37.149,33.298 c24.422,5.751,59.423,11.626,100.376,11.626c11.235,0,22.923-0.438,34.954-1.453c57.673-4.828,107.189-35.642,109.268-36.938 c3-1.891,4.984-5.235,4.984-9.032C354.197,420.787,349.432,416.006,343.541,416.006z"></path> </g> </g></svg>
-
-              <img src="Images/github-logo.png" alt="" class="h-12 absolute -bottom-[5px] left-[2px] opacity-0 scale-[75%] group-hover:opacity-100 transition-all ease-in-out duration-200 max-sm:opacity-100">
-              <img src="Images/github-empty.png" alt="" class="emptyLogo h-12 group-hover:opacity-0 max-sm:opacity-0 transition-all ease-in-out duration-200">
-            </div>
+            <!-- Github -->
+            <a href="">
+              <svg class="h-12 group" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>github [#142]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#ffffff" class="fill-white sm:fill-white/80 sm:group-hover:fill-white transition-all ease-in-out duration-200"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]"> </path> </g> </g> </g> </g></svg>
+            </a>
           </div>
         </div>
        
 
         <!-- Cloud Layer 3 -->
 
-        <svg xmlns="http://www.w3.org/2000/svg" class="absolute -bottom-6 min-w-full h-full left-0 bg-transparent -z-10 pointer-events-none" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"  preserveAspectRatio="none" viewBox="0 0 1440 560">
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute -bottom-6 min-w-full h-full z-10 left-0 bg-transparent pointer-events-none" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"  preserveAspectRatio="none" viewBox="0 0 1440 560">
           <g mask="url(&quot;#SvgjsMask1001&quot;)" fill="none">
               <!-- <path d="M1488 560L0 560 L0 321.9Q83.73 285.63, 120 369.36Q169.87 299.23, 240 349.1Q243.3 280.4, 312 283.71Q377.58 229.29, 432 294.88Q514.37 257.25, 552 339.61Q622.04 289.65, 672 359.69Q704.36 272.04, 792 304.4Q821.2 261.6, 864 290.8Q951.93 258.73, 984 346.66Q1037.63 280.3, 1104 333.93Q1184.52 294.45, 1224 374.97Q1228.26 307.23, 1296 311.48Q1349.21 244.69, 1416 297.9Q1479.97 289.87, 1488 353.84z" class="fill-zinc-600/80"></path> -->
               <path d="M1464 560L0 560 L0 356.62Q97.78 334.4, 120 432.19Q135.69 375.88, 192 391.58Q234.28 361.86, 264 404.13Q339.57 359.7, 384 435.28Q387.07 366.35, 456 369.42Q507.88 301.3, 576 353.18Q652.93 310.12, 696 387.05Q763.85 334.89, 816 402.74Q858.38 373.12, 888 415.5Q909.33 364.83, 960 386.16Q1026.8 332.96, 1080 399.75Q1153.83 353.57, 1200 427.4Q1201.56 356.96, 1272 358.52Q1337.26 303.78, 1392 369.04Q1451.7 356.74, 1464 416.44z" class="fill-zinc-400/92 backdrop-blur-md cloudLayer3"></path>
@@ -277,7 +225,7 @@
         <div class="w-[1170px] max-w-[95%] presentationContent flex max-sm:flex-col-reverse mx-auto sm:mt-24 gap-4 justify-center items-center">
           <div class="flex flex-col sm:w-[70%] gap-4">
             <h1 class="text-5xl font-semibold mb-4 text-center max-sm:hidden">Introduction</h1>
-            <p class="max-sm:text-sm">Je m'appelle Nicolas Carpita et vous souhaite la bienvenue sur mon portfolio. J'ai 26 ans et porte depuis toujours un intêret envers le monde du numérique. D'un naturel curieux, j'ai longtemps cherché quelle voie suivre pour construire une carrière professionnelle. C'est en 2023 que je décide, après plusieurs années à travailler en tant qu'opérateur logistique, que j'ai décidé de franchir le pas et suivre un BTS SIO (option SLAM) pour découvrir la programmation et ainsi m'ouvrir de nouvelles perspectives d'avenir.</p>
+            <p class="max-sm:text-sm">Je m'appelle Nicolas Carpita et vous souhaite la bienvenue sur mon portfolio. J'ai 28 ans et porte depuis toujours un intêret envers le monde du numérique. D'un naturel curieux, j'ai longtemps cherché quelle voie suivre pour construire une carrière professionnelle. C'est en 2023 que je décide, après plusieurs années à travailler en tant qu'opérateur logistique, que j'ai décidé de franchir le pas et suivre un BTS SIO (option SLAM) pour découvrir la programmation et ainsi m'ouvrir de nouvelles perspectives d'avenir.</p>
             <p class="max-sm:text-sm">En dehors de l'aspect professionnel, j'aime particulièrement le cinéma, les jeux vidéos et la musique, je pratique également la MAO (musique assisté par ordinateur) et suis adepte de la randonnée/trek en haute montagne.</p>
           </div>
           <div class="sm:w-[30%] w-full overflow-hidden relative shadow-inner h-80 rounded-sm">
@@ -286,14 +234,14 @@
         </div>
         
 
-        <div class="w-full flex flex-col justify-center items-center mt-20 sm:mt-32 relative z-20">
+        <div class="w-full flex flex-col justify-center items-center pt-20 sm:pt-32 relative z-20" id="parcours">
           <div class="flex items-start gap-4">
             <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold pb-4">Mon parcours</h1>
             <svg id="parcoursLogo" viewBox="0 0 24 24" class="mt-[2px] sm:mt-[4px] w-[40px] sm:w-[50px] md:w-[60px]" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
               <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>route_fill</title> <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Map" transform="translate(-288.000000, -48.000000)" fill-rule="nonzero"> <g id="route_fill" transform="translate(288.000000, 48.000000)"> <path d="M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z" id="MingCute" fill-rule="nonzero"> </path> <path d="M18,16 C19.6569,16 21,17.3431 21,19 C21,20.6569 19.6569,22 18,22 C16.3431,22 15,20.6569 15,19 C15,17.3431 16.3431,16 18,16 Z M15.5,4 C17.9853,4 20,6.01472 20,8.5 C20,10.9853 17.9853,13 15.5,13 L8.5,13 C7.11929,13 6,14.1193 6,15.5 C6,16.8807 7.11929,18 8.5,18 L13,18 C13.5523,18 14,18.4477 14,19 C14,19.5523 13.5523,20 13,20 L8.5,20 C6.01472,20 4,17.9853 4,15.5 C4,13.0147 6.01472,11 8.5,11 L15.5,11 C16.8807,11 18,9.88071 18,8.5 C18,7.11929 16.8807,6 15.5,6 L11,6 C10.4477,6 10,5.55228 10,5 C10,4.44772 10.4477,4 11,4 L15.5,4 Z M6,2 C7.65685,2 9,3.34315 9,5 C9,6.65685 7.65685,8 6,8 C4.34315,8 3,6.65685 3,5 C3,3.34315 4.34315,2 6,2 Z" id="形状" fill="#000000"> </path> </g> </g> </g> </g>
             </svg>
           </div>
-          <p class="text-stone-500 mx-6 text-center">Résumé de mes experiences professionnelles et pédagogiques.</p>
+          <p class="text-stone-500 max-sm:text-xs font-semibold mx-6 text-center">Résumé de mes experiences professionnelles et pédagogiques.</p>
         </div>
         <div class="timeline z-50 relative z-20 sm:max-w-[1200px] sm:mx-auto mt-20 sm:mt-[100px] after:content-[''] after:absolute after:w-[6px] after:rounded-full after:h-full after:bg-black/70 after:backdrop-blur-sm after:top-0 after:left-10 sm:after:left-1/2 after:-translate-x-1/2 after:-z-10">
           <svg viewBox="0 0 32 32" class="timelineLabel !bg-transparent further w-[30px] left-[25px] sm:left-[calc(50%-15px)] -top-6 absolute z-20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
@@ -445,15 +393,15 @@
           
       </section>
       <!-- Mes connaissances B -->
-      <section class="min-h-screen bg-black text-white skillsSec pt-24 relative z-20 ">
+      <section id="competences" class="min-h-screen bg-black text-white skillsSec pt-24 relative z-20 -mt-1">
         
         <div class="skillsSecTitle w-full flex flex-col justify-center items-center z-50 relative">
           <h1 class="font-bold text-4xl sm:text-4xl md:text-6xl mb-4 sm:mb-3 text-center">Mes Compétences</h1>
-          <p class="text-white/50 font-semibold max-sm:text-sm text-center sm:mb-16 mb-8">Les compétences que j'ai acquises en cours de formation et en entreprise</p>
+          <p class="text-white/50 font-semibold max-sm:text-xs text-center sm:mb-16 mb-8">Les compétences que j'ai acquises en cours de formation et en entreprise</p>
         </div>
         <div class="skillsContent h-full flex flex-col justify-center items-center w-[950px] max-w-[95%] mx-auto relative z-50">
           <div class="skillsRealContent relative z-10 w-full">
-            <h2 class="text-2xl font-semibold mb-4 text-white">Languages de programmation</h2>
+            <h2 class="text-2xl max-sm:text-xl max-sm:text-center font-semibold mb-4 text-white">Languages de programmation</h2>
             <div class="flex justify-between w-full max-sm:gap-2">
               <div class="w-[63%] h-auto bg-red-700 rounded-xs p-4">
                 <h3 class="text-white font-semibold sm:text-xl mb-6 max-sm:text-center">Back-end & base de données</h3>
@@ -695,16 +643,13 @@
           </div>
         </div>
 
-        
-
-
       </section>
       
       <!-- Mon entreprise W -->
-      <section class="min-h-screen text-white companySec pt-24 max-sm:pt-10 pb-24 bg-black relative z-20">
+      <section class="min-h-screen text-white companySec pt-42 max-sm:pt-24 bg-black relative z-20" id="entreprise">
         <div class="companySecTitle">
-          <h1 class="font-bold text-white text-5xl sm:text-4xl md:text-6xl  mb-4 sm:mb-3 text-center">Mon entreprise</h1>
-          <p class="text-white/50 font-semibold max-sm:text-sm text-center md:mb-16">Rapide présentation de l'entreprise qui m'a accueilli en alternance</p>
+          <h1 class="font-bold text-white text-4xl sm:text-4xl md:text-6xl  mb-4 sm:mb-3 text-center">Mon entreprise</h1>
+          <p class="text-white/50 font-semibold max-sm:text-xs text-center md:mb-16">Rapide présentation de l'entreprise qui m'a accueilli en alternance</p>
         </div>
         <div class="companyContent w-[950px] max-w-[95%] mx-auto mt-10">
           <!-- Az presentation -->
@@ -751,14 +696,20 @@
         </div>     
       </section>
       <!-- Mes projets B -->
-      <section class="bg-black w-full relative z-20" id="mesProjets">
-        <div class="pt-16 mx-auto projetsContent md:w-[1000px] xl:w-[1300px] max-w-[92%] z-10">
+      <section class="bg-black w-full relative z-20 mes-projets" id="mesProjets">
+        <div class="pt-42 mx-auto projetsContent md:w-[1000px] xl:w-[1300px] max-w-[92%] z-10">
           <div class="projectSecTitle">
             <div class="flex gap-4 items-center justify-center mb-4 sm:mb-3">
-              <h1 class="font-bold text-5xl sm:text-6xl text-white text-center ">Réalisations professionnelles</h1>
-              <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-12 sm:w-16 fill-white mt-[5px]" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>project</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Combined-Shape" fill="#ffffff" transform="translate(64.000000, 34.346667)"> <path d="M192,7.10542736e-15 L384,110.851252 L384,332.553755 L192,443.405007 L1.42108547e-14,332.553755 L1.42108547e-14,110.851252 L192,7.10542736e-15 Z M42.666,157.654 L42.6666667,307.920144 L170.666,381.82 L170.666,231.555 L42.666,157.654 Z M341.333,157.655 L213.333,231.555 L213.333,381.82 L341.333333,307.920144 L341.333,157.655 Z M192,49.267223 L66.1333333,121.936377 L192,194.605531 L317.866667,121.936377 L192,49.267223 Z"> </path> </g> </g> </g></svg>
+              <h1 class="font-bold text-4xl sm:text-6xl text-white text-center ">Réalisations professionnelles</h1>
+              
             </div>
-            <p class="text-zinc-400/70 max-sm:text-sm text-center md:mb-16">Ensemble des réalisations que j'ai effectué, que ce soit en entreprise ou en cours de formation</p>
+            <p class="text-zinc-400/70 max-sm:text-xs font-semibold text-center sm:mb-16 mb-10">Ensemble des réalisations que j'ai effectué, que ce soit en entreprise ou en cours de formation</p>
+          </div>
+
+          <div class="w-full flex justify-center items-center mb-8">
+            <div class="border border-white/40 w-full rounded-l-full mr-2 sm:ml-12 ml-4"></div>
+            <a href="Files/tableau_competences_nicolas_carpita.pdf" target="_blank" type="application/pdf" class=" px-2 py-1 bg-white/90 hover:bg-white rounded font-semibold transition-all ease-in-out duration-200 flex-shrink-0">Tableau de compétences E5</a>
+            <div class="border border-white/40 w-full rounded-r-full ml-2 sm:mr-12 mr-4"></div>
           </div>
           
           <div class="flex flex-wrap gap-[2%] mt-6 md:mt-12 justify-start items-start mx-auto projectContent">
@@ -846,7 +797,7 @@
         </div>
 
         <div class="absolute top-0 left-0 w-full h-full -z-20 opacity-0 gradientBackgroundCity" style="background: rgb(55,48,107);
-background: linear-gradient(180deg, rgba(55,48,107,1) 0%, rgba(102,52,127,1) 18%, rgba(158,71,132,1) 43%, rgba(210,118,133,1) 74%);"></div>
+        background: linear-gradient(180deg, rgba(55,48,107,1) 0%, rgba(102,52,127,1) 18%, rgba(158,71,132,1) 43%, rgba(210,118,133,1) 74%);"></div>
 
         <svg class="z-20 citySkylineLg min-w-full opacity-0 max-sm:hidden" xmlns="http://www.w3.org/2000/svg" version="1.1" id="图层_1" x="0px" y="0px" viewBox="1.135 0 2389.025 887.748" enable-background="new 0 0 2400 1200">
           <g id="Distant" style="" transform="matrix(1, 0, 0, 0.78801, 0, 0)">
@@ -1656,7 +1607,7 @@ background: linear-gradient(180deg, rgba(249,74,41,1) 0%, rgba(249,112,41,1) 30%
         </svg>
 
 
-        <div class="h-full w-full pb-12 pt-24 sm:pt-48 contactContent" style="background: rgb(179,244,239);
+        <div class="h-full w-full pb-12 pt-24 sm:pt-48 contactContent" id="contact" style="background: rgb(179,244,239);
 background: linear-gradient(180deg, rgba(179,244,239,1) 0%, rgba(193,250,246,1) 1%, rgba(219,247,245,1) 6%, rgba(255,255,255,1) 28%);">
           <div class="w-[950px] max-w-[95%] mx-auto h-full relative z-10">
             <div class="flex justify-between">
@@ -1709,7 +1660,7 @@ background: linear-gradient(180deg, rgba(179,244,239,1) 0%, rgba(193,250,246,1) 
     x-transition:leave-end="translate-x-[100%] opacity-0 blur-3xl">
       <div class="w-full min-h-full relative">
         <div class="sm:h-20 h-16 w-full bg-black/50 backdrop-blur-sm flex items-center sticky top-0 left-0">
-          <button class="mx-2 cursor-pointer" @click="projectModal = false; document.querySelector('body').classList.remove('!overflow-hidden');" x-show="projectModal" x-transition:enter="transition transform ease-in-out duration-500"
+          <button class="mx-2 cursor-pointer" @click="projectModal = false; document.querySelector('body').classList.remove('!overflow-hidden'); closeModal()" x-show="projectModal" x-transition:enter="transition transform ease-in-out duration-500"
           x-transition:enter-start="opacity-0 rotate-90"
           x-transition:enter-end="opacity-100 rotate-0"
           x-transition:leave="transition transform ease-in-out duration-300"
@@ -1743,6 +1694,35 @@ background: linear-gradient(180deg, rgba(179,244,239,1) 0%, rgba(193,250,246,1) 
 
     <script type="module" src="/src/main.js"></script>
 
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+          const params = new URLSearchParams(window.location.search);
+          const modalId = params.get('modal');
+        
+          if (modalId) {
+              const content = document.querySelector(`.${modalId}`);
+              console.log(content)
+              const receiver = document.querySelector('.projectReciever');
+              const modal = document.querySelector('[x-data]');
+              console.log(modal)
+              if (content && receiver && modal) {
+                  // Injecte le contenu dans la modale
+                  receiver.innerHTML = content.innerHTML;
+                  console.log(receiver)
+                  // Émet un événement Alpine pour ouvrir la modale
+                  modal.dispatchEvent(new CustomEvent('open-modal', { detail: true }));
+  
+                  // Empêche scroll background
+                  document.querySelector('body').classList.add('!overflow-hidden');
+  
+                  // Nettoie l'URL
+                  //window.history.replaceState(null, '', window.location.pathname);
+              }
+          }
+      });
+  </script>
+  
+  
     
 
 

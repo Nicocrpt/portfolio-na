@@ -63,147 +63,128 @@ window.onload = function() {
 
 
 
+// function createShootingStar(angle = -45) {
+//   const shootingStarsContainer = document.querySelector('.shooting-stars');
+//   const shootingStar = document.createElement('div');
+//   shootingStar.classList.add('shooting-star');
 
-gsap.to('.cloudLayer3', {
-  scrollTrigger: {
-    trigger: '.cloudLayer3',
-    start: `top ${document.querySelector('.cloudLayer3').getBoundingClientRect().top}px`,
-    end:`bottom ${document.querySelector('.cloudLayer3').getBoundingClientRect().top *(0/100)}px`,
-    scrub: true,
-    force3D: false
-  },
-  y: `${(window.innerHeight - document.querySelector('.cloudLayer3').getBoundingClientRect().top)/3}px` ,
-  ease: "linear",
-})
-gsap.to('.cloudLayer2', {
-  scrollTrigger: {
-    trigger: '.cloudLayer2',
-    start: `top ${document.querySelector('.cloudLayer3').getBoundingClientRect().top}px`,
-    end:`bottom ${document.querySelector('.cloudLayer3').getBoundingClientRect().top *(0/100)}px`,
-    scrub: true,
-    force3D: false
-  },
-  y: `${(window.innerHeight - document.querySelector('.cloudLayer2').getBoundingClientRect().top)/4}px`,
-  ease: "linear",
-})
+//   // Création de la traînée
+//   const trail = document.createElement('div');
+//   trail.classList.add('trail');
+//   shootingStar.appendChild(trail);
 
+//   // Positionner l'étoile filante à une position horizontale aléatoire
+//   const startX = Math.random() * window.innerWidth; // Largeur de l'écran
+//   const startY = -10; // Commence au-dessus de l'écran
 
+//   // Position verticale aléatoire (entre 0 et la hauteur de l'écran)
+//   const randomVerticalTranslation = window.innerHeight+10; // Valeur entre 200px et 1000px pour l'exemple
 
+//   // Calcul du point d'arrivée en utilisant l'angle
+//   const angleInRadians = angle * (Math.PI / 180); // Convertir l'angle en radians
+//    // Calcul de la translation horizontale
+//   const endY = startY + randomVerticalTranslation; 
+//   const endX = startX + randomVerticalTranslation * Math.tan(angleInRadians);  // Calcul de la translation verticale
 
+//   // Définir les positions de départ et de fin avec des variables CSS
+//   shootingStar.style.left = `${startX}px`;
+//   shootingStar.style.top = `${startY}px`;
+//   shootingStar.style.setProperty('--end-x', `${endX}px`);
+//   shootingStar.style.setProperty('--end-y', `${endY}px`);
 
-function generateStars(svgId, numStars, scope = [2, 0.3]) {
-  const svg = document.getElementById(svgId);
-  const width = svg.viewBox.baseVal.width;
-  const height = svg.viewBox.baseVal.height;
+//   // Ajouter l'étoile filante au conteneur
+//   shootingStarsContainer.appendChild(shootingStar);
 
-  for (let i = 0; i < numStars; i++) {
-    const star = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    const x = Math.random() * width;
-    const y = Math.random() * height;
-    const radius = Math.random() * scope[0] + scope[1]; // Taille entre 0.5 et 3 px
-    const opacity = Math.random() * 0.5 + 0.5; // Opacité entre 0.5 et 1
+//   // Durée de l'animation (ici 2 secondes)
+//   shootingStar.style.animation = `moveShootingStar 1s linear forwards`;
 
-    star.setAttribute("cx", x);
-    star.setAttribute("cy", y);
-    star.setAttribute("r", radius);
-    star.setAttribute("fill", "white");
-    star.setAttribute("opacity", opacity);
+//   // Supprimer l'étoile et sa traînée après l'animation
+//   setTimeout(() => {
+//     shootingStar.remove();
+//   }, 1000); // 2s pour correspondre à la durée de l'animation
+// }
 
-    // Animation scintillement aléatoire
-    star.style.animation = `twinkle ${Math.random() * 3 + 2}s infinite alternate`;
+document.addEventListener('DOMContentLoaded', () => {
+  generateCanvasStars("starrySkyCanvas", [
+    { count: 100, sizeRange: [2, 1.5] },  // étoiles plus grosses
+    { count: 200, sizeRange: [0.8, 0.2] } // étoiles plus petites
+  ]);
+});
 
-    svg.appendChild(star);
+// Initialisation du canvas et génération des étoiles
+function generateCanvasStars(canvasId, layers) {
+  const canvas = document.getElementById(canvasId);
+const ctx = canvas.getContext('2d');
+
+let stars = [];
+
+// Fonction de redimensionnement du canvas
+function resizeCanvas() {
+  const dpr = window.devicePixelRatio || 1;
+  const width = canvas.clientWidth;
+  const height = canvas.clientHeight;
+
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+
+  ctx.setTransform(1, 0, 0, 1, 0, 0); // Réinitialiser les transformations
+  ctx.scale(dpr, dpr); // Appliquer un facteur d'échelle pour un rendu net
+
+  repositionStars(width, height);
+}
+
+// Fonction pour repositionner les étoiles lors du redimensionnement
+function repositionStars(width, height) {
+  for (const star of stars) {
+    star.x = Math.random() * width;
+    star.y = Math.random() * height;
   }
 }
 
-function createShootingStar(angle = -45) {
-  const shootingStarsContainer = document.querySelector('.shooting-stars');
-  const shootingStar = document.createElement('div');
-  shootingStar.classList.add('shooting-star');
-
-  // Création de la traînée
-  const trail = document.createElement('div');
-  trail.classList.add('trail');
-  shootingStar.appendChild(trail);
-
-  // Positionner l'étoile filante à une position horizontale aléatoire
-  const startX = Math.random() * window.innerWidth; // Largeur de l'écran
-  const startY = -10; // Commence au-dessus de l'écran
-
-  // Position verticale aléatoire (entre 0 et la hauteur de l'écran)
-  const randomVerticalTranslation = window.innerHeight+10; // Valeur entre 200px et 1000px pour l'exemple
-
-  // Calcul du point d'arrivée en utilisant l'angle
-  const angleInRadians = angle * (Math.PI / 180); // Convertir l'angle en radians
-   // Calcul de la translation horizontale
-  const endY = startY + randomVerticalTranslation; 
-  const endX = startX + randomVerticalTranslation * Math.tan(angleInRadians);  // Calcul de la translation verticale
-
-  // Définir les positions de départ et de fin avec des variables CSS
-  shootingStar.style.left = `${startX}px`;
-  shootingStar.style.top = `${startY}px`;
-  shootingStar.style.setProperty('--end-x', `${endX}px`);
-  shootingStar.style.setProperty('--end-y', `${endY}px`);
-
-  // Ajouter l'étoile filante au conteneur
-  shootingStarsContainer.appendChild(shootingStar);
-
-  // Durée de l'animation (ici 2 secondes)
-  shootingStar.style.animation = `moveShootingStar 1s linear forwards`;
-
-  // Supprimer l'étoile et sa traînée après l'animation
-  setTimeout(() => {
-    shootingStar.remove();
-  }, 1000); // 2s pour correspondre à la durée de l'animation
+// Création des étoiles en fonction des couches (grosses et petites)
+function createStars() {
+  for (const layer of layers) {
+    for (let i = 0; i < layer.count; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * layer.sizeRange[0] + layer.sizeRange[1],
+        twinkleSpeed: Math.random() * 0.5 + 0.1, // Scintillement lent
+        phaseOffset: Math.random() * Math.PI * 2, // Décalage de phase pour éviter la synchronisation
+      });
+    }
+  }
 }
 
-function moonAdaptativeSize() {
-  const screenSizeValue = window.innerWidth >= 768 ? 4 : 5
-  const ratio = window.innerWidth/window.innerHeight*screenSizeValue
-  document.querySelector('.moon').style.height = `${window.innerWidth/ratio}px`
-  document.querySelector('.moon').style.width = `${window.innerWidth/ratio}px`
+  // Fonction principale d'animation
+function animate(time) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // Effacer le canvas à chaque frame
+
+  for (const star of stars) {
+    // Calcul du scintillement lent
+    const flicker = Math.sin(time / 1000 * star.twinkleSpeed + star.phaseOffset) * 0.35 + 0.65;
+
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255, 255, 255, ${flicker})`; // Couleur blanche avec opacité variable
+    ctx.fill();
+  }
+
+  requestAnimationFrame(animate); // Continuer l'animation
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  
-  moonAdaptativeSize()
+  // Appels de fonctions
+resizeCanvas(); // Redimensionner dès le début
+createStars(); // Créer les étoiles
+window.addEventListener('resize', resizeCanvas); // Réajuster le canvas au redimensionnement
+
+// Démarrer l'animation
+requestAnimationFrame(animate);
+}
 
 
 
 
-  const moon = document.querySelector(".moon");
-  const moonSize = moon.offsetWidth;
-
-  // 🔹 **Position initiale à -90° (haut du cercle)**
-  gsap.set(moon, {
-    x: window.innerWidth / 2.4, 
-    y: -window.innerHeight / 2.8
-  });
-
-  // 🔹 **Animation circulaire complète**
-
-  
-
-  window.addEventListener('resize', () => {
-    moonAdaptativeSize()
-  })
-
-  generateStars("starrySky", 100);
-  generateStars("starrySky", 200, [0.6, 0.2]);
-
-  const style = document.createElement("style");
-  style.innerHTML = `
-    @keyframes twinkle {
-      0% { opacity: 0.3; }
-      100% { opacity: 1; }
-    }`;
-  document.head.appendChild(style);
-
-  setInterval(() => {
-    let angle = 30
-    createShootingStar(angle);  // Passer l'angle à la fonction
-  }, Math.random() * 3000 + 3000);
-});
 
 
 /*-------------------------------------
@@ -425,85 +406,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 window.addEventListener('resize', updateHeights);
 
-/*-------------------------------------
-Compétences
--------------------------------------*/
-// document.addEventListener("DOMContentLoaded", function () {
-//   const lineContainer = document.querySelector(".line-container");
-
-//   const lineInterval = 5000; // Intervalle pour créer de nouvelles lignes en millisecondes
-
-//   function createLine() {
-//     const line = document.createElement("div");
-//     line.classList.add("line");
-//     line.classList.add('rounded-full', 'backdrop-blur-md')
-
-//     // Hauteur entre 5px et 12px
-//     line.style.height = `${Math.floor(Math.random() * 8) + 5}px`;
-
-//     // Largeur aléatoire entre 50% et 150% de la largeur de la page
-//     const lineWidth = Math.floor(Math.random() * 20) + 50; // entre 50% et 150%
-//     line.style.width = `${lineWidth}%`;
-
-//     // Position verticale aléatoire
-//     line.style.top = `${Math.floor(Math.random() * 100)}%`;
-
-//     // Couleur aléatoire
-//     const colorsArray = ['#20dbd8', '#82e8b3', '#b60e1a', '#c37b0f', '#ced370']
-//     line.style.backgroundColor = colorsArray[Math.floor(Math.random() * colorsArray.length)];
-
-//     // Calcul de la position de départ : hors de l'écran
-//     const direction = Math.random() > 0.5 ? "left" : "right"; // Direction aléatoire (gauche ou droite)
-//     const screenWidth = window.innerWidth; // Largeur de la fenêtre du navigateur
-//     const lineLength = (lineWidth / 100) * screenWidth; // Longueur de la ligne en pixels
-
-//     // Si la direction est à gauche
-//     const startPosition = direction === "left" ? -lineLength : screenWidth; // Position de départ (gauche ou droite)
-    
-//     // Calcul de la position de fin : la ligne doit sortir complètement de l'écran à gauche
-//     const endPosition = direction === "left" ? screenWidth : -lineLength; // Sortie du côté opposé
-
-//     // Définir la position de départ et de fin dans les variables CSS personnalisées
-//     line.style.setProperty("--start-position", `${startPosition}px`);
-//     line.style.setProperty("--end-position", `${endPosition}px`);
-
-//     // Ajouter la ligne au conteneur
-//     lineContainer.appendChild(line);
-
-//     // Durée de l'animation aléatoire entre 3s et 7s
-//     const duration = Math.floor(Math.random() * 15) +20; // Durée de l'animation en secondes
-//     line.style.setProperty("--animation-duration", `${duration}s`);
-
-//     // Supprimer la ligne après l'animation
-//     setTimeout(() => {
-//       line.remove();
-//     }, duration * 1000);
-//   }
-//   function getRandomColor() {
-//     const letters = "0123456789ABCDEF";
-//     let color = "#";
-//     for (let i = 0; i < 6; i++) {
-//       color += letters[Math.floor(Math.random() * 16)];
-//     }
-//     return color;
-//   }
-
-//   gsap.to('.line-container', {
-//   scrollTrigger: {
-//     trigger: '.skillsSecTitle',
-//     start: "top 70%",
-//     end:`top 10%`,
-//     scrub: true,
-//   },
-//   onComplete: () => {
-//     setInterval(createLine, lineInterval);
-//   },
-//   ease: "linear",
-//   opacity: 0.4,
-//   filter: 'blur(0px)'
-// })
-// });
-
 
 
 const forest = window.innerWidth >= 640 ? document.querySelector('#forestLight') : document.querySelector('#forestLightSM');
@@ -573,65 +475,65 @@ document.addEventListener("DOMContentLoaded", () => {
   for (let i = 0; i < numParticles; i++) {
       createParticle();
   }
-
   function createParticle() {
-      const particle = document.createElement("div");
-      particle.classList.add("particle");
-
-      // Déterminer si la particule part de la gauche ou de la droite
-      const isLeftToRight = Math.random() > 0.5;
-
-      // Position horizontale (hors écran)
-      const startX = isLeftToRight ? -20 : container.clientWidth + 20;
-      const endX = isLeftToRight ? container.clientWidth + 20 : -20;
-
-      // Position verticale aléatoire
-      const startY = Math.random() * container.clientHeight;
-
-      particle.style.left = `${startX}px`;
-      particle.style.top = `${startY}px`;
-
-      // Profondeur : Plus z-index est grand, plus la particule est "devant"
-      const zIndex = Math.floor(Math.random() * 45);
-      particle.style.zIndex = zIndex;
-
-      // Taille et transparence en fonction de la profondeur
-      const size = Math.random() * 10 + 2; // Entre 2px et 8px
-      const opacity = 0.3 + (zIndex / 100) * 2; // Plus le zIndex est grand, plus c'est visible
-
-      particle.style.width = `${size}px`;
-      particle.style.height = `${size}px`;
-      particle.style.backgroundColor = `rgba(255, 241, 149, ${opacity})`;
-
-      // Amplitude du flottement vertical
-      const floatAmplitude = Math.random() * 40 + 10; // Entre 10px et 50px
-
-      // Durée de l'animation
-      const duration = Math.random() * 15 + 45; // Entre 5s et 15s
-
-      // Animation combinée (mouvement horizontal + flottement vertical)
-      particle.animate(
-          [
-              { transform: `translate(0px, 0px)`, opacity: opacity },
-              { transform: `translate(${(endX - startX) / 2}px, ${-floatAmplitude}px)`, opacity: opacity * 0.8 },
-              { transform: `translate(${endX - startX}px, ${floatAmplitude}px)`, opacity: opacity * 0.5 }
-          ],
-          {
-              duration: duration * 1000,
-              iterations: 1,
-              easing: "linear"
-          }
-      );
-
-      container.appendChild(particle);
-
-      // Supprimer et recréer la particule après son cycle
-      setTimeout(() => {
-          particle.remove();
-          createParticle();
-      }, duration * 1000);
+    const particle = document.createElement("div");
+    particle.classList.add("particle");
+  
+    // Déterminer si la particule part de la gauche ou de la droite
+    const isLeftToRight = Math.random() > 0.5;
+  
+    // Position horizontale (hors écran)
+    const startX = isLeftToRight ? -20 : container.clientWidth + 20;
+    const endX = isLeftToRight ? container.clientWidth + 20 : -20;
+  
+    // Position verticale aléatoire
+    const startY = Math.random() * container.clientHeight;
+  
+    particle.style.left = `${startX}px`;
+    particle.style.top = `${startY}px`;
+  
+    // Profondeur : Plus z-index est grand, plus la particule est "devant"
+    const zIndex = Math.floor(Math.random() * 45);
+    particle.style.zIndex = zIndex;
+  
+    // Taille et transparence en fonction de la profondeur
+    const size = Math.random() * 10 + 2; // Entre 2px et 8px
+    const opacity = 0.3 + (zIndex / 100) * 2; // Plus le zIndex est grand, plus c'est visible
+  
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.backgroundColor = `rgba(255, 241, 149, ${opacity})`;
+  
+    // Amplitude du flottement vertical
+    const floatAmplitude = Math.random() * 40 + 10; // Entre 10px et 50px
+  
+    // Durée de l'animation
+    const duration = Math.random() * 15 + 45; // Entre 5s et 15s
+  
+    // Animation combinée (mouvement horizontal + flottement vertical)
+    particle.animate(
+        [
+            { transform: `translate(0px, 0px)`, opacity: opacity },
+            { transform: `translate(${(endX - startX) / 2}px, ${-floatAmplitude}px)`, opacity: opacity * 0.8 },
+            { transform: `translate(${endX - startX}px, ${floatAmplitude}px)`, opacity: opacity * 0.5 }
+        ],
+        {
+            duration: duration * 1000,
+            iterations: 1,
+            easing: "linear"
+        }
+    );
+  
+    container.appendChild(particle);
+  
+    // Supprimer et recréer la particule après son cycle
+    setTimeout(() => {
+        particle.remove();
+        createParticle();
+    }, duration * 1000);
   }
 });
+
 
 /*-------------------------------------
 Entreprise
@@ -739,14 +641,6 @@ const skylineTimeline = gsap.timeline({
   duration: 10
 })
 
-// skylineTimeline.to('#Distant polygon', {
-//   y: `${document.querySelector(citySkyline).getBoundingClientRect().height/4}px`,
-//   duration: 10,
-// }, "-=10")
-// .to('#Medium path', {
-//   y: `${document.querySelector(citySkyline).getBoundingClientRect().height/8}px`,
-//   duration: 10,
-// }, "-=10")
 
 
 skylineTimeline.to('#Distant polygon', {
@@ -788,147 +682,38 @@ sunLightTimeline.to('.sunLight', {
 }, "-=6")
 
 
-
-let countProject = 0
-
-gsap.to('.projectSecTitle h1', {
-  scrollTrigger: {
-    trigger: '.projectSecTitle h1',
-    start: "top 85%",
-    end: "bottom 85%",
-    scrub: true,
-    force3D: false
-  },
-  opacity: 1,
-  filter: "blur(0px)",
-  x:0
-})
-gsap.to('.projectSecTitle p', {
-  scrollTrigger: {
-    trigger: '.projectSecTitle h1',
-    start: "top 85%",
-    end: "bottom 85%",
-    scrub: true,
-    force3D: false
-  },
-  opacity: 1,
-  delay: 0.5,
-  filter: "blur(0px)",
-  x:0
-})
-gsap.to('#mesProjets', {
+const cardTl = gsap.timeline({
   scrollTrigger: {
     trigger: '.projectSecTitle',
-    onUpdate: self => {
-      if (countProject === 0) {
-        countProject += 1
-        const projectCards = document.querySelectorAll('.projectCard')
-        let counterCard = 0
-        const arrayCards = Array.from(projectCards)
-        projectCards.forEach(function (card) {
-          const index = arrayCards.indexOf(card)
-          if (getVisiblePercentage(card)>=90) {
-            const tl = gsap.timeline({
-              scrollTrigger: {
-                trigger: card,
-                start: `top-=${card.offsetHeight/2}px ${card.getBoundingClientRect().top - card.offsetHeight/2 -counterCard}px`,
-                end: `top-=${card.offsetHeight/2}px ${card.getBoundingClientRect().top - card.offsetHeight}px`,
-                toggleActions: 'play none none none',
-                scrub: 1,
-                force3D: false
-              }
-            })
-
-            tl.to(card, {
-              delay: index,
-              opacity: 1,
-              scale:1.05,
-              filter: "blur(0px)",
-              duration: 4
-            })
-            .to(card, {
-              delay: index,
-              scale:1,
-              duration: 1
-            }, )
-          } else {
-            let row = 0
-            switch (true) {
-              case window.innerWidth >= 1536 :
-                row = 3
-                break;
-              case window.innerwidth >= 1024 :
-                row = 2
-                break
-              default:
-                row = 1
-                break
-            }
-            let delay = (arrayCards.indexOf(card))%row
-            console.log(arrayCards.indexOf(card)+1)
-            const tal = gsap.timeline({
-              scrollTrigger: {
-                trigger: card,
-                start: `top-=${card.offsetHeight/2}px ${window.innerHeight-card.offsetHeight/2}px`,
-                end: `top-=${card.offsetHeight/2}px ${window.innerHeight - card.offsetHeight}px`,
-                toggleActions: 'play none none none',
-                scrub: 1,
-                force3D: false
-              }
-            })
-
-            tal.to(card, {
-              delay: delay,
-              opacity: 1,
-              scale:1.05,
-              filter: "blur(0px)",
-              duration: 4
-            })
-            .to(card, {
-              delay: delay,
-              scale:1,
-              duration: 1
-            }, )
-          }
-        })
-      }
-    }
-  }
+    start: "top 60%",
+  },
+  duration: 0.55
 })
 
+cardTl.to('.projectCard', {
+  opacity:1,
+  filter: "blur(0px)",
+  scale: 1.05,
+  duration: 0.4,
+  stagger: 0.05
+})
+.to('.projectCard', {
+  scale: 1,
+  duration: 0.15,
+  stagger: 0.03,
+  ease: "power1.out"
+})
 
-// const cardTl = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: '.projectSecTitle',
-//     start: "top 60%",
-//   },
-//   duration: 0.55
-// })
-
-// cardTl.to('.projectCard', {
-//   opacity:1,
-//   filter: "blur(0px)",
-//   scale: 1.05,
-//   duration: 0.4,
-//   stagger: 0.05
-// })
-// .to('.projectCard', {
-//   scale: 1,
-//   duration: 0.15,
-//   stagger: 0.03,
-//   ease: "power1.out"
-// })
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   document.querySelectorAll('.projectCard').forEach(card => {
-//     card.style.height = `${card.offsetWidth/1.6}px`
-//   })
-// })
-// window.addEventListener('resize', () => {
-//   document.querySelectorAll('.projectCard').forEach(card => {
-//     card.style.height = `${card.offsetWidth/1.6}px`
-//   })
-// })
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.projectCard').forEach(card => {
+    card.style.height = `${card.offsetWidth/1.6}px`
+  })
+})
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.projectCard').forEach(card => {
+    card.style.height = `${card.offsetWidth/1.6}px`
+  })
+})
 
 //SECTION VEILLE TECHNOLOGIQUE
 
@@ -939,41 +724,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let separator = document.querySelector('.vtContactSeparator');  
 })
 
-function getVisiblePercentage(element) {
-  const elementRect = element.getBoundingClientRect(); // Récupère la position et la taille de l'élément
-  const windowHeight = window.innerHeight; // Hauteur du viewport (fenêtre du navigateur)
-  
-  let elementHeight = elementRect.height;
-  if (element.classList.contains('scale-[0.1%]'))
-  {
-    elementHeight *= 1000
-  } // Hauteur totale de l'élément
-  const top = elementRect.top; // Position de l'élément par rapport au haut de la fenêtre
-  const bottom = elementRect.bottom; // Position de l'élément par rapport au bas de la fenêtre
 
-  // Si l'élément est complètement en dehors du viewport, on renvoie 0
-  if (bottom <= 0 || top >= windowHeight) {
-    return 0;
-  }
 
-  // Si l'élément est totalement visible
-  const visibleTop = Math.max(0, top);
-  const visibleBottom = Math.min(windowHeight, bottom);
-
-  // Calcul du pourcentage de visibilité
-  const visibleHeight = visibleBottom - visibleTop;
-  const visiblePercentage = (visibleHeight / elementHeight) * 100;
-
-  return visiblePercentage;
-}
-
-function scrollToElement(id) {
-  const element = document.getElementById(id);
-  element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'  // Place l'élément en haut de la fenêtre
-  });
-}
 
 
 
