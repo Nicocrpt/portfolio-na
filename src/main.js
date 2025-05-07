@@ -734,75 +734,75 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // CONTACT
 
-document.addEventListener('DOMContentLoaded', () => {
-  resizeWaterfall()
-  window.addEventListener('resize', () => {
-    resizeWaterfall()
-  })
-})
-function resizeWaterfall() {
-  const svg = document.querySelector(".topMountains");
-  const path = document.querySelector(".water");
+// document.addEventListener('DOMContentLoaded', () => {
+//   resizeWaterfall()
+//   window.addEventListener('resize', () => {
+//     resizeWaterfall()
+//   })
+// })
+// function resizeWaterfall() {
+//   const svg = document.querySelector(".topMountains");
+//   const path = document.querySelector(".water");
 
-  const distance = (svg.getBoundingClientRect().height + path.getBoundingClientRect().height);
-  document.querySelector('.contactSec').style.paddingTop = `${distance-7}px`
-  document.querySelector('.contactSec').style.marginTop = `-${svg.getBoundingClientRect().height}px`
-  document.querySelector('.contactOverlay').style.top = `${distance-7}px`
-}
+//   const distance = (svg.getBoundingClientRect().height + path.getBoundingClientRect().height);
+//   document.querySelector('.contactSec').style.paddingTop = `${distance-7}px`
+//   document.querySelector('.contactSec').style.marginTop = `-${svg.getBoundingClientRect().height}px`
+//   document.querySelector('.contactOverlay').style.top = `${distance-7}px`
+// }
 
-const svg = document.querySelector(".topMountains");
+// const svg = document.querySelector(".topMountains");
 
-gsap.to('#veilleTechno', {
-  scrollTrigger: {
-    trigger: svg,
-    start: `top 100%`,
-    end:`bottom 50%`,
-    scrub: true,
-  },
-  ease: "linear",
-  backgroundColor: "#57cdff",
-})
+// gsap.to('#veilleTechno', {
+//   scrollTrigger: {
+//     trigger: svg,
+//     start: `top 100%`,
+//     end:`bottom 50%`,
+//     scrub: true,
+//   },
+//   ease: "linear",
+//   backgroundColor: "#57cdff",
+// })
 
-document.querySelectorAll('.wfPart').forEach(part => {
-  gsap.from(part, {
-    scrollTrigger: {
-      trigger: svg,
-      start: `top 100%`,
-      end:`bottom 50%`,
-      scrub: true,
-    },
-    ease: "linear",
-    fill: "black",
-  })
-})
-
-
-gsap.from('.contactOverlay', {
-  scrollTrigger: {
-    trigger: svg,
-    start: `top 100%`,
-    end:`bottom 50%`,
-    scrub: true,
-  },
-  ease: "linear",
-  opacity: 1,
-})
+// document.querySelectorAll('.wfPart').forEach(part => {
+//   gsap.from(part, {
+//     scrollTrigger: {
+//       trigger: svg,
+//       start: `top 100%`,
+//       end:`bottom 50%`,
+//       scrub: true,
+//     },
+//     ease: "linear",
+//     fill: "black",
+//   })
+// })
 
 
+// gsap.from('.contactOverlay', {
+//   scrollTrigger: {
+//     trigger: svg,
+//     start: `top 100%`,
+//     end:`bottom 50%`,
+//     scrub: true,
+//   },
+//   ease: "linear",
+//   opacity: 1,
+// })
 
-document.querySelectorAll(".topicPartial").forEach(topic => {
-  gsap.to(topic, {
-    scrollTrigger: {
-      trigger: svg,
-      start: `top 100%`,
-      end:`bottom 50%`,
-      scrub: true,
-    },
-    ease: "circ.in",
-    filter: "blur(20px)",
-    opacity: 0,
-  })
-})
+
+
+// document.querySelectorAll(".topicPartial").forEach(topic => {
+//   gsap.to(topic, {
+//     scrollTrigger: {
+//       trigger: svg,
+//       start: `top 100%`,
+//       end:`bottom 50%`,
+//       scrub: true,
+//     },
+//     ease: "circ.in",
+//     filter: "blur(20px)",
+//     opacity: 0,
+//   })
+// })
 
 
 document.getElementById("contactForm").addEventListener("submit", function (e) {

@@ -359,3 +359,7 @@ textarea {
       transform: translateX(var(--endX)) translateY(var(--startY));
   }
 }
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
