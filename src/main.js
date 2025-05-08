@@ -687,19 +687,19 @@ const cardTl = gsap.timeline({
     trigger: '.projectSecTitle',
     start: "top 60%",
   },
-  duration: 0.55
+  duration: 0.3
 })
 
 cardTl.to('.projectCard', {
   opacity:1,
   filter: "blur(0px)",
   scale: 1.05,
-  duration: 0.4,
+  duration: 0.25,
   stagger: 0.05
 })
 .to('.projectCard', {
   scale: 1,
-  duration: 0.15,
+  duration: 0.1,
   stagger: 0.03,
   ease: "power1.out"
 })
@@ -843,6 +843,21 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   });
 
 });
+
+
+gsap.to('#veilleToContact', {
+  scrollTrigger: {
+    trigger: '#veilleToContact',
+    start: "top+=200px 70%",
+    toggleActions: 'restart pause reverse pause',
+    end: "bottom ",
+    toggleActions: 'restart pause reverse pause',
+    scrub: true,
+    force3D: false
+  },
+  ease: "linear",
+  translateY: (window.innerWidth/window.innerHeight) * 650
+})
 
 
 

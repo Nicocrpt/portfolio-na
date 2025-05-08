@@ -136,7 +136,7 @@ textarea {
 }
 
 .projectCardContent {
-  @apply w-full absolute h-full bg-slate-900/40 rounded row-span-full transition-all ease-in-out duration-300 grid grid-rows-3 backdrop-blur;
+  @apply w-full absolute h-full bg-slate-900/40 row-span-full transition-all ease-in-out duration-300 grid grid-rows-3 backdrop-blur;
 }
 
 .projectCardText {
