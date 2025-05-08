@@ -195,125 +195,125 @@ Introduction
 let items = document.querySelectorAll('.timelineContainer .text-box');
 let timelineLabels = document.querySelectorAll('.timelineLabel');
 
-gsap.to('#parcoursLogo', {
-  scrollTrigger: {
-    trigger: '#parcoursLogo',
-    start: "top 100%",
-    scrub: true,
-    force3D: false
-  },
-  rotate: 180,
-  ease: "power2.inOut",
-})
+// gsap.to('#parcoursLogo', {
+//   scrollTrigger: {
+//     trigger: '#parcoursLogo',
+//     start: "top 100%",
+//     scrub: true,
+//     force3D: false
+//   },
+//   rotate: 180,
+//   ease: "power2.inOut",
+// })
 
 
-gsap.to('.gradientBackground', {
-  scrollTrigger: {
-    trigger: '.presentationSection',
-    start: "top",
-    end: `bottom-=${document.querySelector('.mountainsContainer').offsetHeight/5}px 100%`,
-    scrub: true,
-    force3D: false
-  },
-    opacity:1,
-  ease : "power2.in"
-})
-
-// gsap.to('.clouds', {
+// gsap.to('.gradientBackground', {
 //   scrollTrigger: {
 //     trigger: '.presentationSection',
 //     start: "top",
-//     end: "bottom-=100px 110%",
-//     scrub: 1,
+//     end: `bottom-=${document.querySelector('.mountainsContainer').offsetHeight/5}px 100%`,
+//     scrub: true,
 //     force3D: false
 //   },
-//   opacity:0.8,
-//   ease : "power3.in"
+//     opacity:1,
+//   ease : "power2.in"
 // })
 
-timelineLabels.forEach(function (svg) {
-  if(1==1) {
-    const svgTl = gsap.timeline({
-      scrollTrigger: {
-        scrub: 1,
-        trigger: svg,
-        start: `top 105%`,
-        end: `bottom ${window.innerHeight - (svg.getBoundingClientRect().height/2)}px`
-      },
-      duration: 5
-    })
+// // gsap.to('.clouds', {
+// //   scrollTrigger: {
+// //     trigger: '.presentationSection',
+// //     start: "top",
+// //     end: "bottom-=100px 110%",
+// //     scrub: 1,
+// //     force3D: false
+// //   },
+// //   opacity:0.8,
+// //   ease : "power3.in"
+// // })
+
+// timelineLabels.forEach(function (svg) {
+//   if(1==1) {
+//     const svgTl = gsap.timeline({
+//       scrollTrigger: {
+//         scrub: 1,
+//         trigger: svg,
+//         start: `top 105%`,
+//         end: `bottom ${window.innerHeight - (svg.getBoundingClientRect().height/2)}px`
+//       },
+//       duration: 5
+//     })
   
-    svgTl.fromTo(svg, 
-      {opacity: 0, scale: 0},
-      {
-      opacity: 1,
-      ease:"power2.inOut",
-      duration: 4,
-      scale: 1.1
-    })
-    .to(svg, {
-      x: 0,
-      ease:"power2.inOut",
-      duration: 1,
-      scale: 1
-    })
-  }
+//     svgTl.fromTo(svg, 
+//       {opacity: 0, scale: 0},
+//       {
+//       opacity: 1,
+//       ease:"power2.inOut",
+//       duration: 4,
+//       scale: 1.1
+//     })
+//     .to(svg, {
+//       x: 0,
+//       ease:"power2.inOut",
+//       duration: 1,
+//       scale: 1
+//     })
+//   }
   
-})
+// })
 
-items.forEach(function (item) {
-  const itemTl = gsap.timeline({
-    scrollTrigger: {
-      scrub: 1,
-      trigger: item,
-      start: `top ${window.innerHeight - (item.offsetHeight/2)}px`,
-      end: `bottom ${window.innerHeight - (item.offsetHeight * 0)}px`
-    },
-    duration: 5
-  })
-  itemTl.fromTo(item, 
-    {opacity: 0, filter: 'blur(10px)'},
-    {
-    x: item.classList.contains('left') && window.innerWidth >= 640 ? 10 : -10,
-    opacity: 1,
-    ease:"linear",
-    filter: 'blur(0px)',
-    duration: 4
-  })
-  .to(item, {
-    x: 0,
-    ease:"linear",
-    duration: 1
-  })
-})
+// items.forEach(function (item) {
+//   const itemTl = gsap.timeline({
+//     scrollTrigger: {
+//       scrub: 1,
+//       trigger: item,
+//       start: `top ${window.innerHeight - (item.offsetHeight/2)}px`,
+//       end: `bottom ${window.innerHeight - (item.offsetHeight * 0)}px`
+//     },
+//     duration: 5
+//   })
+//   itemTl.fromTo(item, 
+//     {opacity: 0, filter: 'blur(10px)'},
+//     {
+//     x: item.classList.contains('left') && window.innerWidth >= 640 ? 10 : -10,
+//     opacity: 1,
+//     ease:"linear",
+//     filter: 'blur(0px)',
+//     duration: 4
+//   })
+//   .to(item, {
+//     x: 0,
+//     ease:"linear",
+//     duration: 1
+//   })
+// })
 
-function updateHeights() {
+// function updateHeights() {
 
-  document.querySelectorAll('.allInfos').forEach(container => {
-    const infos = container.querySelector('.infos');
-    const moreInfos = container.querySelector('.moreInfos');
+//   document.querySelectorAll('.allInfos').forEach(container => {
+//     const infos = container.querySelector('.infos');
+//     const moreInfos = container.querySelector('.moreInfos');
 
     
-    if (!moreInfos.classList.contains('opacity-0') ) {
-      container.style.maxHeight = `${infos.offsetHeight + moreInfos.offsetHeight}px`;
-    } else {
-      container.style.maxHeight = `${infos.offsetHeight}px`;
-    }
-  });
-}
-function toggleInfo(element) {
-  const container = element.querySelector('.allInfos');
-  const infos = element.querySelector('.infos');
-  const moreInfos = element.querySelector('.moreInfos');
+//     if (!moreInfos.classList.contains('opacity-0') ) {
+//       container.style.maxHeight = `${infos.offsetHeight + moreInfos.offsetHeight}px`;
+//     } else {
+//       container.style.maxHeight = `${infos.offsetHeight}px`;
+//     }
+//   });
+// }
+// function toggleInfo(element) {
+//   const container = element.querySelector('.allInfos');
+//   const infos = element.querySelector('.infos');
+//   const moreInfos = element.querySelector('.moreInfos');
 
-  if (container.style.maxHeight === `${infos.offsetHeight}px`) {
-    container.style.maxHeight = `${infos.offsetHeight + moreInfos.offsetHeight}px`;
-  } else {
-    container.style.maxHeight = `${infos.offsetHeight}px`;
-  }
-  moreInfos.classList.toggle('opacity-0');
-  moreInfos.classList.toggle('scale-y-0');
-}
+//   if (container.style.maxHeight === `${infos.offsetHeight}px`) {
+//     container.style.maxHeight = `${infos.offsetHeight + moreInfos.offsetHeight}px`;
+//   } else {
+//     container.style.maxHeight = `${infos.offsetHeight}px`;
+//   }
+//   moreInfos.classList.toggle('opacity-0');
+//   moreInfos.classList.toggle('scale-y-0');
+// }
 
 // function generateClouds(svgId, numClouds) {
 //   const svg = document.querySelector(svgId);
@@ -370,83 +370,83 @@ function toggleInfo(element) {
 //   }
 // }
 
-document.addEventListener("DOMContentLoaded", function() {
-  const textBoxes = document.querySelectorAll('.text-box');
+// document.addEventListener("DOMContentLoaded", function() {
+//   const textBoxes = document.querySelectorAll('.text-box');
   
-  textBoxes.forEach(function(element) {
-    element.addEventListener('click', function() {
-      toggleInfo(element); // Appelle la fonction toggleInfo avec l'élément cliqué
-    });
-  });
+//   textBoxes.forEach(function(element) {
+//     element.addEventListener('click', function() {
+//       toggleInfo(element); // Appelle la fonction toggleInfo avec l'élément cliqué
+//     });
+//   });
 
-  generateClouds("#cloudySky", 5);
+//   generateClouds("#cloudySky", 5);
 
-  // Ajouter les styles pour l'animation
-  const styleCloud = document.createElement("style");
-  styleCloud.innerHTML = `
-    @keyframes moveClouds {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(var(--distance)); }
-    }
-  `;
-  document.head.appendChild(styleCloud);
-});
+//   // Ajouter les styles pour l'animation
+//   const styleCloud = document.createElement("style");
+//   styleCloud.innerHTML = `
+//     @keyframes moveClouds {
+//         0% { transform: translateX(0); }
+//         100% { transform: translateX(var(--distance)); }
+//     }
+//   `;
+//   document.head.appendChild(styleCloud);
+// });
 
-window.addEventListener('resize', updateHeights);
+// window.addEventListener('resize', updateHeights);
 
 
-const forest = window.innerWidth >= 640 ? document.querySelector('#forestLight') : document.querySelector('#forestLightSM');
+// const forest = window.innerWidth >= 640 ? document.querySelector('#forestLight') : document.querySelector('#forestLightSM');
 
-const forestTl = gsap.timeline({
-  scrollTrigger: {
-    trigger: forest,
-    start: `bottom-=${forest.getBoundingClientRect().height/2} 100%`,
-    end:`bottom-=${forest.getBoundingClientRect().height/5} `,
-    scrub: true,
-    force3D: false
-  },
-  duration: 10
-})
+// const forestTl = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: forest,
+//     start: `bottom-=${forest.getBoundingClientRect().height/2} 100%`,
+//     end:`bottom-=${forest.getBoundingClientRect().height/5} `,
+//     scrub: true,
+//     force3D: false
+//   },
+//   duration: 10
+// })
 
-const frame = window.innerWidth >= 640 ? '.forestFrame' : '.forestFrameSM'
-console.log(document.querySelectorAll(frame))
+// const frame = window.innerWidth >= 640 ? '.forestFrame' : '.forestFrameSM'
+// console.log(document.querySelectorAll(frame))
 
-gsap.set(`#forestFour${window.innerWidth >= 640 ? '' : 'SM'}`, { y:`${document.querySelector(frame).getBoundingClientRect().height/14}px` })
+// gsap.set(`#forestFour${window.innerWidth >= 640 ? '' : 'SM'}`, { y:`${document.querySelector(frame).getBoundingClientRect().height/14}px` })
 
-forestTl.to(`#forestZero${window.innerWidth >= 640 ? '' : 'SM'}`, {
-  ease: "linear",
-  y:`${document.querySelector(frame).getBoundingClientRect().height/6}px`,
-  duration: 10
-}, '-=10')
-.to(`#forestOne${window.innerWidth >= 640 ? '' : 'SM'}`, {
-  ease: "linear",
-  y:`${document.querySelector(frame).getBoundingClientRect().height/8}px`,
-  duration: 10
-}, "-=10")
-.to(`#forestTwo${window.innerWidth >= 640 ? '' : 'SM'}`, {
-  ease: "linear",
-  y:`${document.querySelector(frame).getBoundingClientRect().height/10}px`,
-  duration: 10
-}, "-=10")
-.to(`#forestThree${window.innerWidth >= 640 ? '' : 'SM'}`, {
-  ease: "linear",
-  y:`${document.querySelector(frame).getBoundingClientRect().height/12}px`,
-  duration: 10
-}, "-=10")
-.to(`#forestFour${window.innerWidth >= 640 ? '' : 'SM'}`, {
-  ease: "linear",
-  y:`${document.querySelector(frame).getBoundingClientRect().height/20}px`,
-duration: 10}, "-=10")
-.to(`#forestFive${window.innerWidth >= 640 ? '' : 'SM'}`, {
-  ease: "linear",
-  y:`${document.querySelector(frame).getBoundingClientRect().height/18}px`,
-  duration: 10
-}, "-=10")
-.to(`#forestSeven${window.innerWidth >= 640 ? '' : 'SM'}`, {
-  ease: "linear",
-  y:`${document.querySelector(frame).getBoundingClientRect().height/30}px`,
-  duration: 10
-}, "-=10")
+// forestTl.to(`#forestZero${window.innerWidth >= 640 ? '' : 'SM'}`, {
+//   ease: "linear",
+//   y:`${document.querySelector(frame).getBoundingClientRect().height/6}px`,
+//   duration: 10
+// }, '-=10')
+// .to(`#forestOne${window.innerWidth >= 640 ? '' : 'SM'}`, {
+//   ease: "linear",
+//   y:`${document.querySelector(frame).getBoundingClientRect().height/8}px`,
+//   duration: 10
+// }, "-=10")
+// .to(`#forestTwo${window.innerWidth >= 640 ? '' : 'SM'}`, {
+//   ease: "linear",
+//   y:`${document.querySelector(frame).getBoundingClientRect().height/10}px`,
+//   duration: 10
+// }, "-=10")
+// .to(`#forestThree${window.innerWidth >= 640 ? '' : 'SM'}`, {
+//   ease: "linear",
+//   y:`${document.querySelector(frame).getBoundingClientRect().height/12}px`,
+//   duration: 10
+// }, "-=10")
+// .to(`#forestFour${window.innerWidth >= 640 ? '' : 'SM'}`, {
+//   ease: "linear",
+//   y:`${document.querySelector(frame).getBoundingClientRect().height/20}px`,
+// duration: 10}, "-=10")
+// .to(`#forestFive${window.innerWidth >= 640 ? '' : 'SM'}`, {
+//   ease: "linear",
+//   y:`${document.querySelector(frame).getBoundingClientRect().height/18}px`,
+//   duration: 10
+// }, "-=10")
+// .to(`#forestSeven${window.innerWidth >= 640 ? '' : 'SM'}`, {
+//   ease: "linear",
+//   y:`${document.querySelector(frame).getBoundingClientRect().height/30}px`,
+//   duration: 10
+// }, "-=10")
 
 
 
@@ -527,106 +527,106 @@ Entreprise
 -------------------------------------*/
 
 
-gsap.to('.azProduct', {
-  scrollTrigger: {
-    trigger: '.parallaxAz1',
-    start: "top 100%",
-    end:`bottom 0%`,
-    scrub: true,
-  },
-  ease: "linear",
-  translateY: (window.innerWidth/window.innerHeight) * 100
-})
+// gsap.to('.azProduct', {
+//   scrollTrigger: {
+//     trigger: '.parallaxAz1',
+//     start: "top 100%",
+//     end:`bottom 0%`,
+//     scrub: true,
+//   },
+//   ease: "linear",
+//   translateY: (window.innerWidth/window.innerHeight) * 100
+// })
 
-gsap.to('.azBoutique', {
-  scrollTrigger: {
-    trigger: '.companyContent',
-    start: `top 50%`,
-    end:`bottom 50%`,
-    scrub: true,
-  },
-  ease: "linear",
-  translateX: `-${document.querySelector('.azBoutique').offsetWidth - document.querySelector('.parallaxAz2').offsetWidth}px`
-})
+// gsap.to('.azBoutique', {
+//   scrollTrigger: {
+//     trigger: '.companyContent',
+//     start: `top 50%`,
+//     end:`bottom 50%`,
+//     scrub: true,
+//   },
+//   ease: "linear",
+//   translateX: `-${document.querySelector('.azBoutique').offsetWidth - document.querySelector('.parallaxAz2').offsetWidth}px`
+// })
 
-gsap.to('.azBoutique-2', {
-  scrollTrigger: {
-    trigger: '.parallaxAz2',
-    start: `top 100%`,
-    end:`bottom 0%`,
-    scrub: true,
-  },
-  ease: "linear",
-  translateY: `-${document.querySelector('.azBoutique-2').offsetHeight - document.querySelector('.parallaxAz2').offsetHeight}px`
-})
+// gsap.to('.azBoutique-2', {
+//   scrollTrigger: {
+//     trigger: '.parallaxAz2',
+//     start: `top 100%`,
+//     end:`bottom 0%`,
+//     scrub: true,
+//   },
+//   ease: "linear",
+//   translateY: `-${document.querySelector('.azBoutique-2').offsetHeight - document.querySelector('.parallaxAz2').offsetHeight}px`
+// })
 
 
 /*-------------------------------------
 Projets
 -------------------------------------*/
 
-document.addEventListener('DOMContentLoaded', () => {
-  isMobileDevice('.projectCard')
+// document.addEventListener('DOMContentLoaded', () => {
+//   isMobileDevice('.projectCard')
 
-  const sunLight = document.querySelector('.sunLight')
+//   const sunLight = document.querySelector('.sunLight')
 
-  sunLight.style.width = `${window.innerWidth/4}px`
-  sunLight.style.height = `${window.innerWidth/4}px`
-  sunLight.style.left = `${window.innerWidth/2 - sunLight.offsetWidth/2}px`
-  sunLight.style.bottom = `-${window.innerWidth/15}px`
+//   sunLight.style.width = `${window.innerWidth/4}px`
+//   sunLight.style.height = `${window.innerWidth/4}px`
+//   sunLight.style.left = `${window.innerWidth/2 - sunLight.offsetWidth/2}px`
+//   sunLight.style.bottom = `-${window.innerWidth/15}px`
   
-})
+// })
 
 
-gsap.to('.gradientBackgroundCity', {
-  scrollTrigger: {
-    trigger: '#mesProjets',
-    start: `top+=${document.querySelector('.projectContent').offsetHeight/3}px 50%`,
-    end: `bottom 100%`,
-    scrub: true,
-    force3D: false
-  },
-    opacity:0.8,
-  ease : "power2.in"
-})
+// gsap.to('.gradientBackgroundCity', {
+//   scrollTrigger: {
+//     trigger: '#mesProjets',
+//     start: `top+=${document.querySelector('.projectContent').offsetHeight/3}px 50%`,
+//     end: `bottom 100%`,
+//     scrub: true,
+//     force3D: false
+//   },
+//     opacity:0.8,
+//   ease : "power2.in"
+// })
 
-const citySkyline = window.innerWidth >= 640 ? '.citySkylineLg' : '.citySkylineSm'
+// const citySkyline = window.innerWidth >= 640 ? '.citySkylineLg' : '.citySkylineSm'
 
-gsap.to(citySkyline, {
-  scrollTrigger: {
-    trigger: '#mesProjets',
-    start: `top+=${document.querySelector('.projectContent').offsetHeight/3}px 50%`,
-    end: `bottom 100%`,
-    scrub: true,
-    force3D: false
-  },
-    opacity:1,
-  ease : "power4.in"
-})
+// gsap.to(citySkyline, {
+//   scrollTrigger: {
+//     trigger: '#mesProjets',
+//     start: `top+=${document.querySelector('.projectContent').offsetHeight/3}px 50%`,
+//     end: `bottom 100%`,
+//     scrub: true,
+//     force3D: false
+//   },
+//     opacity:1,
+//   ease : "power4.in"
+// })
 
-console.log(document.querySelector(citySkyline).getBoundingClientRect().height)
+// console.log(document.querySelector(citySkyline).getBoundingClientRect().height)
 
-const sunLightTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: citySkyline,
-    start: `bottom+=${document.querySelector(citySkyline).getBoundingClientRect().height/5} 100%`,
-    end: `bottom 25%`,
-    scrub: true,
-    force3D: false
-  },
-  duration: 10
-})
+// const sunLightTimeline = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: citySkyline,
+//     start: `bottom+=${document.querySelector(citySkyline).getBoundingClientRect().height/5} 100%`,
+//     end: `bottom 25%`,
+//     scrub: true,
+//     force3D: false
+//   },
+//   duration: 10
+// })
 
-const skylineTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: citySkyline,
-    start: `top+=${document.querySelector(citySkyline).getBoundingClientRect().height*0.8} 100%`,
-    end: `bottom`,
-    scrub: true,
-    force3D: false
-  },
-  duration: 10
-})
+// const skylineTimeline = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: citySkyline,
+//     start: `top+=${document.querySelector(citySkyline).getBoundingClientRect().height*0.8} 100%`,
+//     end: `bottom`,
+//     scrub: true,
+//     force3D: false
+//   },
+//   duration: 10
+// })
 
 
 
@@ -669,38 +669,38 @@ const skylineTimeline = gsap.timeline({
 // }, "-=6")
 
 
-const cardTl = gsap.timeline({
-  scrollTrigger: {
-    trigger: '.projectSecTitle',
-    start: "top 60%",
-  },
-  duration: 0.3
-})
+// const cardTl = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: '.projectSecTitle',
+//     start: "top 60%",
+//   },
+//   duration: 0.3
+// })
 
-cardTl.to('.projectCard', {
-  opacity:1,
-  filter: "blur(0px)",
-  scale: 1.05,
-  duration: 0.25,
-  stagger: 0.05
-})
-.to('.projectCard', {
-  scale: 1,
-  duration: 0.1,
-  stagger: 0.03,
-  ease: "power1.out"
-})
+// cardTl.to('.projectCard', {
+//   opacity:1,
+//   filter: "blur(0px)",
+//   scale: 1.05,
+//   duration: 0.25,
+//   stagger: 0.05
+// })
+// .to('.projectCard', {
+//   scale: 1,
+//   duration: 0.1,
+//   stagger: 0.03,
+//   ease: "power1.out"
+// })
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.projectCard').forEach(card => {
-    card.style.height = `${card.offsetWidth/1.6}px`
-  })
-})
-window.addEventListener('resize', () => {
-  document.querySelectorAll('.projectCard').forEach(card => {
-    card.style.height = `${card.offsetWidth/1.6}px`
-  })
-})
+// document.addEventListener('DOMContentLoaded', () => {
+//   document.querySelectorAll('.projectCard').forEach(card => {
+//     card.style.height = `${card.offsetWidth/1.6}px`
+//   })
+// })
+// window.addEventListener('resize', () => {
+//   document.querySelectorAll('.projectCard').forEach(card => {
+//     card.style.height = `${card.offsetWidth/1.6}px`
+//   })
+// })
 
 //SECTION VEILLE TECHNOLOGIQUE
 
@@ -746,16 +746,16 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
 });
 
 
-gsap.to('#veilleToContact', {
-  scrollTrigger: {
-    trigger: '#veilleToContact',
-    start: "top+=200px 70%",
-    toggleActions: 'restart pause reverse pause',
-    end: "bottom ",
-    toggleActions: 'restart pause reverse pause',
-    scrub: true,
-    force3D: false
-  },
-  ease: "linear",
-  translateY: (window.innerWidth/window.innerHeight) * 650
-})
+// gsap.to('#veilleToContact', {
+//   scrollTrigger: {
+//     trigger: '#veilleToContact',
+//     start: "top+=200px 70%",
+//     toggleActions: 'restart pause reverse pause',
+//     end: "bottom ",
+//     toggleActions: 'restart pause reverse pause',
+//     scrub: true,
+//     force3D: false
+//   },
+//   ease: "linear",
+//   translateY: (window.innerWidth/window.innerHeight) * 650
+// })
