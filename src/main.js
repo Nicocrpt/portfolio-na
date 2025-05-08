@@ -61,29 +61,35 @@ window.onload = function() {
     document.querySelector('body').classList.remove('overflow-hidden')
 }
 
-gsap.to('.cloudLayer3', {
-  scrollTrigger: {
-    trigger: '.cloudLayer3',
-    start: `top ${document.querySelector('.cloudLayer3').getBoundingClientRect().top}px`,
-    end:`bottom ${document.querySelector('.cloudLayer3').getBoundingClientRect().top *(0/100)}px`,
-    scrub: true,
-    force3D: false
-  },
-  y: `${(window.innerHeight - document.querySelector('.cloudLayer3').getBoundingClientRect().top)/3}px` ,
-  ease: "linear",
-})
-gsap.to('.cloudLayer2', {
-  scrollTrigger: {
-    trigger: '.cloudLayer2',
-    start: `top ${document.querySelector('.cloudLayer3').getBoundingClientRect().top}px`,
-    end:`bottom ${document.querySelector('.cloudLayer3').getBoundingClientRect().top *(0/100)}px`,
-    scrub: true,
-    force3D: false
-  },
-  y: `${(window.innerHeight - document.querySelector('.cloudLayer2').getBoundingClientRect().top)/4}px`,
-  ease: "linear",
-})
+function generateStars(svgId, numStars, scope = [2, 0.3]) {
+  const svg = document.getElementById(svgId);
+  const width = svg.viewBox.baseVal.width;
+  const height = svg.viewBox.baseVal.height;
 
+  for (let i = 0; i < numStars; i++) {
+    const star = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    const x = Math.random() * width;
+    const y = Math.random() * height;
+    const radius = Math.random() * scope[0] + scope[1]; // Taille entre 0.5 et 3 px
+    const opacity = Math.random() * 0.5 + 0.5; // Opacité entre 0.5 et 1
+
+    star.setAttribute("cx", x);
+    star.setAttribute("cy", y);
+    star.setAttribute("r", radius);
+    star.setAttribute("fill", "white");
+    star.setAttribute("opacity", opacity);
+
+    // Animation scintillement aléatoire
+    star.style.animation = `twinkle ${Math.random() * 3 + 2}s infinite alternate`;
+
+    svg.appendChild(star);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  generateStars("starrySky", 100);
+  generateStars("starrySky", 200, [0.6, 0.2]);
+})
 
 
 // function createShootingStar(angle = -45) {
