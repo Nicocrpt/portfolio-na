@@ -89,127 +89,56 @@ function generateStars(svgId, numStars, scope = [2, 0.3]) {
 document.addEventListener('DOMContentLoaded', () => {
   generateStars("starrySky", 100);
   generateStars("starrySky", 200, [0.6, 0.2]);
+
+
+  setInterval(() => {
+    let angle = 30
+    createShootingStar(angle);  // Passer l'angle à la fonction
+  }, Math.random() * 3000 + 3000);
 })
 
 
-// function createShootingStar(angle = -45) {
-//   const shootingStarsContainer = document.querySelector('.shooting-stars');
-//   const shootingStar = document.createElement('div');
-//   shootingStar.classList.add('shooting-star');
+function createShootingStar(angle = -45) {
+  const shootingStarsContainer = document.querySelector('.shooting-stars');
+  const shootingStar = document.createElement('div');
+  shootingStar.classList.add('shooting-star');
 
-//   // Création de la traînée
-//   const trail = document.createElement('div');
-//   trail.classList.add('trail');
-//   shootingStar.appendChild(trail);
+  // Création de la traînée
+  const trail = document.createElement('div');
+  trail.classList.add('trail');
+  shootingStar.appendChild(trail);
 
-//   // Positionner l'étoile filante à une position horizontale aléatoire
-//   const startX = Math.random() * window.innerWidth; // Largeur de l'écran
-//   const startY = -10; // Commence au-dessus de l'écran
+  // Positionner l'étoile filante à une position horizontale aléatoire
+  const startX = Math.random() * window.innerWidth; // Largeur de l'écran
+  const startY = -10; // Commence au-dessus de l'écran
 
-//   // Position verticale aléatoire (entre 0 et la hauteur de l'écran)
-//   const randomVerticalTranslation = window.innerHeight+10; // Valeur entre 200px et 1000px pour l'exemple
+  // Position verticale aléatoire (entre 0 et la hauteur de l'écran)
+  const randomVerticalTranslation = window.innerHeight+10; // Valeur entre 200px et 1000px pour l'exemple
 
-//   // Calcul du point d'arrivée en utilisant l'angle
-//   const angleInRadians = angle * (Math.PI / 180); // Convertir l'angle en radians
-//    // Calcul de la translation horizontale
-//   const endY = startY + randomVerticalTranslation; 
-//   const endX = startX + randomVerticalTranslation * Math.tan(angleInRadians);  // Calcul de la translation verticale
+  // Calcul du point d'arrivée en utilisant l'angle
+  const angleInRadians = angle * (Math.PI / 180); // Convertir l'angle en radians
+   // Calcul de la translation horizontale
+  const endY = startY + randomVerticalTranslation; 
+  const endX = startX + randomVerticalTranslation * Math.tan(angleInRadians);  // Calcul de la translation verticale
 
-//   // Définir les positions de départ et de fin avec des variables CSS
-//   shootingStar.style.left = `${startX}px`;
-//   shootingStar.style.top = `${startY}px`;
-//   shootingStar.style.setProperty('--end-x', `${endX}px`);
-//   shootingStar.style.setProperty('--end-y', `${endY}px`);
+  // Définir les positions de départ et de fin avec des variables CSS
+  shootingStar.style.left = `${startX}px`;
+  shootingStar.style.top = `${startY}px`;
+  shootingStar.style.setProperty('--end-x', `${endX}px`);
+  shootingStar.style.setProperty('--end-y', `${endY}px`);
 
-//   // Ajouter l'étoile filante au conteneur
-//   shootingStarsContainer.appendChild(shootingStar);
+  // Ajouter l'étoile filante au conteneur
+  shootingStarsContainer.appendChild(shootingStar);
 
-//   // Durée de l'animation (ici 2 secondes)
-//   shootingStar.style.animation = `moveShootingStar 1s linear forwards`;
+  // Durée de l'animation (ici 2 secondes)
+  shootingStar.style.animation = `moveShootingStar 1s linear forwards`;
 
-//   // Supprimer l'étoile et sa traînée après l'animation
-//   setTimeout(() => {
-//     shootingStar.remove();
-//   }, 1000); // 2s pour correspondre à la durée de l'animation
-// }
+  // Supprimer l'étoile et sa traînée après l'animation
+  setTimeout(() => {
+    shootingStar.remove();
+  }, 1000); // 2s pour correspondre à la durée de l'animation
+}
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   generateCanvasStars("starrySkyCanvas", [
-//     { count: 100, sizeRange: [2, 1.5] },  // étoiles plus grosses
-//     { count: 200, sizeRange: [0.8, 0.2] } // étoiles plus petites
-//   ]);
-// });
-
-// // Initialisation du canvas et génération des étoiles
-// function generateCanvasStars(canvasId, layers) {
-//   const canvas = document.getElementById(canvasId);
-// const ctx = canvas.getContext('2d');
-
-// let stars = [];
-
-// // Fonction de redimensionnement du canvas
-// function resizeCanvas() {
-//   const dpr = window.devicePixelRatio || 1;
-//   const width = canvas.clientWidth;
-//   const height = canvas.clientHeight;
-
-//   canvas.width = width * dpr;
-//   canvas.height = height * dpr;
-
-//   ctx.setTransform(1, 0, 0, 1, 0, 0); // Réinitialiser les transformations
-//   ctx.scale(dpr, dpr); // Appliquer un facteur d'échelle pour un rendu net
-
-//   repositionStars(width, height);
-// }
-
-// // Fonction pour repositionner les étoiles lors du redimensionnement
-// function repositionStars(width, height) {
-//   for (const star of stars) {
-//     star.x = Math.random() * width;
-//     star.y = Math.random() * height;
-//   }
-// }
-
-// // Création des étoiles en fonction des couches (grosses et petites)
-// function createStars() {
-//   for (const layer of layers) {
-//     for (let i = 0; i < layer.count; i++) {
-//       stars.push({
-//         x: Math.random() * canvas.width,
-//         y: Math.random() * canvas.height,
-//         radius: Math.random() * layer.sizeRange[0] + layer.sizeRange[1],
-//         twinkleSpeed: Math.random() * 0.5 + 0.1, // Scintillement lent
-//         phaseOffset: Math.random() * Math.PI * 2, // Décalage de phase pour éviter la synchronisation
-//       });
-//     }
-//   }
-// }
-
-//   // Fonction principale d'animation
-// function animate(time) {
-//   ctx.clearRect(0, 0, canvas.width, canvas.height); // Effacer le canvas à chaque frame
-
-//   for (const star of stars) {
-//     // Calcul du scintillement lent
-//     const flicker = Math.sin(time / 1000 * star.twinkleSpeed + star.phaseOffset) * 0.35 + 0.65;
-
-//     ctx.beginPath();
-//     ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-//     ctx.fillStyle = `rgba(255, 255, 255, ${flicker})`; // Couleur blanche avec opacité variable
-//     ctx.fill();
-//   }
-
-//   requestAnimationFrame(animate); // Continuer l'animation
-// }
-
-//   // Appels de fonctions
-// resizeCanvas(); // Redimensionner dès le début
-// createStars(); // Créer les étoiles
-// // window.addEventListener('resize', resizeCanvas); // Réajuster le canvas au redimensionnement
-
-// // Démarrer l'animation
-// requestAnimationFrame(animate);
-// }
 
 
 
@@ -248,17 +177,17 @@ gsap.to('.gradientBackground', {
   ease : "power2.in"
 })
 
-// gsap.to('.clouds', {
-//   scrollTrigger: {
-//     trigger: '.presentationSection',
-//     start: "top",
-//     end: "bottom-=100px 110%",
-//     scrub: 1,
-//     force3D: false
-//   },
-//   opacity:0.8,
-//   ease : "power3.in"
-// })
+gsap.to('.clouds', {
+  scrollTrigger: {
+    trigger: '.presentationSection',
+    start: "top",
+    end: "bottom-=100px 110%",
+    scrub: 1,
+    force3D: false
+  },
+  opacity:0.8,
+  ease : "power3.in"
+})
 
 timelineLabels.forEach(function (svg) {
   if(1==1) {
@@ -344,211 +273,211 @@ function toggleInfo(element) {
   moreInfos.classList.toggle('scale-y-0');
 }
 
-// function generateClouds(svgId, numClouds) {
-//   const svg = document.querySelector(svgId);
-//   const width = svg.viewBox.baseVal.width;
-//   const height = svg.viewBox.baseVal.height;
+function generateClouds(svgId, numClouds) {
+  const svg = document.querySelector(svgId);
+  const width = svg.viewBox.baseVal.width;
+  const height = svg.viewBox.baseVal.height;
 
-//   for (let i = 0; i < numClouds; i++) {
-//       const cloud = document.createElementNS("http://www.w3.org/2000/svg", "g");
-//       cloud.classList.add('blur-[0.8px]');
+  for (let i = 0; i < numClouds; i++) {
+      const cloud = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      cloud.classList.add('blur-[0.8px]');
       
-//       const x = Math.random() * width;
-//       const y = Math.random() * height * 1; // Limite la hauteur des nuages
-//       const scale = Math.random() * 0.4 + 0.4; // Échelle entre 0.6 et 1
-//       const opacity = Math.random() * 0.4 + 0.5; // Opacité entre 0.5 et 0.9
+      const x = Math.random() * width;
+      const y = Math.random() * height * 1; // Limite la hauteur des nuages
+      const scale = Math.random() * 0.4 + 0.4; // Échelle entre 0.6 et 1
+      const opacity = Math.random() * 0.4 + 0.5; // Opacité entre 0.5 et 0.9
 
-//       // Créer une forme de nuage irrégulière avec plusieurs cercles de tailles et positions variées
-//       const numCircles = Math.floor(Math.random() * 4) + 4; // Nombre de cercles entre 4 et 7
-//       for (let j = 0; j < numCircles; j++) {
-//           const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-//           const cx = x + Math.random() * 80 - 40; // Espacement des cercles
-//           const cy = y + Math.random() * 30 - 10; // Variation en hauteur
-//           const radius = Math.random() * 20 + 20; // Taille des cercles
-//           const circleOpacity = Math.random() * 0.5 + 0.5; // Légère variation d'opacité
-//           const grayShade = Math.random() * 30 + 225; // Nuance de gris plus réaliste
+      // Créer une forme de nuage irrégulière avec plusieurs cercles de tailles et positions variées
+      const numCircles = Math.floor(Math.random() * 4) + 4; // Nombre de cercles entre 4 et 7
+      for (let j = 0; j < numCircles; j++) {
+          const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          const cx = x + Math.random() * 80 - 40; // Espacement des cercles
+          const cy = y + Math.random() * 30 - 10; // Variation en hauteur
+          const radius = Math.random() * 20 + 20; // Taille des cercles
+          const circleOpacity = Math.random() * 0.5 + 0.5; // Légère variation d'opacité
+          const grayShade = Math.random() * 30 + 225; // Nuance de gris plus réaliste
 
-//           // Appliquer une couleur de remplissage avec des nuances de gris
-//           circle.setAttribute("cx", cx);
-//           circle.setAttribute("cy", cy);
-//           circle.setAttribute("r", radius);
-//           circle.setAttribute("fill", `rgb(${grayShade}, ${grayShade}, ${grayShade})`);
-//           circle.setAttribute("fill-opacity", circleOpacity);
-//           cloud.appendChild(circle);
-//       }
+          // Appliquer une couleur de remplissage avec des nuances de gris
+          circle.setAttribute("cx", cx);
+          circle.setAttribute("cy", cy);
+          circle.setAttribute("r", radius);
+          circle.setAttribute("fill", `rgb(${grayShade}, ${grayShade}, ${grayShade})`);
+          circle.setAttribute("fill-opacity", circleOpacity);
+          cloud.appendChild(circle);
+      }
 
-//       cloud.setAttribute("transform", `scale(${scale})`);
+      cloud.setAttribute("transform", `scale(${scale})`);
       
-//       // Ajouter le nuage dans l'élément SVG
-//       svg.appendChild(cloud);
+      // Ajouter le nuage dans l'élément SVG
+      svg.appendChild(cloud);
 
-//       // Animation de déplacement avec plus de réalisme
-//       const animationDuration = Math.random() * 30 + 30; // Durée de l'animation entre 15s et 30s
-//       const direction = Math.random() < 0.5 ? 1 : -1; // Direction aléatoire (gauche ou droite)
-//       const distance = Math.random() * 100 + 50; // Déplacement plus important pour plus de réalisme
+      // Animation de déplacement avec plus de réalisme
+      const animationDuration = Math.random() * 30 + 30; // Durée de l'animation entre 15s et 30s
+      const direction = Math.random() < 0.5 ? 1 : -1; // Direction aléatoire (gauche ou droite)
+      const distance = Math.random() * 100 + 50; // Déplacement plus important pour plus de réalisme
 
-//       // Ajouter une animation de mouvement
-//       cloud.style.animation = `moveClouds ${animationDuration}s linear infinite alternate`;
+      // Ajouter une animation de mouvement
+      cloud.style.animation = `moveClouds ${animationDuration}s linear infinite alternate`;
 
-//       // Ajouter une propriété CSS pour la distance
-//       cloud.style.setProperty('--distance', `${distance * direction}px`);
+      // Ajouter une propriété CSS pour la distance
+      cloud.style.setProperty('--distance', `${distance * direction}px`);
 
-//       // Ajouter un z-index aléatoire entre 0 et 40 (exclus)
-//       const zIndex = Math.floor(Math.random() * 40); // z-index entre 0 et 39
-//       cloud.style.zIndex = zIndex;
-//   }
-// }
+      // Ajouter un z-index aléatoire entre 0 et 40 (exclus)
+      const zIndex = Math.floor(Math.random() * 40); // z-index entre 0 et 39
+      cloud.style.zIndex = zIndex;
+  }
+}
 
-// document.addEventListener("DOMContentLoaded", function() {
-//   const textBoxes = document.querySelectorAll('.text-box');
+document.addEventListener("DOMContentLoaded", function() {
+  const textBoxes = document.querySelectorAll('.text-box');
   
-//   textBoxes.forEach(function(element) {
-//     element.addEventListener('click', function() {
-//       toggleInfo(element); // Appelle la fonction toggleInfo avec l'élément cliqué
-//     });
-//   });
+  textBoxes.forEach(function(element) {
+    element.addEventListener('click', function() {
+      toggleInfo(element); // Appelle la fonction toggleInfo avec l'élément cliqué
+    });
+  });
 
-//   generateClouds("#cloudySky", 5);
+  generateClouds("#cloudySky", 5);
 
-//   // Ajouter les styles pour l'animation
-//   const styleCloud = document.createElement("style");
-//   styleCloud.innerHTML = `
-//     @keyframes moveClouds {
-//         0% { transform: translateX(0); }
-//         100% { transform: translateX(var(--distance)); }
-//     }
-//   `;
-//   document.head.appendChild(styleCloud);
-// });
+  // Ajouter les styles pour l'animation
+  const styleCloud = document.createElement("style");
+  styleCloud.innerHTML = `
+    @keyframes moveClouds {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(var(--distance)); }
+    }
+  `;
+  document.head.appendChild(styleCloud);
+});
 
-// window.addEventListener('resize', updateHeights);
-
-
-// const forest = window.innerWidth >= 640 ? document.querySelector('#forestLight') : document.querySelector('#forestLightSM');
-
-// const forestTl = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: forest,
-//     start: `bottom-=${forest.getBoundingClientRect().height/2} 100%`,
-//     end:`bottom-=${forest.getBoundingClientRect().height/5} `,
-//     scrub: true,
-//     force3D: false
-//   },
-//   duration: 10
-// })
-
-// const frame = window.innerWidth >= 640 ? '.forestFrame' : '.forestFrameSM'
-// console.log(document.querySelectorAll(frame))
-
-// gsap.set(`#forestFour${window.innerWidth >= 640 ? '' : 'SM'}`, { y:`${document.querySelector(frame).getBoundingClientRect().height/14}px` })
-
-// forestTl.to(`#forestZero${window.innerWidth >= 640 ? '' : 'SM'}`, {
-//   ease: "linear",
-//   y:`${document.querySelector(frame).getBoundingClientRect().height/6}px`,
-//   duration: 10
-// }, '-=10')
-// .to(`#forestOne${window.innerWidth >= 640 ? '' : 'SM'}`, {
-//   ease: "linear",
-//   y:`${document.querySelector(frame).getBoundingClientRect().height/8}px`,
-//   duration: 10
-// }, "-=10")
-// .to(`#forestTwo${window.innerWidth >= 640 ? '' : 'SM'}`, {
-//   ease: "linear",
-//   y:`${document.querySelector(frame).getBoundingClientRect().height/10}px`,
-//   duration: 10
-// }, "-=10")
-// .to(`#forestThree${window.innerWidth >= 640 ? '' : 'SM'}`, {
-//   ease: "linear",
-//   y:`${document.querySelector(frame).getBoundingClientRect().height/12}px`,
-//   duration: 10
-// }, "-=10")
-// .to(`#forestFour${window.innerWidth >= 640 ? '' : 'SM'}`, {
-//   ease: "linear",
-//   y:`${document.querySelector(frame).getBoundingClientRect().height/20}px`,
-// duration: 10}, "-=10")
-// .to(`#forestFive${window.innerWidth >= 640 ? '' : 'SM'}`, {
-//   ease: "linear",
-//   y:`${document.querySelector(frame).getBoundingClientRect().height/18}px`,
-//   duration: 10
-// }, "-=10")
-// .to(`#forestSeven${window.innerWidth >= 640 ? '' : 'SM'}`, {
-//   ease: "linear",
-//   y:`${document.querySelector(frame).getBoundingClientRect().height/30}px`,
-//   duration: 10
-// }, "-=10")
+window.addEventListener('resize', updateHeights);
 
 
+const forest = window.innerWidth >= 640 ? document.querySelector('#forestLight') : document.querySelector('#forestLightSM');
+
+const forestTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: forest,
+    start: `bottom-=${forest.getBoundingClientRect().height/2} 100%`,
+    end:`bottom-=${forest.getBoundingClientRect().height/5} `,
+    scrub: true,
+    force3D: false
+  },
+  duration: 10
+})
+
+const frame = window.innerWidth >= 640 ? '.forestFrame' : '.forestFrameSM'
+console.log(document.querySelectorAll(frame))
+
+gsap.set(`#forestFour${window.innerWidth >= 640 ? '' : 'SM'}`, { y:`${document.querySelector(frame).getBoundingClientRect().height/14}px` })
+
+forestTl.to(`#forestZero${window.innerWidth >= 640 ? '' : 'SM'}`, {
+  ease: "linear",
+  y:`${document.querySelector(frame).getBoundingClientRect().height/6}px`,
+  duration: 10
+}, '-=10')
+.to(`#forestOne${window.innerWidth >= 640 ? '' : 'SM'}`, {
+  ease: "linear",
+  y:`${document.querySelector(frame).getBoundingClientRect().height/8}px`,
+  duration: 10
+}, "-=10")
+.to(`#forestTwo${window.innerWidth >= 640 ? '' : 'SM'}`, {
+  ease: "linear",
+  y:`${document.querySelector(frame).getBoundingClientRect().height/10}px`,
+  duration: 10
+}, "-=10")
+.to(`#forestThree${window.innerWidth >= 640 ? '' : 'SM'}`, {
+  ease: "linear",
+  y:`${document.querySelector(frame).getBoundingClientRect().height/12}px`,
+  duration: 10
+}, "-=10")
+.to(`#forestFour${window.innerWidth >= 640 ? '' : 'SM'}`, {
+  ease: "linear",
+  y:`${document.querySelector(frame).getBoundingClientRect().height/20}px`,
+duration: 10}, "-=10")
+.to(`#forestFive${window.innerWidth >= 640 ? '' : 'SM'}`, {
+  ease: "linear",
+  y:`${document.querySelector(frame).getBoundingClientRect().height/18}px`,
+  duration: 10
+}, "-=10")
+.to(`#forestSeven${window.innerWidth >= 640 ? '' : 'SM'}`, {
+  ease: "linear",
+  y:`${document.querySelector(frame).getBoundingClientRect().height/30}px`,
+  duration: 10
+}, "-=10")
 
 
 
 
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   const container = window.innerWidth >= 640 ? document.querySelector(".particle-container") : document.querySelector(".particle-container-sm");
-//   console.log(container)
-//   const numParticles = 30; // Nombre de particules
 
-//   for (let i = 0; i < numParticles; i++) {
-//       createParticle();
-//   }
-//   function createParticle() {
-//     const particle = document.createElement("div");
-//     particle.classList.add("particle");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const container = window.innerWidth >= 640 ? document.querySelector(".particle-container") : document.querySelector(".particle-container-sm");
+  console.log(container)
+  const numParticles = 30; // Nombre de particules
+
+  for (let i = 0; i < numParticles; i++) {
+      createParticle();
+  }
+  function createParticle() {
+    const particle = document.createElement("div");
+    particle.classList.add("particle");
   
-//     // Déterminer si la particule part de la gauche ou de la droite
-//     const isLeftToRight = Math.random() > 0.5;
+    // Déterminer si la particule part de la gauche ou de la droite
+    const isLeftToRight = Math.random() > 0.5;
   
-//     // Position horizontale (hors écran)
-//     const startX = isLeftToRight ? -20 : container.clientWidth + 20;
-//     const endX = isLeftToRight ? container.clientWidth + 20 : -20;
+    // Position horizontale (hors écran)
+    const startX = isLeftToRight ? -20 : container.clientWidth + 20;
+    const endX = isLeftToRight ? container.clientWidth + 20 : -20;
   
-//     // Position verticale aléatoire
-//     const startY = Math.random() * container.clientHeight;
+    // Position verticale aléatoire
+    const startY = Math.random() * container.clientHeight;
   
-//     particle.style.left = `${startX}px`;
-//     particle.style.top = `${startY}px`;
+    particle.style.left = `${startX}px`;
+    particle.style.top = `${startY}px`;
   
-//     // Profondeur : Plus z-index est grand, plus la particule est "devant"
-//     const zIndex = Math.floor(Math.random() * 45);
-//     particle.style.zIndex = zIndex;
+    // Profondeur : Plus z-index est grand, plus la particule est "devant"
+    const zIndex = Math.floor(Math.random() * 45);
+    particle.style.zIndex = zIndex;
   
-//     // Taille et transparence en fonction de la profondeur
-//     const size = Math.random() * 10 + 2; // Entre 2px et 8px
-//     const opacity = 0.3 + (zIndex / 100) * 2; // Plus le zIndex est grand, plus c'est visible
+    // Taille et transparence en fonction de la profondeur
+    const size = Math.random() * 10 + 2; // Entre 2px et 8px
+    const opacity = 0.3 + (zIndex / 100) * 2; // Plus le zIndex est grand, plus c'est visible
   
-//     particle.style.width = `${size}px`;
-//     particle.style.height = `${size}px`;
-//     particle.style.backgroundColor = `rgba(255, 241, 149, ${opacity})`;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.backgroundColor = `rgba(255, 241, 149, ${opacity})`;
   
-//     // Amplitude du flottement vertical
-//     const floatAmplitude = Math.random() * 40 + 10; // Entre 10px et 50px
+    // Amplitude du flottement vertical
+    const floatAmplitude = Math.random() * 40 + 10; // Entre 10px et 50px
   
-//     // Durée de l'animation
-//     const duration = Math.random() * 15 + 45; // Entre 5s et 15s
+    // Durée de l'animation
+    const duration = Math.random() * 15 + 45; // Entre 5s et 15s
   
-//     // Animation combinée (mouvement horizontal + flottement vertical)
-//     particle.animate(
-//         [
-//             { transform: `translate(0px, 0px)`, opacity: opacity },
-//             { transform: `translate(${(endX - startX) / 2}px, ${-floatAmplitude}px)`, opacity: opacity * 0.8 },
-//             { transform: `translate(${endX - startX}px, ${floatAmplitude}px)`, opacity: opacity * 0.5 }
-//         ],
-//         {
-//             duration: duration * 1000,
-//             iterations: 1,
-//             easing: "linear"
-//         }
-//     );
+    // Animation combinée (mouvement horizontal + flottement vertical)
+    particle.animate(
+        [
+            { transform: `translate(0px, 0px)`, opacity: opacity },
+            { transform: `translate(${(endX - startX) / 2}px, ${-floatAmplitude}px)`, opacity: opacity * 0.8 },
+            { transform: `translate(${endX - startX}px, ${floatAmplitude}px)`, opacity: opacity * 0.5 }
+        ],
+        {
+            duration: duration * 1000,
+            iterations: 1,
+            easing: "linear"
+        }
+    );
   
-//     container.appendChild(particle);
+    container.appendChild(particle);
   
-//     // Supprimer et recréer la particule après son cycle
-//     setTimeout(() => {
-//         particle.remove();
-//         createParticle();
-//     }, duration * 1000);
-//   }
-// });
+    // Supprimer et recréer la particule après son cycle
+    setTimeout(() => {
+        particle.remove();
+        createParticle();
+    }, duration * 1000);
+  }
+});
 
 
 /*-------------------------------------
