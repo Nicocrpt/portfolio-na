@@ -9,34 +9,16 @@
   <script type="module" crossorigin src="./assets/index-CRnpdUBQ.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-DNoGQzSC.css">
 </head>
-<body class="relative" x-data="{ burgerMenu: false, projectModal: false, scrolled: false, init() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const modalParam = urlParams.get('modal');
-    
-    if (modalParam) {
-      this.projectModal = true;
-      setTimeout(() => {
-        const targetElement = document.querySelector('.mes-projets');
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 300);
-    }
-  },
-    closeModal() {
-      // Ferme la modale et nettoie l'URL
-      this.projectModal = false;
-      history.pushState({}, document.title, window.location.pathname); // Nettoie l'URL en supprimant le paramètre 'modal'
-  } }" x-init="init" class="overflow-hidden">
+<body class="relative" x-data="{ burgerMenu: false, projectModal: false, scrolled: false}" x-init="init" class="overflow-hidden">
 
     <!-- HEADER -->
-    <header class="">
+    <!-- <header class="">
         <div  class="transition-all ease-linear duration-300 navBar z-50 fixed top-0 w-full h-16 flex items-center" 
         :class="scrolled ? 'bg-black/80 backdrop-blur' : 'bg-transparent'"
         @scroll.window="scrolled = (window.scrollY > window.innerHeight*0.8)">
             <nav class="flex items-center gap-10 mx-4 lg:mx-10 justify-between flex-row-reverse md:flex-row md:justify-start w-full">
                 <div class="flex justify-center max-md:flex-row-reverse items-center gap-4">
-                <img src="./favicon.svg" alt="" class="w-8 md:mr-4">
+                <img src="/favicon.svg" alt="" class="w-8 md:mr-4">
                     
                 <h1 class="text-white text-2xl font-bold">Nicolas Carpita</h1>
                 </div>
@@ -77,54 +59,10 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
     
     <main class="!max-w-screen !overflow-x-hidden relative">
-        <div :class="scrolled ? 'opacity-0' : 'opacity-100'" class="homeBackground fixed z-0 top-0 h-[100dvh] w-screen flex justify-center items-center pointer-events-none" style="background: rgb(0,21,33);background: linear-gradient(180deg, rgba(0,21,33,1) 0%, rgba(0,39,62,1) 57%, rgba(0,66,102,1) 100%);">
 
-            <!-- Voie lactée -->
-            <div class="galaxy-background absolute top-0 left-0 -mt-32 -ml-12 opacity-50 w-[calc(100vw+3rem)] h-full pointer-events-none">
-              <svg id="milkyway" class="w-full" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 1920 1080" preserveaspectratio="xMidYMid slice">
-                <defs>
-                  <radialGradient id="milkyway-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                    <stop offset="0%" style="stop-color: rgba(255, 255, 255, 0.9); stop-opacity: 0.7" />
-                    <stop offset="100%" style="stop-color: rgba(255, 255, 255, 0.1); stop-opacity: 0" />
-                  </radialGradient>
-                  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blurred"/>
-                    <feMerge>
-                      <feMergeNode in="blurred"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                  </filter>
-                </defs>
-                <g id="stars">
-                  <circle cx="150" cy="250" r="2" fill="white" />
-                  <circle cx="450" cy="600" r="3" fill="white" />
-                  <circle cx="800" cy="200" r="1.5" fill="white" />
-                  <circle cx="1200" cy="900" r="4" fill="white" />
-                  <circle cx="1600" cy="500" r="2.5" fill="white" />
-                  <circle cx="1700" cy="700" r="1" fill="white" />
-                  <circle cx="300" cy="900" r="2" fill="white" />
-                  <circle cx="1000" cy="800" r="1.8" fill="white" />
-                  <circle cx="1800" cy="400" r="2.3" fill="white" />
-                  <circle cx="1400" cy="300" r="2" fill="white" />
-    
-                </g>
-                <g id="clouds" class="opacity-10" fill="url(#milkyway-gradient)" filter="url(#glow)">
-    
-                  <path d="M0,700 C200,850 600,900 1000,600 C1400,400 1600,500 1920,400 C1800,250 1400,300 1000,500 C600,700 200,800 0,700" />
-                </g>
-              </svg>
-            </div>
-    
-            <!-- Ciel étoilé -->
-            <!-- <svg id="starrySky" class="absolute top-0 left-0 h-full pointer-events-none" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"></svg> -->
-            <canvas id="starrySkyCanvas" class="absolute top-0 left-0 h-full w-full pointer-events-none"></canvas>
-    
-            <!-- Etoiles filantes container -->
-            <div class="shooting-stars absolute top60 left-0 w-full h-full z-10 pointer-events-none"></div>
-        </div>
           
           <!-- Home -->
           <section id="homeSection" class="h-[100dvh] w-full relative z-10 flex items-center justify-center" >
