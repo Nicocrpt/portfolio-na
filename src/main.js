@@ -33,33 +33,33 @@ Alpine.start()
 //   })  
 // }
 
-function showInfos(element) {
-  const content = element.querySelector('.projectCardContent')
-  const text = element.querySelector('.projectCardText')
-  content.classList.toggle('!top-0')
-  text.classList.toggle('opacity-0')
-  text.classList.toggle('blur')
-}
+// function showInfos(element) {
+//   const content = element.querySelector('.projectCardContent')
+//   const text = element.querySelector('.projectCardText')
+//   content.classList.toggle('!top-0')
+//   text.classList.toggle('opacity-0')
+//   text.classList.toggle('blur')
+// }
 
-function injectImage(element) {
-  let wrapper = document.querySelector('#imageReceiver')
-  wrapper.innerHTML = element.outerHTML
-  let image = wrapper.children[0]
-  image.style.maxWidth = window.innerWidth > 450 ? '80%' : '99%'
-  image.style.maxHeight = '95%'
-  image.style.borderRadius = '2px'
-  if (image.classList.contains('aspect-16/9')) {
-    image.classList.remove('aspect-16/9')
-  }
-}
+// function injectImage(element) {
+//   let wrapper = document.querySelector('#imageReceiver')
+//   wrapper.innerHTML = element.outerHTML
+//   let image = wrapper.children[0]
+//   image.style.maxWidth = window.innerWidth > 450 ? '80%' : '99%'
+//   image.style.maxHeight = '95%'
+//   image.style.borderRadius = '2px'
+//   if (image.classList.contains('aspect-16/9')) {
+//     image.classList.remove('aspect-16/9')
+//   }
+// }
 
-window.showInfos = showInfos;
-window.injectImage = injectImage;
+// window.showInfos = showInfos;
+// window.injectImage = injectImage;
 
-window.onload = function() {
-    document.querySelector(".loader-wrapper").style.display = "none";
-    document.querySelector('body').classList.remove('overflow-hidden')
-}
+// window.onload = function() {
+//     document.querySelector(".loader-wrapper").style.display = "none";
+//     document.querySelector('body').classList.remove('overflow-hidden')
+// }
 
 
 
