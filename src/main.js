@@ -649,11 +649,16 @@ cardTl.to('.projectCard', {
 })
 
 document.addEventListener('DOMContentLoaded', () => {
+  const myName = document.querySelector('.mainTitle')
+  myName.style.top = `${window.innerHeight/2 - myName.offsetHeight/2}px`
   document.querySelectorAll('.projectCard').forEach(card => {
     card.style.height = `${card.offsetWidth/1.6}px`
   })
 })
 window.addEventListener('resize', () => {
+  const myName = document.querySelector('.mainTitle')
+  myName.style.top = `${window.innerHeight/2 - myName.offsetHeight/2}px`
+
   document.querySelectorAll('.projectCard').forEach(card => {
     card.style.height = `${card.offsetWidth/1.6}px`
   })
