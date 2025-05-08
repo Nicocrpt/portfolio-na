@@ -61,6 +61,29 @@ window.onload = function() {
     document.querySelector('body').classList.remove('overflow-hidden')
 }
 
+gsap.to('.cloudLayer3', {
+  scrollTrigger: {
+    trigger: '.cloudLayer3',
+    start: `top ${document.querySelector('.cloudLayer3').getBoundingClientRect().top}px`,
+    end:`bottom ${document.querySelector('.cloudLayer3').getBoundingClientRect().top *(0/100)}px`,
+    scrub: true,
+    force3D: false
+  },
+  y: `${(window.innerHeight - document.querySelector('.cloudLayer3').getBoundingClientRect().top)/3}px` ,
+  ease: "linear",
+})
+gsap.to('.cloudLayer2', {
+  scrollTrigger: {
+    trigger: '.cloudLayer2',
+    start: `top ${document.querySelector('.cloudLayer3').getBoundingClientRect().top}px`,
+    end:`bottom ${document.querySelector('.cloudLayer3').getBoundingClientRect().top *(0/100)}px`,
+    scrub: true,
+    force3D: false
+  },
+  y: `${(window.innerHeight - document.querySelector('.cloudLayer2').getBoundingClientRect().top)/4}px`,
+  ease: "linear",
+})
+
 
 
 // function createShootingStar(angle = -45) {
