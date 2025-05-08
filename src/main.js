@@ -562,7 +562,6 @@ gsap.to(citySkyline, {
   ease : "power4.in"
 })
 
-// console.log(document.querySelector(citySkyline).getBoundingClientRect().height)
 
 const sunLightTimeline = gsap.timeline({
   scrollTrigger: {

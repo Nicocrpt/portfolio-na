@@ -13,6 +13,8 @@
     const modalParam = urlParams.get('modal');
     
     if (modalParam) {
+    document.querySelector('.projectReciever').innerHTML = document.querySelector('.solaris-scanner').innerHTML; 
+    document.querySelector('body').classList.add('!overflow-hidden'); 
       this.projectModal = true;
       setTimeout(() => {
         const targetElement = document.querySelector('.mes-projets');
@@ -923,7 +925,7 @@
                   </div>
                 </div>
     
-                <!-- Projet 6 -->
+                <!-- Projet Scanner -->
     
                 <div class=" relative overflow-hidden projectCard bg-[url('./Images/solaris-scanner-login-crop.png')]">
                   <div class="projectCardContent top-2/3 group-hover:top-0">
@@ -934,9 +936,25 @@
                           <p class="projectCardText opacity-0 blur group-hover:opacity-100 group-hover:blur-none">Création d'une application mobile de scan de QR code dans le contexte de mes projets de fin d'études</p>
                       </div>
                       <div class="flex justify-center items-center">
-                        <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-6').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="projectCardBtn">En savoir plus</button>
+                        <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.solaris-scanner').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="projectCardBtn">En savoir plus</button>
                       </div>
                   </div>
+                </div>
+
+                <!-- Projet Cinema -->
+
+                <div class=" relative overflow-hidden projectCard bg-[url('./Images/cinemasolaris-example-laravel.png')]">
+                    <div class="projectCardContent top-2/3 group-hover:top-0">
+                        <div class="w-full h-full flex justify-center items-center">
+                            <h2 class="text-white text-2xl text-center font-semibold">Site web cinemasolaris.fr</h2>
+                        </div>
+                        <div class="px-4 flex flex-col justify-between">
+                            <p class="projectCardText opacity-0 blur group-hover:opacity-100 group-hover:blur-none">Création d'un site web pour un cinéma fictif dans le contexte de mes projets de fin d'études.</p>
+                        </div>
+                        <div class="flex justify-center items-center">
+                            <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.site-web-solaris').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="projectCardBtn">En savoir plus</button>
+                        </div>
+                    </div>
                 </div>
     
               </div>
@@ -1433,7 +1451,112 @@
                 </div>
               </div>
     
-              <div class="project-6 w-full h-full flex flex-col justify-center items-center bg-red-500 overflow-scroll p-12 ">
+              <div class="solaris-scanner w-full h-full flex flex-col justify-center items-center bg-red-500 overflow-scroll p-12 ">
+                <h2 class="text-white text-6xl font-semibold mt-36 text-center">Application mobile Solaris Scanner</h2>
+                <h3 class="text-xl text-center mt-4">En cours de formation</h3>
+    
+                <div class="mt-12">
+                  <h4 class="text-center text-2xl font-semibold mb-4">Compétences mobilisées</h4>
+    
+                  <ul class="list-disc flex flex-col justify-center items-center w-full mb-24">
+                    <li>Collecter, suivre et orienter des demandes</li>
+                    <li>Traiter des demandes concernant les applications</li>
+                    <li>Évaluer les indicateurs de suivi d’un projet et analyser les écarts</li>
+                    <li>Réaliser les tests d’intégration et d’acceptation d’un service</li>
+                  </ul>
+                </div>
+    
+                <div class="vueEnsemble my-12">
+                  <h5 class="text-2xl font-semibold mb-4">Vue d'ensemble</h5>
+                  <p class="mb-2">
+                    Dans le cadre de mon BTS, j'ai du créer une solution applicative dite "client lourd", c'est à dire ayant du code s'éxécutant localement. J'ai choisi de développer une application mobile Android qui entrerait en synergie avec mon second projet d'étude : le site web d'un cinéma (fictif) : <span class="font-semibold">Le cinéma Solaris</span>. Cette application consiste en une solution pratique à destination des employés du cinéma pour valider les réservations client. Elle se base sur un QR code représentant la reservation que le client présentera à l'employé, qui le scannera pour valider ou "composter" virtuellement la réservation, ou constater un potentiel défaut concernant la réservation.
+                 </p>
+    
+                 <p>Les principaux enjeux ont été les modalités d'accès à la base de donnée du site web depuis un appareil mobile et l'intégration d'une solution de scan de QR code.</p>
+                </div>
+    
+                <div class="tools py-12">
+                  <h5 class="text-2xl font-semibold mb-4">Outils & utilisation</h5>
+                  <div class="vscode flex gap-4 items-center">
+                    <img src="Images/JetBrains_Rider_Icon.svg" class="w-24"/>
+                    <div>
+                      <h5 class="text-lg font-semibold mb-1">JetBrains Rider</h5>
+                      <p>Rider est un IDE (Environnement de Developpement Intégré) concu pour la plateforme .NET et le développement en C#, le langage que j'ai choisi pour ce projet.</p>
+                    </div>
+                  </div>
+                  <div class="php flex gap-4 items-center">
+                    <svg  class="w-36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M27.6947 22.9999C27.883 22.6617 28 22.2807 28 21.9385V10.0613C28 9.71913 27.8831 9.33818 27.6947 9L16 16L27.6947 22.9999Z" fill="#7F3A86"></path> <path d="M17.0395 29.7433L26.9611 23.8047C27.2469 23.6336 27.5067 23.3382 27.695 23L16.0003 16L4.30566 23C4.49398 23.3382 4.75382 23.6337 5.03955 23.8047L14.9611 29.7433C15.5326 30.0855 16.468 30.0855 17.0395 29.7433Z" fill="#662579"></path> <path d="M27.6947 8.99996C27.5064 8.6617 27.2465 8.36629 26.9608 8.19521L17.0392 2.25662C16.4677 1.91446 15.5323 1.91446 14.9608 2.25662L5.03922 8.19521C4.46761 8.53729 4 9.37709 4 10.0613V21.9386C4 22.2807 4.11694 22.6618 4.30533 23L16 16L27.6947 8.99996Z" fill="#9A5196"></path> <path d="M16.0385 24C11.6061 24 8 20.4112 8 16C8 11.5888 11.6061 8 16.0385 8C18.8458 8 21.4674 9.47569 22.919 11.8618L19.4765 13.9265C18.7492 12.736 17.4399 12 16.0385 12C13.8222 12 12.0193 13.7944 12.0193 16C12.0193 18.2056 13.8222 20 16.0385 20C17.4362 20 18.7421 19.2681 19.4707 18.0832L22.9205 20.1359C21.4692 22.5234 18.8467 24 16.0385 24Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M25.0001 13V13.9974H22.9999V13H22.0001V13.9974H21V15H22.0001V16.9948H21V18H22.0001V19H22.9999L23 18H25.0001V19H25.9999V18H27V17H25.9999V15H27V13.9974H25.9999V13H25.0001ZM25.0001 17V15H22.9999V16.9948L25.0001 17Z" fill="white"></path> </g></svg>               
+                    <div>
+                    <h5 class="text-lg font-semibold mb-1">C#</h5>
+                      <p>C# est un language de programmation développé par Microsoft, il est approprié pour le developpement d'applications natives et multiplateformes.</p>
+                    </div>
+                  </div>
+                  <div class="javascript flex gap-4 items-center mt-2">
+                    <img src="./Images/maui-logo.png" alt="" class="w-24">
+                    <div>
+                      <h5 class="text-lg font-semibold mb-1">.NET MAUI</h5>
+                      <p>.NET MAUI est un framework qui facilite le développement d'applications multiplateformes en se basant sur le langage C# et le langage d'interface utilisateur XAML.</p>
+                    </div>
+                  </div>
+                  <div class="api flex gap-4 items-center mt-2">
+                    <svg class="w-24" version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" overflow="visible" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <rect y="0" fill="none" width="24" height="24"></rect> <g transform="translate(1.000000, 8.000000)"> <path fill-rule="evenodd" fill="#dfca62" d="M2-1.9c-1.1,0-2.3,1.1-2.3,2.2V10H2V5.5h2.2V10h2.2V0.3c0-1.1-1.1-2.2-2.3-2.2H2 L2-1.9z M2,3.2v-3h2.2v3H2L2,3.2z"></path> <path fill-rule="evenodd" fill="#dfca62" d="M10.3-2C9.1-2,8-0.9,8,0.2V10l2.2,0V5.5h2.2c1.1,0,2.3-1.1,2.3-2.2l0-3 c0-1.1-1.1-2.2-2.3-2.2H10.3L10.3-2z M10.2,3.2v-3h2.2v3H10.2L10.2,3.2z"></path> <polygon fill-rule="evenodd" fill="#dfca62" points="18.5,0.3 18.5,7.8 16.2,7.8 16.2,10 23,10 23,7.8 20.8,7.8 20.8,0.3 23,0.3 23,-1.9 16.2,-1.9 16.2,0.3 "></polygon> <polygon fill-rule="evenodd" fill="#d7ab33" points="2,5.5 2,3.2 3.5,3.2 "></polygon> <polygon fill-rule="evenodd" fill="#d7ab33" points="10.2,5.5 10.2,3.2 11.5,3.2 "></polygon> <polygon fill-rule="evenodd" fill="#d7ab33" points="18.5,1.8 18.5,1.8 18.5,0.3 20.8,0.3 "></polygon> </g> </g> </g></svg>
+                    <div>
+                      <h5 class="text-lg font-semibold mb-1">API</h5>
+                      <p>Une API est une interface de programmation qui permet à différents services/applications d'interagir entre eux au travers de requêtes HTTP. Cela permettra ici à l'application mobile de dialoguer avec le serveur hébergeant le site web solaris et sa base de donnée.</p>
+                    </div>
+                  </div>
+                  <p class="mt-8">L'application a donc été développée dans RIDER en utilisant le framework .NET MAUI et le duo C# et XAML, en essayant de respecter au mieux le paradigme de développement MVVM (Model View ViewModel). Ce choix a été fait suite à l'étude de C# pour m'initier à la programmation orienté objet durant ma formation. Un smartphone android a été utilisé pour assurer les tests de fonctionnement de la solution.</p>
+                  <p class="mt-2">L'application reste relativement simple de conception avec seulement 3 pages/fenêtres qui seront détaillées plus bas :</p>
+                  <ul class="list-disc list-inside">
+                    <li>page de connexion</li>
+                    <li>page de scan</li>
+                    <li>page de résultat</li>
+                  </ul>
+                  <div class="mt-10 grid grid-cols-2">
+                    <div class="flex flex-col gap-2 justify-center items-center pr-1">
+                      <img src="Images/maui-cs.png" alt="" class="aspect-16/9">
+                      <p class="italic text-sm">Code C#</p>
+                    </div>
+                    <div class="flex flex-col gap-2 justify-center items-center pr-1">
+                      <img src="Images/maui-xaml.png" alt="" class="aspect-16/9">
+                      <p class="italic text-sm">Code XAML</p>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="fonctionnement pt-16">
+                  <h5 class="text-2xl font-semibold mb-4">Détails</h5>
+                  <div class="rapports flex flex-col gap-10 my-12">
+                    <div class="flex w-full flex-row-reverse rapport gap-4 border-b border-zinc-500">
+                      <img src="Images/solaris-scanner-login.png" alt="" class="w-[20%] border-x border-t border-zinc-500">
+                      <div class="w-[80%]">
+                        <h6 class="text-lg font-semibold mb-2">Page de connexion</h6>
+                        <p class="pb-4">Cette vue constitue le point d'entrée de l'application, elle invite l'utilisateur à entrer son identifiant et mot de passe. Une fois le bouton de connexion déclenché, une requête API est envoyée avec les données d'identification (le mot de passe est haché) au site web Solaris qui va procéder à une verification (si l'utilisateur existe et possède les autorisations adéquates). Si la connexion est autorisée, un jeton (token) de connexion est renvoyé à l'application, ce qui lui permettra d'effectuer d'autres requêtes vers le site web Solaris. De plus ce jeton fera office de témoin de connexion, évitant à l'utilisateur d'avoir à se reconnecter pendant une durée de 1H après la connexion, et ce même si l'application est fermée.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex w-full flex-row rapport gap-4  border-b border-zinc-500">
+                      <img src="Images/solaris-scanner-scan.png" alt="" class="w-[20%] border-x border-t border-zinc-500">
+                      <div class="w-[80%]">
+                        <h6 class="text-lg font-semibold mb-2">Page de Scan</h6>
+                        <p class="pb-4">Cette page devient la page d'accueil de l'application une fois l'utilisateur connecté. Elle est relié à la caméra de l'appareil et utilise une extension pour .NET MAUI spécialisée dans la détection de QR CODE : <span class="font-semibold">BarcodeScanning</span>. Plusieurs options sont à la disposition de l'utilisateur : l'activation du flash et le mode "auto-scan" (initialement, il est besoin de cliquer sur le bouton central pour activer le scan). En cas de détection d'un QR Code, les données que contiennent celui ci vont être récupérées et l'application va rediriger l'utilisateur vers la page de résultat, qui s'occupera d'effectuer une requête de validation et d'afficher le résultat.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex w-full flex-row-reverse rapport gap-4  border-b border-zinc-500">
+                      <img src="Images/solaris-scanner-result.png" alt="" class="w-[20%] border-x border-t border-zinc-500">
+                      <div class="w-[80%]">
+                        <h6 class="text-lg font-semibold mb-2">Page de résultat</h6>
+                        <p class="pb-4">La page de résultat apparait une fois qu'un scan a été effectué, elle est donc chargée avec les données relative au scan en question. Elle va en premier lieu effectuer une requête API pour vérifier l'intégrité et la validité de la valeur du QR Code soumis, et afficher le résultat correspondant, cette requête ne pourra fonctionner sans le jeton de connexion obtenu lors de la connexion à l'application. Si le contenu du QR code n'est pas un identifiant de  réservation, un message d'erreur générique sera affiché, invitant l'utilisateur à retourner à la page de scan. Si la réservation existe, plusieurs vérifications seront faites côté serveur : si la réservation n'a pas été annulée ou déjà "compostée" et si l'heure de scan n'est pas trop en avance par rapport à la séance ; dans le premier cas, un message d'avertissement sera retourné avec les détails de l'erreur et dans le second cas, une invitation à réiterer la validation plus tard sera retournée. Dans le cas ou tout est en règle, les informations utiles sont retournées pour être affichées : nom du film, nombre de places sur la réservation, date et heure de la séance ainsi que le numéro de salle.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <div class="site-web-solaris w-full h-full flex flex-col justify-center items-center bg-red-500 overflow-scroll p-12 ">
                 <h2 class="text-white text-6xl font-semibold mt-36 text-center">Application mobile Solaris Scanner</h2>
                 <h3 class="text-xl text-center mt-4">En cours de formation</h3>
     
@@ -1733,7 +1856,7 @@
     x-transition:leave-start="translate-x-0 opacity-100"
     x-transition:leave-end="translate-x-[100%] opacity-0 blur-3xl">
         <div class="w-full min-h-full relative">
-        <div class="sm:h-20 h-16 mt-[64px] w-full bg-black/50 backdrop-blur-sm flex items-center sticky top-0 left-0">
+        <div class="sm:h-20 h-16 fixed top-[64px] w-full bg-black/50 backdrop-blur-sm flex items-center left-0">
             <button class="mx-2 cursor-pointer" @click="projectModal = false; document.querySelector('body').classList.remove('!overflow-hidden'); closeModal()" x-show="projectModal" x-transition:enter="transition transform ease-in-out duration-500"
             x-transition:enter-start="opacity-0 rotate-90"
             x-transition:enter-end="opacity-100 rotate-0"
