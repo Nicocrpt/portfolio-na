@@ -454,72 +454,72 @@ let timelineLabels = document.querySelectorAll('.timelineLabel');
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const container = window.innerWidth >= 640 ? document.querySelector(".particle-container") : document.querySelector(".particle-container-sm");
-  console.log(container)
-  const numParticles = 30; // Nombre de particules
+// document.addEventListener("DOMContentLoaded", () => {
+//   const container = window.innerWidth >= 640 ? document.querySelector(".particle-container") : document.querySelector(".particle-container-sm");
+//   console.log(container)
+//   const numParticles = 30; // Nombre de particules
 
-  for (let i = 0; i < numParticles; i++) {
-      createParticle();
-  }
-  function createParticle() {
-    const particle = document.createElement("div");
-    particle.classList.add("particle");
+//   for (let i = 0; i < numParticles; i++) {
+//       createParticle();
+//   }
+//   function createParticle() {
+//     const particle = document.createElement("div");
+//     particle.classList.add("particle");
   
-    // Déterminer si la particule part de la gauche ou de la droite
-    const isLeftToRight = Math.random() > 0.5;
+//     // Déterminer si la particule part de la gauche ou de la droite
+//     const isLeftToRight = Math.random() > 0.5;
   
-    // Position horizontale (hors écran)
-    const startX = isLeftToRight ? -20 : container.clientWidth + 20;
-    const endX = isLeftToRight ? container.clientWidth + 20 : -20;
+//     // Position horizontale (hors écran)
+//     const startX = isLeftToRight ? -20 : container.clientWidth + 20;
+//     const endX = isLeftToRight ? container.clientWidth + 20 : -20;
   
-    // Position verticale aléatoire
-    const startY = Math.random() * container.clientHeight;
+//     // Position verticale aléatoire
+//     const startY = Math.random() * container.clientHeight;
   
-    particle.style.left = `${startX}px`;
-    particle.style.top = `${startY}px`;
+//     particle.style.left = `${startX}px`;
+//     particle.style.top = `${startY}px`;
   
-    // Profondeur : Plus z-index est grand, plus la particule est "devant"
-    const zIndex = Math.floor(Math.random() * 45);
-    particle.style.zIndex = zIndex;
+//     // Profondeur : Plus z-index est grand, plus la particule est "devant"
+//     const zIndex = Math.floor(Math.random() * 45);
+//     particle.style.zIndex = zIndex;
   
-    // Taille et transparence en fonction de la profondeur
-    const size = Math.random() * 10 + 2; // Entre 2px et 8px
-    const opacity = 0.3 + (zIndex / 100) * 2; // Plus le zIndex est grand, plus c'est visible
+//     // Taille et transparence en fonction de la profondeur
+//     const size = Math.random() * 10 + 2; // Entre 2px et 8px
+//     const opacity = 0.3 + (zIndex / 100) * 2; // Plus le zIndex est grand, plus c'est visible
   
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
-    particle.style.backgroundColor = `rgba(255, 241, 149, ${opacity})`;
+//     particle.style.width = `${size}px`;
+//     particle.style.height = `${size}px`;
+//     particle.style.backgroundColor = `rgba(255, 241, 149, ${opacity})`;
   
-    // Amplitude du flottement vertical
-    const floatAmplitude = Math.random() * 40 + 10; // Entre 10px et 50px
+//     // Amplitude du flottement vertical
+//     const floatAmplitude = Math.random() * 40 + 10; // Entre 10px et 50px
   
-    // Durée de l'animation
-    const duration = Math.random() * 15 + 45; // Entre 5s et 15s
+//     // Durée de l'animation
+//     const duration = Math.random() * 15 + 45; // Entre 5s et 15s
   
-    // Animation combinée (mouvement horizontal + flottement vertical)
-    particle.animate(
-        [
-            { transform: `translate(0px, 0px)`, opacity: opacity },
-            { transform: `translate(${(endX - startX) / 2}px, ${-floatAmplitude}px)`, opacity: opacity * 0.8 },
-            { transform: `translate(${endX - startX}px, ${floatAmplitude}px)`, opacity: opacity * 0.5 }
-        ],
-        {
-            duration: duration * 1000,
-            iterations: 1,
-            easing: "linear"
-        }
-    );
+//     // Animation combinée (mouvement horizontal + flottement vertical)
+//     particle.animate(
+//         [
+//             { transform: `translate(0px, 0px)`, opacity: opacity },
+//             { transform: `translate(${(endX - startX) / 2}px, ${-floatAmplitude}px)`, opacity: opacity * 0.8 },
+//             { transform: `translate(${endX - startX}px, ${floatAmplitude}px)`, opacity: opacity * 0.5 }
+//         ],
+//         {
+//             duration: duration * 1000,
+//             iterations: 1,
+//             easing: "linear"
+//         }
+//     );
   
-    container.appendChild(particle);
+//     container.appendChild(particle);
   
-    // Supprimer et recréer la particule après son cycle
-    setTimeout(() => {
-        particle.remove();
-        createParticle();
-    }, duration * 1000);
-  }
-});
+//     // Supprimer et recréer la particule après son cycle
+//     setTimeout(() => {
+//         particle.remove();
+//         createParticle();
+//     }, duration * 1000);
+//   }
+// });
 
 
 /*-------------------------------------
@@ -706,44 +706,44 @@ Projets
 
 
 
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+// document.getElementById("contactForm").addEventListener("submit", function (e) {
+//   e.preventDefault();
 
 
-  grecaptcha.ready(() => {
-    grecaptcha.execute("6Le-gAErAAAAAAbFjKutBW9ctZgzc63wBI0D3TDe", { action: "submit" }).then((token) => {
-        let formData = new FormData(this);
-        formData.append("recaptcha_token", token);
+//   grecaptcha.ready(() => {
+//     grecaptcha.execute("6Le-gAErAAAAAAbFjKutBW9ctZgzc63wBI0D3TDe", { action: "submit" }).then((token) => {
+//         let formData = new FormData(this);
+//         formData.append("recaptcha_token", token);
 
-        fetch("./server/contact.php", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("messageResult").style.backgroundColor = "green"; 
-            document.getElementById("messageResult").innerHTML = data;
-            document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
-            document.getElementById("sendMessage").classList.toggle('opacity-0');
-            setTimeout(() => {
-              document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
-              document.getElementById("sendMessage").classList.toggle('opacity-0');
-            }, 3000)
-        })
-        .catch(error => {
-            document.getElementById("messageResult").style.backgroundColor = "red";
-            document.getElementById("messageResult").innerHTML = "<p>Erreur lors de l'envoi du formulaire.</p>";
-            document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
-            document.getElementById("sendMessage").classList.toggle('opacity-0');
-            setTimeout(() => {
-              document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
-              document.getElementById("sendMessage").classList.toggle('opacity-0');
-            }, 3000)
-        });
-    });
-  });
+//         fetch("./server/contact.php", {
+//             method: "POST",
+//             body: formData
+//         })
+//         .then(response => response.text())
+//         .then(data => {
+//             document.getElementById("messageResult").style.backgroundColor = "green"; 
+//             document.getElementById("messageResult").innerHTML = data;
+//             document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
+//             document.getElementById("sendMessage").classList.toggle('opacity-0');
+//             setTimeout(() => {
+//               document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
+//               document.getElementById("sendMessage").classList.toggle('opacity-0');
+//             }, 3000)
+//         })
+//         .catch(error => {
+//             document.getElementById("messageResult").style.backgroundColor = "red";
+//             document.getElementById("messageResult").innerHTML = "<p>Erreur lors de l'envoi du formulaire.</p>";
+//             document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
+//             document.getElementById("sendMessage").classList.toggle('opacity-0');
+//             setTimeout(() => {
+//               document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
+//               document.getElementById("sendMessage").classList.toggle('opacity-0');
+//             }, 3000)
+//         });
+//     });
+//   });
 
-});
+// });
 
 
 // gsap.to('#veilleToContact', {

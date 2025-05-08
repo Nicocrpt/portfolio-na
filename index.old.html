@@ -1,0 +1,1791 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nicolas Carpita - Developpeur FullStack</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <script src="https://www.google.com/recaptcha/api.js?render=6Le-gAErAAAAAAbFjKutBW9ctZgzc63wBI0D3TDe"></script>
+  </head>
+  <body class="relative" x-data="{ burgerMenu: false, projectModal: false, scrolled: false, init() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const modalParam = urlParams.get('modal');
+    
+    if (modalParam) {
+      this.projectModal = true;
+      setTimeout(() => {
+        const targetElement = document.querySelector('.mes-projets');
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 300);
+    }
+  },
+    closeModal() {
+      // Ferme la modale et nettoie l'URL
+      this.projectModal = false;
+      history.pushState({}, document.title, window.location.pathname); // Nettoie l'URL en supprimant le paramètre 'modal'
+  } }" x-init="init" class="overflow-hidden">
+
+    <section class="loader-wrapper fixed w-screen h-screen z-[9999] bg-black flex justify-center items-center">
+
+      <div class="loader">
+        <div class="loader-circle">
+          <div>
+            <div class="loader moon-loader">
+              <div class="loader-circle">
+                <div class="loader-moon-size"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="loader-sun"></div>
+      </div>
+    </section>
+
+    <header class="">
+      <div  class="transition-all ease-linear duration-300 navBar z-50 fixed top-0 w-full h-16 flex items-center" 
+        :class="scrolled ? 'bg-black/80 backdrop-blur' : 'bg-transparent'"
+        @scroll.window="scrolled = (window.scrollY > window.innerHeight*0.8)">
+          <nav class="flex items-center gap-10 mx-4 lg:mx-10 justify-between flex-row-reverse md:flex-row md:justify-start w-full">
+              <div class="flex justify-center max-md:flex-row-reverse items-center gap-4">
+                <img src="/favicon.svg" alt="" class="w-8 md:mr-4">
+                  
+                <h1 class="text-white text-2xl font-bold">Nicolas Carpita</h1>
+              </div>
+              
+              <ul class=" items-center gap-4 lg:gap-5 text-zinc-300 lg:text-lg hidden md:flex">
+                  <li><a href="#homeSection" id="homeLink" class="hover:text-white transition-color ease-in-out duration-300">Accueil</a></li>
+                  <li><a href="#parcours" id="parcoursLink" class="hover:text-white transition-color ease-in-out duration-300">Parcours</a></li>
+                  <li><a href="#competences" id="compLink" class="hover:text-white transition-color ease-in-out duration-300">Compétences</a></li>
+                  <li><a href="#entreprise" id="companyLink" class="hover:text-white transition-color ease-in-out duration-300">Entreprise</a></li>
+                  <li><a href="#mesProjets" class="hover:text-white transition-color ease-in-out duration-300">Projets</a></li>
+                  <li><a href="#veilleTechno" id="veilleLink" class="hover:text-white transition-color ease-in-out duration-300">Veille technologique</a></li>
+                  <li><a href="#contact" id="contactLink" class="hover:text-white transition-color ease-in-out duration-300">Contact</a></li>
+              </ul>
+              <button class="block md:hidden" @click="burgerMenu = !burgerMenu">
+                  <svg viewBox="0 0 24 24" fill="none" width="50" height="50" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Menu / Hamburger_MD"> <path id="Vector" d="M5 17H19M5 12H19M5 7H19" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+              </button>
+          </nav>
+      </div>
+      <div class="fixed h-screen w-screen bg-black bg-opacity-80 backdrop-blur z-40" x-show="burgerMenu"
+      x-transition:enter="transform ease-in-out duration-300"
+      x-transition:enter-start="translate-x-[-100%]"
+      x-transition:enter-end="translate-x-0"
+      x-transition:leave="transform ease-in-out duration-300"
+      x-transition:leave-start="translate-x-0"
+      x-transition:leave-end="translate-x-[-100%]">
+          <div class="w-full h-full relative">
+
+              <div class="h-screen">
+                  <ul class=" justify-center items-center h-full gap-6 text-white text-2xl font-semibold flex flex-col">
+                      <li><a href="#homeSection" @click="burgerMenu = false" id="homeLink" class="md:hover:text-white transition-color ease-in-out duration-300">Accueil</a></li>
+                      <li><a href="#parcours" @click="burgerMenu = false" id="homeLink" class="md:hover:text-white transition-color ease-in-out duration-300">Parcours</a></li>
+                      <li><a href="#competences" @click="burgerMenu = false" id="compLink" class="md:hover:text-white transition-color ease-in-out duration-300">Compétences</a></li>
+                      <li><a href="#entreprise" @click="burgerMenu = false" id="compLink" class="md:hover:text-white transition-color ease-in-out duration-300">Entreprise</a></li>
+                      <li><a href="#mesProjets" @click="burgerMenu = false" id="projetLink" class="md:hover:text-white transition-color ease-in-out duration-300">Projets</a></li>
+                      <li><a href="#veilleTechno" @click="burgerMenu = false" id="veilleLink" class="md:hover:text-white transition-color ease-in-out duration-300">Veille technologique</a></li>
+                      <li><a href="#contact" @click="burgerMenu = false" id="contactLink" class="md:hover:text-white transition-color ease-in-out duration-300">Contact</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+    </header>
+
+    <main class="!max-w-screen !overflow-x-hidden relative">
+
+      <div :class="scrolled ? 'opacity-0' : 'opacity-100'" class="homeBackground fixed z-0 top-0 h-[100dvh] w-screen flex justify-center items-center pointer-events-none" style="background: rgb(0,21,33);background: linear-gradient(180deg, rgba(0,21,33,1) 0%, rgba(0,39,62,1) 57%, rgba(0,66,102,1) 100%);">
+
+        <!-- Voie lactée -->
+        <div class="galaxy-background absolute top-0 left-0 -mt-32 -ml-12 opacity-50 w-[calc(100vw+3rem)] h-full pointer-events-none">
+          <svg id="milkyway" class="w-full" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 1920 1080" preserveaspectratio="xMidYMid slice">
+            <defs>
+              <radialGradient id="milkyway-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" style="stop-color: rgba(255, 255, 255, 0.9); stop-opacity: 0.7" />
+                <stop offset="100%" style="stop-color: rgba(255, 255, 255, 0.1); stop-opacity: 0" />
+              </radialGradient>
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blurred"/>
+                <feMerge>
+                  <feMergeNode in="blurred"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            <g id="stars">
+              <circle cx="150" cy="250" r="2" fill="white" />
+              <circle cx="450" cy="600" r="3" fill="white" />
+              <circle cx="800" cy="200" r="1.5" fill="white" />
+              <circle cx="1200" cy="900" r="4" fill="white" />
+              <circle cx="1600" cy="500" r="2.5" fill="white" />
+              <circle cx="1700" cy="700" r="1" fill="white" />
+              <circle cx="300" cy="900" r="2" fill="white" />
+              <circle cx="1000" cy="800" r="1.8" fill="white" />
+              <circle cx="1800" cy="400" r="2.3" fill="white" />
+              <circle cx="1400" cy="300" r="2" fill="white" />
+
+            </g>
+            <g id="clouds" class="opacity-10" fill="url(#milkyway-gradient)" filter="url(#glow)">
+
+              <path d="M0,700 C200,850 600,900 1000,600 C1400,400 1600,500 1920,400 C1800,250 1400,300 1000,500 C600,700 200,800 0,700" />
+            </g>
+          </svg>
+        </div>
+
+        <!-- Ciel étoilé -->
+        <!-- <svg id="starrySky" class="absolute top-0 left-0 h-full pointer-events-none" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"></svg> -->
+        <canvas id="starrySkyCanvas" class="absolute top-0 left-0 h-full w-full pointer-events-none"></canvas>
+
+        <!-- Etoiles filantes container -->
+        <div class="shooting-stars absolute top60 left-0 w-full h-full z-10 pointer-events-none"></div>
+      </div>
+      
+      <!-- Home -->
+      <section id="homeSection" class="h-[100dvh] w-full relative z-10 flex items-center justify-center" >
+
+        <div class="mainTitle pb-20 z-40 fixed top-1/3 transition-all ease-in-out duration-300" :class="scrolled ? 'opacity-0' : 'opacity-100'">
+          <h1 class="text-white text-5xl md:text-8xl font-bold text-center">Nicolas Carpita</h1>
+          <p class="text-white font-semibold text-center text-xl md:text-2xl profession">Développeur FullStack</p>
+          <div class="flex items-center justify-center mt-4 gap-4 z-40">
+            <div class="relative group linkedin">
+              
+              <a href="">
+                <svg class="h-12 fill-white sm:fill-white/80 sm:hover:fill-white transition-all ease-in-out duration-200" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M41.4,508.1H-8.5V348.4h49.9 V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7c18.4,0,29.7,11.9,30.1,27.7 C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4c-14.9,0-23.2,10-27,19.6 c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6c35.5,0,63.3,23,63.3,72.4V508.1z "></path> </g></svg>
+              </a>
+              
+            </div>
+
+            <!-- Instagram -->
+            <a href="">
+              <svg class="h-12 fill-white sm:fill-white/80 sm:hover:fill-white transition-all ease-in-out duration-200" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 260 260" enable-background="new 0 0 260 260" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M164.58,64H95.42C78.1,64,64,78.1,64,95.42v69.16C64,181.9,78.1,196,95.42,196h69.16c17.32,0,31.42-14.1,31.42-31.42V95.42 C196,78.1,181.9,64,164.58,64z M130,171.1c-22.66,0-41.1-18.44-41.1-41.1s18.44-41.1,41.1-41.1s41.1,18.44,41.1,41.1 S152.66,171.1,130,171.1z M172.22,97.3c-5.3,0-9.6-4.3-9.6-9.61c0-5.3,4.3-9.6,9.6-9.6c5.31,0,9.61,4.3,9.61,9.6 C181.83,93,177.53,97.3,172.22,97.3z M130,102.9c-14.94,0-27.1,12.16-27.1,27.1s12.16,27.1,27.1,27.1s27.1-12.16,27.1-27.1 S144.94,102.9,130,102.9z M130,2C59.31,2,2,59.31,2,130s57.31,128,128,128s128-57.31,128-128S200.69,2,130,2z M210,164.58 c0,25.04-20.38,45.42-45.42,45.42H95.42C70.38,210,50,189.62,50,164.58V95.42C50,70.38,70.38,50,95.42,50h69.16 C189.62,50,210,70.38,210,95.42V164.58z"></path> </g></svg>
+            </a>
+            
+            <!-- Github -->
+            <a href="">
+              <svg class="h-12 group" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>github [#142]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#ffffff" class="fill-white sm:fill-white/80 sm:group-hover:fill-white transition-all ease-in-out duration-200"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]"> </path> </g> </g> </g> </g></svg>
+            </a>
+          </div>
+        </div>
+       
+
+        <!-- Cloud Layer 3 -->
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute -bottom-6 min-w-full h-full z-10 left-0 bg-transparent pointer-events-none" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"  preserveAspectRatio="none" viewBox="0 0 1440 560">
+          <g mask="url(&quot;#SvgjsMask1001&quot;)" fill="none">
+              <!-- <path d="M1488 560L0 560 L0 321.9Q83.73 285.63, 120 369.36Q169.87 299.23, 240 349.1Q243.3 280.4, 312 283.71Q377.58 229.29, 432 294.88Q514.37 257.25, 552 339.61Q622.04 289.65, 672 359.69Q704.36 272.04, 792 304.4Q821.2 261.6, 864 290.8Q951.93 258.73, 984 346.66Q1037.63 280.3, 1104 333.93Q1184.52 294.45, 1224 374.97Q1228.26 307.23, 1296 311.48Q1349.21 244.69, 1416 297.9Q1479.97 289.87, 1488 353.84z" class="fill-zinc-600/80"></path> -->
+              <path d="M1464 560L0 560 L0 356.62Q97.78 334.4, 120 432.19Q135.69 375.88, 192 391.58Q234.28 361.86, 264 404.13Q339.57 359.7, 384 435.28Q387.07 366.35, 456 369.42Q507.88 301.3, 576 353.18Q652.93 310.12, 696 387.05Q763.85 334.89, 816 402.74Q858.38 373.12, 888 415.5Q909.33 364.83, 960 386.16Q1026.8 332.96, 1080 399.75Q1153.83 353.57, 1200 427.4Q1201.56 356.96, 1272 358.52Q1337.26 303.78, 1392 369.04Q1451.7 356.74, 1464 416.44z" class="fill-zinc-400/92 backdrop-blur-md cloudLayer3"></path>
+          </g>
+          <defs>
+              <mask id="SvgjsMask1001">
+                  <rect width="1440" height="560" fill="#ffffff"></rect>
+              </mask>
+          </defs>
+        </svg>
+
+
+        <!-- Cloud Layer 2 -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute bottom-0 min-w-full h-full left-0 bg-transparent z-40 pointer-events-none" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" preserveAspectRatio="none" viewBox="0 0 1440 560">
+          <g mask="url(&quot;#SvgjsMask1001&quot;)" fill="none">
+              <path d="M1464 560L0 560 L0 459.76Q33.95 421.71, 72 455.66Q99.92 411.58, 144 439.49Q201.98 425.47, 216 483.44Q287.34 434.78, 336 506.12Q349.22 447.34, 408 460.55Q434.57 415.12, 480 441.69Q570.63 412.32, 600 502.96Q635.27 418.24, 720 453.51Q794.73 408.24, 840 482.96Q906.69 429.65, 960 496.34Q970.99 435.33, 1032 446.32Q1081.12 375.44, 1152 424.56Q1230.49 383.06, 1272 461.55Q1298.23 415.78, 1344 442.02Q1397.88 375.89, 1464 429.77z" class="fill-zinc-300/96 z-10 cloudLayer2"></path>
+          </g>
+          <defs>
+              <mask id="SvgjsMask1001">
+                  <rect width="1440" height="560" fill="#ffffff"></rect>
+              </mask>
+          </defs>
+        </svg>
+
+        <!-- Cloud Layer 1 -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute bottom-0 min-w-full h-full left-0 bg-transparent z-50 pointer-events-none" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"  preserveAspectRatio="none" viewBox="0 0 1440 560">
+          <g mask="url(&quot;#SvgjsMask1001&quot;)" fill="none">
+              <!-- <path d="M1512 560L0 560 L0 498.76Q86.34 465.1, 120 551.43Q150.95 510.38, 192 541.32Q274.71 504.03, 312 586.73Q312.22 514.95, 384 515.17Q409.45 468.62, 456 494.06Q511.45 477.51, 528 532.97Q554.91 487.88, 600 514.79Q683.66 478.45, 720 562.12Q747.49 517.61, 792 545.09Q833.26 466.35, 912 507.61Q965.64 441.25, 1032 494.9Q1092.75 483.65, 1104 544.4Q1127.12 495.52, 1176 518.64Q1231.88 502.52, 1248 558.4Q1253.12 491.52, 1320 496.64Q1386.53 443.17, 1440 509.71Q1481.38 479.09, 1512 520.46z" fill="white" class="relative z-50"></path> -->
+              <rect  x="0" y="0"></rect>
+              <path d="M1464 560L0 560 L0 459.11Q70.21 457.32, 72 527.54Q88.7 472.24, 144 488.93Q216.52 441.45, 264 513.96Q291.2 421.16, 384 448.36Q432.5 424.87, 456 473.37Q546.73 444.1, 576 534.83Q618.83 457.66, 696 500.49Q786.1 470.59, 816 560.68Q841.29 513.97, 888 539.27Q911.54 490.81, 960 514.35Q984.38 466.73, 1032 491.11Q1050.02 437.13, 1104 455.16Q1187.75 418.91, 1224 502.66Q1317.58 476.24, 1344 569.81Q1363.19 469, 1464 488.19z" fill="rgba(255, 255, 255, 1)" class="cloudLayer1"></path>
+          </g>
+          <defs>
+              <mask id="SvgjsMask1001">
+                  <rect width="1440" height="560" fill="#ffffff"></rect>
+              </mask>
+          </defs>
+        </svg>
+
+        <!-- <svg id="cloudySky" class="absolute top-0 left-0 z-10" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"></svg> -->
+
+
+      </section>
+      <!-- Introduction -->
+      <section class="w-full bg-white text-black relative presentationSection pt-24 z-20 -mt-1">
+        <div class="gradientBackground absolute w-full h-full opacity-0 z-0" style="background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(248,253,255,1) 14%, rgba(204,239,255,1) 28%, rgba(180,232,241,1) 45%, rgba(209,198,165,1) 66%, rgba(255,169,129,1) 100%);"></div>
+
+
+        <div class="skyBackground absolute w-full h-full opacity-0" style="background: rgb(204,239,255)"></div>
+        <h1 class="text-4xl font-semibold mb-4 text-center sm:hidden">Introduction</h1>
+        <div class="w-[1170px] max-w-[95%] presentationContent flex max-sm:flex-col-reverse sm:mt-24 gap-4 justify-center items-center mx-auto px-8">
+          <div class="flex flex-col w-full text-center gap-4">
+            <h1 class="text-5xl font-semibold mb-4 text-center max-sm:hidden">Introduction</h1>
+            <p class="max-sm:text-sm">Je m'appelle Nicolas Carpita et vous souhaite la bienvenue sur mon portfolio. J'ai 28 ans et porte depuis toujours un intêret envers le monde du numérique. D'un naturel curieux, j'ai longtemps cherché quelle voie suivre pour construire une carrière professionnelle. C'est en 2023 que je décide, après plusieurs années à travailler en tant qu'opérateur logistique, que j'ai décidé de franchir le pas et suivre un BTS SIO (option SLAM) pour découvrir la programmation et ainsi m'ouvrir de nouvelles perspectives d'avenir.</p>
+            <p class="max-sm:text-sm">En dehors de l'aspect professionnel, j'aime particulièrement le cinéma, les jeux vidéos et la musique, je pratique également la MAO (musique assisté par ordinateur) et suis adepte de la randonnée/trek en haute montagne.</p>
+          </div>
+        </div>
+        
+
+        <div class="w-full flex flex-col justify-center items-center pt-20 sm:pt-32 relative z-20" id="parcours">
+          <div class="flex items-start gap-4">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold pb-4">Mon parcours</h1>
+            <svg id="parcoursLogo" viewBox="0 0 24 24" class="mt-[2px] sm:mt-[4px] w-[40px] sm:w-[50px] md:w-[60px]" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>route_fill</title> <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Map" transform="translate(-288.000000, -48.000000)" fill-rule="nonzero"> <g id="route_fill" transform="translate(288.000000, 48.000000)"> <path d="M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z" id="MingCute" fill-rule="nonzero"> </path> <path d="M18,16 C19.6569,16 21,17.3431 21,19 C21,20.6569 19.6569,22 18,22 C16.3431,22 15,20.6569 15,19 C15,17.3431 16.3431,16 18,16 Z M15.5,4 C17.9853,4 20,6.01472 20,8.5 C20,10.9853 17.9853,13 15.5,13 L8.5,13 C7.11929,13 6,14.1193 6,15.5 C6,16.8807 7.11929,18 8.5,18 L13,18 C13.5523,18 14,18.4477 14,19 C14,19.5523 13.5523,20 13,20 L8.5,20 C6.01472,20 4,17.9853 4,15.5 C4,13.0147 6.01472,11 8.5,11 L15.5,11 C16.8807,11 18,9.88071 18,8.5 C18,7.11929 16.8807,6 15.5,6 L11,6 C10.4477,6 10,5.55228 10,5 C10,4.44772 10.4477,4 11,4 L15.5,4 Z M6,2 C7.65685,2 9,3.34315 9,5 C9,6.65685 7.65685,8 6,8 C4.34315,8 3,6.65685 3,5 C3,3.34315 4.34315,2 6,2 Z" id="形状" fill="#000000"> </path> </g> </g> </g> </g>
+            </svg>
+          </div>
+          <p class="text-stone-500 max-sm:text-xs font-semibold mx-6 text-center">Résumé de mes experiences professionnelles et pédagogiques.</p>
+        </div>
+        <div class="timeline z-50 relative z-20 sm:max-w-[1200px] sm:mx-auto mt-20 sm:mt-[100px] after:content-[''] after:absolute after:w-[6px] after:rounded-full after:h-full after:bg-black/70 after:backdrop-blur-sm after:top-0 after:left-10 sm:after:left-1/2 after:-translate-x-1/2 after:-z-10">
+          <svg viewBox="0 0 32 32" class="timelineLabel !bg-transparent further w-[30px] left-[25px] sm:left-[calc(50%-15px)] -top-6 absolute z-20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>arrow-up-circle</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-362.000000, -1089.000000)" class="fill-neutral-700"> <path d="M384.535,1105.54 C384.145,1105.93 383.512,1105.93 383.121,1105.54 L379,1101.41 L379,1112 C379,1112.55 378.553,1113 378,1113 C377.447,1113 377,1112.55 377,1112 L377,1101.41 L372.879,1105.54 C372.488,1105.93 371.854,1105.93 371.465,1105.54 C371.074,1105.14 371.074,1104.51 371.465,1104.12 L377.121,1098.46 C377.361,1098.22 377.689,1098.15 378,1098.21 C378.311,1098.15 378.639,1098.22 378.879,1098.46 L384.535,1104.12 C384.926,1104.51 384.926,1105.14 384.535,1105.54 L384.535,1105.54 Z M378,1089 C369.163,1089 362,1096.16 362,1105 C362,1113.84 369.163,1121 378,1121 C386.837,1121 394,1113.84 394,1105 C394,1096.16 386.837,1089 378,1089 L378,1089 Z" id="arrow-up-circle" sketch:type="MSShapeGroup"> </path> </g> </g> </g>
+          </svg>
+            <div class="timelineContainer max-sm:left-10 left-1/2">
+              <div class="timelineLabel -left-[15px] bg-black">
+                  <svg viewBox="0 0 512 512" width="30px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>work-case-filled</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="work-case" fill="#ffffff" transform="translate(42.666667, 64.000000)"> <path d="M1.20792265e-13,197.76 C54.5835501,218.995667 112.186031,231.452204 170.666667,234.666667 L170.666667,277.333333 L256,277.333333 L256,234.666667 C314.339546,231.013 371.833936,218.86731 426.666667,198.613333 L426.666667,362.666667 L1.20792265e-13,362.666667 L1.20792265e-13,197.76 Z M277.333333,-1.42108547e-14 L298.666667,21.3333333 L298.666667,64 L426.666667,64 L426.666667,175.146667 C361.254942,199.569074 292.110481,212.488551 222.293333,213.333333 L222.293333,213.333333 L206.933333,213.333333 C136.179047,212.568604 66.119345,199.278929 7.10542736e-15,174.08 L7.10542736e-15,174.08 L7.10542736e-15,64 L128,64 L128,21.3333333 L149.333333,-1.42108547e-14 L277.333333,-1.42108547e-14 Z M256,42.6666667 L170.666667,42.6666667 L170.666667,64 L256,64 L256,42.6666667 Z" id="Combined-Shape-Copy"> </path> </g> </g> </g></svg>
+              </div>
+              <div class="text-box translate-x-100 right text-white rounded-[6px] text-[15px] flex flex-col justify-between">
+                <div class="w-full allInfos transition-all ease-in-out duration-300" :style="`max-height: ${$el.querySelector('.infos').offsetHeight}px`">
+                  <div class="infos">
+                    <h2 class="font-bold sm:text-2xl text-xl">Developpeur Back-End (alternance)</h2>
+                    <small class="text-white/80">2024 - 2025</small>
+                    <p>HYTECK Aroma-Zone</p>
+                  </div>
+                  <p class="moreInfos pt-4 text-sm opacity-0 transition-all ease-in-out duration-300 scale-y-0">En tant que développeur Back-End en alternance, mon rôle est d'accompagner les processus métiers en optimisant ou fournissant des solutions techniques performantes.</p>
+                </div>
+              </div>
+            </div>
+            <div class="timelineContainer max-sm:left-10">
+                <div class="timelineLabel bg-black max-sm:-left-[15px] sm:-right-[15px]">
+                    <svg fill="#ffffff" width="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-q</title><polygon points="256 370.43 96 279 96 377.42 256 466.3 416 377.42 416 279 256 370.43"></polygon><polygon points="512.25 192 256 45.57 -0.25 192 256 338.43 464 219.57 464 384 512 384 512 192.14 512.25 192"></polygon></g></svg>
+                </div>
+
+                <div class="text-box sm:-translate-x-100 translate-x-100 left text-white rounded-[6px] text-[15px] flex flex-col justify-between" >
+                  <!-- <div class="absolute bottom-[12px] -right-[30px] h-[6px] w-[30px] bg-black"></div> -->
+                  <div class="w-full allInfos transition-all ease-in-out duration-300" :style="`max-height: ${$el.querySelector('.infos').offsetHeight}px`">
+                    <div class="infos">
+                      <h2 class="font-bold sm:text-2xl text-xl">BTS SIO (Option SLAM)</h2>
+                      <small class="text-white/80">2023 - 2025</small>
+                      <p>IFC Avignon</p>
+                    </div>
+                    <p class="moreInfos pt-4 text-sm opacity-0 transition-all ease-in-out duration-300 scale-y-0">BTS orienté, pour son option SLAM (Solutions Logicielles et Applications Métiers), sur la conception de services web et applicatifs au service des entreprises ainsi que sur la cybersécurité, en plus de solides connaissances générales.</p>
+                  </div> 
+                </div>
+            </div>
+            <div class="timelineContainer max-sm:left-10 left-1/2">
+                <div class="timelineLabel -left-[15px] bg-black">
+                    <svg viewBox="0 0 512 512" width="30px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>work-case-filled</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="work-case" fill="#ffffff" transform="translate(42.666667, 64.000000)"> <path d="M1.20792265e-13,197.76 C54.5835501,218.995667 112.186031,231.452204 170.666667,234.666667 L170.666667,277.333333 L256,277.333333 L256,234.666667 C314.339546,231.013 371.833936,218.86731 426.666667,198.613333 L426.666667,362.666667 L1.20792265e-13,362.666667 L1.20792265e-13,197.76 Z M277.333333,-1.42108547e-14 L298.666667,21.3333333 L298.666667,64 L426.666667,64 L426.666667,175.146667 C361.254942,199.569074 292.110481,212.488551 222.293333,213.333333 L222.293333,213.333333 L206.933333,213.333333 C136.179047,212.568604 66.119345,199.278929 7.10542736e-15,174.08 L7.10542736e-15,174.08 L7.10542736e-15,64 L128,64 L128,21.3333333 L149.333333,-1.42108547e-14 L277.333333,-1.42108547e-14 Z M256,42.6666667 L170.666667,42.6666667 L170.666667,64 L256,64 L256,42.6666667 Z" id="Combined-Shape-Copy"> </path> </g> </g> </g></svg>
+                </div>
+                <div class="text-box translate-x-100 right text-white rounded-[6px] text-[15px] flex flex-col justify-between">
+                  <div class="w-full allInfos transition-all ease-in-out duration-300" :style="`max-height: ${$el.querySelector('.infos').offsetHeight}px`">
+                    <div class="infos">
+                      <h2 class="font-bold sm:text-2xl text-xl">Opérateur d'expédition</h2>
+                      <small class="text-white/80">2018 - 2024</small>
+                      <p>GREENLOG Aroma-Zone</p>
+                    </div>
+                    <p class="moreInfos pt-4 text-sm opacity-0 transition-all ease-in-out duration-300 scale-y-0">Divers postes occupés, du réapprovisionnement à la gestion de stock, en passant par la réception de marchandises et la préparation de commandes.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="timelineContainer max-sm:left-10">
+                <div class="timelineLabel bg-black max-sm:-left-[15px] sm:-right-[15px]">
+                    <svg fill="#ffffff" width="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-q</title><polygon points="256 370.43 96 279 96 377.42 256 466.3 416 377.42 416 279 256 370.43"></polygon><polygon points="512.25 192 256 45.57 -0.25 192 256 338.43 464 219.57 464 384 512 384 512 192.14 512.25 192"></polygon></g></svg>
+                </div>
+                <div class="text-box sm:-translate-x-100 translate-x-100 left text-white rounded-[6px] text-[15px] flex flex-col justify-between">
+                  <div class="w-full allInfos transition-all ease-in-out duration-300" :style="`max-height: ${$el.querySelector('.infos').offsetHeight}px`">
+                    <div class="infos">
+                      <h2 class="font-bold text-2xl max-sm:text-xl">Formation Sound-Design</h2>
+                      <small class="text-white/80">2016 - 2018</small>
+                      <p>Acfa Multimédia (Montpellier)</p>
+                    </div>
+                    <p class="moreInfos pt-4 text-sm opacity-0 transition-all ease-in-out duration-300 scale-y-0">Formation orientée sur le montage et le mixage audio, étape clé de toute post-production audiovisuelle.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="timelineContainer max-sm:left-10 left-1/2">
+                <div class="timelineLabel bg-black -left-[15px]" @click="$el.classList.toggle('!h-72'); console.log('hello')">
+                    <svg fill="#ffffff" width="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-q</title><polygon points="256 370.43 96 279 96 377.42 256 466.3 416 377.42 416 279 256 370.43"></polygon><polygon points="512.25 192 256 45.57 -0.25 192 256 338.43 464 219.57 464 384 512 384 512 192.14 512.25 192"></polygon></g></svg>
+                </div>
+                <div class="text-box translate-x-100 right text-white rounded-[6px] text-[15px] flex flex-col justify-between">
+                  <div class="w-full allInfos transition-all ease-in-out duration-300" :style="`max-height: ${$el.querySelector('.infos').offsetHeight}px`">
+                    <div class="infos">
+                      <h2 class="font-bold text-2xl max-sm:text-xl">Baccalauréat Scientifique</h2>
+                      <small class="text-white/80">2014</small>
+                      <p>Lycée Ismael Dauphin</p>
+                    </div>
+                    <p class="moreInfos pt-4 text-sm opacity-0 transition-all ease-in-out duration-300 scale-y-0">Baccalauréat Scientifique, option mathématiques</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="utility"></div>
+        <div class="h-auto relative mountainsContainer">
+          <svg class="w-full min-w-full max-sm:w-[600px] h-full scale-x-[105%] pointer-events-none opacity-0" viewBox="0 0 750 500" :style="`margin-top: -${(document.querySelector('#hills2').getBoundingClientRect().top - document.querySelector('.utility').getBoundingClientRect().top)/1.5}px`">
+            <rect id="bg" opacity="0.8" fill="transparent" />
+            <g>
+                <g id="hills2">
+                    <path id="h2-6" d="M524.28,418.82c6.36,0,80.19-14.81,103.12-36.53S655.28,345.8,679,359.64s33.69,18.54,46.63,18.82a158.62,158.62,0,0,1,23.88,2.4V447L632,458.92Z" class="fill-slate-500" />
+                    <path id="h2-5" d="M294.06,498.2l49.09-66.93s-64-6.48-93.59-31.29-63.47-49.78-87.15-41.46-81.7,4.44-98.73,15S.1,387.08.1,387.08l.37,60.18L209.75,498.2Z" class="fill-slate-700" />
+                    <path id="h2-4" d="M264.94,449.2s61-16.39,94.07-37.28,61.37-37.2,73.53-36.12,69.9-40,80.18-42.62,13.55-.37,29,1.85,22-5.27,34.52,6.39,43.29,34.86,75.51,48.52c25.88,11,91.48,28.88,91.48,28.88l-31.58,67.73-326.93,9.27Z" class="fill-slate-800" />
+                    <path id="h2-3" d="M.47,469.58V420s113.73-2.74,171.72-26.68,101.69-72.29,134.53-52,31.37-18.48,61.9,13.28S446.68,393.48,478,406.86s113.08,26.06,113.08,26.06l-59.28,53.4L272.55,485Z" class="fill-slate-900" />
+                    <path id="h2-2" d="M749.55,500V398.27l-38.48-6.67s-29.86,12.13-63,11.53-39.61-7.26-70.33-13.41-72.58,21.4-105.61,21.4-75.5-17.78-110.64-17.78c-24.85,0-90.08,20.12-110.82,18.48s-51.11-20.42-82-6.26S.47,409.26.47,409.26V500Z"
+                        fill="black" class="absolute bottom-0 z-50"/>
+                </g>
+            </g>
+          </svg>
+
+          <svg class="w-full min-w-full max-sm:w-[600px] h-full scale-x-[105%] pointer-events-none absolute bottom-0 z-0" viewBox="0 0 750 500" >
+            <rect id="bg" opacity="0.8" fill="transparent" />
+            <g>
+                <g id="hill1">
+                    <path id="h2-6" d="M524.28,418.82c6.36,0,80.19-14.81,103.12-36.53S655.28,345.8,679,359.64s33.69,18.54,46.63,18.82a158.62,158.62,0,0,1,23.88,2.4V447L632,458.92Z" class="fill-slate-500" />
+                </g>
+            </g>
+          </svg>
+          <svg class="w-full min-w-full max-sm:w-[600px] h-full scale-x-[105%] pointer-events-none absolute bottom-0 z-10" viewBox="0 0 750 500" >
+            <rect id="bg" opacity="0.8" fill="transparent" />
+            <g>
+                <g id="hill2">
+                    <path id="h2-5" d="M294.06,498.2l49.09-66.93s-64-6.48-93.59-31.29-63.47-49.78-87.15-41.46-81.7,4.44-98.73,15S.1,387.08.1,387.08l.37,60.18L209.75,498.2Z" class="fill-slate-700" />
+                </g>
+            </g>
+          </svg>
+          <svg class="w-full min-w-full max-sm:w-[600px] h-full scale-x-[105%] pointer-events-none absolute bottom-0 z-20" viewBox="0 0 750 500" >
+            <rect id="bg" opacity="0.8" fill="transparent" />
+            <g>
+                <g id="hill3">
+                    <path id="h2-4" d="M264.94,449.2s61-16.39,94.07-37.28,61.37-37.2,73.53-36.12,69.9-40,80.18-42.62,13.55-.37,29,1.85,22-5.27,34.52,6.39,43.29,34.86,75.51,48.52c25.88,11,91.48,28.88,91.48,28.88l-31.58,67.73-326.93,9.27Z" class="fill-slate-800" />
+                </g>
+            </g>
+          </svg>
+          <svg class="w-full min-w-full max-sm:w-[600px] h-full scale-x-[105%] pointer-events-none absolute bottom-0 z-30" viewBox="0 0 750 500" >
+            <rect id="bg" opacity="0.8" fill="transparent" />
+            <g>
+                <g id="hill2">
+                    <path id="h2-3" d="M.47,469.58V420s113.73-2.74,171.72-26.68,101.69-72.29,134.53-52,31.37-18.48,61.9,13.28S446.68,393.48,478,406.86s113.08,26.06,113.08,26.06l-59.28,53.4L272.55,485Z" class="fill-slate-900" />
+                    <path id="h2-2" d="M749.55,500V398.27l-38.48-6.67s-29.86,12.13-63,11.53-39.61-7.26-70.33-13.41-72.58,21.4-105.61,21.4-75.5-17.78-110.64-17.78c-24.85,0-90.08,20.12-110.82,18.48s-51.11-20.42-82-6.26S.47,409.26.47,409.26V500Z"
+                        fill="black" class="absolute bottom-0 z-50"/>
+                </g>
+            </g>
+          </svg>
+          <svg class="w-full min-w-full max-sm:w-[600px] h-full scale-x-[105%] pointer-events-none absolute bottom-0 z-40" viewBox="0 0 750 500" >
+            <rect id="bg" opacity="0.8" fill="transparent" />
+            <g>
+                <g id="hill1">
+                    <path id="h2-2" d="M749.55,500V398.27l-38.48-6.67s-29.86,12.13-63,11.53-39.61-7.26-70.33-13.41-72.58,21.4-105.61,21.4-75.5-17.78-110.64-17.78c-24.85,0-90.08,20.12-110.82,18.48s-51.11-20.42-82-6.26S.47,409.26.47,409.26V500Z"
+                        fill="black" class="absolute bottom-0 z-50"/>
+                </g>
+            </g>
+          </svg>
+        </div>
+
+        <div class="clouds absolute bottom-0 w-full opacity-0 z-10">
+          <svg id="cloudySky" class="h-full z-10 w-full" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"></svg>
+        </div>
+
+          
+      </section>
+      <!-- Mes connaissances B -->
+      <section id="competences" class="min-h-screen bg-black text-white skillsSec pt-24 relative z-20 -mt-1">
+        
+        <div class="skillsSecTitle w-full flex flex-col justify-center items-center z-50 relative">
+          <h1 class="font-bold text-4xl sm:text-4xl md:text-6xl mb-4 sm:mb-3 text-center">Mes Compétences</h1>
+          <p class="text-white/50 font-semibold max-sm:text-xs text-center sm:mb-16 mb-8 mx-2">Les compétences que j'ai acquises en cours de formation et en entreprise</p>
+        </div>
+        <div class="skillsContent h-full flex flex-col justify-center items-center w-[950px] max-w-[95%] pb-20 -mb-4 mx-auto relative z-50">
+          <div class="skillsRealContent relative z-10 w-full">
+            <h2 class="text-2xl max-sm:text-xl font-semibold mb-4 sm:mb-6 text-white ml-2">Languages de programmation & Frameworks</h2>
+
+
+            <div class="grid gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 mx-2">
+            
+              <!-- Back-end: PHP -->
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
+                <!-- Icon as background -->
+                <img src="/Images/iconLanguages/php-svgrepo-com.svg" alt="PHP Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300  rounded-2xl"/>
+                
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-4">
+                    <!-- Badge -->
+                    <span class="text-xs bg-orange-700 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Back-end</span>
+                  </div>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">PHP</h3>
+                </div>
+              </div>
+        
+              <!-- Back-end: C# -->
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
+                <!-- Icon as background -->
+                <img src="/Images/iconLanguages/csharp-svgrepo-com.svg" alt="Csharp Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
+                
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-4">
+                    <!-- Badge -->
+                    <span class="text-xs bg-orange-700 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Back-end</span>
+                  </div>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">C#</h3>
+                </div>
+              </div>
+        
+              <!-- Back-end: Python -->
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
+                <!-- Icon as background -->
+                <img src="/Images/iconLanguages/python-svgrepo-com.svg" alt="Python Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
+                
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-4">
+                    <!-- Badge -->
+                    <span class="text-xs bg-orange-700 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Back-end</span>
+                  </div>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">Python</h3>
+                </div>
+              </div>
+        
+              <!-- Back-end: MySQL -->
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
+                <!-- Icon as background -->
+                <img src="/Images/iconLanguages/mysql-logo-svgrepo-com.svg" alt="mysql Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
+                
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-4">
+                    <!-- Badge -->
+                    <span class="text-xs bg-orange-700 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Back-end</span>
+                  </div>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">MySQL</h3>
+                </div>
+              </div>
+        
+              <!-- Back-end: SQL Server -->
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
+                <!-- Icon as background -->
+                <img src="/Images/iconLanguages/microsoftsqlserver-svgrepo-com.svg" alt="sqlserver Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
+                
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-4">
+                    <!-- Badge -->
+                    <span class="text-xs bg-orange-700 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Back-end</span>
+                  </div>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">SQL Server</h3>
+                </div>
+              </div>
+        
+              <!-- Front-end: HTML -->
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
+                <!-- Icon as background -->
+                <img src="/Images/iconLanguages/html-5-svgrepo-com.svg" alt="html5 Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
+                
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-4">
+                    <!-- Badge -->
+                    <span class="text-xs bg-yellow-600 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Front-end</span>
+                  </div>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">HTML 5</h3>
+                </div>
+              </div>
+        
+              <!-- Front-end: CSS -->
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
+                <!-- Icon as background -->
+                <img src="/Images/iconLanguages/css-3-svgrepo-com.svg" alt="css Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
+                
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-4">
+                    <!-- Badge -->
+                    <span class="text-xs bg-yellow-600 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Front-end</span>
+                  </div>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">CSS 3</h3>
+                </div>
+              </div>
+        
+              <!-- Front-end: Javascript -->
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
+                <!-- Icon as background -->
+                <img src="/Images/iconLanguages/js-svgrepo-com.svg" alt="js Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
+                
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-4">
+                    <!-- Badge -->
+                    <span class="text-xs bg-yellow-600 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Front-end</span>
+                  </div>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">Javascript</h3>
+                </div>
+              </div>
+        
+              <!-- Framework: Laravel -->
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
+                <!-- Icon as background -->
+                <img src="/Images/iconLanguages/laravel-svgrepo-com.svg" alt="laravel Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
+                
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-4">
+                    <!-- Badge -->
+                    <span class="text-xs bg-green-600 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Framework</span>
+                  </div>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">Laravel</h3>
+                </div>
+              </div>
+        
+              <!-- Framework: Alpine JS -->
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
+                <!-- Icon as background -->
+                <img src="/Images/iconLanguages/Alpine.js.svg" alt="alpine Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
+                
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-4">
+                    <!-- Badge -->
+                    <span class="text-xs bg-green-600 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Framework</span>
+                  </div>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">AlpineJS</h3>
+                </div>
+              </div>
+        
+              <!-- Framework: .NET -->
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
+                <!-- Icon as background -->
+                <img src="/Images/iconLanguages/dotnet-svgrepo-com.svg" alt="dotnet Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
+                
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-4">
+                    <!-- Badge -->
+                    <span class="text-xs bg-green-600 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Framework</span>
+                  </div>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">.NET</h3>
+                </div>
+              </div>
+        
+              <!-- Librairie: TailwindCSS -->
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
+                <!-- Icon as background -->
+                <img src="/Images/iconLanguages/tailwind-svgrepo-com.svg" alt="tailwind Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
+                
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-4">
+                    <!-- Badge -->
+                    <span class="text-xs bg-teal-600 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Librairie</span>
+                  </div>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">TailwindCSS</h3>
+                </div>
+              </div>
+        
+            </div>
+        
+            <h2 class="text-2xl font-semibold mb-4 sm:mb-6 mt-16 text-white ml-2">Logiciels & outils</h2>
+            <div class="grid gap-6 max-[540px]:grid-cols-1 grid-cols-2 lg:grid-cols-3 mx-2">
+      
+              <!-- VS Code -->
+              <div class="bg-gray-800 border-l-4 border-sky-500/70 p-4 rounded-lg shadow-md hover:shadow-xl transition group flex items-center justify-between space-x-4">
+                <!-- Icon -->
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-900 rounded-md flex items-center justify-center">
+                  <img src="/Images/iconLanguages/vscode-svgrepo-com.svg" alt="VS Code Icon" class="w-12 h-12 opacity-80 group-hover:scale-110 transition-transform duration-200" />
+                </div>
+                
+                <!-- Text and Tag -->
+                <div class="flex flex-col items-end text-right w-auto">
+                  <span class="-mr-1 text-xs bg-sky-700 text-white px-2 py-1 rounded-full mb-4 inline-block transition">Éditeur de code</span>
+                  <h3 class="text-base font-semibold transition">VS Code</h3>
+                </div>
+              </div>
+              
+        
+              <!-- Visual Studio -->
+              <div class="bg-gray-800 border-l-4 border-purple-600/70 p-4 rounded-lg shadow-md hover:shadow-xl transition group flex items-center justify-between space-x-4">
+                <!-- Icon -->
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-900 rounded-md flex items-center justify-center">
+                  <img src="/Images/iconLanguages/visual-studio-svgrepo-com.svg" alt="VS Code Icon" class="w-12 h-12 opacity-80 group-hover:scale-110 transition-transform duration-200" />
+                </div>
+                
+                <!-- Text and Tag -->
+                <div class="flex flex-col items-end text-right w-auto">
+                  <span class="-mr-1 text-xs bg-purple-700 text-white px-2 py-1 rounded-full mb-4 inline-block transition">IDE</span>
+                  <h3 class="text-base font-semibold transition">Visual Studio</h3>
+                </div>
+              </div>
+        
+              <!-- JetBrains Rider -->
+              <div class="bg-gray-800 border-l-4 border-fuchsia-500/70 p-4 rounded-lg shadow-md hover:shadow-xl transition group flex items-center justify-between space-x-4">
+                <!-- Icon -->
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-900 rounded-md flex items-center justify-center">
+                  <img src="/Images/iconLanguages/512px-JetBrains_Rider_Icon.svg.png" alt="VS Code Icon" class="w-12 h-12 opacity-80 group-hover:scale-110 transition-transform duration-200" />
+                </div>
+                
+                <!-- Text and Tag -->
+                <div class="flex flex-col items-end text-right w-auto">
+                  <span class="-mr-1 text-xs bg-fuchsia-700 text-white px-2 py-1 rounded-full mb-4 inline-block transition">IDE .NET</span>
+                  <h3 class="text-base font-semibold transition">JetBrains Rider</h3>
+                </div>
+              </div>
+        
+              <!-- XAMPP -->
+              <div class="bg-gray-800 border-l-4 border-orange-500/70 p-4 rounded-lg shadow-md hover:shadow-xl transition group flex items-center justify-between space-x-4">
+                <!-- Icon -->
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-900 rounded-md flex items-center justify-center">
+                  <img src="/Images/iconLanguages/xampp-svgrepo-com.svg" alt="VS Code Icon" class="w-12 h-12 opacity-80 group-hover:scale-110 transition-transform duration-200" />
+                </div>
+                
+                <!-- Text and Tag -->
+                <div class="flex flex-col items-end text-right w-auto">
+                  <span class="-mr-1 text-xs bg-orange-700 text-white px-2 py-1 rounded-full mb-4 inline-block transition">Serveur local</span>
+                  <h3 class="text-base font-semibold transition">XAMPP</h3>
+                </div>
+              </div>
+        
+              <!-- GitHub -->
+              <div class="bg-gray-800 border-l-4 border-slate-500 p-4 rounded-lg shadow-md hover:shadow-xl transition group flex items-center justify-between space-x-4">
+                <!-- Icon -->
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-900 rounded-md flex items-center justify-center">
+                  <img src="/Images/iconLanguages/github-142-svgrepo-com.svg" alt="VS Code Icon" class="w-12 h-12 opacity-80 group-hover:scale-110 transition-transform duration-200" />
+                </div>
+                
+                <!-- Text and Tag -->
+                <div class="flex flex-col items-end text-right w-auto">
+                  <span class="-mr-1 text-xs bg-slate-700 text-white px-2 py-1 rounded-full mb-4 inline-block transition">Gestion de versions</span>
+                  <h3 class="text-base font-semibold transition">Github</h3>
+                </div>
+              </div>
+        
+              <!-- Postman -->
+              <div class="bg-gray-800 border-l-4 border-orange-400/70 p-4 rounded-lg shadow-md hover:shadow-xl transition group flex items-center justify-between space-x-4">
+                <!-- Icon -->
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-900 rounded-md flex items-center justify-center">
+                  <img src="/Images/iconLanguages/postman-icon-svgrepo-com.svg" alt="VS Code Icon" class="w-12 h-12 opacity-80 group-hover:scale-110 transition-transform duration-200" />
+                </div>
+                
+                <!-- Text and Tag -->
+                <div class="flex flex-col items-end text-right w-auto">
+                  <span class="-mr-1 text-xs bg-orange-600/70 text-white px-2 py-1 rounded-full mb-4 inline-block transition">API Testing</span>
+                  <h3 class="text-base font-semibold transition">Postman</h3>
+                </div>
+              </div>
+        
+              <!-- Microsoft Azure -->
+              <div class="bg-gray-800 border-l-4 border-[#0078d4] p-4 rounded-lg shadow-md hover:shadow-xl transition group flex items-center justify-between space-x-4">
+                <!-- Icon -->
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-900 rounded-md flex items-center justify-center">
+                  <img src="/Images/iconLanguages/azure-v2-svgrepo-com.svg" alt="VS Code Icon" class="w-12 h-12 opacity-80 group-hover:scale-110 transition-transform duration-200" />
+                </div>
+                
+                <!-- Text and Tag -->
+                <div class="flex flex-col items-end text-right w-auto">
+                  <span class="-mr-1 text-xs bg-[#0078d4]/80 text-white px-2 py-1 rounded-full mb-4 inline-block transition">Service cloud</span>
+                  <h3 class="text-base font-semibold transition">Microsoft Azure</h3>
+                </div>
+              </div>
+        
+              <!-- TablePlus -->
+              <div class="bg-gray-800 border-l-4 border-yellow-500/90 p-4 rounded-lg shadow-md hover:shadow-xl transition group flex items-center justify-between space-x-4">
+                <!-- Icon -->
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-900 rounded-md flex items-center justify-center">
+                  <img src="/Images/iconLanguages/tableplus.png" alt="VS Code Icon" class="w-12 h-12 opacity-80 group-hover:scale-110 transition-transform duration-200" />
+                </div>
+                
+                <!-- Text and Tag -->
+                <div class="flex flex-col items-end text-right w-auto">
+                  <span class="-mr-1 text-xs bg-yellow-600/90 text-white px-2 py-1 rounded-full mb-4 inline-block transition">Gestionnaire BDD</span>
+                  <h3 class="text-base font-semibold transition">TablePlus</h3>
+                </div>
+              </div>
+        
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="relative forestLG max-sm:hidden ">
+
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="w-full h-full mt-20 forestFrame" viewBox="49.431 -1.598 3651.22 1467.35">
+            <g id="g8" transform="matrix(1.3333333,0,0,-1.3333333,0,2403.3067)">
+              <g id="g10" transform="scale(0.1)">
+                
+              </g>
+            </g>
+          </svg>
+
+ 
+          <img src="./Images/forestLg/forest-lg-black.svg" class="w-full absolute bottom-1 mt-20 z-50"/>
+
+          <img src="./Images/forestLg/forest-lg-seven.svg" id="forestSeven" class="w-full absolute bottom-1 mt-20 z-[45]"/>
+
+          <img src="./Images/forestLg/forest-lg-five.svg" alt="" id="forestFive" class="w-full absolute bottom-1 mt-20 z-[42]">
+
+          <img src="./Images/forestLg/forest-lg-four.svg" alt="" id="forestFour" class="w-full absolute bottom-1 mt-20 z-40">
+
+          <img src="./Images/forestLg/forest-lg-three.svg" alt="" id="forestThree" class="w-full absolute bottom-1 mt-20 z-30">
+
+          <img src="./Images/forestLg/forest-lg-two.svg" alt="" id="forestTwo" class="w-full absolute bottom-1 mt-20 z-20">
+
+          <img src="./Images/forestLg/forest-lg-one.svg" alt="" id="forestOne" class="w-full absolute bottom-1 mt-20 z-10">
+
+          <img src="./Images/forestLg/forest-lg-zero.svg" alt="" id="forestZero" class="w-full absolute bottom-1 mt-20 z-[5]">
+
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="w-full absolute bottom-0 mt-20 z-0" viewBox="49.431 -1.598 3651.22 1467.35">
+            <g id="g8" transform="matrix(1.3333333,0,0,-1.3333333,0,2403.3067)">
+              <g id="g10" transform="scale(0.1)">
+                <path d="M 27739.5 6714.73 L 0 6714.73 L 0 19724.6 L 27739.5 19724.6 L 27739.5 6714.73" style="fill: rgb(222, 243, 187); fill-opacity: 1; fill-rule: nonzero; stroke: none;" id="forestLight"/>
+              </g>
+            </g>
+          </svg>
+
+          <div class="absolute top-0 left-0 h-full w-full particles">
+            <div class="particle-container w-full h-full"></div>
+          </div>
+        </div>
+
+        <div class="relative forestSM sm:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="svg2" class="w-full h-full mt-20 forestFrameSM" viewBox="161.433 320.634 3537.167 2043.308">
+            <g id="g8" transform="matrix(1.3333333,0,0,-1.3333333,0,2403.3067)">
+              <g id="g10" transform="scale(0.1)">
+                
+              </g>
+            </g>
+          </svg>
+        
+          <!-- BACKGROUND -->
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="w-full absolute bottom-0 mt-20 z-0" viewBox="161.433 320.634 3537.167 2043.308">
+            <g id="g8" transform="matrix(1.3333333,0,0,-1.3333333,0,2403.3067)">
+              <g id="g10" transform="scale(0.1)">
+                <path d="M 27739.5,0 H 0 V 18024.8 H 27739.5 V 0" style="fill:#def3bb;fill-opacity:1;fill-rule:nonzero;stroke:none" id="forestLightSM"/>
+              </g>
+            </g>
+          </svg>
+        
+          <!-- FOREGROUND -->
+
+          <img src="./Images/forestSm/forest-sm-black.svg" class="w-full absolute bottom-0 mt-20 z-50"/>
+
+          <img src="./Images/forestSm/forest-sm-seven.svg" id="forestSevenSM" class="w-full absolute bottom-0 mt-20 z-[45]"/>
+
+          <img src="./Images/forestSm/forest-sm-five.svg" id="forestFiveSM" class="w-full absolute bottom-0 mt-20 z-[42]"/>
+
+          <img src="./Images/forestSm/forest-sm-four.svg" id="forestFourSM" class="w-full absolute bottom-0 mt-20 z-40"/>
+
+          <img src="./Images/forestSm/forest-sm-three.svg" id="forestThreeSM" class="w-full absolute bottom-0 mt-20 z-30"/>
+
+          <img src="./Images/forestSm/forest-sm-two.svg" id="forestTwoSM" class="w-full absolute bottom-0 mt-20 z-20"/>
+      
+          <img src="./Images/forestSm/forest-sm-one.svg" id="forestOneSM" class="w-full absolute bottom-0 mt-20 z-10"/>
+        
+          <img src="./Images/forestSm/forest-sm-zero.svg" id="forestZeroSM" class="w-full absolute bottom-0 mt-20 z-[5]"/>
+
+          <div class="absolute top-0 left-0 h-full w-full particles">
+            <div class="particle-container-sm w-full h-full" id="particle-container"></div>
+          </div>
+        </div>
+
+      </section>
+      
+      <!-- Mon entreprise W -->
+      <section class="min-h-screen -mt-2 text-white companySec pt-42 max-sm:pt-24 bg-black relative z-20" id="entreprise">
+        <div class="companySecTitle">
+          <h1 class="font-bold text-white text-4xl sm:text-4xl md:text-6xl  mb-4 sm:mb-3 text-center">Mon entreprise</h1>
+          <p class="text-white/50 font-semibold max-sm:text-xs text-center md:mb-16">Rapide présentation de l'entreprise qui m'a accueilli en alternance</p>
+        </div>
+        <div class="companyContent w-[950px] max-w-[95%] mx-auto mt-10">
+          <!-- Az presentation -->
+          <img src="./Images/az-logo.png" alt="" class="azLogo sm:mb-24 mb-10 px-2">
+          
+          <h3 class="text-xl font-semibold min-[437px]:hidden mb-2">A propos de l'entreprise</h3>
+          <div class="flex flex-row-reverse max-sm:flex-wrap justify-between sm:gap-[2%] mb-10">
+            <div class="parallaxAz1 relative w-1/3 max-sm:w-[42%] overflow-hidden sm:min-h-[280px] flex justify-center items-center" >
+              <img src="./Images/az-product2.jpg" alt="" class="w-full absolute bottom-0 max-sm:bottom-6 max-h-none azProduct scale-[170%] max-sm:scale-[250%]">
+            </div>
+            <div class="w-2/3 max-sm:w-[56%] firstPartpar flex flex-col items-start justify-center">
+              <h3 class="text-xl font-semibold max-[437px]:hidden">A propos de l'entreprise</h3>
+              <p class="max-sm:text-sm pr-1">Aroma-Zone est une entreprise française spécialisée dans la vente de produits naturels pour la cosmétique maison, l'aromathérapie et le bien-être. Fondée en 1999, elle propose une large gamme d'huiles essentielles, d'huiles végétales, d'actifs cosmétiques et d'ingrédients DIY pour permettre à chacun de créer ses propres soins de beauté.
+                <span class="max-[530px]:hidden">Réputée pour son engagement en faveur du respect de l’environnement et de la transparence, Aroma-Zone est aujourd’hui une référence dans l’univers de la cosmétique naturelle et du fait-maison.</span></p>
+            </div>
+            <div class="w-full mt-[2%] min-[530px]:hidden text-sm">
+              <p>Réputée pour son engagement en faveur du respect de l’environnement et de la transparence, Aroma-Zone est aujourd’hui une référence dans l’univers de la cosmétique naturelle et du fait-maison.</p>
+            </div>
+          </div>
+
+          <div class=" flex flex-row-reverse max-sm:flex-col  flex-wrap expansionContent">
+            <div class="sm:w-3/4 w-full flex flex-col gap-2 sm:pl-4 max-sm:mb-4">
+              <h3 class="text-xl font-semibold">Une entreprise en expansion</h3>
+              <p class="max-sm:text-sm">L'entreprise est implanté dans le sud de la France à Cabrière d'Avignon, en plus d'un site logistique à Chateauneuf-de-Gadagne et de nombreuses boutiques en France. Forte de son succès, elle a entammée depuis quelques années une politique d'expansion avec l'ouverture constante de nouvelles boutiques, la création de nouveaux sites logistiques ainsi que la traduction du site web en plusieurs langues étrangères, en plus de l'italien déjà présent.</p>
+            </div>
+            <div class="parallaxAz2 bg-amber-600 sm:w-1/4 w-full h-auto relative overflow-hidden">
+              <div class="sm:h-full h-32 w-fit azBoutiqueParent">
+                <img src="./Images/az-boutique copy.jpg" alt="" class="h-full absolute left-0 sm:max-w-none  azBoutique max-sm:hidden">
+                <img src="./Images/az-boutique-nantes.jpeg" alt="" class="w-full absolute left-0 sm:max-w-none  azBoutique-2 sm:hidden">
+              </div>
+            </div>
+          </div>
+
+         
+
+
+          <div class="mt-10">
+            <div class="flex flex-col gap-2 max-sm:text-sm">
+              <p>Pour répondre à ces défis, l'entreprise dispose notamment d'un pôle SI complet qui s'occupe de la maintenance et de l'évolution du site WEB ainsi que de la fourniture de solutions métiers performantes ou encore l'analyse de données.</p>
+
+              <p>C'est dans ce contexte que j'ai rejoins l'équipe de développement Back-End de l'entreprise afin de participer à la restructuration et l'optimisation des processus informatiques dans l'entreprise afin de soutenir son impressionnante croissance.</p>
+            </div>
+          </div>
+        </div>     
+      </section>
+      <!-- Mes projets B -->
+      <section class="bg-black w-full relative z-20 mes-projets" id="mesProjets">
+        <div class="pt-42 mx-auto projetsContent md:w-[1000px] xl:w-[1300px] max-w-[92%] z-10">
+          <div class="projectSecTitle">
+            <div class="flex gap-4 items-center justify-center mb-4 sm:mb-3">
+              <h1 class="font-bold text-4xl sm:text-6xl text-white text-center ">Réalisations professionnelles</h1>
+              
+            </div>
+            <p class="text-zinc-400/70 max-sm:text-xs font-semibold text-center sm:mb-16 mb-10">Ensemble des réalisations que j'ai effectué, que ce soit en entreprise ou en cours de formation</p>
+          </div>
+
+          <div class="w-full flex justify-center items-center mb-8">
+            <div class="border border-white/40 w-full rounded-l-full mr-2 sm:ml-12 ml-4"></div>
+            <a href="Files/tableau_competences_nicolas_carpita.pdf" target="_blank" type="application/pdf" class=" px-2 py-1 bg-white/90 hover:bg-white rounded font-semibold transition-all ease-in-out duration-200 flex-shrink-0">Tableau de compétences E5</a>
+            <div class="border border-white/40 w-full rounded-r-full ml-2 sm:mr-12 mr-4"></div>
+          </div>
+          
+          <div class="flex flex-wrap gap-[2%] mt-6 md:mt-12 justify-start items-start mx-auto projectContent">
+
+              <!-- Projet 1 -->
+            <div class="relative overflow-hidden projectCard" style="background-image: url('./Images/proj1-tdb-web.png');">
+                <div class="projectCardContent top-2/3 group-hover:top-0">
+                    <div class="w-full h-full flex justify-center items-center">
+                        <h2 class="text-white text-2xl font-semibold text-center">Création de rapports de pilotage</h2>
+                    </div>
+                    <div class=" px-4 flex flex-col justify-between">
+                        <p class="projectCardText opacity-0 blur group-hover:opacity-100 group-hover:blur-none">Création de tableaux de bord pour permettre aux chefs d'équipes et aux différents managers du pôle logistique d'AROMA-ZONE d'avoir un visuel en temps réel sur les données relatives à l'envoi de commandes et la gestion des stocks.</p>
+                    </div>
+                    <div class="flex justify-center items-center">
+                      <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-1').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="projectCardBtn">En savoir plus</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 3 -->
+
+            <div class=" relative overflow-hidden projectCard" style="background-image: url('/Images/proj3-supexpe.png')">
+              <div class="projectCardContent top-2/3 group-hover:top-0">
+                  <div class="w-full h-full flex justify-center items-center">
+                      <h2 class="text-white text-2xl font-semibold">Conception d'états</h2>
+                  </div>
+                  <div class="px-4 flex flex-col justify-between">
+                      <p class="projectCardText opacity-0 blur group-hover:opacity-100 group-hover:blur-none">Création et mise à disposition d'états (étiquettes, bon de préparations...) pour le pôle logistique d'AROMA-ZONE</p>
+                  </div>
+                  <div class="flex justify-center items-center">
+                    <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-3').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="projectCardBtn">En savoir plus</button>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Projet 4 -->
+
+            <div class=" relative overflow-hidden projectCard" style="background-image: url('./Images/fails-details.png')">
+              <div class="projectCardContent top-2/3 group-hover:top-0">
+                  <div class="w-full h-full flex justify-center items-center">
+                      <h2 class="text-white text-2xl font-semibold text-center">Outil d'import/export de contenu</h2>
+                  </div>
+                  <div class="px-4 flex flex-col justify-between">
+                      <p class="projectCardText opacity-0 blur group-hover:opacity-100 group-hover:blur-none">Maintenance et amélioration d'un outil d'import/export développé en interne pour soutenir le processus de traduction de contenu du site web d'AROMA-ZONE.</p>
+                  </div>
+                  <div class="flex justify-center items-center">
+                    <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-4').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="projectCardBtn">En savoir plus</button>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Projet 5 -->
+
+            <div class=" relative overflow-hidden projectCard" style="background-image: url('./Images/monday-entries.png')">
+              <div class="projectCardContent top-2/3 group-hover:top-0">
+                  <div class="w-full h-full flex justify-center items-center">
+                      <h2 class="text-white text-2xl text-center font-semibold">Récupération dynamique de données</h2>
+                  </div>
+                  <div class="px-4 flex flex-col justify-between">
+                      <p class="projectCardText opacity-0 blur group-hover:opacity-100 group-hover:blur-none">Récupération de données depuis plusieurs sources pour les afficher dans un service de suivi de projets, et automatisation du processus.</p>
+                  </div>
+                  <div class="flex justify-center items-center">
+                    <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-5').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="projectCardBtn">En savoir plus</button>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Projet 6 -->
+
+            <div class=" relative overflow-hidden projectCard bg-[url('./Images/solaris-scanner-login-crop.png')]">
+              <div class="projectCardContent top-2/3 group-hover:top-0">
+                  <div class="w-full h-full flex justify-center items-center">
+                      <h2 class="text-white text-2xl text-center font-semibold">Application mobile Solaris Scanner</h2>
+                  </div>
+                  <div class="px-4 flex flex-col justify-between">
+                      <p class="projectCardText opacity-0 blur group-hover:opacity-100 group-hover:blur-none">Création d'une application mobile de scan de QR code dans le contexte de mes projets de fin d'études</p>
+                  </div>
+                  <div class="flex justify-center items-center">
+                    <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-6').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="projectCardBtn">En savoir plus</button>
+                  </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="absolute top-0 left-0 w-full h-full -z-20 opacity-0 gradientBackgroundCity" style="background: rgb(55,48,107);
+        background: linear-gradient(180deg, rgba(55,48,107,1) 0%, rgba(102,52,127,1) 18%, rgba(158,71,132,1) 43%, rgba(210,118,133,1) 74%);"></div>
+
+        <svg class="z-20 citySkylineLg min-w-full opacity-0 max-sm:hidden" xmlns="http://www.w3.org/2000/svg" version="1.1" id="图层_1" x="0px" y="0px" viewBox="1.135 0 2389.025 887.748" enable-background="new 0 0 2400 1200">
+          <g id="Distant" style="" transform="matrix(1, 0, 0, 0.78801, 0, 0)">
+            <polygon points="2364,821 2364,617 2366,617 2366,614 2364,614 2364,606 2366,606 2366,603 2362.801,603 2328,573 &#10;&#9;&#9;2328,570 2267,570 2267,573 2262,573 2262,558 2260,558 2260,545 2254.5,545 2253,531 2248,531 2248,494 2246,494 2246,531 &#10;&#9;&#9;2241,531 2239.5,545 2235,545 2235,558 2233,558 2233,573 2224,573 2224,585 2208,585 2208,594 2206,594 2206,820 2189,820 &#10;&#9;&#9;2189,588 2184,588 2184,556 2180.6,556 2154,494.3 2154,481 2152,481 2152,479 2151,479 2151,468 2149,468 2149,479 2148,479 &#10;&#9;&#9;2148,481 2146,481 2146,494.3 2119.4,556 2116,556 2116,588 2111,588 2111,665 2098,665 2098,622 2096,622 2096,611 2093,611 &#10;&#9;&#9;2093,597 2090,597 2090,567 2042,567 2042,597 2039,597 2039,611 2036,611 2036,622 2034,622 2034,653 2020,681 2020,888 1995,888 &#10;&#9;&#9;1995,852 1948,852 1948,517 1914,507 1868,517 1868,888 1860,888 1860,821 1840,821 1840,692 1840,654 1840,580 1756,580 1756,570 &#10;&#9;&#9;1736,570 1736,580 1714,580 1714,654 1707,654 1707,764 1700,764 1700,775 1664,775 1664,779 1650,779 1650,783 1637,783 1637,859 &#10;&#9;&#9;1512.301,859 1465,869 1465,935 1380,935 1375.9,950 1281,950 1281,893 1268,893 1268,498 1271,498 1271,478 1273,478 1273,470 &#10;&#9;&#9;1271,470 1268,470 1268,464 1182,464 1182,470 1179,470 1177,470 1177,478 1179,478 1179,498 1185,498 1185,859 1159,859 1159,825 &#10;&#9;&#9;1106,825 1106,697 1107,697 1093,685 1090,685 1090,679 1084,679 1084,685 1081,685 1067,697 1067,711 1064,711 1064,674 1056,674 &#10;&#9;&#9;1056,621 1050,621 1050,609 1037.301,609 1032.801,591 1032,591 1032,585 1030,585 1030,574 1027,574 1027,570 1025,570 1025,564 &#10;&#9;&#9;1024,564 1024,570 1022,570 1022,574 1019,574 1019,585 1017,585 1017,591 1016.2,591 1011,609 998,609 998,621 990,621 990,674 &#10;&#9;&#9;982,674 982,766 976,766 976,758 935,758 935,565 932,565 932,546 928,546 928,502 923,502 923,492 920,492 920,474 878,474 &#10;&#9;&#9;878,492 874,492 874,502 869,502 869,546 866,546 866,565 863,565 863,886 846,886 846,846 846,827 846,815 786,815 786,827 &#10;&#9;&#9;762,827 762,886 750,886 750,862 708,862 708,758 691,758 691,536 604,532 545,536 545,674.699 505,676 505,713 453,712 275,715 &#10;&#9;&#9;275,750 184.6,750 111,754 111,769 46,769 46,698 21.5,695 0,695 0,1200 2400,1200 2400,821 &#9;" style="fill: #662549"/>
+          </g>
+          <g id="Medium" style="" transform="matrix(1, 0, 0, 0.78801, 0, 0)">
+            <path d="M2387,852v-15h-1v-58h-9v-5h-36v5h-13v58h-19v234l-112-10V855h-6v-18h-16v-4h-103v12l3,10v204l-53,2V673h-6 v-83l-89-23v328h-9v-45l5-22h-12v-24h-14v-6h-57v6h-22v24h-29l7,19.199V909v39v113h-45v-35h4v-42h-110v4h-3V712l-44-5.601V683 l-96-9l-53,4.699V526l-76-15l-79,15v160h-40v58h-9v-14l-20-20h-80l-20,20v14h-8v15h-5v24h-9v107h-6v7h-21v12h-9V1023.4L1057,1009 h-45l-13.199,19H996v11h-8v22H836v-22h-14v-5h-27v5h-8.199L729,301h-6v-8c0-3.5-3.699-6.8-10-9.3L688.9,230.6l0,0 c-0.6-4.3-4-7.8-7.9-8.5V200h2v-2h-3l-0.199-24H683v-2h-3v-24h2v-2h-2l-0.199-24H682v-2h-2V96h1v-2h-2V70h2v-2h-2l-0.1-17H677 l-0.199,17H675v2h2v24h-2v2h2l-0.199,24H674v2h2l-0.199,24H673v2h3l-0.199,24H673v2h3l-0.199,24H673v2h2c0,0,0.101,22.1,0,22.1 c-2.699,0-7.1,4-7.899,8.5l0,0l-23.7,52.2c-7.7,2.7-12.4,6.3-12.4,10.2v8h-6l-59.6,760H554v-16h-19V914h-15V715l-15-1.301V692 l-2-0.2V681l-2-0.2V660l-11-1.2L426.9,624L364,658.3l-13,1.7v20.699L349,681v10.699L347,692V713.4L332,715v196h-22v150h-43v-54v-80 V700l-21-3.101V639c0,0-33-8-87-8c-63,0-106,8-106,8v247H35v-4H8v4H0v314h2400V852H2387z M687.4,232l23,50.7 c-7.1-2.4-16.7-4.101-27.4-4.601V266h-2l-0.3-34H687.4z M668.6,232H675v34h-2v12.1c-10.399,0.3-19.8,1.7-27.1,3.9L668.6,232z" style="fill: #451952"/>
+          </g>
+          <g id="Near" style="" transform="matrix(1, 0, 0, 0.78801, 0, 0)">
+            <path d="M2393.4,1012l-9.9-6l-9.899,6H2364v17h-17V812h-16v-31h-147v252h-2v-15h-36v15h-11v-15h-22V904h-11v-17h-5 v-8v-10h-18v-7h-27v7h-30v10h-27v8h-19v146h-36v-2h1v-2h-1h-3h-6v-9h-40v9h-34v-35h-4V804h-9v-6h-13v-25h-9v-7h-4v-12h-52v12h-5v7 h-6v25h-17v6h-6v225h-47v4h-64v-1h1v-3h-1h-5h-1v-11h-22v11h-16V902l-15-4h-73l-15,4v38h-25v46h-29.6l-2.4-11h-15l-2.399,11H1363 V880h-41v-15h-21v-5h-4v17h-3v3h-35v122h-9v-20h-5v-10h-81v10h-15v118h-52v-50h-93v-16h-25v-13h-15V920v-56v-9l-95-8h-47v17h-7v214 h-29v-36h-13V864h-13V724h-12v-46l-26-1.7V664h-7.1c-4.9-17.101-26.3-30-51.9-30c-25.6,0-47,12.899-51.899,30H604v11.6l-19,0.4v48 h-19v345h-18v-28c0-13.5-10.699-24.4-24-25l0,0h-4.3c-0.8-2.301-3-4-5.7-4h-55c-2.6,0-4.8,1.699-5.699,4H451 c-13.8,0-25,11.199-25,25v28h-57v16h-43v-57h-12V927v-67v-59h-12v-27h-4v-12l-12-0.4V751l-11-0.5V740l-8-0.4V730l-54-3l-54,3v9.6 l-8,0.4v10.5l-11,0.5v10.6l-12,0.4v12h-2v27h-15v59H92v38l-92,3v299h2400v-188H2393.4z" style=""/>
+          </g>
+        </svg>
+
+        <div class="rounded-full absolute bottom-0 left-1/2 -z-10 scale-0 sunLight" style="background: rgb(249,74,41);
+background: linear-gradient(180deg, rgba(249,74,41,1) 0%, rgba(249,112,41,1) 30%, rgba(249,137,41,1) 57%, rgba(249,179,41,1) 100%);"></div>
+
+        <svg class="z-20 citySkylineSm min-w-full opacity-0 sm:hidden" xmlns="http://www.w3.org/2000/svg" version="1.1" id="图层_1" x="0px" y="0px" viewBox="553.238 -67.711 2128.599 1497.145" enable-background="new 0 0 2400 1200">
+          <g id="Distant" style="" transform="matrix(1.125873, 0, 0, 1.292543, 0, -25.731152)">
+            <polygon points="2364,821 2364,617 2366,617 2366,614 2364,614 2364,606 2366,606 2366,603 2362.801,603 2328,573 &#10;&#9;&#9;2328,570 2267,570 2267,573 2262,573 2262,558 2260,558 2260,545 2254.5,545 2253,531 2248,531 2248,494 2246,494 2246,531 &#10;&#9;&#9;2241,531 2239.5,545 2235,545 2235,558 2233,558 2233,573 2224,573 2224,585 2208,585 2208,594 2206,594 2206,820 2189,820 &#10;&#9;&#9;2189,588 2184,588 2184,556 2180.6,556 2154,494.3 2154,481 2152,481 2152,479 2151,479 2151,468 2149,468 2149,479 2148,479 &#10;&#9;&#9;2148,481 2146,481 2146,494.3 2119.4,556 2116,556 2116,588 2111,588 2111,665 2098,665 2098,622 2096,622 2096,611 2093,611 &#10;&#9;&#9;2093,597 2090,597 2090,567 2042,567 2042,597 2039,597 2039,611 2036,611 2036,622 2034,622 2034,653 2020,681 2020,888 1995,888 &#10;&#9;&#9;1995,852 1948,852 1948,517 1914,507 1868,517 1868,888 1860,888 1860,821 1840,821 1840,692 1840,654 1840,580 1756,580 1756,570 &#10;&#9;&#9;1736,570 1736,580 1714,580 1714,654 1707,654 1707,764 1700,764 1700,775 1664,775 1664,779 1650,779 1650,783 1637,783 1637,859 &#10;&#9;&#9;1512.301,859 1465,869 1465,935 1380,935 1375.9,950 1281,950 1281,893 1268,893 1268,498 1271,498 1271,478 1273,478 1273,470 &#10;&#9;&#9;1271,470 1268,470 1268,464 1182,464 1182,470 1179,470 1177,470 1177,478 1179,478 1179,498 1185,498 1185,859 1159,859 1159,825 &#10;&#9;&#9;1106,825 1106,697 1107,697 1093,685 1090,685 1090,679 1084,679 1084,685 1081,685 1067,697 1067,711 1064,711 1064,674 1056,674 &#10;&#9;&#9;1056,621 1050,621 1050,609 1037.301,609 1032.801,591 1032,591 1032,585 1030,585 1030,574 1027,574 1027,570 1025,570 1025,564 &#10;&#9;&#9;1024,564 1024,570 1022,570 1022,574 1019,574 1019,585 1017,585 1017,591 1016.2,591 1011,609 998,609 998,621 990,621 990,674 &#10;&#9;&#9;982,674 982,766 976,766 976,758 935,758 935,565 932,565 932,546 928,546 928,502 923,502 923,492 920,492 920,474 878,474 &#10;&#9;&#9;878,492 874,492 874,502 869,502 869,546 866,546 866,565 863,565 863,886 846,886 846,846 846,827 846,815 786,815 786,827 &#10;&#9;&#9;762,827 762,886 750,886 750,862 708,862 708,758 691,758 691,536 604,532 545,536 545,674.699 505,676 505,713 453,712 275,715 &#10;&#9;&#9;275,750 184.6,750 111,754 111,769 46,769 46,698 21.5,695 0,695 0,1200 2400,1200 2400,821 &#9;" style="fill: rgb(102, 37, 73);"/>
+          </g>
+          <g id="Medium" style="" transform="matrix(1.125873, 0, 0, 1.292543, 0, -25.731152)">
+            <path d="M2387,852v-15h-1v-58h-9v-5h-36v5h-13v58h-19v234l-112-10V855h-6v-18h-16v-4h-103v12l3,10v204l-53,2V673h-6 v-83l-89-23v328h-9v-45l5-22h-12v-24h-14v-6h-57v6h-22v24h-29l7,19.199V909v39v113h-45v-35h4v-42h-110v4h-3V712l-44-5.601V683 l-96-9l-53,4.699V526l-76-15l-79,15v160h-40v58h-9v-14l-20-20h-80l-20,20v14h-8v15h-5v24h-9v107h-6v7h-21v12h-9V1023.4L1057,1009 h-45l-13.199,19H996v11h-8v22H836v-22h-14v-5h-27v5h-8.199L729,301h-6v-8c0-3.5-3.699-6.8-10-9.3L688.9,230.6l0,0 c-0.6-4.3-4-7.8-7.9-8.5V200h2v-2h-3l-0.199-24H683v-2h-3v-24h2v-2h-2l-0.199-24H682v-2h-2V96h1v-2h-2V70h2v-2h-2l-0.1-17H677 l-0.199,17H675v2h2v24h-2v2h2l-0.199,24H674v2h2l-0.199,24H673v2h3l-0.199,24H673v2h3l-0.199,24H673v2h2c0,0,0.101,22.1,0,22.1 c-2.699,0-7.1,4-7.899,8.5l0,0l-23.7,52.2c-7.7,2.7-12.4,6.3-12.4,10.2v8h-6l-59.6,760H554v-16h-19V914h-15V715l-15-1.301V692 l-2-0.2V681l-2-0.2V660l-11-1.2L426.9,624L364,658.3l-13,1.7v20.699L349,681v10.699L347,692V713.4L332,715v196h-22v150h-43v-54v-80 V700l-21-3.101V639c0,0-33-8-87-8c-63,0-106,8-106,8v247H35v-4H8v4H0v314h2400V852H2387z M687.4,232l23,50.7 c-7.1-2.4-16.7-4.101-27.4-4.601V266h-2l-0.3-34H687.4z M668.6,232H675v34h-2v12.1c-10.399,0.3-19.8,1.7-27.1,3.9L668.6,232z" style="fill: rgb(69, 25, 82);"/>
+          </g>
+          <g id="Near" style="" transform="matrix(1.125873, 0, 0, 1.292543, 0, -25.731152)">
+            <path d="M2393.4,1012l-9.9-6l-9.899,6H2364v17h-17V812h-16v-31h-147v252h-2v-15h-36v15h-11v-15h-22V904h-11v-17h-5 v-8v-10h-18v-7h-27v7h-30v10h-27v8h-19v146h-36v-2h1v-2h-1h-3h-6v-9h-40v9h-34v-35h-4V804h-9v-6h-13v-25h-9v-7h-4v-12h-52v12h-5v7 h-6v25h-17v6h-6v225h-47v4h-64v-1h1v-3h-1h-5h-1v-11h-22v11h-16V902l-15-4h-73l-15,4v38h-25v46h-29.6l-2.4-11h-15l-2.399,11H1363 V880h-41v-15h-21v-5h-4v17h-3v3h-35v122h-9v-20h-5v-10h-81v10h-15v118h-52v-50h-93v-16h-25v-13h-15V920v-56v-9l-95-8h-47v17h-7v214 h-29v-36h-13V864h-13V724h-12v-46l-26-1.7V664h-7.1c-4.9-17.101-26.3-30-51.9-30c-25.6,0-47,12.899-51.899,30H604v11.6l-19,0.4v48 h-19v345h-18v-28c0-13.5-10.699-24.4-24-25l0,0h-4.3c-0.8-2.301-3-4-5.7-4h-55c-2.6,0-4.8,1.699-5.699,4H451 c-13.8,0-25,11.199-25,25v28h-57v16h-43v-57h-12V927v-67v-59h-12v-27h-4v-12l-12-0.4V751l-11-0.5V740l-8-0.4V730l-54-3l-54,3v9.6 l-8,0.4v10.5l-11,0.5v10.6l-12,0.4v12h-2v27h-15v59H92v38l-92,3v299h2400v-188H2393.4z" style=""/>
+          </g>
+        </svg>
+
+        <div class="hidden absolute top-0 left-0 z-20 projet1 p-12  w-full h-[95vh] overflow-hidden">
+          <div class="project-1 w-full h-full flex flex-col justify-center items-center bg-red-500 overflow-scroll p-12 text-white ">
+              <h2 class="text-white text-6xl max-sm:text-4xl font-semibold sm:mt-36 mt-12 text-center">Création de rapports de pilotage</h2>
+              <h3 class="text-xl max-sm:text-lg text-center mt-4">Stage de 1ère année</h3>
+
+              <div class="mt-12">
+                <h4 class="sm:text-center text-start max-sm:ml-2 text-2xl max-sm:text-xl font-semibold mb-4 max-w-[95%] mx-auto">Compétences mobilisées</h4>
+
+                <ul class="list-disc list-inside flex flex-col justify-center items-center max-sm:items-start max-w-[95%] mx-auto mb-24 max-sm:text-sm">
+                  <li>Gérer des sauvegardes</li>
+                  <li>Déployer un service</li>
+                  <li>Collecter, suivre et orienter des demandes</li>
+                  <li>Traiter des demandes concernant les applications</li>
+                  <li>Réaliser les tests d’intégration et d’acceptation d’un service</li>
+                  <li>Accompagner les utilisateurs dans la mise en place d’un service</li>
+                </ul>
+              </div>
+
+              <div class="vueEnsemble my-12">
+                <h5 class="text-2xl font-semibold mb-4">Vue d'ensemble</h5>
+                <p class="mb-2">
+                  Cette mission a consisté en l'ajout de données clés à différents tableaux de bords utilisés dans le pôle logistique d'AROMA-ZONE, mais également à en créer de nouveaux. Ces tableaux sont à destination des différentes équipes opérationnelles pour lesquels ils doivent être personnalisés en fonction de leurs besoins. Ces rapports permettent de donner aux équipes une vision globale, en temps réel, sur plusieurs facteurs déterminants dans leur travail, pour ensuite pouvoir optimiser leurs actions et décisions en conséquence.
+               </p>
+               <p>Ces enjeux m'ont donc permis de dialoguer avec les différentes équipes responsables de la logistique (préparation de commandes, gestion de stock, réception...) afin d'analyser leurs besoins et déterminer ce qui serait faisable et optimal.</p>
+              </div>
+
+              <div class="tools py-12">
+                <h5 class="text-2xl font-semibold mb-4">Outils utilisés</h5>
+                <div class="vStudio flex gap-4 items-center w-full mb-4">
+                  <svg viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" class="sm:h-32 max-sm:!min-w-[100px]" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <linearGradient x1="49.9999997%" y1="0.00244053108%" x2="49.9999997%" y2="99.999641%" id="linearGradient-1"> <stop stop-color="#FFFFFF" offset="0%"> </stop> <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"> </stop> </linearGradient> </defs> <g> <path d="M36.9866667,200.406215 C33.9280235,203.019746 29.6590738,203.689992 25.9466667,202.139549 L6.56,194.006215 C2.60661593,192.357112 0.0232284231,188.503034 0,184.219549 L0,70.4595487 C0.0232284231,66.1760633 2.60661593,62.3219852 6.56,60.6728821 L25.9466667,52.6728821 C29.6590738,51.122439 33.9280235,51.7926847 36.9866667,54.4062154 L41.3333333,58.0062154 C39.5360867,56.7141841 37.1664204,56.5381696 35.1980103,57.5504947 C33.2296003,58.5628199 31.9944221,60.5927545 32,62.8062154 L32,191.872882 C31.9944221,194.086343 33.2296003,196.116278 35.1980103,197.128603 C37.1664204,198.140928 39.5360867,197.964913 41.3333333,196.672882 L36.9866667,200.406215 Z" fill="#52218A" fill-rule="nonzero"> </path> <path d="M6.56,194.006215 C2.60661593,192.357112 0.0232284231,188.503034 0,184.219549 L0,183.339549 C0.0268934047,185.858586 1.58492217,188.107394 3.9339112,189.017627 C6.28290023,189.927861 8.94941357,189.316063 10.6666667,187.472882 L176,4.67288206 C180.797767,-0.101060222 188.080373,-1.3397438 194.186667,1.57954873 L246.933333,26.9662154 C252.477775,29.6321062 256.002663,35.2408256 256,41.3928821 L256,42.0062154 C255.996628,38.1026642 253.745578,34.5500434 250.217325,32.8799659 C246.689073,31.2098885 242.514491,31.7209739 239.493333,34.1928821 L41.3333333,196.672882 L36.9866667,200.406215 C33.9280235,203.019746 29.6590738,203.689992 25.9466667,202.139549 L6.56,194.006215 Z" fill="#6C33AF" fill-rule="nonzero"> </path> <path d="M6.56,60.6728821 C2.60661593,62.3219852 0.0232284231,66.1760633 0,70.4595487 L0,71.3395487 C0.0268934047,68.8205111 1.58492217,66.5717033 3.9339112,65.6614701 C6.28290023,64.7512369 8.94941357,65.3630345 10.6666667,67.2062154 L176,250.006215 C180.797767,254.780158 188.080373,256.018841 194.186667,253.099549 L246.933333,227.712882 C252.477775,225.046991 256.002663,219.438272 256,213.286215 L256,212.672882 C255.996628,216.576433 253.745578,220.129054 250.217325,221.799132 C246.689073,223.469209 242.514491,222.958124 239.493333,220.486215 L41.3333333,58.0062154 L36.9866667,54.2728821 C33.9010187,51.7044121 29.634528,51.0860801 25.9466667,52.6728821 L6.56,60.6728821 Z" fill="#854CC7" fill-rule="nonzero"> </path> <path d="M194.186667,253.099549 C188.080373,256.018841 180.797767,254.780158 176,250.006215 C178.687118,252.67399 182.713996,253.466025 186.211298,252.014645 C189.7086,250.563265 191.991405,247.152711 192,243.366215 L192,11.3662154 C192.012965,7.57001396 189.738069,4.13973417 186.235938,2.67467621 C182.733808,1.20961825 178.694002,1.99824786 176,4.67288206 C180.797767,-0.101060222 188.080373,-1.3397438 194.186667,1.57954873 L246.933333,26.9395487 C252.477775,29.6054395 256.002663,35.214159 256,41.3662154 L256,213.312882 C256.002663,219.464938 252.477775,225.073658 246.933333,227.739549 L194.186667,253.099549 Z" fill="#B179F1" fill-rule="nonzero"> </path> <path d="M183.706667,254.272882 C187.232219,255.077301 190.926299,254.663714 194.186667,253.099549 L246.933333,227.739549 C252.477775,225.073658 256.002663,219.464938 256,213.312882 L256,41.3662154 C256.002663,35.214159 252.477775,29.6054395 246.933333,26.9395487 L194.186667,1.57954873 C190.454554,-0.214455828 186.172257,-0.491658077 182.24,0.806215393 C179.888439,1.59407912 177.752219,2.9178052 176,4.67288206 L90.9866667,98.6995487 L41.3333333,58.0062154 L36.9866667,54.2728821 C34.3333065,52.0042454 30.7377412,51.1775642 27.36,52.0595487 C26.8727028,52.1672022 26.3987371,52.3281717 25.9466667,52.5395487 L6.56,60.6728821 C2.86046907,62.2004243 0.327434334,65.670476 0,69.6595487 C0,69.9262154 0,70.1928821 0,70.4595487 L0,184.219549 C0,184.486215 0,184.752882 0,185.019549 C0.327434334,189.008621 2.86046907,192.478673 6.56,194.006215 L25.9466667,202.006215 C26.3987371,202.217592 26.8727028,202.378562 27.36,202.486215 C30.7377412,203.3682 34.3333065,202.541519 36.9866667,200.272882 L41.3333333,196.672882 L90.9866667,155.979549 L176,250.006215 C178.119066,252.121513 180.789161,253.599766 183.706667,254.272882 L183.706667,254.272882 Z M192,73.1528821 L125.893333,127.339549 L192,181.526215 L192,73.1528821 Z M32,90.7262154 L65.0933333,127.339549 L32,163.952882 L32,90.7262154 Z" fill-opacity="0.25" fill="url(#linearGradient-1)"> </path> </g> </g>
+                  </svg>
+                  <div>
+                    <h5 class="text-lg font-semibold mb-1 max-sm:text-sm">Visual Studio (SSRS)</h5>
+                    <p class="max-sm:text-xs">Au travers du plugin <span class="font-semibold">SSRS</span> (SQL Server Reporting Service), Visual Studio est utilisé pour construire des rapports de données en mettant en forme le résultat de requêtes SQL, tout en pouvant y rajouter une logique d'affichage.</p>
+                  </div>
+                </div>
+                <div class="ssms flex gap-4 items-center w-full mt-6 mb-4">
+                  <img src="Images/ssms-logo.png" alt="" class="sm:h-20 max-sm:!min-w-[100px]">
+                  <div>
+                    <h5 class="text-lg font-semibold mb-1 max-sm:text-sm">SQL Server Management Studio (SSMS)</h5>
+                    <p class="max-sm:text-xs">SSMS est un logiciel qui permet de se connecter de manière sécurisé à une ou plusieurs bases de données SQL SERVER, et construire/exécuter des requêtes SQL vers ces bases.</p>
+                  </div>
+                </div>
+                <p class="mt-8">Dans mon workflow pour cette mission, j'ai utilisé SSMS pour construire et tester rapidement mes requêtes SQL vers la base de donnée contenant l'ensemble des informations relatives à la logistique (stocks/emplacements disponibles, commandes en cours...), avant de les intégrer à mes différents rapports au sein de Visual Studio (qui est connecté à cette même base de donnée) pour construire la mise en page et la logique d'affichage des résultats. Les rapports ainsi créés peuvent ensuite être mis en ligne et peuvent être générés à tout moment, avec une donnée précise en temps réel.</p>
+                <div class="grid grid-cols-2 mt-6">
+                  <div class="flex flex-col gap-2 justify-center items-center pr-1">
+                    <img src="Images/ssms-exemple.png" alt="" class="aspect-16/9" @click="FsImage = true; injectImage($el)">
+                    <p class="italic text-sm">Exemple de requête sur SSMS</p>
+                  </div>
+                  <div class="flex flex-col gap-2 justify-center items-center pr-1">
+                    <img src="Images/proj1-ssrs.png" alt="" class="aspect-16/9" @click="FsImage = true; injectImage($el)"> 
+                    <p class="italic text-sm">Interface de construction de rapport SSRS</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="fonctionnement pt-16">
+                <h5 class="text-2xl font-semibold mb-4">Travaux</h5>
+                <p>Voici quelques uns des rapports sur lesquels j'ai travaillé, avec les différents ajouts effectués :</p>
+                <div class="rapports flex flex-col gap-10 my-12">
+                  <div class="flex w-full flex-row-reverse max-sm:flex-col rapport gap-4 border-b border-zinc-500">
+                    <img src="Images/proj1-stats-transporteurs.png" alt="" class="sm:w-[40%]" @click="FsImage = true; injectImage($el)">
+                    <div class="sm:w-[60%]">
+                      <h6 class="text-lg font-semibold mb-2">Rapport de retours par transporteurs (Créé)</h6>
+                      <p class="pb-4">Souhaitant minimiser les retours colis "inutiles", la direction du pôle logistique avait besoin d'un visuel plus précis sur la fiabilité des services postaux partenaires. Après échange avec les demandeurs, un rapport dynamique a donc été créé pour visualiser le nombre d'envoi et de retours colis sur une période à renseigner, filtrés par transporteurs, puis "sous-filtrés" par pays, ainsi qu'un taux de fiabilité. Ce rapport permet de repérer de potentielles failles ou faiblesses dans l'acheminement de colis pour certains transporteurs/destinations.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex w-full flex-row max-sm:flex-col rapport gap-4  border-b border-zinc-500">
+                    <img src="Images/proj1-capacite-greenlog.png" alt="" class="sm:w-[40%]" @click="FsImage = true; injectImage($el)">
+                    <div class="sm:w-[60%]">
+                      <h6 class="text-lg font-semibold mb-2">Rapport de capacité site logistique (Créé)</h6>
+                      <p class="pb-4">La place disponible étant cruciale pour un entrepôt logistique, pouvoir faire un état des lieux rapide manquait chez Aroma-Zone, les différents responsables devaient jusqu'alors grouper les informations manuellement dans Excel, un rapport a donc été créé pour palier à cela, renseignant sur le taux de remplissage de chaque zone du site, et ce en un clic et en temps réel.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex w-full flex-row-reverse max-sm:flex-col rapport gap-4  border-b border-zinc-500">
+                    <img src="Images/proj1-stats-missions.png" alt="" class="sm:w-[40%]" @click="FsImage = true; injectImage($el)">
+                    <div class="sm:w-[60%]">
+                      <h6 class="text-lg font-semibold mb-2">Statistiques Missions (Modifié)</h6>
+                      <p class="pb-4">Ce rapport sert, pour les chefs des équipes affectées à la préparation de commande, à visualiser la répartition par type de commandes à préparer (standards, click&collect...), mais également à afficher le quota de missions réalisées par chaque employé ; Une séparation est aussi faite entre chaque équipe (AM/PM), Aroma-Zone pratiquant les 2-8 pour faire fonctionner le site de manière quasi-permanente. Jusqu'à mon arrivée, Ce rapport ne distinguait pas les commandes dites "Express" (XPR) et "XL", qui sont pourtant deux types de commandes qui nécéssitent un traitement particulier, surtout les secondes, qui nécéssitent un temps considérable à être préparées et peuvent impacter négativement le quota d'un opérateur. J'ai donc palié à ce problème en rajoutant les données adéquates au rapport conformément à une demande de longue date des chefs de ces équipes. Un peu plus tard (non visible ici), j'ai également rajouté la gestion d'une 3ème tranche horaire, lorsque l'entreprise est passé récemment d'un cycle 2-8 à un cycle 3-8.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+          </div>
+
+
+          <div class="project-3 w-full h-full flex flex-col justify-center items-center bg-red-500 overflow-scroll p-12 ">
+            <h2 class="text-white text-6xl max-sm:text-4xl font-semibold sm:mt-36 mt-12 text-center">Création d'états logistiques</h2>
+              <h3 class="text-xl max-sm:text-lg text-center mt-4">Stage de 1ère année</h3>
+
+              <div class="mt-12">
+                <h4 class="sm:text-center text-start max-sm:ml-2 text-2xl max-sm:text-xl font-semibold mb-4 max-w-[95%] mx-auto">Compétences mobilisées</h4>
+
+                <ul class="list-disc list-inside flex flex-col justify-center items-center max-sm:items-start max-w-[95%] mx-auto mb-24 max-sm:text-sm">
+                  <li>Collecter, suivre et orienter des demandes</li>
+                  <li>Traiter des demandes concernant les applications</li>
+                  <li>Évaluer les indicateurs de suivi d’un projet et analyser les écarts</li>
+                  <li>Réaliser les tests d’intégration et d’acceptation d’un service</li>
+                  <li>Déployer un service</li>
+                </ul>
+              </div>
+
+              <div class="vueEnsemble my-12">
+                <h5 class="text-2xl font-semibold mb-4">Vue d'ensemble</h5>
+                <p class="mb-2">
+                  Le pôle logistique d'AROMA-ZONE possède un logiciel de gestion de stock et de préparation de commandes (WMS) fourni par un prestataire, qui, au moment de mon stage, était en pleine évolution : plusieurs nouveaux modules étant en cours de conception. Pour accompagner ces nouvelles fonctionnalitées, le besoin de nouveaux <span class="font-semibold">états</span> (étiquettes, feuilles de préparation de commandes...) s'est manifesté afin que les équipes métiers puissent pleinement tirer parti de ces avancées et de leurs spécificités. La mission de concevoir ces états m'a été confié.
+               </p>
+               <p>Tout comme pour les rapports de pilotage, cette mission a nécéssité un dialogue constructif avec les différentes équipes afin de cerner correctement leurs besoins et y répondre au mieux.</p>
+              </div>
+
+              <div class="tools py-12">
+                <h5 class="text-2xl font-semibold mb-4">Outils & utilisation</h5>
+                <div class="winDev flex gap-4 items-center w-full mb-4">
+                  <div class="max-sm:!min-w-[100px] flex justify-center items-center">
+                    <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" viewBox="181.205 0 56.068 61.988" width="80">
+                      <g id="Black_3_">
+                        <g>
+                          <g/>
+                        </g>
+                        <g/>
+                        <g>
+                          <g>
+                            <path fill="#FFC10E" d="M181.277,32.423c0.091,1.329,0.315,3.522,1.219,5.085c2.235,3.874,6.999,5.379,11.006,3.639l5.228-3.018 v-20.3c0.495-4.34,4.18-7.713,8.654-7.711c1.803-0.002,3.813,0.901,5.011,1.486l-17.346-9.995C193.627,0.599,191.892,0,190.014,0 c-1.521,0-2.949,0.392-4.193,1.075c-2.719,1.476-4.564,4.355-4.564,7.666L181.277,32.423z"/>
+                          </g>
+                          <g>
+                            <path fill="#F48120" d="M214.867,48.965c1.106-0.744,2.895-2.035,3.794-3.598c2.238-3.875,1.16-8.753-2.352-11.352l-5.228-3.018 l-17.578,10.15c-4.009,1.739-8.77,0.236-11.006-3.64c-0.903-1.561-1.127-3.754-1.219-5.084l0.017,20.021 c-0.164,1.735,0.186,3.538,1.123,5.163c0.762,1.318,1.813,2.359,3.028,3.094c2.637,1.618,6.056,1.776,8.922,0.121L214.867,48.965 z"/>
+                          </g>
+                          <g>
+                            <path fill="#5476B9" d="M212.397,11.607c-1.197-0.585-3.21-1.487-5.013-1.485c-4.475-0.001-8.16,3.371-8.654,7.712v6.035 l17.579,10.148c3.51,2.601,4.59,7.477,2.349,11.352c-0.896,1.563-2.687,2.854-3.792,3.598l17.33-10.024 c1.586-0.728,2.971-1.929,3.911-3.556c0.76-1.318,1.134-2.749,1.164-4.168c0.083-3.093-1.488-6.131-4.355-7.787L212.397,11.607z"/>
+                          </g>
+                          <path opacity="0.6" fill="#717573" d="M207.385,10.122c-4.475-0.001-8.16,3.371-8.654,7.712v6.035l3.862,2.215v-6.093 c0.495-4.34,2.204-8.836,6.679-8.834c1.563-0.002,3.283,0.677,4.493,1.239l-1.367-0.789 C211.2,11.022,209.187,10.12,207.385,10.122z"/>
+                          <path opacity="0.6" fill="#717573" d="M182.497,37.508c2.236,3.874,7,5.379,11.006,3.639l5.228-3.018l-0.014-4.452l-5.275,3.046 c-4.008,1.74-8.756,2.51-10.991-1.367c-0.783-1.354-1.055-3.182-1.173-4.511v1.579C181.37,33.753,181.594,35.945,182.497,37.508z"/>
+                          <path opacity="0.6" fill="#717573" d="M218.66,45.37c2.239-3.874,1.161-8.753-2.352-11.352l-5.227-3.018l-3.849,2.237l5.275,3.046 c3.512,2.599,6.552,6.327,4.313,10.201c-0.78,1.355-2.229,2.505-3.32,3.272l1.366-0.789 C215.973,48.223,217.76,46.932,218.66,45.37z"/>
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+             
+                  <div>
+                    <h5 class="text-lg max-sm:text-sm font-semibold mb-1">WinDev</h5>
+                    <p class="max-sm:text-xs">WinDev est un environnement de développement rapide (RAD) conçu par PC Soft, permettant de créer des applications multiplateformes (Windows, web, mobile) avec un langage propriétaire, le WLanguage.</p>
+                  </div>
+                </div>
+                <div class="ssms flex gap-4 items-center mt-2">
+                  <img src="Images/ssms-logo.png" alt="" class="sm:h-20 max-sm:!w-[100px]">
+                  <div>
+                    <h5 class="text-lg font-semibold mb-1 max-sm:text-sm">SQL Server Management Studio (SSMS)</h5>
+                    <p class="max-sm:text-xs">SSMS est un logiciel qui permet de se connecter de manière sécurisé à une ou plusieurs bases de données SQL SERVER, et construire/exécuter des requêtes SQL vers ces bases.</p>
+                  </div>
+                </div>
+                <p class="mt-8">Les états ont étés créés avec windev, et chaque état est relié à une requête SQL SERVER. Leur but est d'être appelés par le logiciel WMS lorsque l'impression d'une ou plusieurs données est nécéssaire ; chaque état possède un formalisme, une quantité d'information à afficher et un rôle précis associés à un certain type de données seulement.</p>
+                <p class="mt-1">J'ai concu mes états en partant d'autres pré-existants : ces derniers étants remplis de code propriétaires venant du prestataire, il aurait été difficile de tout reprendre de zéro, mes connaissances en WinDev étant de surcroît limitées. Mon rôle à simplement été de changer l'aspect graphique des états déja présent ainsi que la requête SQL associée et les données à afficher.</p>
+                <p class="mt-1">Le dialogue avec les équipes métiers s'est fait autour des données nécéssaires aux nouveaux états ainsi que sur le formalisme à adopter pour un affichage et une lisibilité la plus efficace possible.</p>
+                <div class="grid grid-cols-2 mt-6">
+                  <div class="flex flex-col gap-2 justify-center items-center pr-1">
+                    <img src="Images/ssms-exemple.png" alt="" class="aspect-16/9" @click="FsImage = true; injectImage($el)">
+                    <p class="italic text-sm max-sm:text-xs max-sm:text-center">Exemple de requête sur SSMS</p>
+                  </div>
+                  <div class="flex flex-col gap-2 justify-center items-center pr-1">
+                    <img src="Images/proj3-windev.png" alt="" class="aspect-16/9" @click="FsImage = true; injectImage($el)">
+                    <p class="italic text-sm max-sm:text-xs max-sm:text-center">Interface du logiciel WinDev</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="fonctionnement pt-16">
+                <h5 class="text-2xl font-semibold mb-4">Travaux</h5>
+                <p>Quelques uns des états que j'ai créé dans le contexte de cette mission :</p>
+                <div class="rapports flex flex-col gap-10 my-12">
+                  <div class="flex w-full sm:flex-row-reverse flex-col max-sm:mb-6 rapport gap-4 border-b border-zinc-500">
+                    <img src="Images/proj3-bonprepa.png" alt="" class="sm:w-[40%]" @click="FsImage = true; injectImage($el)">
+                    <div class="sm:w-[60%]">
+                      <h6 class="text-lg font-semibold mb-2">Bon de préparation</h6>
+                      <p class="pb-4">A destination des équipes de préparations de commandes internes pour les boutiques d'Aroma-Zone, cet état renseigne les différents produits à préparer, ainsi que des  informations sur leur conditionnement (type de cartons, etc) ; un code à barre est également présent pour procéder "informatiquement" à la préparation du produit au sein du module WMS affilié. Enfin, la boutique de destination est également renseignée. <br/> La présence d'un tel bon de préparation au format papier était nécéssaire pour permettre, si besoin, aux différents opérateurs de se répartir le travail efficacement.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex w-full flex-row max-sm:flex-col max-sm:mb-6 rapport gap-4  border-b border-zinc-500">
+                    <img src="Images/proj3-supexpe.png" alt="" class="sm:w-[40%]" @click="FsImage = true; injectImage($el)">
+                    <div class="sm:w-[60%]">
+                      <h6 class="text-lg font-semibold mb-2">Etiquette support d'expédition</h6>
+                      <p class="pb-4">Après un remaniement du système d'expédition de palettes dans le logiciel WMS, un "support d'expédition" s'est retrouvé affecté à chaque palette, regroupant le contenu de celle ci (ce n'était pas le cas avant, le contenu était uniquement regroupé au niveau du chargement entier...). Ce nouveau fonctionnement permet une meilleure gestion des chargements, mais aucune étiquette à apposer sur ces palettes n'existait. J'ai donc remédié à cela, en renseignant le numéro de support d'expédition, la mission de préparation lui étant affilié, l'adresse cible ainsi que la référence de chargement.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex w-full flex-row-reverse max-sm:flex-col max-sm:mb-6 rapport gap-4  border-b border-zinc-500">
+                    <img src="Images/proj3-bonlivraison.png" alt="" class="sm:w-[40%]" @click="FsImage = true; injectImage($el)">
+                    <div class="sm:w-[60%]">
+                      <h6 class="text-lg font-semibold mb-2">Bon de livraison</h6>
+                      <p class="pb-4">Le bon de livraison était un élément crucial qui manquait à l'entreprise pour consigner l'ensemble du contenu d'un chargement dans un seul document. On retrouve ici la date d'expédition, l'adresse de livraison ainsi que la quantité de chaque produit présent dans le chargement et le nombre de palettes présentes. Ce document permet de faciliter la réception de ces chargements une fois arrivés à bon port, en s'assurant de l'intégrité de ceux ci.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+          </div>
+
+          <!-- Outil Import/Export -->
+          <div class="project-4 w-full h-full flex flex-col justify-center items-center bg-red-500 overflow-scroll p-12 ">
+            <h2 class="text-white text-6xl max-sm:text-4xl font-semibold sm:mt-36 mt-12 text-center">Maintenance et évolution d'un outil de traduction</h2>
+            <h3 class="text-xl max-sm:text-lg text-center mt-4">Alternance 2ème année</h3>
+
+            <div class="mt-12">
+              <h4 class="sm:text-center text-start max-sm:ml-2 text-2xl max-sm:text-xl font-semibold mb-4 max-w-[95%] mx-auto">Compétences mobilisées</h4>
+
+              <ul class="list-disc list-inside flex flex-col justify-center items-center max-sm:items-start max-w-[95%] mx-auto mb-24 max-sm:text-sm">
+                <li>Collecter, suivre et orienter des demandes</li>
+                <li>Traiter des demandes concernant les applications</li>
+                <li>Évaluer les indicateurs de suivi d’un projet et analyser les écarts</li>
+                <li>Réaliser les tests d’intégration et d’acceptation d’un service</li>
+              </ul>
+            </div>
+
+            <div class="vueEnsemble my-12">
+              <h5 class="text-2xl font-semibold mb-4">Vue d'ensemble</h5>
+              <p class="mb-2">
+                AROMA-ZONE a pour objectif de rendre accessible le site web de la marque en Anglais, Allemand et Espagnol, en plus de l'Italien déjà présent. Pour cela, l'entreprise a du mettre en place un processus de traduction fiable pour le contenu du site web. Au sein de ce processus, un outil d'import/export avait été développé pour exporter des données depuis le gestionnaire de contenu (CMS) utilisé par Aroma-zone (<span class="font-semibold">Contentful</span>), les mettre à disposition des équipes de traduction, puis finalement les réimporter une fois traduites.
+             </p>
+             <p>A mon arrivée, l'outil était déjà fonctionnel mais largement perfectible, certains problèmes alors difficile à identifier pouvant se produire à la phase d'export comme à l'import. La tâche m'a été confié de le faire fonctionner au rythme des différents "batchs" de contenus à traduire, en plus de le corriger et de l'améliorer, le but étant de me faire devenir le développeur "référent" concernant cet outil et son fonctionnement.</p>
+            </div>
+
+            <div class="tools py-12">
+              <h5 class="text-2xl font-semibold mb-4">Outils & utilisation</h5>
+              <div class="vscode flex gap-4 items-center mb-4">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="!min-w-[80px] !max-w-[80px]" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>file_type_vscode</title><path d="M29.01,5.03,23.244,2.254a1.742,1.742,0,0,0-1.989.338L2.38,19.8A1.166,1.166,0,0,0,2.3,21.447c.025.027.05.053.077.077l1.541,1.4a1.165,1.165,0,0,0,1.489.066L28.142,5.75A1.158,1.158,0,0,1,30,6.672V6.605A1.748,1.748,0,0,0,29.01,5.03Z" style="fill:#0065a9"></path><path d="M29.01,26.97l-5.766,2.777a1.745,1.745,0,0,1-1.989-.338L2.38,12.2A1.166,1.166,0,0,1,2.3,10.553c.025-.027.05-.053.077-.077l1.541-1.4A1.165,1.165,0,0,1,5.41,9.01L28.142,26.25A1.158,1.158,0,0,0,30,25.328V25.4A1.749,1.749,0,0,1,29.01,26.97Z" style="fill:#007acc"></path><path d="M23.244,29.747a1.745,1.745,0,0,1-1.989-.338A1.025,1.025,0,0,0,23,28.684V3.316a1.024,1.024,0,0,0-1.749-.724,1.744,1.744,0,0,1,1.989-.339l5.765,2.772A1.748,1.748,0,0,1,30,6.6V25.4a1.748,1.748,0,0,1-.991,1.576Z" style="fill:#1f9cf0"></path></g></svg>
+                <div>
+                  <h5 class="text-lg font-semibold mb-1 max-sm:text-sm">Visual Studio Code</h5>
+                  <p class="max-sm:text-xs">Visual studio code est un éditeur de texte avancé taillé pour le développement, Il sert ici a apporter des modifications et surtout faire fonctionner l'outil d'import/export.</p>
+                </div>
+              </div>
+              <div class="php flex gap-4 items-center mt-2 mb-4">
+                <svg class="!min-w-[80px] !max-w-[80px]" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="16" cy="16" r="14" fill="#8892BF"></circle> <path d="M14.4392 10H16.1192L15.6444 12.5242H17.154C17.9819 12.5419 18.5986 12.7269 19.0045 13.0793C19.4184 13.4316 19.5402 14.1014 19.3698 15.0881L18.5541 19.4889H16.8497L17.6288 15.2863C17.7099 14.8457 17.6856 14.533 17.5558 14.348C17.426 14.163 17.146 14.0705 16.7158 14.0705L15.3644 14.0573L14.3661 19.4889H12.6861L14.4392 10Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M6.74092 12.5243H10.0036C10.9612 12.533 11.6552 12.8327 12.0854 13.4229C12.5156 14.0132 12.6576 14.8193 12.5115 15.8414C12.4548 16.3085 12.3289 16.7665 12.1341 17.2159C11.9474 17.6652 11.6878 18.0704 11.355 18.4317C10.9491 18.8898 10.5149 19.1805 10.0523 19.304C9.58969 19.4274 9.11076 19.489 8.61575 19.489H7.15484L6.69222 22H5L6.74092 12.5243ZM7.43485 17.9956L8.16287 14.0441H8.40879C8.49815 14.0441 8.5914 14.0396 8.6888 14.0309C9.33817 14.0221 9.87774 14.0882 10.308 14.2291C10.7462 14.37 10.8923 14.9031 10.7462 15.8282C10.5678 16.9296 10.2186 17.5727 9.69926 17.7577C9.1799 17.934 8.53053 18.0176 7.75138 18.0088H7.58094C7.53224 18.0088 7.48355 18.0043 7.43485 17.9956Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M24.4365 12.5243H21.1738L19.4329 22H21.1251L21.5878 19.489H23.0487C23.5437 19.489 24.0226 19.4274 24.4852 19.304C24.9479 19.1805 25.382 18.8898 25.7879 18.4317C26.1207 18.0704 26.3803 17.6652 26.567 17.2159C26.7618 16.7665 26.8877 16.3085 26.9444 15.8414C27.0905 14.8193 26.9486 14.0132 26.5183 13.4229C26.0881 12.8327 25.3942 12.533 24.4365 12.5243ZM22.5958 14.0441L21.8678 17.9956C21.9165 18.0043 21.9652 18.0088 22.0139 18.0088H22.1843C22.9635 18.0176 23.6128 17.934 24.1322 17.7577C24.6515 17.5727 25.0007 16.9296 25.1792 15.8282C25.3253 14.9031 25.1792 14.37 24.7409 14.2291C24.3107 14.0882 23.7711 14.0221 23.1217 14.0309C23.0243 14.0396 22.9311 14.0441 22.8417 14.0441H22.5958Z" fill="white"></path> </g></svg>
+                
+                <div>
+                  <h5 class="text-lg font-semibold mb-1 max-sm:text-sm">PHP</h5>
+                  <p class="max-sm:text-xs">PHP est un langage de programmation principalement utilisé dans le développement web pour gérer la partie back-end. il est ici utilisé avec les frameworks et librairies <span class="font-semibold">Symfony</span>  et <span class="font-semibold">API Platform</span>.</p>
+                </div>
+              </div>
+              <div class="javascript flex gap-4 items-center mt-2 mb-4">
+                <svg viewBox="0 0 32 32" class="!min-w-[80px] !max-w-[80px]" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="2" y="2" width="28" height="28" fill="#FFCA28"></rect> <path d="M19 25.2879L21.0615 23.9237C21.2231 24.4313 22.2462 25.6368 23.5385 25.6368C24.8308 25.6368 25.4308 24.931 25.4308 24.463C25.4308 23.1878 24.1112 22.7382 23.4774 22.5223C23.374 22.4871 23.289 22.4581 23.2308 22.4328C23.2009 22.4198 23.1558 22.4025 23.0979 22.3804C22.393 22.1111 19.7923 21.1175 19.7923 18.2373C19.7923 15.065 22.8538 14.7002 23.5462 14.7002C23.9991 14.7002 26.1769 14.7557 27.2615 16.7939L25.2615 18.1898C24.8231 17.3015 24.0946 17.0081 23.6462 17.0081C22.5385 17.0081 22.3077 17.8201 22.3077 18.1898C22.3077 19.227 23.5112 19.6919 24.5273 20.0844C24.7932 20.1871 25.0462 20.2848 25.2615 20.3866C26.3692 20.91 28 21.7666 28 24.463C28 25.8136 26.8672 28.0002 24.0154 28.0002C20.1846 28.0002 19.1692 25.7003 19 25.2879Z" fill="#ffffff"></path> <path d="M9 25.5587L11.1487 24.1953C11.317 24.7026 11.9713 25.638 12.9205 25.638C13.8698 25.638 14.3557 24.663 14.3557 24.1953V15.0002H16.9982V24.1953C17.041 25.4636 16.3376 28.0002 13.2332 28.0002C10.379 28.0002 9.19242 26.3039 9 25.5587Z" fill="#ffffff"></path> </g></svg>
+                <div>
+                  <h5 class="text-lg font-semibold mb-1 max-sm:text-sm">JavaScript</h5>
+                  <p class="max-sm:text-xs">Javascript est un langage de programmation principalement orienté web, en particulier pour la partie front-end, il reste cependant très polyvalent et va servir ici à effectuer quelques tâches de "formatage".</p>
+                </div>
+              </div>
+              <div class="contentful flex gap-4 items-center mt-2 mb-4">
+                <svg class="!min-w-[80px] !max-w-[80px]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 289" version="1.1" preserveAspectRatio="xMidYMid">
+                  <g>
+                    <path d="M87.333315,200.77659 C72.0274763,186.371095 63.0240418,166.563539 63.0240418,144.054953 C63.0240418,121.546366 72.0274763,101.73881 86.4329716,87.333315 C99.0377799,74.7285067 99.0377799,54.9209507 86.4329716,42.3161423 C73.8281632,29.711334 54.0206072,29.711334 41.4157989,42.3161423 C16.2061822,68.4261025 0,104.439841 0,144.054953 C0,183.670065 16.2061822,219.683803 42.3161423,245.793763 C54.9209507,258.398571 74.7285067,258.398571 87.333315,245.793763 C99.0377799,233.188955 99.0377799,213.381399 87.333315,200.77659 Z" fill="#FAE501"/>
+                    <path d="M87.333315,87.333315 C101.73881,72.0274763 121.546366,63.0240418 144.054953,63.0240418 C166.563539,63.0240418 186.371095,72.0274763 200.77659,86.4329716 C213.381399,99.0377799 233.188955,99.0377799 245.793763,86.4329716 C258.398571,73.8281632 258.398571,54.0206072 245.793763,41.4157989 C219.683803,16.2061822 183.670065,0 144.054953,0 C104.439841,0 68.4261025,16.2061822 42.3161423,42.3161423 C29.711334,54.9209507 29.711334,74.7285067 42.3161423,87.333315 C54.9209507,99.0377799 74.7285067,99.0377799 87.333315,87.333315 Z" fill="#4FB5E1"/>
+                    <path d="M200.77659,200.77659 C186.371095,216.082429 166.563539,225.085863 144.054953,225.085863 C121.546366,225.085863 101.73881,216.082429 87.333315,201.676934 C74.7285067,189.072125 54.9209507,189.072125 42.3161423,201.676934 C29.711334,214.281742 29.711334,234.089298 42.3161423,246.694106 C68.4261025,271.903723 104.439841,288.109905 144.054953,288.109905 C183.670065,288.109905 219.683803,271.903723 245.793763,245.793763 C258.398571,233.188955 258.398571,213.381399 245.793763,200.77659 C233.188955,189.072125 213.381399,189.072125 200.77659,200.77659 Z" fill="#F05751"/>
+                    <ellipse fill="#0681B6" cx="64.8247287" cy="64.8247287" rx="31.5120209" ry="31.5120209"/>
+                    <ellipse fill="#CD4739" cx="64.8247287" cy="223.285177" rx="31.5120209" ry="31.5120209"/>
+                  </g>
+                </svg>
+                <div>
+                  <h5 class="text-lg font-semibold mb-1 max-sm:text-sm">Contentful</h5>
+                  <p class="max-sm:text-xs">Il s'agit d'un Gestionnaire de contenu (CMS) utilisé par AROMA-ZONE pour stocker et définir son contenu par types (page produit, page blog, page accueil...). Il offre la possibilité, pour chaque champ, de définir plusieurs langues, facilitant ainsi la gestion d'un site multilingue.</p>
+                </div>
+              </div>
+              <p class="mt-8">L'outil d'import export est majoritairement développé en PHP et s'utilise directement dans le logiciel d'édition de code (VSCode) au travers de lignes de commandes, il ne possède aucune interface utilisateur. Le contenu à traduire est donné à dans l'outil au travers d'une liste d'identifiants uniques <span class="font-semibold">Contentful</span> fournis par l'équipe en charge du processus de traduction. Une commande permet de lancer l'export et de récuperer, après les avoir filtrées et formatées, les données sous forme de fichier unique (format .json) pour chaque page de contenu (une page produit par exemple). Les fichiers sont automatiquement transférés sur un serveur de fichier accessible par le prestataire en charge de la traduction. Après avoir été traduits, les fichiers sont récupérés manuellement et réinsérés dans un dossier spécifique au sein de l'outil, une commande est ensuite lancée pour réimporter les données traduites sur Contentful après avoir subit un second formatage (effectué en Javascript) pour rendre le format compatible avec les attentes de Contentful, et corriger certaines erreurs de traduction potentielles. </p>
+              <p class="mt-2">L'import et l'export se fait vers Contentful grace à des appels API (application programming interface) et un ensemble de méthode définies dans le <span class="font-semibold">SDK</span> (software developpement kit) que contentful met à disposition des développeurs. Le format de données à respecter, surtout à l'import, est donc primordial pour pouvoir effectuer un ajout dans Contentful.</p>
+              <div class="mt-10 grid grid-cols-2">
+                <div class="flex flex-col gap-2 justify-start items-center pr-1">
+                  <img src="Images/interface-cf.png" alt="" class="aspect-16/9" @click="FsImage = true; injectImage($el)">
+                  <p class="italic text-sm max-sm:text-xs max-sm:text-center">Interface de Contentful</p>
+                </div>
+                <div class="flex flex-col gap-2 justify-start items-center pr-1">
+                  <img src="Images/toggle-webhook.png" alt="" class="aspect-16/9" @click="FsImage = true; injectImage($el)">
+                  <p class="italic text-sm max-sm:text-xs max-sm:text-center">Interface de l'outil de traduction</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="fonctionnement pt-16">
+              <h5 class="text-2xl font-semibold mb-4">Travaux</h5>
+              <p>Quelques unes des modifications/corrections que j'ai apporté à l'outil de traduction durant l'année :</p>
+              <div class="rapports flex flex-col gap-10 my-12">
+                <div class="flex w-full flex-row-reverse max-sm:flex-col rapport gap-4 border-b border-zinc-500 h-fit">
+                  <div class="h-parent w-full sm:w-[40%] relative overflow-hidden">
+                    <img src="./Images/format-int.png" class="w-full h-full object-cover object-left cursor-pointer" @click="FsImage = true; injectImage($el)" />
+                  </div>
+                  <div class="sm:w-[60%]">
+                    <h6 class="text-lg font-semibold mb-2">Corriger les erreurs de formatage</h6>
+                    <p class="pb-4">Comme expliqué plus haut, avant de procéder au réimport du contenu vers Contentful, les fichiers traduits sont formatés pour êtres compréhensibles par l'API du gestionnaire de contenu (qui attend du texte au format "Markdown"), cette phase de formatage est effectuée avec le langage JavaScript, qui, au passage, vérifie l'intégrité de certaines données (slugs par exemple). J'ai ici apporté plusieurs modifications comme la suppression de certains caractères Allemands mals gérés lors de l'import, la vérification de l'intégrité des slugs, ou encore, comme présenté sur l'image ci-jointe, la bonne gestion des valeurs numériques et booléennes, qui avaient la fâcheuse tendance à être converties en texte, rendant leur intégration dans Contentful impossible.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex w-full flex-row max-sm:flex-col rapport gap-4  border-b border-zinc-500">
+                  <div class="h-parent w-full sm:w-[40%] relative overflow-hidden">
+                    <img src="./Images/fails-details.png" class="w-full h-full object-cover object-left cursor-pointer" @click="FsImage = true; injectImage($el)" />
+                  </div>
+                  <div class="sm:w-[60%]">
+                    <h6 class="text-lg font-semibold mb-2">Gestion approfondie des erreurs d'import</h6>
+                    <p class="pb-4">La plupart des erreurs rencontrées par l'outil se produisent lors de l'import de contenu. D'une part, la cause d'une erreur peut être très diverse, et il était à mon arrivée impossible de récupérer des informations détaillées sur les erreurs rencontrées, un simple message d'erreur sommaire était retourné (il fallait investiguer parfois longtemps pour trouver une piste...). D'autre part, si une erreur apparaissait, le message d'erreur s'affichait uniquement à l'instant ou l'erreur était rencontré, il n'existait pas de liste centralisant toutes les erreurs rencontrées durant un import, représentant encore du temps perdu. J'ai donc procédé à des modifications pour pouvoir afficher une liste des erreurs rencontrées durant un import à la fin de celui ci, en m'assurant au passage de récupérer un message d'erreur plus exhaustif, permettant de rapidement orienter les investigations.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex w-full flex-row-reverse max-sm:flex-col rapport gap-4  border-b border-zinc-500">
+                  <div class="h-parent w-full sm:w-[40%] relative overflow-hidden">
+                    <img src="./Images/toggle-webhook.png" class="w-full h-full object-cover object-left cursor-pointer" @click="FsImage = true; injectImage($el)" />
+                  </div>
+                  <div class="sm:w-[60%]">
+                    <h6 class="text-lg font-semibold mb-2">Ajouts d'options de commandes</h6>
+                    <p class="pb-4">Initialement, les commandes par lesquelles étaient lancées les procédures d'import et d'export étaient assez simples et peu flexibles. On m'a demandé de rajouter certaines options à ces commandes afin de pouvoir mieux personnaliser ces procédures, pour qu'elles puissent s'adapter à différents cas de figures. Parmi ces options, je pense par exemple à la possibilitée de compacter les exports (initialement séparés en fichiers individuels) par paquets du nombre de notre choix, la possibilité d'ajouter lors de l'export les règles de format à respecter pour chaque champ (maximum de caractères, etc) ou encore, comme présenté ci-joint, la possibilité de désactiver certains processus tiers (webHook) durant les imports conséquents.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex w-full flex-row max-sm:flex-col rapport gap-4  border-b border-zinc-500">
+                  <div class="h-parent w-full sm:w-[40%] relative overflow-hidden">
+                    <img src="./Images/api-options.png" class="w-full h-full object-cover object-left cursor-pointer" @click="FsImage = true; injectImage($el)" />
+                  </div>
+                  <div class="sm:w-[60%]">
+                    <h6 class="text-lg font-semibold mb-2">Utilisation de l'outil via API</h6>
+                    <p class="pb-4">En l'état initial des choses, l'outil n'était utilisable que par un développeur au travers de son éditeur de code, et même si les bases d'un fonctionnement par API avait déjà été intégré, cela n'a jamais été mis à profit. Un prestataire DevOps étrangé a donc été contacté pour déployer l'outil dans un conteneur sur une plateforme Cloud (Azure). L'avantage premier d'une telle approche est la possibilité, à terme, de pouvoir rendre l'utilisation de l'outil flexible et utilisable par "n'importe qui". Les ajouts d'options que j'ai effectué tout au long de l'année n'étant pas présente dans la structure initiale de l'API, j'ai du les intégrer pour permettre leur fonctionnement au travers d'une requête HTTP, en suivant les principes des outils <span class="font-semibold">API Platform</span> et <span class="font-semibold">Doctrine</span> disponibles dans le framework Symfony. Pour information, les données de requêtes effectuées par API sont stockées dans une base de donnée SQL qui fait office de file d'attente, les commandes correspondantes sont ensuite exécutées tour à tour avec les informations de la requête. Les tests pour ces requêtes ont étés effectués avec le logiciel <span class="font-semibold">Postman</span>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+          <div class="project-5 w-full h-full flex flex-col justify-center items-center bg-red-500 overflow-scroll p-12 ">
+            <h2 class="text-white text-6xl font-semibold mt-36 text-center">Optimisation de suivi du processus de traduction</h2>
+            <h3 class="text-xl text-center mt-4">Alternance 2ème année</h3>
+
+            <div class="mt-12">
+              <h4 class="text-center text-2xl font-semibold mb-4">Compétences mobilisées</h4>
+
+              <ul class="list-disc flex flex-col justify-center items-center w-full max-w-[95%] mb-24">
+                <li>Collecter, suivre et orienter des demandes</li>
+                <li>Traiter des demandes concernant les applications</li>
+                <li>Évaluer les indicateurs de suivi d’un projet et analyser les écarts</li>
+                <li>Réaliser les tests d’intégration et d’acceptation d’un service</li>
+              </ul>
+            </div>
+
+            <div class="vueEnsemble my-12">
+              <h5 class="text-2xl font-semibold mb-4">Vue d'ensemble</h5>
+              <div class="flex max-sm:flex-col w-full gap-4 h-fit">
+                <div class="w-[50%] max-sm:w-full"> 
+                  <p class="mb-2">
+                    Dans le contexte de la traduction de son site web, Aroma-Zone a mis en place un processus complet concernant la traduction du contenu du site web. Cette traduction s'effectue par "batchs", ces derniers comprenant certaines pages à traduire choisies par les responsables du projet à un instant T. Pour assurer le suivi de ces batchs ainsi que de l'état de chaque page, les équipes concernées utilisent plusieurs fichiers Excels ou Google Docs partagés remplis intégralement à la main, et sans avoir de vrai "lieu de référence" où observer le suivi des évenements.
+                 </p>
+                </div>
+                <div class="sm:max-w-[50%] flex flex-col items-center justify-start" >
+                  <div class="h-[90%] w-full relative overflow-hidden">
+                    <img src="./Images/google-doc.png" class="w-full h-full object-cover object-left cursor-pointer" @click="FsImage = true; injectImage($el)" />
+                  </div>
+                  <p class="text-sm max-sm:text-center pt-1">Exemple d'un google docs utilisé</p>
+                </div>
+
+              </div>
+              <p class="mt-4">Un POC (Proof of concept) a donc été demandé pour tenter d'aggréger les données de contenu provenant des différents outils/services utilisées dans le processus de traduction au service en ligne qu'Aroma-Zone utilise pour suivre l'avancement de missions/projets au global : <span class="font-semibold">Monday</span>, et qui est bien mieux adapté à un usage collectif (possibilité de filtrer, effectuer des recherches sans affecter l'exeperience des autres, etc).</p>
+              
+            </div>
+
+            <div class="tools py-12 flex flex-col gap-4">
+              <h5 class="text-2xl font-semibold mb-4">Outils & utilisation</h5>
+              <div class="vscode flex gap-4 items-center max-sm:flex-col">
+                <img src="./Images/monday-logo.png" alt="" class="w-40">
+                <div>
+                  <h5 class="text-lg font-semibold mb-1">Monday</h5>
+                  <p>Monday est une plateforme de gestion de projet et de travail collaboratif en ligne. Elle permet aux équipes d'organiser, suivre et automatiser leurs tâches via des tableaux personnalisables et des intégrations avec d'autres outils.</p>
+                </div>
+              </div>
+              <div class="php flex gap-4 items-center max-sm:flex-col">
+                <img src="./Images/logic-app-logo.png" alt="" class="w-24">
+                
+                <div>
+                  <h5 class="text-lg font-semibold mb-1">Azure Logic Apps</h5>
+                  <p>Les Logic Apps sont une solution logicielle proposé par Microsoft Azure pour créer, et déployer des processus rapidement en se basant sur une logique de No/Low-Code.</p>
+                </div>
+              </div>
+
+              <div class="contentful flex gap-4 items-center mt-2 max-sm:flex-col">
+                <svg class="w-40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 289" version="1.1" preserveAspectRatio="xMidYMid">
+                  <g>
+                    <path d="M87.333315,200.77659 C72.0274763,186.371095 63.0240418,166.563539 63.0240418,144.054953 C63.0240418,121.546366 72.0274763,101.73881 86.4329716,87.333315 C99.0377799,74.7285067 99.0377799,54.9209507 86.4329716,42.3161423 C73.8281632,29.711334 54.0206072,29.711334 41.4157989,42.3161423 C16.2061822,68.4261025 0,104.439841 0,144.054953 C0,183.670065 16.2061822,219.683803 42.3161423,245.793763 C54.9209507,258.398571 74.7285067,258.398571 87.333315,245.793763 C99.0377799,233.188955 99.0377799,213.381399 87.333315,200.77659 Z" fill="#FAE501"/>
+                    <path d="M87.333315,87.333315 C101.73881,72.0274763 121.546366,63.0240418 144.054953,63.0240418 C166.563539,63.0240418 186.371095,72.0274763 200.77659,86.4329716 C213.381399,99.0377799 233.188955,99.0377799 245.793763,86.4329716 C258.398571,73.8281632 258.398571,54.0206072 245.793763,41.4157989 C219.683803,16.2061822 183.670065,0 144.054953,0 C104.439841,0 68.4261025,16.2061822 42.3161423,42.3161423 C29.711334,54.9209507 29.711334,74.7285067 42.3161423,87.333315 C54.9209507,99.0377799 74.7285067,99.0377799 87.333315,87.333315 Z" fill="#4FB5E1"/>
+                    <path d="M200.77659,200.77659 C186.371095,216.082429 166.563539,225.085863 144.054953,225.085863 C121.546366,225.085863 101.73881,216.082429 87.333315,201.676934 C74.7285067,189.072125 54.9209507,189.072125 42.3161423,201.676934 C29.711334,214.281742 29.711334,234.089298 42.3161423,246.694106 C68.4261025,271.903723 104.439841,288.109905 144.054953,288.109905 C183.670065,288.109905 219.683803,271.903723 245.793763,245.793763 C258.398571,233.188955 258.398571,213.381399 245.793763,200.77659 C233.188955,189.072125 213.381399,189.072125 200.77659,200.77659 Z" fill="#F05751"/>
+                    <ellipse fill="#0681B6" cx="64.8247287" cy="64.8247287" rx="31.5120209" ry="31.5120209"/>
+                    <ellipse fill="#CD4739" cx="64.8247287" cy="223.285177" rx="31.5120209" ry="31.5120209"/>
+                  </g>
+                </svg>
+                <div>
+                  <h5 class="text-lg font-semibold mb-1">Contentful</h5>
+                  <p>Il s'agit d'un Gestionnaire de contenu (CMS) utilisé par AROMA-ZONE pour stocker et définir son contenu par types (page produit, page blog, page accueil...). Il offre la possibilité, pour chaque champ, de définir plusieurs langues, facilitant ainsi la gestion d'un site multilingue.</p>
+                </div>
+              </div>
+
+              <div class="api flex gap-4 items-center mt-2 max-sm:flex-col">
+                <svg class="w-24" version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" overflow="visible" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <rect y="0" fill="none" width="24" height="24"></rect> <g transform="translate(1.000000, 8.000000)"> <path fill-rule="evenodd" fill="#dfca62" d="M2-1.9c-1.1,0-2.3,1.1-2.3,2.2V10H2V5.5h2.2V10h2.2V0.3c0-1.1-1.1-2.2-2.3-2.2H2 L2-1.9z M2,3.2v-3h2.2v3H2L2,3.2z"></path> <path fill-rule="evenodd" fill="#dfca62" d="M10.3-2C9.1-2,8-0.9,8,0.2V10l2.2,0V5.5h2.2c1.1,0,2.3-1.1,2.3-2.2l0-3 c0-1.1-1.1-2.2-2.3-2.2H10.3L10.3-2z M10.2,3.2v-3h2.2v3H10.2L10.2,3.2z"></path> <polygon fill-rule="evenodd" fill="#dfca62" points="18.5,0.3 18.5,7.8 16.2,7.8 16.2,10 23,10 23,7.8 20.8,7.8 20.8,0.3 23,0.3 23,-1.9 16.2,-1.9 16.2,0.3 "></polygon> <polygon fill-rule="evenodd" fill="#d7ab33" points="2,5.5 2,3.2 3.5,3.2 "></polygon> <polygon fill-rule="evenodd" fill="#d7ab33" points="10.2,5.5 10.2,3.2 11.5,3.2 "></polygon> <polygon fill-rule="evenodd" fill="#d7ab33" points="18.5,1.8 18.5,1.8 18.5,0.3 20.8,0.3 "></polygon> </g> </g> </g></svg>
+                <div>
+                  <h5 class="text-lg font-semibold mb-1">API</h5>
+                  <p>Une API est une interface de programmation qui permet à différents services/applications d'interagir entre eux au travers de requêtes HTTP. les API de Contentful et Monday sont ici utilisées au sein des logic apps.</p>
+                </div>
+              </div>
+
+              <p class="mt-8">L'outil d'import export est majoritairement développé en PHP et s'utilise directement dans le logiciel d'édition de code (VSCode) au travers de lignes de commandes, il ne possède aucune interface utilisateur. Le contenu à traduire est donné à dans l'outil au travers d'une liste d'identifiants uniques <span class="font-semibold">Contentful</span> fournis par l'équipe en charge du processus de traduction. Une commande permet de lancer l'export et de récuperer, après les avoir filtrées et formatées, les données sous forme de fichier unique (format .json) pour chaque page de contenu (une page produit par exemple). Les fichiers sont automatiquement transférés sur un serveur de fichier accessible par le prestataire en charge de la traduction. Après avoir été traduits, les fichiers sont récupérés manuellement et réinsérés dans un dossier spécifique au sein de l'outil, une commande est ensuite lancée pour réimporter les données traduites sur Contentful après avoir subit un second formatage (effectué en Javascript) pour rendre le format compatible avec les attentes de Contentful, et corriger certaines erreurs de traduction potentielles. </p>
+              <p class="mt-2">L'import et l'export se fait vers Contentful grace à des appels API (application programming interface) et un ensemble de méthode définies dans le <span class="font-semibold">SDK</span> (software developpement kit) que contentful met à disposition des développeurs. Le format de données à respecter, surtout à l'import, est donc primordial pour pouvoir effectuer un ajout dans Contentful.</p>
+              <div class="mt-10 grid grid-cols-2">
+                <div class="flex flex-col gap-2 justify-center items-center pr-1">
+                  <img src="Images/interface-cf.png" alt="" class="aspect-16/9 cursor-pointer" @click="FsImage = true; injectImage($el)">
+                  <p class="italic text-sm">Interface de Contentful</p>
+                </div>
+                <div class="flex flex-col gap-2 justify-center items-center pr-1">
+                  <img src="Images/toggle-webhook.png" alt="" class="aspect-16/9 cursor-pointer" @click="FsImage = true; injectImage($el)">
+                  <p class="italic text-sm">Interface de l'outil de traduction</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="fonctionnement pt-16">
+              <h5 class="text-2xl font-semibold mb-4">Travaux</h5>
+              <p>Quelques unes des modifications/corrections que j'ai apporté à l'outil de traduction durant l'année :</p>
+              <div class="rapports flex flex-col gap-10 my-12">
+                <div class="flex w-full flex-row-reverse rapport gap-4 border-b border-zinc-500">
+                  <img src="Images/format-int.png" alt="" class="w-[40%] cursor-pointer" @click="FsImage = true; injectImage($el)">
+                  <div class="w-[60%]">
+                    <h6 class="text-lg font-semibold mb-2">Corriger les erreurs de formatage</h6>
+                    <p class="pb-4">Comme expliqué plus haut, avant de procéder au réimport du contenu vers Contentful, les fichiers traduits sont formatés pour êtres compréhensibles par l'API du gestionnaire de contenu (qui attend du texte au format "Markdown"), cette phase de formatage est effectuée avec le langage JavaScript, qui, au passage, vérifie l'intégrité de certaines données (slugs par exemple). J'ai ici apporté plusieurs modifications comme la suppression de certains caractères Allemands mals gérés lors de l'import, la vérification de l'intégrité des slugs, ou encore, comme présenté sur l'image ci-jointe, la bonne gestion des valeurs numériques et booléennes, qui avaient la fâcheuse tendance à être converties en texte, rendant leur intégration dans Contentful impossible.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex w-full flex-row rapport gap-4  border-b border-zinc-500">
+                  <img src="Images/fails-details.png" alt="" class="w-[40%] cursor-pointer" @click="FsImage = true; injectImage($el)">
+                  <div class="w-[60%]">
+                    <h6 class="text-lg font-semibold mb-2">Gestion approfondie des erreurs d'import</h6>
+                    <p class="pb-4">La plupart des erreurs rencontrées par l'outil se produisent lors de l'import de contenu. D'une part, la cause d'une erreur peut être très diverse, et il était à mon arrivée impossible de récupérer des informations détaillées sur les erreurs rencontrées, un simple message d'erreur sommaire était retourné (il fallait investiguer parfois longtemps pour trouver une piste...). D'autre part, si une erreur apparaissait, le message d'erreur s'affichait uniquement à l'instant ou l'erreur était rencontré, il n'existait pas de liste centralisant toutes les erreurs rencontrées durant un import, représentant encore du temps perdu. J'ai donc procédé à des modifications pour pouvoir afficher une liste des erreurs rencontrées durant un import à la fin de celui ci, en m'assurant au passage de récupérer un message d'erreur plus exhaustif, permettant de rapidement orienter les investigations.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex w-full flex-row-reverse rapport gap-4  border-b border-zinc-500">
+                  <img src="Images/toggle-webhook.png" alt="" class="w-[40%] cursor-pointer" @click="FsImage = true; injectImage($el)">
+                  <div class="w-[60%]">
+                    <h6 class="text-lg font-semibold mb-2">Ajouts d'options de commandes</h6>
+                    <p class="pb-4">Initialement, les commandes par lesquelles étaient lancées les procédures d'import et d'export étaient assez simples et peu flexibles. On m'a demandé de rajouter certaines options à ces commandes afin de pouvoir mieux personnaliser ces procédures, pour qu'elles puissent s'adapter à différents cas de figures. Parmi ces options, je pense par exemple à la possibilitée de compacter les exports (initialement séparés en fichiers individuels) par paquets du nombre de notre choix, la possibilité d'ajouter lors de l'export les règles de format à respecter pour chaque champ (maximum de caractères, etc) ou encore, comme présenté ci-joint, la possibilité de désactiver certains processus tiers (webHook) durant les imports conséquents.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex w-full flex-row rapport gap-4  border-b border-zinc-500">
+                  <img src="Images/api-options.png" alt="" class="w-[40%] cursor-pointer" @click="FsImage = true; injectImage($el)">
+                  <div class="w-[60%]">
+                    <h6 class="text-lg font-semibold mb-2">Utilisation de l'outil via API</h6>
+                    <p class="pb-4">En l'état initial des choses, l'outil n'était utilisable que par un développeur au travers de son éditeur de code, et même si les bases d'un fonctionnement par API avait déjà été intégré, cela n'a jamais été mis à profit. Un prestataire DevOps étrangé a donc été contacté pour déployer l'outil dans un conteneur sur une plateforme Cloud (Azure). L'avantage premier d'une telle approche est la possibilité, à terme, de pouvoir rendre l'utilisation de l'outil flexible et utilisable par "n'importe qui". Les ajouts d'options que j'ai effectué tout au long de l'année n'étant pas présente dans la structure initiale de l'API, j'ai du les intégrer pour permettre leur fonctionnement au travers d'une requête HTTP, en suivant les principes des outils <span class="font-semibold">API Platform</span> et <span class="font-semibold">Doctrine</span> disponibles dans le framework Symfony. Pour information, les données de requêtes effectuées par API sont stockées dans une base de donnée SQL qui fait office de file d'attente, les commandes correspondantes sont ensuite exécutées tour à tour avec les informations de la requête. Les tests pour ces requêtes ont étés effectués avec le logiciel <span class="font-semibold">Postman</span>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+          <div class="project-6 w-full h-full flex flex-col justify-center items-center bg-red-500 overflow-scroll p-12 ">
+            <h2 class="text-white text-6xl font-semibold mt-36 text-center">Application mobile Solaris Scanner</h2>
+            <h3 class="text-xl text-center mt-4">En cours de formation</h3>
+
+            <div class="mt-12">
+              <h4 class="text-center text-2xl font-semibold mb-4">Compétences mobilisées</h4>
+
+              <ul class="list-disc flex flex-col justify-center items-center w-full mb-24">
+                <li>Collecter, suivre et orienter des demandes</li>
+                <li>Traiter des demandes concernant les applications</li>
+                <li>Évaluer les indicateurs de suivi d’un projet et analyser les écarts</li>
+                <li>Réaliser les tests d’intégration et d’acceptation d’un service</li>
+              </ul>
+            </div>
+
+            <div class="vueEnsemble my-12">
+              <h5 class="text-2xl font-semibold mb-4">Vue d'ensemble</h5>
+              <p class="mb-2">
+                Dans le cadre de mon BTS, j'ai du créer une solution applicative dite "client lourd", c'est à dire ayant du code s'éxécutant localement. J'ai choisi de développer une application mobile Android qui entrerait en synergie avec mon second projet d'étude : le site web d'un cinéma (fictif) : <span class="font-semibold">Le cinéma Solaris</span>. Cette application consiste en une solution pratique à destination des employés du cinéma pour valider les réservations client. Elle se base sur un QR code représentant la reservation que le client présentera à l'employé, qui le scannera pour valider ou "composter" virtuellement la réservation, ou constater un potentiel défaut concernant la réservation.
+             </p>
+
+             <p>Les principaux enjeux ont été les modalités d'accès à la base de donnée du site web depuis un appareil mobile et l'intégration d'une solution de scan de QR code.</p>
+            </div>
+
+            <div class="tools py-12">
+              <h5 class="text-2xl font-semibold mb-4">Outils & utilisation</h5>
+              <div class="vscode flex gap-4 items-center">
+                <img src="Images/JetBrains_Rider_Icon.svg" class="w-24"/>
+                <div>
+                  <h5 class="text-lg font-semibold mb-1">JetBrains Rider</h5>
+                  <p>Rider est un IDE (Environnement de Developpement Intégré) concu pour la plateforme .NET et le développement en C#, le langage que j'ai choisi pour ce projet.</p>
+                </div>
+              </div>
+              <div class="php flex gap-4 items-center">
+                <svg  class="w-36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M27.6947 22.9999C27.883 22.6617 28 22.2807 28 21.9385V10.0613C28 9.71913 27.8831 9.33818 27.6947 9L16 16L27.6947 22.9999Z" fill="#7F3A86"></path> <path d="M17.0395 29.7433L26.9611 23.8047C27.2469 23.6336 27.5067 23.3382 27.695 23L16.0003 16L4.30566 23C4.49398 23.3382 4.75382 23.6337 5.03955 23.8047L14.9611 29.7433C15.5326 30.0855 16.468 30.0855 17.0395 29.7433Z" fill="#662579"></path> <path d="M27.6947 8.99996C27.5064 8.6617 27.2465 8.36629 26.9608 8.19521L17.0392 2.25662C16.4677 1.91446 15.5323 1.91446 14.9608 2.25662L5.03922 8.19521C4.46761 8.53729 4 9.37709 4 10.0613V21.9386C4 22.2807 4.11694 22.6618 4.30533 23L16 16L27.6947 8.99996Z" fill="#9A5196"></path> <path d="M16.0385 24C11.6061 24 8 20.4112 8 16C8 11.5888 11.6061 8 16.0385 8C18.8458 8 21.4674 9.47569 22.919 11.8618L19.4765 13.9265C18.7492 12.736 17.4399 12 16.0385 12C13.8222 12 12.0193 13.7944 12.0193 16C12.0193 18.2056 13.8222 20 16.0385 20C17.4362 20 18.7421 19.2681 19.4707 18.0832L22.9205 20.1359C21.4692 22.5234 18.8467 24 16.0385 24Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M25.0001 13V13.9974H22.9999V13H22.0001V13.9974H21V15H22.0001V16.9948H21V18H22.0001V19H22.9999L23 18H25.0001V19H25.9999V18H27V17H25.9999V15H27V13.9974H25.9999V13H25.0001ZM25.0001 17V15H22.9999V16.9948L25.0001 17Z" fill="white"></path> </g></svg>               
+                <div>
+                <h5 class="text-lg font-semibold mb-1">C#</h5>
+                  <p>C# est un language de programmation développé par Microsoft, il est approprié pour le developpement d'applications natives et multiplateformes.</p>
+                </div>
+              </div>
+              <div class="javascript flex gap-4 items-center mt-2">
+                <img src="./Images/maui-logo.png" alt="" class="w-24">
+                <div>
+                  <h5 class="text-lg font-semibold mb-1">.NET MAUI</h5>
+                  <p>.NET MAUI est un framework qui facilite le développement d'applications multiplateformes en se basant sur le langage C# et le langage d'interface utilisateur XAML.</p>
+                </div>
+              </div>
+              <div class="api flex gap-4 items-center mt-2">
+                <svg class="w-24" version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" overflow="visible" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <rect y="0" fill="none" width="24" height="24"></rect> <g transform="translate(1.000000, 8.000000)"> <path fill-rule="evenodd" fill="#dfca62" d="M2-1.9c-1.1,0-2.3,1.1-2.3,2.2V10H2V5.5h2.2V10h2.2V0.3c0-1.1-1.1-2.2-2.3-2.2H2 L2-1.9z M2,3.2v-3h2.2v3H2L2,3.2z"></path> <path fill-rule="evenodd" fill="#dfca62" d="M10.3-2C9.1-2,8-0.9,8,0.2V10l2.2,0V5.5h2.2c1.1,0,2.3-1.1,2.3-2.2l0-3 c0-1.1-1.1-2.2-2.3-2.2H10.3L10.3-2z M10.2,3.2v-3h2.2v3H10.2L10.2,3.2z"></path> <polygon fill-rule="evenodd" fill="#dfca62" points="18.5,0.3 18.5,7.8 16.2,7.8 16.2,10 23,10 23,7.8 20.8,7.8 20.8,0.3 23,0.3 23,-1.9 16.2,-1.9 16.2,0.3 "></polygon> <polygon fill-rule="evenodd" fill="#d7ab33" points="2,5.5 2,3.2 3.5,3.2 "></polygon> <polygon fill-rule="evenodd" fill="#d7ab33" points="10.2,5.5 10.2,3.2 11.5,3.2 "></polygon> <polygon fill-rule="evenodd" fill="#d7ab33" points="18.5,1.8 18.5,1.8 18.5,0.3 20.8,0.3 "></polygon> </g> </g> </g></svg>
+                <div>
+                  <h5 class="text-lg font-semibold mb-1">API</h5>
+                  <p>Une API est une interface de programmation qui permet à différents services/applications d'interagir entre eux au travers de requêtes HTTP. Cela permettra ici à l'application mobile de dialoguer avec le serveur hébergeant le site web solaris et sa base de donnée.</p>
+                </div>
+              </div>
+              <p class="mt-8">L'application a donc été développée dans RIDER en utilisant le framework .NET MAUI et le duo C# et XAML, en essayant de respecter au mieux le paradigme de développement MVVM (Model View ViewModel). Ce choix a été fait suite à l'étude de C# pour m'initier à la programmation orienté objet durant ma formation. Un smartphone android a été utilisé pour assurer les tests de fonctionnement de la solution.</p>
+              <p class="mt-2">L'application reste relativement simple de conception avec seulement 3 pages/fenêtres qui seront détaillées plus bas :</p>
+              <ul class="list-disc list-inside">
+                <li>page de connexion</li>
+                <li>page de scan</li>
+                <li>page de résultat</li>
+              </ul>
+              <div class="mt-10 grid grid-cols-2">
+                <div class="flex flex-col gap-2 justify-center items-center pr-1">
+                  <img src="Images/maui-cs.png" alt="" class="aspect-16/9">
+                  <p class="italic text-sm">Code C#</p>
+                </div>
+                <div class="flex flex-col gap-2 justify-center items-center pr-1">
+                  <img src="Images/maui-xaml.png" alt="" class="aspect-16/9">
+                  <p class="italic text-sm">Code XAML</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="fonctionnement pt-16">
+              <h5 class="text-2xl font-semibold mb-4">Détails</h5>
+              <div class="rapports flex flex-col gap-10 my-12">
+                <div class="flex w-full flex-row-reverse rapport gap-4 border-b border-zinc-500">
+                  <img src="Images/solaris-scanner-login.png" alt="" class="w-[20%] border-x border-t border-zinc-500">
+                  <div class="w-[80%]">
+                    <h6 class="text-lg font-semibold mb-2">Page de connexion</h6>
+                    <p class="pb-4">Cette vue constitue le point d'entrée de l'application, elle invite l'utilisateur à entrer son identifiant et mot de passe. Une fois le bouton de connexion déclenché, une requête API est envoyée avec les données d'identification (le mot de passe est haché) au site web Solaris qui va procéder à une verification (si l'utilisateur existe et possède les autorisations adéquates). Si la connexion est autorisée, un jeton (token) de connexion est renvoyé à l'application, ce qui lui permettra d'effectuer d'autres requêtes vers le site web Solaris. De plus ce jeton fera office de témoin de connexion, évitant à l'utilisateur d'avoir à se reconnecter pendant une durée de 1H après la connexion, et ce même si l'application est fermée.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex w-full flex-row rapport gap-4  border-b border-zinc-500">
+                  <img src="Images/solaris-scanner-scan.png" alt="" class="w-[20%] border-x border-t border-zinc-500">
+                  <div class="w-[80%]">
+                    <h6 class="text-lg font-semibold mb-2">Page de Scan</h6>
+                    <p class="pb-4">Cette page devient la page d'accueil de l'application une fois l'utilisateur connecté. Elle est relié à la caméra de l'appareil et utilise une extension pour .NET MAUI spécialisée dans la détection de QR CODE : <span class="font-semibold">BarcodeScanning</span>. Plusieurs options sont à la disposition de l'utilisateur : l'activation du flash et le mode "auto-scan" (initialement, il est besoin de cliquer sur le bouton central pour activer le scan). En cas de détection d'un QR Code, les données que contiennent celui ci vont être récupérées et l'application va rediriger l'utilisateur vers la page de résultat, qui s'occupera d'effectuer une requête de validation et d'afficher le résultat.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex w-full flex-row-reverse rapport gap-4  border-b border-zinc-500">
+                  <img src="Images/solaris-scanner-result.png" alt="" class="w-[20%] border-x border-t border-zinc-500">
+                  <div class="w-[80%]">
+                    <h6 class="text-lg font-semibold mb-2">Page de résultat</h6>
+                    <p class="pb-4">La page de résultat apparait une fois qu'un scan a été effectué, elle est donc chargée avec les données relative au scan en question. Elle va en premier lieu effectuer une requête API pour vérifier l'intégrité et la validité de la valeur du QR Code soumis, et afficher le résultat correspondant, cette requête ne pourra fonctionner sans le jeton de connexion obtenu lors de la connexion à l'application. Si le contenu du QR code n'est pas un identifiant de  réservation, un message d'erreur générique sera affiché, invitant l'utilisateur à retourner à la page de scan. Si la réservation existe, plusieurs vérifications seront faites côté serveur : si la réservation n'a pas été annulée ou déjà "compostée" et si l'heure de scan n'est pas trop en avance par rapport à la séance ; dans le premier cas, un message d'avertissement sera retourné avec les détails de l'erreur et dans le second cas, une invitation à réiterer la validation plus tard sera retournée. Dans le cas ou tout est en règle, les informations utiles sont retournées pour être affichées : nom du film, nombre de places sur la réservation, date et heure de la séance ainsi que le numéro de salle.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+        <!-- Veille Technologique -->
+      <section class="bg-black relative !max-w-screen overflow-hidden pt-42 z-20 -mt-1" id="veilleTechno">
+        <div class="w-full flex justify-center items-start gap-2 sm:gap-4 pinnedVt" >
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold pb-4 z-20 text-white" id="veilleTitle">Veille Technologique</h1>
+          <div id="rssWrapper">
+            <svg id="rssLogo" viewBox="0 0 44 44" class=" w-8 sm:w-12 mt-[2px]" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>RSS-color</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Color-" transform="translate(-800.000000, -760.000000)" fill="#FF9A00"> <path d="M800.000471,797.714286 C800.000471,794.243 802.81487,791.428571 806.286118,791.428571 C809.757367,791.428571 812.571765,794.243 812.571765,797.714286 C812.571765,801.185571 809.757367,804 806.286118,804 C802.81487,804 800.000471,801.185571 800.000471,797.714286 Z M844,804 L835.619661,804 C835.619661,784.358714 819.641547,768.380429 800.000471,768.380429 L800.000471,760 C824.261497,760 844,779.738714 844,804 Z M829.333543,804 L820.953204,804 C820.953204,792.446857 811.553019,783.048143 800,783.048143 L800,774.666143 C816.174541,774.666143 829.333543,787.825286 829.333543,804 Z" id="RSS"> </path> </g> </g> </g></svg>
+          </div>
+        </div>
+        <!-- VT content -->
+        <div class="w-full flex flex-col justify-center items-center text-white text-center">
+          <div class="introWrapper w-full">
+            <div class="flex flex-col gap-[20px] sm:text-xl font-semibold max-w-[95%] mx-auto items-center mt-16 mb-24" id="feedlyIntro">
+                <p class="w-[860px] !max-w-[95%] text-center">Dans le domaine informatique, la veille technologique est primordiale : Elle nous permet de rester au courant des dernières avancées sur nos domaines de compétences, afin de les intégrer à notre workflow et rester ainsi à la pointe du progrès !</p>
+                <p class="w-[860px] max-w-[95%]">Cependant, suivre toutes les dernières actualités peut être compliqué mais heureusement, certains outils peuvent nous faciliter la vie.</p>
+            </div>
+          </div>
+          
+          
+
+          <div class="flex flex-col max-w-[95%]" id="howItWorks">
+            <p class="w-[950px] max-w-[95%] font-semibold text-md sm:text-lg mx-auto mb-2 sm:mb-6 text-white" id="lastVtContent">Je vous présente ici l'outil que j'utilise pour rester alerte, ainsi que la facon dont je m'en sert :</p>
+            <div class="flex max-sm:flex-col max-w-[900px] mx-auto items-center justify-center sm:gap-1 mb-8 feedlyBox">
+              <a href="https://feedly.com/" target="_blank" class="left max-sm:px-6"><img src="Images/veilleTech/feedly.png" alt=""></a>
+              <div class="flex flex-col items-start right">
+                  <h2 class="text-[3em] font-bold tracking-[2px] max-sm:hidden" class="">FEEDLY.</h2>
+                  <p class="max-sm:text-sm sm:text-start max-sm:mx-4 max-sm:-mt-4">Feedly est un outil qui permet de selectionner divers themes ou sources, et d'etre notifié dès qu'une nouveauté apparait sur notre séléction.</p>
+              </div>
+            </div>
+            <div class="w-[860px] max-w-[95%] flex flex-col items-start justify-start gap-2 sm:gap-4 text-start mx-auto" id="feedlyTuto">
+              <h4 class="tracking-[1px] uppercase w-[900px] max-w-[95%] font-semibold">Comment ça marche ?</h4>
+              <p class="max-sm:text-sm">Pour utiliser Feedly, il faut tout d'abord se créer un compte sur le site web, ensuite, nous pouvons séléctionner des sources/centres d'intêrets, et les classer librement par dossiers.</p>
+              <p class="max-sm:text-sm">Le service dispose d'une offre gratuite et payante, l'offre gratuite limitant le nombre de rubriques possible, et n'autorisant pas l'accès aux fonctionnalités "IA" (agrégation des news par centre d'interêts) entre autres que le site propose... </p>
+            </div>
+          </div>
+
+          <div id="vtPart2" class="max-w-[95%]">
+            <div class="w-[950px] max-w-[95%] mx-auto mt-24">
+              <div class="flex flex-col text-start intro">
+                <h2 class="text-4xl font-bold mb-2 orgaTitle">Mon organisation.</h2>
+                <p class=" font-semibold orgaLabel">j'ai organisé ma veille au travers de 4 rubriques, regroupant chacunes plusieurs sources sur un theme bien particulier, voyons en détails :</p>
+              </div>
+      
+              <div class="grid grid-cols-2 mt-8 grid-rows-2 py-2 gap-[0.5rem] h-[20rem]">
+                <div class=" bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr rounded-bl rounded-tl-md rounded-br-md fold1 hover:m-0 transition-all ease-in-out duration-200">
+                    <h2 class="text-start font-semibold">.Langages & Frameworks</h2>
+                </div>
+                <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr-md rounded-bl-md rounded-tl rounded-br fold2 hover:m-0 transition-all ease-in-out duration-200">
+                    <h2 class="text-start font-semibold">.Cybersécurité</h2>
+                </div>
+                <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr-md rounded-bl-md rounded-tl rounded-br fold3 hover:m-0 transition-all ease-in-out duration-200">
+                    <h2 class="text-start font-semibold">.Software & OS</h2>
+                </div>
+                <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr rounded-bl rounded-tl-md rounded-br-md fold4 hover:m-0 transition-all ease-in-out duration-200">
+                    <h2 class="text-start font-semibold">.Actus Tech en général</h2>
+                </div>
+              </div>
+            </div>
+            <div id="split2"></div>
+
+            <div id="vtTopic" class="mt-24 w-[950px] max-w-[95%] mx-auto">
+
+              <div class="topicIntro ">
+                <div class="topicTitle">
+                  <h2 class="text-4xl font-bold mb-2 text-start">Mon sujet</h2>
+
+                  <p class=" font-semibold text-start">J'ai décidé de choisir <b class="font-extrabold">Le framework Laravel</b> comme sujet de veille technologique, un framework PHP que j'ai grandement utilisé au cours de ma formation.</p>
+                </div>
+                
+
+                <div class="grid grid-cols-10 w-[950px] max-w-[95%] gap-[20px] items-center my-[80px] mx-[30px]">
+                    <a class="col-span-3 " class="" id="azureLeft" href="https://laravel.com/" target="_blank">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-[70%]" viewBox="0 0 50 52"><title>Logomark</title><path d="M49.626 11.564a.809.809 0 0 1 .028.209v10.972a.8.8 0 0 1-.402.694l-9.209 5.302V39.25c0 .286-.152.55-.4.694L20.42 51.01c-.044.025-.092.041-.14.058-.018.006-.035.017-.054.022a.805.805 0 0 1-.41 0c-.022-.006-.042-.018-.063-.026-.044-.016-.09-.03-.132-.054L.402 39.944A.801.801 0 0 1 0 39.25V6.334c0-.072.01-.142.028-.21.006-.023.02-.044.028-.067.015-.042.029-.085.051-.124.015-.026.037-.047.055-.071.023-.032.044-.065.071-.093.023-.023.053-.04.079-.06.029-.024.055-.05.088-.069h.001l9.61-5.533a.802.802 0 0 1 .8 0l9.61 5.533h.002c.032.02.059.045.088.068.026.02.055.038.078.06.028.029.048.062.072.094.017.024.04.045.054.071.023.04.036.082.052.124.008.023.022.044.028.068a.809.809 0 0 1 .028.209v20.559l8.008-4.611v-10.51c0-.07.01-.141.028-.208.007-.024.02-.045.028-.068.016-.042.03-.085.052-.124.015-.026.037-.047.054-.071.024-.032.044-.065.072-.093.023-.023.052-.04.078-.06.03-.024.056-.05.088-.069h.001l9.611-5.533a.801.801 0 0 1 .8 0l9.61 5.533c.034.02.06.045.09.068.025.02.054.038.077.06.028.029.048.062.072.094.018.024.04.045.054.071.023.039.036.082.052.124.009.023.022.044.028.068zm-1.574 10.718v-9.124l-3.363 1.936-4.646 2.675v9.124l8.01-4.611zm-9.61 16.505v-9.13l-4.57 2.61-13.05 7.448v9.216l17.62-10.144zM1.602 7.719v31.068L19.22 48.93v-9.214l-9.204-5.209-.003-.002-.004-.002c-.031-.018-.057-.044-.086-.066-.025-.02-.054-.036-.076-.058l-.002-.003c-.026-.025-.044-.056-.066-.084-.02-.027-.044-.05-.06-.078l-.001-.003c-.018-.03-.029-.066-.042-.1-.013-.03-.03-.058-.038-.09v-.001c-.01-.038-.012-.078-.016-.117-.004-.03-.012-.06-.012-.09v-.002-21.481L4.965 9.654 1.602 7.72zm8.81-5.994L2.405 6.334l8.005 4.609 8.006-4.61-8.006-4.608zm4.164 28.764l4.645-2.674V7.719l-3.363 1.936-4.646 2.675v20.096l3.364-1.937zM39.243 7.164l-8.006 4.609 8.006 4.609 8.005-4.61-8.005-4.608zm-.801 10.605l-4.646-2.675-3.363-1.936v9.124l4.645 2.674 3.364 1.937v-9.124zM20.02 38.33l11.743-6.704 5.87-3.35-8-4.606-9.211 5.303-8.395 4.833 7.993 4.524z" fill="#FF2D20" fill-rule="evenodd"/></svg></a>
+                    <div class="feedlyPre col-span-7" id="azureRight">
+                        <p class="italic text-start">
+                            Laravel est un framework PHP conçu autour d'une architecture MVC, il intègre plusieurs outils performant pour faciliter le développement d'applications web (ORM Eloquent, Blade, Laravel Livewire, etc).
+                        </p>
+                    </div>
+                </div>
+
+                <p class="text-start topicIntroPara scale-[95%]">Laravel a été créé en 2011 par Taylor Otwell. Au fil de ses évolutions, il a su devenir un des frameworks les plus populaires et apprécié pour le développement web et a participé au regain d'intérêt général pour le language PHP.</p>
+              </div>
+              
+
+              <div class="topicPartial max-sm:text-sm">
+                <h2 class="text-4xl font-bold mb-2 text-start mt-16">Laravel 12</h2>
+
+
+                <p class="text-start text-white/85 mb-6">
+                Laravel 12 est la dernière version en date du framework, et est sortie officiellement le 24 février 2025. J'ai choisi de concentrer ma veille technologique dessus.
+                </p>
+
+                <img src="Images/laravel-12.png" alt="" class="rounded-xs">
+
+                <h2 class="text-white text-left text-2xl font-bold mt-8 mb-4">Tour d'horizon des nouveautés</h2>
+                <ul class="list-disc list-outside flex flex-col gap-2 text-start ml-4">
+                    <li><b>La maintenance est simplifié, voir inexistante :</b> Le prestataire gère les cas d'indisponibilité.</li>
+                    <li><b>Le coût est bien souvent inférieur :</b> Le coût est basé sur notre usage et non sur notre infrastructure.</li>
+                    <li><b>La scalabilité est facile :</b> On peut facilement augmenter les performances requises pour un service.</li>
+                    <li><b>Travail collaboratif et accessibilité :</b> l'accès aux ressources est simplifié, car tout se fait via l'interface du prestataire.</li>
+                    <li><b>Simplification de la gestion et du déploiement des ressources :</b> On peut facilement gérer les ressources de maniére centralisée et simplifiee, grâce à un fort taux d'abstraction de l'infrastructure (SaaS, PaaS, IaaS).
+                </ul>
+
+
+              <div id="companyUsage" class=" topicPartial max-sm:text-sm">
+                <h2 class="text-4xl font-bold mb-2 text-start mt-24">Mise en application de Laravel 12</h2>
+
+                <p class="text-start text-white/85 mb-6">J'ai réalisé un POC de migration vers laravel 12 de mon projet de fin d'étude (le site web <a href="https://cinemasolaris.fr/" target="_blank" class="underline">cinemasolaris.fr</a>), qui a été développé en Laravel 11, en y intégrant l'authentification tierce.</p>
+
+                <div class="md:grid md:grid-cols-2 flex flex-col gap-4 w-full mt-4">
+                  <a href="https://cinemasolaris.fr/" target="_blank">
+                    <img src="Images/cinemasolaris-example-laravel.png" alt="" class="rounded-sm">
+                  </a>
+                  <p class="mt-2 mb-2 italic text-sm md:hidden"><i>L'aspect PaaS des logic apps rends en outre leur création et leur utilisation quasi-instantané, sans préoccupation de l'infrastructure et du déploiement.</i></p>
+                  <p class="text-start w-full">Je me sert essentiellement d'un service en particulier proposé par Azure : <b>Les Logic Apps</b> qui permettent d'automatiser des tâches, des processus ou des flux de données en utilisant du low-code, et ce, très facilement. L'avantage ici est la clarté du code, qui, ressemblant à un logigramme, ne nécéssite pas de connaissances sur un language particulier.</p>
+                </div>
+
+                <p class="mt-2 italic text-sm max-md:hidden"><i>L'aspect PaaS des logic apps rends en outre leur création et leur utilisation quasi-instantané, sans préoccupation de l'infrastructure et du déploiement.</i></p>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+        
+      </section>
+
+      <section class="h-[40vh] max-h-[40rem] w-full z-10 flex items-end relative vtContactSeparator overflow-hidden">
+    
+        <svg width="100%" height="150" class="z-40 absolute top-0 blackOverlay" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 100 0 L 0 70 L 0 0 Z" fill="black" />
+        </svg>
+    
+        <svg width="100%" height="150" class="z-40 absolute bottom-0 whiteOverlay" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 0 100 L 100 30 L 100 100 Z" fill="white" />
+        </svg>
+        
+        <img src="Images/test-background.jpg" alt="" class="!w-full separator" id="veilleToContact" data-speed="auto">
+      </section>
+
+      <!-- Contact -->
+      <section class=" z-20 overflow-hidden contactSec relative -mt-[1px]">
+
+
+        <div class="h-full w-full pb-12 pt-24 sm:pt-34 contactContent bg-white" id="contact" >
+          <div class="w-[950px] max-w-[95%] mx-auto h-full relative z-10">
+            <div class="flex justify-between">
+              <div>
+                <h1 class="font-bold text-4xl sm:text-4xl md:text-6xl text-black mb-1 sm:mb-3 max-sm:text-center">Me contacter</h1>
+                <p class="text-zinc-400/70 max-sm:text-sm max-sm:text-center md:mb-16">Vous pouvez me contacter par mail, via mes réseaux sociaux, ou en remplissant le formulaire ci-dessous !</p>
+              </div>
+            </div>
+            <div class="w-full flex justify-between mt-8 2xl:mt-24 h-full">
+                <form method="POST" action="./server/contact.php" class="flex flex-col w-full gap-4 translate-x-0 h-full md:min-h-72" id="contactForm">
+                  <input type="hidden" name="recaptcha_token" id="recaptchaToken">
+                  <div class="flex gap-4">
+                    <input type="text" name="nom" id="nom" class="border w-full p-1 rounded" placeholder="Nom">
+                    <input type="text" name="prenom" id="prenom" class="border w-full p-1 rounded" placeholder="Prénom">
+                  </div>
+                  <input type="email" name="email" class="border w-full p-1 rounded" id="email" placeholder="Email">
+                  <input type="text" name="subject" class="border w-full p-1 rounded" id="subject" placeholder="Objet">
+                  <div class="textArea">
+                    <textarea name="message" id="message" class="border min-h-[200px] sm:min-h-[200px]  p-1 pb-0 rounded w-full" placeholder="Votre message"></textarea>
+                  </div>
+                  <div class="w-full h-full flex justify-center">
+                    <button type="submit" class="bg-black cursor-pointer text-white p-2 rounded flex justify-center items-center gap-2 group w-full transition-all ease-in-out duration-[250ms] px-4 hover:bg-blue-950"><span class="translate-x-4 group-hover:translate-x-0 transition-all ease-in-out duration-200 font-semibold">Envoyer</span><span>
+                        <svg viewBox="0 0 24 24"  fill="none" class="w-6 scale-0 opacity-0 -translate-x-24 group-hover:translate-x-0 group-hover:scale-100 group-hover:opacity-100 transition-all ease-in-out duration-200" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.7639 12H10.0556M3 8.00003H5.5M4 12H5.5M4.5 16H5.5M9.96153 12.4896L9.07002 15.4486C8.73252 16.5688 8.56376 17.1289 8.70734 17.4633C8.83199 17.7537 9.08656 17.9681 9.39391 18.0415C9.74792 18.1261 10.2711 17.8645 11.3175 17.3413L19.1378 13.4311C20.059 12.9705 20.5197 12.7402 20.6675 12.4285C20.7961 12.1573 20.7961 11.8427 20.6675 11.5715C20.5197 11.2598 20.059 11.0295 19.1378 10.5689L11.3068 6.65342C10.2633 6.13168 9.74156 5.87081 9.38789 5.95502C9.0808 6.02815 8.82627 6.24198 8.70128 6.53184C8.55731 6.86569 8.72427 7.42461 9.05819 8.54246L9.96261 11.5701C10.0137 11.7411 10.0392 11.8266 10.0493 11.9137C10.0583 11.991 10.0582 12.069 10.049 12.1463C10.0387 12.2334 10.013 12.3188 9.96153 12.4896Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    </span></button>
+                  </div>
+                    
+                    
+                </form>
+            </div>
+          </div>
+
+          <div class="w-full h-full bg-black absolute top-0 left-0 z-0 contactOverlay opacity-0 pointer-events-none"></div>
+        </div>
+        <img src="./Images/Untitled-23.svg" alt="" class="absolute z-0 bottom-[20%] w-[60%] right-[10%]">
+      </section>
+    </main>
+
+    <footer class="w-full flex flex-col justify-center items-center p-4 relative z-20 bg-white">
+      <small class="text-sm font-semibold">Copyright Nicolas Carpita 2025</small>
+      <small class="text-xs text-black/90 italic">Réalisé en HTML/CSS/JavaScript</small>
+    </footer>
+
+    <!-- Modal projets -->
+    <section x-data="{FsImage: false}" class="fixed top-0 left-0 w-screen h-screen z-50 projectModal overflow-auto bg-black text-white" x-show="projectModal"
+    x-transition:enter="transition-all ease-in-out duration-300"
+    x-transition:enter-start="translate-x-[100%] blur-md"
+    x-transition:enter-end="translate-x-0 blur-0"
+    x-transition:leave="transition-all ease-in-out duration-300"
+    x-transition:leave-start="translate-x-0 opacity-100"
+    x-transition:leave-end="translate-x-[100%] opacity-0 blur-3xl">
+      <div class="w-full min-h-full relative">
+        <div class="sm:h-20 h-16 w-full bg-black/50 backdrop-blur-sm flex items-center sticky top-0 left-0">
+          <button class="mx-2 cursor-pointer" @click="projectModal = false; document.querySelector('body').classList.remove('!overflow-hidden'); closeModal()" x-show="projectModal" x-transition:enter="transition transform ease-in-out duration-500"
+          x-transition:enter-start="opacity-0 rotate-90"
+          x-transition:enter-end="opacity-100 rotate-0"
+          x-transition:leave="transition transform ease-in-out duration-300"
+          x-transition:leave-start="opacity-100 rotate-0" x-transition:leave-end="opacity-0 rotate-90">
+              <svg viewBox="0 0 24 24" width="60" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.99486 7.00636C6.60433 7.39689 6.60433 8.03005 6.99486 8.42058L10.58 12.0057L6.99486 15.5909C6.60433 15.9814 6.60433 16.6146 6.99486 17.0051C7.38538 17.3956 8.01855 17.3956 8.40907 17.0051L11.9942 13.4199L15.5794 17.0051C15.9699 17.3956 16.6031 17.3956 16.9936 17.0051C17.3841 16.6146 17.3841 15.9814 16.9936 15.5909L13.4084 12.0057L16.9936 8.42059C17.3841 8.03007 17.3841 7.3969 16.9936 7.00638C16.603 6.61585 15.9699 6.61585 15.5794 7.00638L11.9942 10.5915L8.40907 7.00636C8.01855 6.61584 7.38538 6.61584 6.99486 7.00636Z" fill="#ffffff"></path> </g></svg>
+          </button>
+        </div>
+        <div class="projectReciever w-[950px] mx-auto max-w-[90%]">
+        </div>
+        <div class="w-full h-full fixed top-0 left-0 flex items-center justify-center bg-black/50 backdrop-blur-sm" x-show="FsImage" @click="FsImage = false" x-transition:enter="transition-all ease-in-out duration-200"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition-all ease-in-out duration-200"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0">
+          <div class=" mx-auto w-[98%] flex justify-center items-center" id="imageReceiver" x-show="FsImage" x-transition:enter="transition-all ease-in-out duration-200"
+          x-transition:enter-start="opacity-0 scale-0"
+          x-transition:enter-end="opacity-100 scale-100"
+          x-transition:leave="transition-all ease-in-out duration-200"
+          x-transition:leave-start="opacity-100 scale-100"
+          x-transition:leave-end="opacity-0 scale-0"></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Modale validation formulaire -->
+    <div id="sendMessage" class="h-20 w-full fixed top-[75px] left-0  z-40 -translate-y-[200%] opacity-0 transition-all ease-in-out duration-300 flex items-center justify-center">
+      <div id="messageResult" class="py-2 px-4 text-center text-white rounded-md"></div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+          const params = new URLSearchParams(window.location.search);
+          const modalId = params.get('modal');
+        
+          if (modalId) {
+              const content = document.querySelector(`.${modalId}`);
+              console.log(content)
+              const receiver = document.querySelector('.projectReciever');
+              const modal = document.querySelector('[x-data]');
+              console.log(modal)
+              if (content && receiver && modal) {
+                  // Injecte le contenu dans la modale
+                  receiver.innerHTML = content.innerHTML;
+                  console.log(receiver)
+                  // Émet un événement Alpine pour ouvrir la modale
+                  modal.dispatchEvent(new CustomEvent('open-modal', { detail: true }));
+  
+                  // Empêche scroll background
+                  document.querySelector('body').classList.add('!overflow-hidden');
+  
+                  // Nettoie l'URL
+                  //window.history.replaceState(null, '', window.location.pathname);
+              }
+          }
+      });
+  </script>
+  
+  
+    
+
+
+  </body>
+</html>
+
