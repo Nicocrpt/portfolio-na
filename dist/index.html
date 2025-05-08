@@ -6,19 +6,38 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>Document</title>
     <script src="https://www.google.com/recaptcha/api.js?render=6Le-gAErAAAAAAbFjKutBW9ctZgzc63wBI0D3TDe"></script>
-  <script type="module" crossorigin src="./assets/index-bJMbk67s.js"></script>
+  <script type="module" crossorigin src="./assets/index-DN5CSGUj.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-D2WDXFd5.css">
 </head>
 <body class="relative" x-data="{ burgerMenu: false, projectModal: false, scrolled: false}" x-init="init" class="overflow-hidden">
 
+    <!-- LOADER -->
+    <section class="loader-wrapper fixed w-screen h-screen z-[9999] bg-black flex justify-center items-center">
+
+        <div class="loader">
+          <div class="loader-circle">
+            <div>
+              <div class="loader moon-loader">
+                <div class="loader-circle">
+                  <div class="loader-moon-size"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="loader-sun"></div>
+        </div>
+    </section>
+  
+
     <!-- HEADER -->
-    <!-- <header class="">
+    <header class="">
         <div  class="transition-all ease-linear duration-300 navBar z-50 fixed top-0 w-full h-16 flex items-center" 
         :class="scrolled ? 'bg-black/80 backdrop-blur' : 'bg-transparent'"
         @scroll.window="scrolled = (window.scrollY > window.innerHeight*0.8)">
             <nav class="flex items-center gap-10 mx-4 lg:mx-10 justify-between flex-row-reverse md:flex-row md:justify-start w-full">
                 <div class="flex justify-center max-md:flex-row-reverse items-center gap-4">
-                <img src="/favicon.svg" alt="" class="w-8 md:mr-4">
+                <img src="./favicon.svg" alt="" class="w-8 md:mr-4">
                     
                 <h1 class="text-white text-2xl font-bold">Nicolas Carpita</h1>
                 </div>
@@ -59,7 +78,7 @@
                 </div>
             </div>
         </div>
-    </header> -->
+    </header>
     
     <main class="!max-w-screen !overflow-x-hidden relative">
 
