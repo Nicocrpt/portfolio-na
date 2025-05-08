@@ -527,180 +527,180 @@ Entreprise
 -------------------------------------*/
 
 
-// gsap.to('.azProduct', {
-//   scrollTrigger: {
-//     trigger: '.parallaxAz1',
-//     start: "top 100%",
-//     end:`bottom 0%`,
-//     scrub: true,
-//   },
-//   ease: "linear",
-//   translateY: (window.innerWidth/window.innerHeight) * 100
-// })
+gsap.to('.azProduct', {
+  scrollTrigger: {
+    trigger: '.parallaxAz1',
+    start: "top 100%",
+    end:`bottom 0%`,
+    scrub: true,
+  },
+  ease: "linear",
+  translateY: (window.innerWidth/window.innerHeight) * 100
+})
 
-// gsap.to('.azBoutique', {
-//   scrollTrigger: {
-//     trigger: '.companyContent',
-//     start: `top 50%`,
-//     end:`bottom 50%`,
-//     scrub: true,
-//   },
-//   ease: "linear",
-//   translateX: `-${document.querySelector('.azBoutique').offsetWidth - document.querySelector('.parallaxAz2').offsetWidth}px`
-// })
+gsap.to('.azBoutique', {
+  scrollTrigger: {
+    trigger: '.companyContent',
+    start: `top 50%`,
+    end:`bottom 50%`,
+    scrub: true,
+  },
+  ease: "linear",
+  translateX: `-${document.querySelector('.azBoutique').offsetWidth - document.querySelector('.parallaxAz2').offsetWidth}px`
+})
 
-// gsap.to('.azBoutique-2', {
-//   scrollTrigger: {
-//     trigger: '.parallaxAz2',
-//     start: `top 100%`,
-//     end:`bottom 0%`,
-//     scrub: true,
-//   },
-//   ease: "linear",
-//   translateY: `-${document.querySelector('.azBoutique-2').offsetHeight - document.querySelector('.parallaxAz2').offsetHeight}px`
-// })
+gsap.to('.azBoutique-2', {
+  scrollTrigger: {
+    trigger: '.parallaxAz2',
+    start: `top 100%`,
+    end:`bottom 0%`,
+    scrub: true,
+  },
+  ease: "linear",
+  translateY: `-${document.querySelector('.azBoutique-2').offsetHeight - document.querySelector('.parallaxAz2').offsetHeight}px`
+})
 
 
 /*-------------------------------------
 Projets
 -------------------------------------*/
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   isMobileDevice('.projectCard')
+document.addEventListener('DOMContentLoaded', () => {
+  isMobileDevice('.projectCard')
 
-//   const sunLight = document.querySelector('.sunLight')
+  const sunLight = document.querySelector('.sunLight')
 
-//   sunLight.style.width = `${window.innerWidth/4}px`
-//   sunLight.style.height = `${window.innerWidth/4}px`
-//   sunLight.style.left = `${window.innerWidth/2 - sunLight.offsetWidth/2}px`
-//   sunLight.style.bottom = `-${window.innerWidth/15}px`
+  sunLight.style.width = `${window.innerWidth/4}px`
+  sunLight.style.height = `${window.innerWidth/4}px`
+  sunLight.style.left = `${window.innerWidth/2 - sunLight.offsetWidth/2}px`
+  sunLight.style.bottom = `-${window.innerWidth/15}px`
   
-// })
+})
 
 
-// gsap.to('.gradientBackgroundCity', {
-//   scrollTrigger: {
-//     trigger: '#mesProjets',
-//     start: `top+=${document.querySelector('.projectContent').offsetHeight/3}px 50%`,
-//     end: `bottom 100%`,
-//     scrub: true,
-//     force3D: false
-//   },
-//     opacity:0.8,
-//   ease : "power2.in"
-// })
+gsap.to('.gradientBackgroundCity', {
+  scrollTrigger: {
+    trigger: '#mesProjets',
+    start: `top+=${document.querySelector('.projectContent').offsetHeight/3}px 50%`,
+    end: `bottom 100%`,
+    scrub: true,
+    force3D: false
+  },
+    opacity:0.8,
+  ease : "power2.in"
+})
 
-// const citySkyline = window.innerWidth >= 640 ? '.citySkylineLg' : '.citySkylineSm'
+const citySkyline = window.innerWidth >= 640 ? '.citySkylineLg' : '.citySkylineSm'
 
-// gsap.to(citySkyline, {
-//   scrollTrigger: {
-//     trigger: '#mesProjets',
-//     start: `top+=${document.querySelector('.projectContent').offsetHeight/3}px 50%`,
-//     end: `bottom 100%`,
-//     scrub: true,
-//     force3D: false
-//   },
-//     opacity:1,
-//   ease : "power4.in"
-// })
+gsap.to(citySkyline, {
+  scrollTrigger: {
+    trigger: '#mesProjets',
+    start: `top+=${document.querySelector('.projectContent').offsetHeight/3}px 50%`,
+    end: `bottom 100%`,
+    scrub: true,
+    force3D: false
+  },
+    opacity:1,
+  ease : "power4.in"
+})
 
 // console.log(document.querySelector(citySkyline).getBoundingClientRect().height)
 
-// const sunLightTimeline = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: citySkyline,
-//     start: `bottom+=${document.querySelector(citySkyline).getBoundingClientRect().height/5} 100%`,
-//     end: `bottom 25%`,
-//     scrub: true,
-//     force3D: false
-//   },
-//   duration: 10
-// })
+const sunLightTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: citySkyline,
+    start: `bottom+=${document.querySelector(citySkyline).getBoundingClientRect().height/5} 100%`,
+    end: `bottom 25%`,
+    scrub: true,
+    force3D: false
+  },
+  duration: 10
+})
 
-// const skylineTimeline = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: citySkyline,
-//     start: `top+=${document.querySelector(citySkyline).getBoundingClientRect().height*0.8} 100%`,
-//     end: `bottom`,
-//     scrub: true,
-//     force3D: false
-//   },
-//   duration: 10
-// })
-
-
-
-// skylineTimeline.to('#Distant polygon', {
-//   y: `${window.innerHeight/6}px`,
-//   duration: 10,
-// }, "-=10")
-// .to('#Medium path', {
-//   y: `${window.innerHeight/10}px`,
-//   duration: 10,
-// }, "-=10")
-
-// sunLightTimeline.to('.sunLight', {
-//   scale:5,
-//   duration: 10,
-// }, "-=10")
-// .to('#Distant polygon', {
-//   scrollTrigger: {
-//     trigger: citySkyline,
-//     start: `bottom+=${document.querySelector(citySkyline).getBoundingClientRect().height/5} 100%`,
-//     end: `bottom 25%`,
-//     scrub: true,
-//     force3D: false
-//   },
-//   fill:"#1e0b15",
-//   ease: "circ.Out",
-//   duration: 8
-// }, "-=8")
-// .to('#Medium path', {
-//   scrollTrigger: {
-//     trigger: citySkyline,
-//     start: `bottom+=${document.querySelector(citySkyline).getBoundingClientRect().height/5} 100%`,
-//     end: `bottom 25%`,
-//     scrub: true,
-//     force3D: false
-//   },
-//   fill:"#140717",
-//   ease: "circ.Out",
-//   duration: 6
-// }, "-=6")
+const skylineTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: citySkyline,
+    start: `top+=${document.querySelector(citySkyline).getBoundingClientRect().height*0.8} 100%`,
+    end: `bottom`,
+    scrub: true,
+    force3D: false
+  },
+  duration: 10
+})
 
 
-// const cardTl = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: '.projectSecTitle',
-//     start: "top 60%",
-//   },
-//   duration: 0.3
-// })
 
-// cardTl.to('.projectCard', {
-//   opacity:1,
-//   filter: "blur(0px)",
-//   scale: 1.05,
-//   duration: 0.25,
-//   stagger: 0.05
-// })
-// .to('.projectCard', {
-//   scale: 1,
-//   duration: 0.1,
-//   stagger: 0.03,
-//   ease: "power1.out"
-// })
+skylineTimeline.to('#Distant polygon', {
+  y: `${window.innerHeight/6}px`,
+  duration: 10,
+}, "-=10")
+.to('#Medium path', {
+  y: `${window.innerHeight/10}px`,
+  duration: 10,
+}, "-=10")
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   document.querySelectorAll('.projectCard').forEach(card => {
-//     card.style.height = `${card.offsetWidth/1.6}px`
-//   })
-// })
-// window.addEventListener('resize', () => {
-//   document.querySelectorAll('.projectCard').forEach(card => {
-//     card.style.height = `${card.offsetWidth/1.6}px`
-//   })
-// })
+sunLightTimeline.to('.sunLight', {
+  scale:5,
+  duration: 10,
+}, "-=10")
+.to('#Distant polygon', {
+  scrollTrigger: {
+    trigger: citySkyline,
+    start: `bottom+=${document.querySelector(citySkyline).getBoundingClientRect().height/5} 100%`,
+    end: `bottom 25%`,
+    scrub: true,
+    force3D: false
+  },
+  fill:"#1e0b15",
+  ease: "circ.Out",
+  duration: 8
+}, "-=8")
+.to('#Medium path', {
+  scrollTrigger: {
+    trigger: citySkyline,
+    start: `bottom+=${document.querySelector(citySkyline).getBoundingClientRect().height/5} 100%`,
+    end: `bottom 25%`,
+    scrub: true,
+    force3D: false
+  },
+  fill:"#140717",
+  ease: "circ.Out",
+  duration: 6
+}, "-=6")
+
+
+const cardTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.projectSecTitle',
+    start: "top 60%",
+  },
+  duration: 0.3
+})
+
+cardTl.to('.projectCard', {
+  opacity:1,
+  filter: "blur(0px)",
+  scale: 1.05,
+  duration: 0.25,
+  stagger: 0.05
+})
+.to('.projectCard', {
+  scale: 1,
+  duration: 0.1,
+  stagger: 0.03,
+  ease: "power1.out"
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.projectCard').forEach(card => {
+    card.style.height = `${card.offsetWidth/1.6}px`
+  })
+})
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.projectCard').forEach(card => {
+    card.style.height = `${card.offsetWidth/1.6}px`
+  })
+})
 
 //SECTION VEILLE TECHNOLOGIQUE
 
