@@ -176,7 +176,7 @@ function animate(time) {
   // Appels de fonctions
 resizeCanvas(); // Redimensionner dès le début
 createStars(); // Créer les étoiles
-window.addEventListener('resize', resizeCanvas); // Réajuster le canvas au redimensionnement
+// window.addEventListener('resize', resizeCanvas); // Réajuster le canvas au redimensionnement
 
 // Démarrer l'animation
 requestAnimationFrame(animate);
@@ -190,18 +190,6 @@ requestAnimationFrame(animate);
 /*-------------------------------------
 Introduction
 -------------------------------------*/
-
-
-gsap.to('.presentationImage', {
-  scrollTrigger: {
-    trigger: '.presentationImage',
-    start: `top+=${document.querySelector('.presentationImage').closest('div').offsetHeight/2}px 100%`,
-    end: `top+=${document.querySelector('.presentationImage').closest('div').offsetHeight/2}px 20%`,
-    scrub: 0.5,
-    force3D: false
-  },
-  y: -(document.querySelector('.presentationImage').getBoundingClientRect().bottom - document.querySelector('.presentationImage').closest('div').getBoundingClientRect().bottom)
-})
 
 
 let items = document.querySelectorAll('.timelineContainer .text-box');
@@ -405,7 +393,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 window.addEventListener('resize', updateHeights);
-
 
 
 const forest = window.innerWidth >= 640 ? document.querySelector('#forestLight') : document.querySelector('#forestLightSM');

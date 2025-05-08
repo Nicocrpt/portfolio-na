@@ -216,20 +216,17 @@
 
       </section>
       <!-- Introduction -->
-      <section class="w-full bg-white text-black relative presentationSection pt-24 z-20">
+      <section class="w-full bg-white text-black relative presentationSection pt-24 z-20 -mt-1">
         <div class="gradientBackground absolute w-full h-full opacity-0 z-0" style="background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(248,253,255,1) 14%, rgba(204,239,255,1) 28%, rgba(180,232,241,1) 45%, rgba(209,198,165,1) 66%, rgba(255,169,129,1) 100%);"></div>
 
 
         <div class="skyBackground absolute w-full h-full opacity-0" style="background: rgb(204,239,255)"></div>
         <h1 class="text-4xl font-semibold mb-4 text-center sm:hidden">Introduction</h1>
-        <div class="w-[1170px] max-w-[95%] presentationContent flex max-sm:flex-col-reverse mx-auto sm:mt-24 gap-4 justify-center items-center">
-          <div class="flex flex-col sm:w-[70%] gap-4">
+        <div class="w-[1170px] max-w-[95%] presentationContent flex max-sm:flex-col-reverse sm:mt-24 gap-4 justify-center items-center mx-auto px-8">
+          <div class="flex flex-col w-full text-center gap-4">
             <h1 class="text-5xl font-semibold mb-4 text-center max-sm:hidden">Introduction</h1>
             <p class="max-sm:text-sm">Je m'appelle Nicolas Carpita et vous souhaite la bienvenue sur mon portfolio. J'ai 28 ans et porte depuis toujours un intêret envers le monde du numérique. D'un naturel curieux, j'ai longtemps cherché quelle voie suivre pour construire une carrière professionnelle. C'est en 2023 que je décide, après plusieurs années à travailler en tant qu'opérateur logistique, que j'ai décidé de franchir le pas et suivre un BTS SIO (option SLAM) pour découvrir la programmation et ainsi m'ouvrir de nouvelles perspectives d'avenir.</p>
             <p class="max-sm:text-sm">En dehors de l'aspect professionnel, j'aime particulièrement le cinéma, les jeux vidéos et la musique, je pratique également la MAO (musique assisté par ordinateur) et suis adepte de la randonnée/trek en haute montagne.</p>
-          </div>
-          <div class="sm:w-[30%] w-full overflow-hidden relative shadow-inner h-80 rounded-sm">
-            <img src="Images/photo-perso.jpg" alt="" class="scale-[200%] absolute -left-[50%] bottom-[11%] presentationImage">
           </div>
         </div>
         
@@ -397,17 +394,17 @@
         
         <div class="skillsSecTitle w-full flex flex-col justify-center items-center z-50 relative">
           <h1 class="font-bold text-4xl sm:text-4xl md:text-6xl mb-4 sm:mb-3 text-center">Mes Compétences</h1>
-          <p class="text-white/50 font-semibold max-sm:text-xs text-center sm:mb-16 mb-8">Les compétences que j'ai acquises en cours de formation et en entreprise</p>
+          <p class="text-white/50 font-semibold max-sm:text-xs text-center sm:mb-16 mb-8 mx-2">Les compétences que j'ai acquises en cours de formation et en entreprise</p>
         </div>
         <div class="skillsContent h-full flex flex-col justify-center items-center w-[950px] max-w-[95%] pb-20 -mb-4 mx-auto relative z-50">
           <div class="skillsRealContent relative z-10 w-full">
-            <h2 class="text-2xl max-sm:text-xl max-sm:text-center font-semibold mb-4 text-white">Languages de programmation & Frameworks</h2>
+            <h2 class="text-2xl max-sm:text-xl font-semibold mb-4 sm:mb-6 text-white ml-2">Languages de programmation & Frameworks</h2>
 
 
             <div class="grid gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 mx-2">
             
               <!-- Back-end: PHP -->
-              <div class="bg-slate-800 border border-gray-700 p-5 rounded-lg shadow hover:shadow-lg transition relative group">
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
                 <!-- Icon as background -->
                 <img src="/Images/iconLanguages/php-svgrepo-com.svg" alt="PHP Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300  rounded-2xl"/>
                 
@@ -416,12 +413,12 @@
                     <!-- Badge -->
                     <span class="text-xs bg-orange-700 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Back-end</span>
                   </div>
-                  <h3 class="text-lg font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">PHP</h3>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">PHP</h3>
                 </div>
               </div>
         
               <!-- Back-end: C# -->
-              <div class="bg-slate-800 border border-gray-700 p-5 rounded-lg shadow hover:shadow-lg transition relative group">
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
                 <!-- Icon as background -->
                 <img src="/Images/iconLanguages/csharp-svgrepo-com.svg" alt="Csharp Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
                 
@@ -430,12 +427,12 @@
                     <!-- Badge -->
                     <span class="text-xs bg-orange-700 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Back-end</span>
                   </div>
-                  <h3 class="text-lg font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">C#</h3>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">C#</h3>
                 </div>
               </div>
         
               <!-- Back-end: Python -->
-              <div class="bg-slate-800 border border-gray-700 p-5 rounded-lg shadow hover:shadow-lg transition relative group">
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
                 <!-- Icon as background -->
                 <img src="/Images/iconLanguages/python-svgrepo-com.svg" alt="Python Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
                 
@@ -444,12 +441,12 @@
                     <!-- Badge -->
                     <span class="text-xs bg-orange-700 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Back-end</span>
                   </div>
-                  <h3 class="text-lg font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">Python</h3>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">Python</h3>
                 </div>
               </div>
         
               <!-- Back-end: MySQL -->
-              <div class="bg-slate-800 border border-gray-700 p-5 rounded-lg shadow hover:shadow-lg transition relative group">
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
                 <!-- Icon as background -->
                 <img src="/Images/iconLanguages/mysql-logo-svgrepo-com.svg" alt="mysql Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
                 
@@ -458,12 +455,12 @@
                     <!-- Badge -->
                     <span class="text-xs bg-orange-700 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Back-end</span>
                   </div>
-                  <h3 class="text-lg font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">MySQL</h3>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">MySQL</h3>
                 </div>
               </div>
         
               <!-- Back-end: SQL Server -->
-              <div class="bg-slate-800 border border-gray-700 p-5 rounded-lg shadow hover:shadow-lg transition relative group">
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
                 <!-- Icon as background -->
                 <img src="/Images/iconLanguages/microsoftsqlserver-svgrepo-com.svg" alt="sqlserver Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
                 
@@ -472,12 +469,12 @@
                     <!-- Badge -->
                     <span class="text-xs bg-orange-700 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Back-end</span>
                   </div>
-                  <h3 class="text-lg font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">SQL Server</h3>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">SQL Server</h3>
                 </div>
               </div>
         
               <!-- Front-end: HTML -->
-              <div class="bg-slate-800 border border-gray-700 p-5 rounded-lg shadow hover:shadow-lg transition relative group">
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
                 <!-- Icon as background -->
                 <img src="/Images/iconLanguages/html-5-svgrepo-com.svg" alt="html5 Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
                 
@@ -486,12 +483,12 @@
                     <!-- Badge -->
                     <span class="text-xs bg-yellow-600 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Front-end</span>
                   </div>
-                  <h3 class="text-lg font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">HTML 5</h3>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">HTML 5</h3>
                 </div>
               </div>
         
               <!-- Front-end: CSS -->
-              <div class="bg-slate-800 border border-gray-700 p-5 rounded-lg shadow hover:shadow-lg transition relative group">
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
                 <!-- Icon as background -->
                 <img src="/Images/iconLanguages/css-3-svgrepo-com.svg" alt="css Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
                 
@@ -500,12 +497,12 @@
                     <!-- Badge -->
                     <span class="text-xs bg-yellow-600 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Front-end</span>
                   </div>
-                  <h3 class="text-lg font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">CSS 3</h3>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">CSS 3</h3>
                 </div>
               </div>
         
               <!-- Front-end: Javascript -->
-              <div class="bg-slate-800 border border-gray-700 p-5 rounded-lg shadow hover:shadow-lg transition relative group">
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
                 <!-- Icon as background -->
                 <img src="/Images/iconLanguages/js-svgrepo-com.svg" alt="js Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
                 
@@ -514,12 +511,12 @@
                     <!-- Badge -->
                     <span class="text-xs bg-yellow-600 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Front-end</span>
                   </div>
-                  <h3 class="text-lg font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">Javascript</h3>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">Javascript</h3>
                 </div>
               </div>
         
               <!-- Framework: Laravel -->
-              <div class="bg-slate-800 border border-gray-700 p-5 rounded-lg shadow hover:shadow-lg transition relative group">
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
                 <!-- Icon as background -->
                 <img src="/Images/iconLanguages/laravel-svgrepo-com.svg" alt="laravel Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
                 
@@ -528,12 +525,12 @@
                     <!-- Badge -->
                     <span class="text-xs bg-green-600 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Framework</span>
                   </div>
-                  <h3 class="text-lg font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">Laravel</h3>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">Laravel</h3>
                 </div>
               </div>
         
               <!-- Framework: Alpine JS -->
-              <div class="bg-slate-800 border border-gray-700 p-5 rounded-lg shadow hover:shadow-lg transition relative group">
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
                 <!-- Icon as background -->
                 <img src="/Images/iconLanguages/Alpine.js.svg" alt="alpine Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
                 
@@ -542,12 +539,12 @@
                     <!-- Badge -->
                     <span class="text-xs bg-green-600 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Framework</span>
                   </div>
-                  <h3 class="text-lg font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">AlpineJS</h3>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">AlpineJS</h3>
                 </div>
               </div>
         
               <!-- Framework: .NET -->
-              <div class="bg-slate-800 border border-gray-700 p-5 rounded-lg shadow hover:shadow-lg transition relative group">
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
                 <!-- Icon as background -->
                 <img src="/Images/iconLanguages/dotnet-svgrepo-com.svg" alt="dotnet Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
                 
@@ -556,12 +553,12 @@
                     <!-- Badge -->
                     <span class="text-xs bg-green-600 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Framework</span>
                   </div>
-                  <h3 class="text-lg font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">.NET</h3>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">.NET</h3>
                 </div>
               </div>
         
               <!-- Librairie: TailwindCSS -->
-              <div class="bg-slate-800 border border-gray-700 p-5 rounded-lg shadow hover:shadow-lg transition relative group">
+              <div class="languageCard bg-slate-800 border border-gray-700 p-2 rounded-lg shadow hover:shadow-lg transition relative group h-28">
                 <!-- Icon as background -->
                 <img src="/Images/iconLanguages/tailwind-svgrepo-com.svg" alt="tailwind Icon" class="w-full h-full absolute inset-0 object-cover opacity-30 group-hover:opacity-80 transition-all ease-in-out duration-300 rounded-2xl"/>
                 
@@ -570,14 +567,14 @@
                     <!-- Badge -->
                     <span class="text-xs bg-teal-600 text-white px-2 py-1 rounded-full group-hover:opacity-70 transition-all ease-in-out duration-300">Librairie</span>
                   </div>
-                  <h3 class="text-lg font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">TailwindCSS</h3>
+                  <h3 class="text-2xl font-semibold text-white text-center group-hover:opacity-0 transition-all ease-in-out duration-300">TailwindCSS</h3>
                 </div>
               </div>
         
             </div>
         
-            <h2 class="text-2xl font-semibold mb-4 mt-12 text-white">Logiciels & outils</h2>
-            <div class="grid gap-6 max-[540px]:grid-cols-1 grid-cols-2 lg:grid-cols-3">
+            <h2 class="text-2xl font-semibold mb-4 sm:mb-6 mt-16 text-white ml-2">Logiciels & outils</h2>
+            <div class="grid gap-6 max-[540px]:grid-cols-1 grid-cols-2 lg:grid-cols-3 mx-2">
       
               <!-- VS Code -->
               <div class="bg-gray-800 border-l-4 border-sky-500/70 p-4 rounded-lg shadow-md hover:shadow-xl transition group flex items-center justify-between space-x-4">
