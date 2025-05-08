@@ -706,56 +706,56 @@ window.addEventListener('resize', () => {
 
 
 
-// document.getElementById("contactForm").addEventListener("submit", function (e) {
-//   e.preventDefault();
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
 
-//   grecaptcha.ready(() => {
-//     grecaptcha.execute("6Le-gAErAAAAAAbFjKutBW9ctZgzc63wBI0D3TDe", { action: "submit" }).then((token) => {
-//         let formData = new FormData(this);
-//         formData.append("recaptcha_token", token);
+  grecaptcha.ready(() => {
+    grecaptcha.execute("6Le-gAErAAAAAAbFjKutBW9ctZgzc63wBI0D3TDe", { action: "submit" }).then((token) => {
+        let formData = new FormData(this);
+        formData.append("recaptcha_token", token);
 
-//         fetch("./server/contact.php", {
-//             method: "POST",
-//             body: formData
-//         })
-//         .then(response => response.text())
-//         .then(data => {
-//             document.getElementById("messageResult").style.backgroundColor = "green"; 
-//             document.getElementById("messageResult").innerHTML = data;
-//             document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
-//             document.getElementById("sendMessage").classList.toggle('opacity-0');
-//             setTimeout(() => {
-//               document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
-//               document.getElementById("sendMessage").classList.toggle('opacity-0');
-//             }, 3000)
-//         })
-//         .catch(error => {
-//             document.getElementById("messageResult").style.backgroundColor = "red";
-//             document.getElementById("messageResult").innerHTML = "<p>Erreur lors de l'envoi du formulaire.</p>";
-//             document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
-//             document.getElementById("sendMessage").classList.toggle('opacity-0');
-//             setTimeout(() => {
-//               document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
-//               document.getElementById("sendMessage").classList.toggle('opacity-0');
-//             }, 3000)
-//         });
-//     });
-//   });
+        fetch("./server/contact.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("messageResult").style.backgroundColor = "green"; 
+            document.getElementById("messageResult").innerHTML = data;
+            document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
+            document.getElementById("sendMessage").classList.toggle('opacity-0');
+            setTimeout(() => {
+              document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
+              document.getElementById("sendMessage").classList.toggle('opacity-0');
+            }, 3000)
+        })
+        .catch(error => {
+            document.getElementById("messageResult").style.backgroundColor = "red";
+            document.getElementById("messageResult").innerHTML = "<p>Erreur lors de l'envoi du formulaire.</p>";
+            document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
+            document.getElementById("sendMessage").classList.toggle('opacity-0');
+            setTimeout(() => {
+              document.getElementById("sendMessage").classList.toggle('-translate-y-[200%]');
+              document.getElementById("sendMessage").classList.toggle('opacity-0');
+            }, 3000)
+        });
+    });
+  });
 
-// });
+});
 
 
-// gsap.to('#veilleToContact', {
-//   scrollTrigger: {
-//     trigger: '#veilleToContact',
-//     start: "top+=200px 70%",
-//     toggleActions: 'restart pause reverse pause',
-//     end: "bottom ",
-//     toggleActions: 'restart pause reverse pause',
-//     scrub: true,
-//     force3D: false
-//   },
-//   ease: "linear",
-//   translateY: (window.innerWidth/window.innerHeight) * 650
-// })
+gsap.to('#veilleToContact', {
+  scrollTrigger: {
+    trigger: '#veilleToContact',
+    start: "top+=200px 70%",
+    toggleActions: 'restart pause reverse pause',
+    end: "bottom ",
+    toggleActions: 'restart pause reverse pause',
+    scrub: true,
+    force3D: false
+  },
+  ease: "linear",
+  translateY: (window.innerWidth/window.innerHeight) * 650
+})
