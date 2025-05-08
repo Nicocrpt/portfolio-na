@@ -15,23 +15,23 @@ import { PixiPlugin } from "gsap/PixiPlugin";
 import { TextPlugin } from "gsap/TextPlugin";
 
 
-gsap.registerPlugin(Flip,ScrollTrigger,Observer,ScrollToPlugin,MotionPathPlugin,EaselPlugin,PixiPlugin,TextPlugin,RoughEase,ExpoScaleEase,SlowMo,CustomEase);
+//gsap.registerPlugin(Flip,ScrollTrigger,Observer,ScrollToPlugin,MotionPathPlugin,EaselPlugin,PixiPlugin,TextPlugin,RoughEase,ExpoScaleEase,SlowMo,CustomEase);
 window.alpine = Alpine
 Alpine.start()
 
 
-function isMobileDevice(elementRef) {
-  const elements = document.querySelectorAll(elementRef);
-  console.log(elements)
+// function isMobileDevice(elementRef) {
+//   const elements = document.querySelectorAll(elementRef);
+//   console.log(elements)
 
-  elements.forEach(element => {
-    if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      element.setAttribute("onclick", `showInfos(this)`)
-    } else {
-      element.classList.add('group')
-    }
-  })  
-}
+//   elements.forEach(element => {
+//     if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+//       element.setAttribute("onclick", `showInfos(this)`)
+//     } else {
+//       element.classList.add('group')
+//     }
+//   })  
+// }
 
 function showInfos(element) {
   const content = element.querySelector('.projectCardContent')
@@ -104,83 +104,83 @@ window.onload = function() {
 //   }, 1000); // 2s pour correspondre à la durée de l'animation
 // }
 
-document.addEventListener('DOMContentLoaded', () => {
-  generateCanvasStars("starrySkyCanvas", [
-    { count: 100, sizeRange: [2, 1.5] },  // étoiles plus grosses
-    { count: 200, sizeRange: [0.8, 0.2] } // étoiles plus petites
-  ]);
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//   generateCanvasStars("starrySkyCanvas", [
+//     { count: 100, sizeRange: [2, 1.5] },  // étoiles plus grosses
+//     { count: 200, sizeRange: [0.8, 0.2] } // étoiles plus petites
+//   ]);
+// });
 
-// Initialisation du canvas et génération des étoiles
-function generateCanvasStars(canvasId, layers) {
-  const canvas = document.getElementById(canvasId);
-const ctx = canvas.getContext('2d');
+// // Initialisation du canvas et génération des étoiles
+// function generateCanvasStars(canvasId, layers) {
+//   const canvas = document.getElementById(canvasId);
+// const ctx = canvas.getContext('2d');
 
-let stars = [];
+// let stars = [];
 
-// Fonction de redimensionnement du canvas
-function resizeCanvas() {
-  const dpr = window.devicePixelRatio || 1;
-  const width = canvas.clientWidth;
-  const height = canvas.clientHeight;
+// // Fonction de redimensionnement du canvas
+// function resizeCanvas() {
+//   const dpr = window.devicePixelRatio || 1;
+//   const width = canvas.clientWidth;
+//   const height = canvas.clientHeight;
 
-  canvas.width = width * dpr;
-  canvas.height = height * dpr;
+//   canvas.width = width * dpr;
+//   canvas.height = height * dpr;
 
-  ctx.setTransform(1, 0, 0, 1, 0, 0); // Réinitialiser les transformations
-  ctx.scale(dpr, dpr); // Appliquer un facteur d'échelle pour un rendu net
+//   ctx.setTransform(1, 0, 0, 1, 0, 0); // Réinitialiser les transformations
+//   ctx.scale(dpr, dpr); // Appliquer un facteur d'échelle pour un rendu net
 
-  repositionStars(width, height);
-}
+//   repositionStars(width, height);
+// }
 
-// Fonction pour repositionner les étoiles lors du redimensionnement
-function repositionStars(width, height) {
-  for (const star of stars) {
-    star.x = Math.random() * width;
-    star.y = Math.random() * height;
-  }
-}
+// // Fonction pour repositionner les étoiles lors du redimensionnement
+// function repositionStars(width, height) {
+//   for (const star of stars) {
+//     star.x = Math.random() * width;
+//     star.y = Math.random() * height;
+//   }
+// }
 
-// Création des étoiles en fonction des couches (grosses et petites)
-function createStars() {
-  for (const layer of layers) {
-    for (let i = 0; i < layer.count; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * layer.sizeRange[0] + layer.sizeRange[1],
-        twinkleSpeed: Math.random() * 0.5 + 0.1, // Scintillement lent
-        phaseOffset: Math.random() * Math.PI * 2, // Décalage de phase pour éviter la synchronisation
-      });
-    }
-  }
-}
+// // Création des étoiles en fonction des couches (grosses et petites)
+// function createStars() {
+//   for (const layer of layers) {
+//     for (let i = 0; i < layer.count; i++) {
+//       stars.push({
+//         x: Math.random() * canvas.width,
+//         y: Math.random() * canvas.height,
+//         radius: Math.random() * layer.sizeRange[0] + layer.sizeRange[1],
+//         twinkleSpeed: Math.random() * 0.5 + 0.1, // Scintillement lent
+//         phaseOffset: Math.random() * Math.PI * 2, // Décalage de phase pour éviter la synchronisation
+//       });
+//     }
+//   }
+// }
 
-  // Fonction principale d'animation
-function animate(time) {
-  ctx.clearRect(0, 0, canvas.width, canvas.height); // Effacer le canvas à chaque frame
+//   // Fonction principale d'animation
+// function animate(time) {
+//   ctx.clearRect(0, 0, canvas.width, canvas.height); // Effacer le canvas à chaque frame
 
-  for (const star of stars) {
-    // Calcul du scintillement lent
-    const flicker = Math.sin(time / 1000 * star.twinkleSpeed + star.phaseOffset) * 0.35 + 0.65;
+//   for (const star of stars) {
+//     // Calcul du scintillement lent
+//     const flicker = Math.sin(time / 1000 * star.twinkleSpeed + star.phaseOffset) * 0.35 + 0.65;
 
-    ctx.beginPath();
-    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255, 255, 255, ${flicker})`; // Couleur blanche avec opacité variable
-    ctx.fill();
-  }
+//     ctx.beginPath();
+//     ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+//     ctx.fillStyle = `rgba(255, 255, 255, ${flicker})`; // Couleur blanche avec opacité variable
+//     ctx.fill();
+//   }
 
-  requestAnimationFrame(animate); // Continuer l'animation
-}
+//   requestAnimationFrame(animate); // Continuer l'animation
+// }
 
-  // Appels de fonctions
-resizeCanvas(); // Redimensionner dès le début
-createStars(); // Créer les étoiles
-// window.addEventListener('resize', resizeCanvas); // Réajuster le canvas au redimensionnement
+//   // Appels de fonctions
+// resizeCanvas(); // Redimensionner dès le début
+// createStars(); // Créer les étoiles
+// // window.addEventListener('resize', resizeCanvas); // Réajuster le canvas au redimensionnement
 
-// Démarrer l'animation
-requestAnimationFrame(animate);
-}
+// // Démarrer l'animation
+// requestAnimationFrame(animate);
+// }
 
 
 
