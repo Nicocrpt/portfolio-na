@@ -85,12 +85,6 @@ body {
 
 
 
-#title {
-  text-rendering: optimizeSpeed;
-  image-rendering: optimizeSpeed;
-  transform-origin: center;
-  backface-visibility: hidden;
-}
 
 
 
