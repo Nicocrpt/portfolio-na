@@ -630,43 +630,43 @@ const skylineTimeline = gsap.timeline({
 
 
 
-skylineTimeline.to('#Distant polygon', {
-  y: `${window.innerHeight/6}px`,
-  duration: 10,
-}, "-=10")
-.to('#Medium path', {
-  y: `${window.innerHeight/10}px`,
-  duration: 10,
-}, "-=10")
+// skylineTimeline.to('#Distant polygon', {
+//   y: `${window.innerHeight/6}px`,
+//   duration: 10,
+// }, "-=10")
+// .to('#Medium path', {
+//   y: `${window.innerHeight/10}px`,
+//   duration: 10,
+// }, "-=10")
 
-sunLightTimeline.to('.sunLight', {
-  scale:5,
-  duration: 10,
-}, "-=10")
-.to('#Distant polygon', {
-  scrollTrigger: {
-    trigger: citySkyline,
-    start: `bottom+=${document.querySelector(citySkyline).getBoundingClientRect().height/5} 100%`,
-    end: `bottom 25%`,
-    scrub: true,
-    force3D: false
-  },
-  fill:"#1e0b15",
-  ease: "circ.Out",
-  duration: 8
-}, "-=8")
-.to('#Medium path', {
-  scrollTrigger: {
-    trigger: citySkyline,
-    start: `bottom+=${document.querySelector(citySkyline).getBoundingClientRect().height/5} 100%`,
-    end: `bottom 25%`,
-    scrub: true,
-    force3D: false
-  },
-  fill:"#140717",
-  ease: "circ.Out",
-  duration: 6
-}, "-=6")
+// sunLightTimeline.to('.sunLight', {
+//   scale:5,
+//   duration: 10,
+// }, "-=10")
+// .to('#Distant polygon', {
+//   scrollTrigger: {
+//     trigger: citySkyline,
+//     start: `bottom+=${document.querySelector(citySkyline).getBoundingClientRect().height/5} 100%`,
+//     end: `bottom 25%`,
+//     scrub: true,
+//     force3D: false
+//   },
+//   fill:"#1e0b15",
+//   ease: "circ.Out",
+//   duration: 8
+// }, "-=8")
+// .to('#Medium path', {
+//   scrollTrigger: {
+//     trigger: citySkyline,
+//     start: `bottom+=${document.querySelector(citySkyline).getBoundingClientRect().height/5} 100%`,
+//     end: `bottom 25%`,
+//     scrub: true,
+//     force3D: false
+//   },
+//   fill:"#140717",
+//   ease: "circ.Out",
+//   duration: 6
+// }, "-=6")
 
 
 const cardTl = gsap.timeline({
@@ -704,92 +704,6 @@ window.addEventListener('resize', () => {
 
 //SECTION VEILLE TECHNOLOGIQUE
 
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  let separator = document.querySelector('.vtContactSeparator');  
-})
-
-
-
-
-
-
-
-
-
-// CONTACT
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   resizeWaterfall()
-//   window.addEventListener('resize', () => {
-//     resizeWaterfall()
-//   })
-// })
-// function resizeWaterfall() {
-//   const svg = document.querySelector(".topMountains");
-//   const path = document.querySelector(".water");
-
-//   const distance = (svg.getBoundingClientRect().height + path.getBoundingClientRect().height);
-//   document.querySelector('.contactSec').style.paddingTop = `${distance-7}px`
-//   document.querySelector('.contactSec').style.marginTop = `-${svg.getBoundingClientRect().height}px`
-//   document.querySelector('.contactOverlay').style.top = `${distance-7}px`
-// }
-
-// const svg = document.querySelector(".topMountains");
-
-// gsap.to('#veilleTechno', {
-//   scrollTrigger: {
-//     trigger: svg,
-//     start: `top 100%`,
-//     end:`bottom 50%`,
-//     scrub: true,
-//   },
-//   ease: "linear",
-//   backgroundColor: "#57cdff",
-// })
-
-// document.querySelectorAll('.wfPart').forEach(part => {
-//   gsap.from(part, {
-//     scrollTrigger: {
-//       trigger: svg,
-//       start: `top 100%`,
-//       end:`bottom 50%`,
-//       scrub: true,
-//     },
-//     ease: "linear",
-//     fill: "black",
-//   })
-// })
-
-
-// gsap.from('.contactOverlay', {
-//   scrollTrigger: {
-//     trigger: svg,
-//     start: `top 100%`,
-//     end:`bottom 50%`,
-//     scrub: true,
-//   },
-//   ease: "linear",
-//   opacity: 1,
-// })
-
-
-
-// document.querySelectorAll(".topicPartial").forEach(topic => {
-//   gsap.to(topic, {
-//     scrollTrigger: {
-//       trigger: svg,
-//       start: `top 100%`,
-//       end:`bottom 50%`,
-//       scrub: true,
-//     },
-//     ease: "circ.in",
-//     filter: "blur(20px)",
-//     opacity: 0,
-//   })
-// })
 
 
 document.getElementById("contactForm").addEventListener("submit", function (e) {
@@ -845,13 +759,3 @@ gsap.to('#veilleToContact', {
   ease: "linear",
   translateY: (window.innerWidth/window.innerHeight) * 650
 })
-
-
-
-
-
-window.addEventListener('resize', () => {
-  setTimeout(() => {
-    ScrollTrigger.refresh();
-  }, 150); // Ajustez le délai si nécessaire
-});
