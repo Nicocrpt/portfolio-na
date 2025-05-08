@@ -62,51 +62,7 @@
     </header> -->
     
     <main class="!max-w-screen !overflow-x-hidden relative">
-        <div :class="scrolled ? 'opacity-0' : 'opacity-100'" class="homeBackground fixed z-0 top-0 h-[100dvh] w-screen flex justify-center items-center pointer-events-none" style="background: rgb(0,21,33);background: linear-gradient(180deg, rgba(0,21,33,1) 0%, rgba(0,39,62,1) 57%, rgba(0,66,102,1) 100%);">
 
-            <!-- Voie lactée -->
-            <div class="galaxy-background absolute top-0 left-0 -mt-32 -ml-12 opacity-50 w-[calc(100vw+3rem)] h-full pointer-events-none">
-              <svg id="milkyway" class="w-full" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 1920 1080" preserveaspectratio="xMidYMid slice">
-                <defs>
-                  <radialGradient id="milkyway-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                    <stop offset="0%" style="stop-color: rgba(255, 255, 255, 0.9); stop-opacity: 0.7" />
-                    <stop offset="100%" style="stop-color: rgba(255, 255, 255, 0.1); stop-opacity: 0" />
-                  </radialGradient>
-                  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blurred"/>
-                    <feMerge>
-                      <feMergeNode in="blurred"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                  </filter>
-                </defs>
-                <g id="stars">
-                  <circle cx="150" cy="250" r="2" fill="white" />
-                  <circle cx="450" cy="600" r="3" fill="white" />
-                  <circle cx="800" cy="200" r="1.5" fill="white" />
-                  <circle cx="1200" cy="900" r="4" fill="white" />
-                  <circle cx="1600" cy="500" r="2.5" fill="white" />
-                  <circle cx="1700" cy="700" r="1" fill="white" />
-                  <circle cx="300" cy="900" r="2" fill="white" />
-                  <circle cx="1000" cy="800" r="1.8" fill="white" />
-                  <circle cx="1800" cy="400" r="2.3" fill="white" />
-                  <circle cx="1400" cy="300" r="2" fill="white" />
-    
-                </g>
-                <g id="clouds" class="opacity-10" fill="url(#milkyway-gradient)" filter="url(#glow)">
-    
-                  <path d="M0,700 C200,850 600,900 1000,600 C1400,400 1600,500 1920,400 C1800,250 1400,300 1000,500 C600,700 200,800 0,700" />
-                </g>
-              </svg>
-            </div>
-    
-            <!-- Ciel étoilé -->
-            <!-- <svg id="starrySky" class="absolute top-0 left-0 h-full pointer-events-none" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"></svg> -->
-            <canvas id="starrySkyCanvas" class="absolute top-0 left-0 h-full w-full pointer-events-none"></canvas>
-    
-            <!-- Etoiles filantes container -->
-            <div class="shooting-stars absolute top60 left-0 w-full h-full z-10 pointer-events-none"></div>
-        </div>
           
           <!-- Home -->
 
@@ -115,7 +71,7 @@
             <div class="gradientBackground absolute bottom-0 w-full h-full opacity-0 z-0" style="background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(248,253,255,1) 14%, rgba(204,239,255,1) 28%, rgba(180,232,241,1) 45%, rgba(209,198,165,1) 66%, rgba(255,169,129,1) 100%);"></div>
     
     
-            <div class="skyBackground absolute w-full h-full bottom-0 opacity-0" style="background: rgb(204,239,255)"></div>
+            
             <h1 class="text-4xl font-semibold mb-4 text-center sm:hidden">Introduction</h1>
             <div class="w-[1170px] max-w-[95%] presentationContent flex max-sm:flex-col-reverse sm:mt-24 gap-4 justify-center items-center mx-auto px-8">
               <div class="flex flex-col w-full text-center gap-4">
