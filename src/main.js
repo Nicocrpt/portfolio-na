@@ -91,53 +91,53 @@ document.addEventListener('DOMContentLoaded', () => {
   generateStars("starrySky", 200, [0.6, 0.2]);
 
 
-  setInterval(() => {
-    let angle = 30
-    createShootingStar(angle);  // Passer l'angle à la fonction
-  }, Math.random() * 3000 + 3000);
+  // setInterval(() => {
+  //   let angle = 30
+  //   createShootingStar(angle);  // Passer l'angle à la fonction
+  // }, Math.random() * 3000 + 3000);
 })
 
 
-function createShootingStar(angle = -45) {
-  const shootingStarsContainer = document.querySelector('.shooting-stars');
-  const shootingStar = document.createElement('div');
-  shootingStar.classList.add('shooting-star');
+// function createShootingStar(angle = -45) {
+//   const shootingStarsContainer = document.querySelector('.shooting-stars');
+//   const shootingStar = document.createElement('div');
+//   shootingStar.classList.add('shooting-star');
 
-  // Création de la traînée
-  const trail = document.createElement('div');
-  trail.classList.add('trail');
-  shootingStar.appendChild(trail);
+//   // Création de la traînée
+//   const trail = document.createElement('div');
+//   trail.classList.add('trail');
+//   shootingStar.appendChild(trail);
 
-  // Positionner l'étoile filante à une position horizontale aléatoire
-  const startX = Math.random() * window.innerWidth; // Largeur de l'écran
-  const startY = -10; // Commence au-dessus de l'écran
+//   // Positionner l'étoile filante à une position horizontale aléatoire
+//   const startX = Math.random() * window.innerWidth; // Largeur de l'écran
+//   const startY = -10; // Commence au-dessus de l'écran
 
-  // Position verticale aléatoire (entre 0 et la hauteur de l'écran)
-  const randomVerticalTranslation = window.innerHeight+10; // Valeur entre 200px et 1000px pour l'exemple
+//   // Position verticale aléatoire (entre 0 et la hauteur de l'écran)
+//   const randomVerticalTranslation = window.innerHeight+10; // Valeur entre 200px et 1000px pour l'exemple
 
-  // Calcul du point d'arrivée en utilisant l'angle
-  const angleInRadians = angle * (Math.PI / 180); // Convertir l'angle en radians
-   // Calcul de la translation horizontale
-  const endY = startY + randomVerticalTranslation; 
-  const endX = startX + randomVerticalTranslation * Math.tan(angleInRadians);  // Calcul de la translation verticale
+//   // Calcul du point d'arrivée en utilisant l'angle
+//   const angleInRadians = angle * (Math.PI / 180); // Convertir l'angle en radians
+//    // Calcul de la translation horizontale
+//   const endY = startY + randomVerticalTranslation; 
+//   const endX = startX + randomVerticalTranslation * Math.tan(angleInRadians);  // Calcul de la translation verticale
 
-  // Définir les positions de départ et de fin avec des variables CSS
-  shootingStar.style.left = `${startX}px`;
-  shootingStar.style.top = `${startY}px`;
-  shootingStar.style.setProperty('--end-x', `${endX}px`);
-  shootingStar.style.setProperty('--end-y', `${endY}px`);
+//   // Définir les positions de départ et de fin avec des variables CSS
+//   shootingStar.style.left = `${startX}px`;
+//   shootingStar.style.top = `${startY}px`;
+//   shootingStar.style.setProperty('--end-x', `${endX}px`);
+//   shootingStar.style.setProperty('--end-y', `${endY}px`);
 
-  // Ajouter l'étoile filante au conteneur
-  shootingStarsContainer.appendChild(shootingStar);
+//   // Ajouter l'étoile filante au conteneur
+//   shootingStarsContainer.appendChild(shootingStar);
 
-  // Durée de l'animation (ici 2 secondes)
-  shootingStar.style.animation = `moveShootingStar 1s linear forwards`;
+//   // Durée de l'animation (ici 2 secondes)
+//   shootingStar.style.animation = `moveShootingStar 1s linear forwards`;
 
-  // Supprimer l'étoile et sa traînée après l'animation
-  setTimeout(() => {
-    shootingStar.remove();
-  }, 1000); // 2s pour correspondre à la durée de l'animation
-}
+//   // Supprimer l'étoile et sa traînée après l'animation
+//   setTimeout(() => {
+//     shootingStar.remove();
+//   }, 1000); // 2s pour correspondre à la durée de l'animation
+// }
 
 
 
