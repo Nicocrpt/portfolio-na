@@ -1,6 +1,11 @@
 import './style.css'
 import Alpine from 'alpinejs'
 
+import Swiper from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation'; // si tu utilises la navigation
+import { Navigation } from 'swiper/modules';
+
 import { gsap } from "gsap";
     
 import { CustomEase } from "gsap/CustomEase";
@@ -45,8 +50,9 @@ function injectImage(element) {
   let wrapper = document.querySelector('#imageReceiver')
   wrapper.innerHTML = element.outerHTML
   let image = wrapper.children[0]
+  image.style.width = "auto"
   image.style.maxWidth = window.innerWidth > 450 ? '80%' : '99%'
-  image.style.maxHeight = '95%'
+  image.style.maxHeight = '80vh'
   image.style.borderRadius = '2px'
   if (image.classList.contains('aspect-16/9')) {
     image.classList.remove('aspect-16/9')
@@ -721,3 +727,10 @@ gsap.to('#veilleToContact', {
   ease: "linear",
   translateY: (window.innerWidth/window.innerHeight) * 650
 })
+
+
+
+
+
+// SWIPER JS :
+
