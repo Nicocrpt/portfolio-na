@@ -52,7 +52,7 @@ function injectImage(element) {
   let image = wrapper.children[0]
   image.style.width = "auto"
   image.style.maxWidth = window.innerWidth > 450 ? '80%' : '99%'
-  image.style.maxHeight = '80vh'
+  image.style.maxHeight = '80%'
   image.style.borderRadius = '2px'
   if (image.classList.contains('aspect-16/9')) {
     image.classList.remove('aspect-16/9')
