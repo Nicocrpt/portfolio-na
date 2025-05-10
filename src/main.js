@@ -510,7 +510,7 @@ gsap.to('.azBoutique', {
     scrub: true,
   },
   ease: "linear",
-  translateX: `-${document.querySelector('.azBoutique').offsetWidth - document.querySelector('.parallaxAz2').offsetWidth}px`
+  translateX: `-${document.querySelector('.azBoutique').offsetWidth - document.querySelector('.parallaxAz2').offsetWidth -10}px`
 })
 
 gsap.to('.azBoutique-2', {
@@ -732,5 +732,40 @@ gsap.to('#veilleToContact', {
 
 
 
-// SWIPER JS :
+// highlight nav link:
 
+const sections = document.querySelectorAll(".sectionClass");
+console.log(sections)
+const navLinks = document.querySelectorAll(".navLink");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+        link.parentElement.children[1].classList.toggle("!scale-x-100", link.getAttribute("href") === `#${entry.target.id}`);
+      });
+    }
+  });
+}, {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.2, // plus le chiffre est haut, plus la section doit être visible
+});
+
+window.addEventListener('load', () => {
+  sections.forEach(section => observer.observe(section));
+});
+
+document.querySelectorAll('a.smooth-scroll').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault(); // Empêche le saut instantané
+
+    const targetId = this.getAttribute('href').substring(1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
