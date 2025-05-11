@@ -126,11 +126,11 @@ textarea {
 }
 
 .projectCard {
-  @apply  max-md:!aspect-[16/10] !aspect-[3/2] w-full md:w-[49%] xl:w-[32%]  bg-slate-900/80 rounded grid grid-rows-3 mb-4 lg:mb-[2%] border-2 border-gray-400 shadow-lg opacity-0 scale-[0.1%] bg-cover bg-center;
+  @apply  max-md:!aspect-[16/10] !aspect-[3/2] w-full md:w-[49%] xl:w-[32%] bg-slate-900/80 rounded grid grid-rows-3 mb-4 lg:mb-[2%] border-2 border-zinc-600 shadow-lg opacity-80 scale-[0.1%] bg-cover bg-center;
 }
 
 .projectCardContent {
-  @apply w-full absolute h-full bg-slate-900/40 row-span-full transition-all ease-in-out duration-300 grid grid-rows-3 backdrop-blur;
+  @apply w-full absolute h-full bg-slate-900/60 row-span-full transition-all ease-in-out duration-300 grid grid-rows-3 backdrop-blur-md;
 }
 
 .projectCardText {

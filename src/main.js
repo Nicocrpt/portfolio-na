@@ -641,7 +641,7 @@ const cardTl = gsap.timeline({
 })
 
 cardTl.to('.projectCard', {
-  opacity:1,
+  opacity:0.9,
   filter: "blur(0px)",
   scale: 1.05,
   duration: 0.25,
@@ -750,7 +750,7 @@ const observer = new IntersectionObserver((entries) => {
 }, {
   root: null,
   rootMargin: '0px',
-  threshold: 0.2, // plus le chiffre est haut, plus la section doit être visible
+  threshold: 0.5, // plus le chiffre est haut, plus la section doit être visible
 });
 
 window.addEventListener('load', () => {

@@ -6,8 +6,8 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>Nicolas Carpita - Développeur Full-Stack</title>
     <script src="https://www.google.com/recaptcha/api.js?render=6Le-gAErAAAAAAbFjKutBW9ctZgzc63wBI0D3TDe"></script>
-  <script type="module" crossorigin src="./assets/index-B8l0m2Ho.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-Gyvnz-p2.css">
+  <script type="module" crossorigin src="./assets/index-CZwKbVaU.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CZC0Eqdp.css">
 </head>
 <body class="relative bg-black" x-data="{ burgerMenu: false, projectModal: false, scrolled: false, init() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -438,7 +438,7 @@
 
           </section>
           <!-- Competences -->
-          <section id="competences" class="min-h-screen bg-black text-white skillsSec pt-42 relative z-20 -mt-1 sectionClass">
+          <section id="competences" class="min-h-screen bg-black text-white skillsSec max-sm:pt-24 pt-42 relative z-20 -mt-1 sectionClass">
         
             <div class="skillsSecTitle w-full flex flex-col justify-center items-center z-50 relative">
               <h1 class="font-bold text-4xl sm:text-4xl md:text-6xl mb-4 sm:mb-3 text-center">Mes Compétences</h1>
@@ -876,7 +876,7 @@
           </section>
           <!-- Mes projets B -->
           <section class="bg-black w-full relative z-20 mes-projets overflow-hidden sectionClass" id="mesProjets">
-            <div class="pt-42 mx-auto projetsContent md:w-[1000px] xl:w-[1300px] max-w-[92%] z-10">
+            <div class="pt-42 mx-auto projetsContent md:w-[1100px] max-w-[92%] z-10">
               <div class="projectSecTitle">
                 <div class="flex gap-4 items-center justify-center mb-4 sm:mb-3">
                   <h1 class="font-bold text-4xl sm:text-6xl text-white text-center ">Réalisations professionnelles</h1>
@@ -900,7 +900,7 @@
                             <h2 class="text-white text-2xl font-semibold text-center">Création de rapports de pilotage</h2>
                         </div>
                         <div class=" px-4 flex flex-col justify-between">
-                            <p class="projectCardText opacity-0 blur group-hover:opacity-100 group-hover:blur-none">Création de tableaux de bord pour permettre aux chefs d'équipes et aux différents managers du pôle logistique d'AROMA-ZONE d'avoir un visuel en temps réel sur les données relatives à l'envoi de commandes et la gestion des stocks.</p>
+                            <p class="projectCardText opacity-0 blur group-hover:opacity-100 group-hover:blur-none">Création de tableaux de bord pour le pôle logistique d'AROMA-ZONE</p>
                         </div>
                         <div class="flex justify-center items-center">
                           <button @click="document.querySelector('.projectReciever').innerHTML = document.querySelector('.project-1').innerHTML; projectModal = true; document.querySelector('body').classList.add('!overflow-hidden'); document.querySelector('.titleProjectReciever').innerHTML = $el.closest('.projectCard').querySelector('h2').innerHTML" class="projectCardBtn">En savoir plus</button>
@@ -2111,7 +2111,7 @@
             </div>
           </section>
             <!-- Veille Technologique -->
-          <section class="bg-black relative !max-w-screen overflow-hidden pt-42 z-20 -mt-1 sectionClass" id="veilleTechno">
+          <section class="bg-black relative !max-w-screen overflow-hidden max-sm:pt-24 pt-42 max-sm:pb-26 pb-56 z-20 -mt-1 sectionClass" id="veilleTechno">
             <div class="w-full flex justify-center items-start gap-2 sm:gap-4 pinnedVt" >
               <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold pb-4 z-20 text-white" id="veilleTitle">Veille Technologique</h1>
               <div id="rssWrapper">
@@ -2119,7 +2119,7 @@
               </div>
             </div>
             <!-- VT content -->
-            <div class="w-full flex flex-col justify-center items-center text-white text-center pb-64">
+            <div class="w-full flex flex-col justify-center items-center text-white text-center">
               <div class="introWrapper w-full">
                 <div class="flex flex-col gap-[20px] sm:text-xl font-semibold max-w-[95%] mx-auto items-center mt-16 mb-24" id="feedlyIntro">
                     <p class="w-[860px] !max-w-[95%] text-center">Dans le domaine informatique, la veille technologique est primordiale : Elle nous permet de rester au courant des dernières avancées sur nos domaines de compétences, afin de les intégrer à notre workflow et rester ainsi à la pointe du progrès !</p>
@@ -2127,8 +2127,6 @@
                 </div>
               </div>
               
-              
-    
               <div class="flex flex-col max-w-[95%]" id="howItWorks">
                 <p class="w-[950px] max-w-[95%] font-semibold text-md sm:text-lg mx-auto mb-2 sm:mb-6 text-white" id="lastVtContent">Je vous présente ici l'outil que j'utilise pour rester alerte, ainsi que la facon dont je m'en sert :</p>
                 <div class="flex max-sm:flex-col max-w-[900px] mx-auto items-center justify-center sm:gap-1 mb-8 feedlyBox">
@@ -2144,33 +2142,19 @@
                   <p class="max-sm:text-sm text-lg">Le service dispose d'une offre gratuite et payante, l'offre gratuite limitant le nombre de rubriques possible, et n'autorisant pas l'accès aux fonctionnalités "IA" (agrégation des news par centre d'interêts) entre autres que le site propose... </p>
                 </div>
               </div>
+
+              <div class="max-w-[95%] w-[860px] text-left mt-12">
+                <h4 class=" font-semibold mb-2 text-left text-xl">Autres sources :</h4>
+                <ul class="text-lg list-disc list-inside">
+                  <li class="text-lg"> <a href="https://reederapp.com/" target="_blank">Reeder (aggrégateur de flux RSS)</a></li>
+                  <li><a href="https://www.youtube.com/" target="_blank">Youtube</a></li>
+                  <li><a href="https://consent.google.com/m?continue=https://news.google.com/?hl%3Dfr&gl=FR&m=0&pc=n&cm=2&hl=fr&src=1" target="_blank">Google actualités</a></li>
+                </ul>
+              </div>
     
-              <div id="vtPart2" class="max-w-[95%]">
-                <div class="w-[950px] max-w-[95%] mx-auto mt-24">
-                  <div class="flex flex-col text-start intro">
-                    <h2 class="text-4xl font-bold mb-2 orgaTitle">Mon organisation.</h2>
-                    <p class=" font-semibold orgaLabel text-lg text-white/85">j'ai organisé ma veille au travers de 4 rubriques, regroupant chacunes plusieurs sources sur un theme bien particulier, voyons en détails :</p>
-                  </div>
-          
-                  <div class="grid grid-cols-2 mt-8 grid-rows-2 py-2 gap-[0.5rem] h-[20rem]">
-                    <div class=" bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr rounded-bl rounded-tl-md rounded-br-md fold1 hover:m-0 transition-all ease-in-out duration-200">
-                        <h2 class="text-start font-semibold">.Langages & Frameworks</h2>
-                    </div>
-                    <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr-md rounded-bl-md rounded-tl rounded-br fold2 hover:m-0 transition-all ease-in-out duration-200">
-                        <h2 class="text-start font-semibold">.Cybersécurité</h2>
-                    </div>
-                    <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr-md rounded-bl-md rounded-tl rounded-br fold3 hover:m-0 transition-all ease-in-out duration-200">
-                        <h2 class="text-start font-semibold">.Software & OS</h2>
-                    </div>
-                    <div class="bg-white/15 hover:bg-white/20 backdrop-blur py-2 px-3 m-2 rounded-tr rounded-bl rounded-tl-md rounded-br-md fold4 hover:m-0 transition-all ease-in-out duration-200">
-                        <h2 class="text-start font-semibold">.Actus Tech en général</h2>
-                    </div>
-                  </div>
-                </div>
-                <div id="split2"></div>
     
-                <div id="vtTopic" class="mt-24 w-[950px] max-w-[95%] mx-auto">
-    
+              <div id="vtTopic" class="mt-24 w-[950px] max-w-[95%] mx-auto">
+  
                   <div class="topicIntro ">
                     <div class="topicTitle">
                       <h2 class="text-4xl font-bold mb-2 text-start">Mon sujet</h2>
@@ -2191,50 +2175,146 @@
     
                     <p class="text-start text-lg topicIntroPara scale-[95%]">Laravel a été créé en 2011 par Taylor Otwell. Au fil de ses évolutions, il a su devenir un des frameworks les plus populaires et apprécié pour le développement web et a participé au regain d'intérêt général pour le language PHP.</p>
                   </div>
-                  
-    
-                  <div class="topicPartial max-sm:text-sm">
-                    <h2 class="text-4xl font-bold mb-2 text-start mt-16">Laravel 12</h2>
-    
-    
-                    <p class="text-start text-lg text-white/85 mb-6">
-                    Laravel 12 est la dernière version en date du framework, et est sortie officiellement le 24 février 2025. J'ai choisi de concentrer ma veille technologique dessus.
-                    </p>
-    
-                    <img src="./assets/laravel-12-CK018da5.png" alt="" class="rounded-xs">
-    
-                    <h2 class="text-white text-left text-2xl font-bold mt-8 mb-4">Tour d'horizon des nouveautés</h2>
-                    <ul class="list-disc list-outside flex flex-col gap-2 text-start ml-4">
-                        <li><b>La maintenance est simplifié, voir inexistante :</b> Le prestataire gère les cas d'indisponibilité.</li>
-                        <li><b>Le coût est bien souvent inférieur :</b> Le coût est basé sur notre usage et non sur notre infrastructure.</li>
-                        <li><b>La scalabilité est facile :</b> On peut facilement augmenter les performances requises pour un service.</li>
-                        <li><b>Travail collaboratif et accessibilité :</b> l'accès aux ressources est simplifié, car tout se fait via l'interface du prestataire.</li>
-                        <li><b>Simplification de la gestion et du déploiement des ressources :</b> On peut facilement gérer les ressources de maniére centralisée et simplifiee, grâce à un fort taux d'abstraction de l'infrastructure (SaaS, PaaS, IaaS).
-                    </ul>
-    
-    
-                  <div id="companyUsage" class=" topicPartial max-sm:text-sm">
-                    <h2 class="text-4xl font-bold mb-2 text-start mt-24">Mise en application de Laravel 12</h2>
-    
-                    <p class="text-start text-lg font-semibold text-white/85 mb-6">J'ai réalisé un POC de migration vers laravel 12 de mon projet de fin d'étude (le site web <a href="https://cinemasolaris.fr/" target="_blank" class="underline">cinemasolaris.fr</a>), qui a été développé en Laravel 11, en y intégrant l'authentification tierce.</p>
-    
-                    <div class="md:grid md:grid-cols-2 flex flex-col gap-4 w-full mt-4">
-                      <a href="https://cinemasolaris.fr/" target="_blank">
-                        <img src="./assets/cinemasolaris-example-laravel-DchjVWNq.png" alt="" class="rounded-sm">
-                      </a>
-                      <p class="mt-2 mb-2 italic text-sm md:hidden"><i>L'aspect PaaS des logic apps rends en outre leur création et leur utilisation quasi-instantané, sans préoccupation de l'infrastructure et du déploiement.</i></p>
-                      <p class="text-start text-lg w-full">Je me sert essentiellement d'un service en particulier proposé par Azure : <b>Les Logic Apps</b> qui permettent d'automatiser des tâches, des processus ou des flux de données en utilisant du low-code, et ce, très facilement. L'avantage ici est la clarté du code, qui, ressemblant à un logigramme, ne nécéssite pas de connaissances sur un language particulier.</p>
+
+                  <!-- LARAVEL 12 -->
+                  <div class="New-section">
+                    <!-- HEADER -->
+                    <div class="mt-16  mb-8">
+                      <div class="flex gap-6 justify-start items-center mb-1">
+                        <h2 class="text-3xl font-bold text-start flex-shrink-0">Laravel 12</h2>
+                        <div class="h-0.5 w-full bg-white/80"></div>
+                      </div>
+                      <p class="text-start text-lg text-white/70">
+                      Laravel 12 est la dernière version en date du framework, et est sortie officiellement le 24 février 2025.
+                      </p>
+                    </div>
+                    
+                    <!-- IMG-Section -->
+                    <a href="https://laravel.com/docs/12.x/releases" target="_blank">
+                      <img src="./assets/laravel-12-CxWBSx0m.png" alt="" class="rounded-xs hover:scale-102 transition">
+                    </a>
+                    
+                    
+                    <!-- NOUVEAUTES -->
+                    <div class="mt-8">
+                      <h2 class="text-white text-left text-2xl font-bold mb-4">Tour d'horizon des nouveautés</h2>
+                      <ul class="list-disc list-outside flex flex-col gap-2 text-start ml-4 xl:text-lg">
+                          <li><b>Une mise à jour "mineure" à la demande de la communauté : </b>Facilite le portage des applications sous Laravel 11 vers cette nouvelle version.</li>
+                          <li><b>Améliorations de performance : </b>Plusieurs améliorations au niveau de l'utilisation du framework, à plusieurs niveaux clés (routing, ORM Eloquent, Blade, etc).</li>
+                          <li><b>Nouveaux starters kits : </b>3 starters kits pour définir la stack Front-end utilisée dans le projet : Vue, React ou Livewire/blade.</li>
+                          <li><b>Nouvel outil d'authentification : </b>Installable avec les starters kits cités précedemment, AuthKit se base sur WorkOS et permet une identification via des services tiers (Google, microsoft, Apple, etc). Cela a pour objectif de remplacer les solutions d'authentification déjà en place, comme Laravel Breeze.</li>
+                          <li><b>Meilleurs intégration des starters kits communautaires (12.2) : </b>Possibilité d'installer ces kits directement à la création d'une nouvelle application Laravel.</li>
+                      </ul>
+                    </div>
+                    
+                    <!-- Sources -->
+                    <div class="mt-8">
+                      <h2 class="text-white text-left text-xl font-bold mb-4">Sources :</h2>
+                      <ul class="list-disc list-outside flex flex-col gap-2 text-start ml-4 xl:text-lg">
+                          <li><a href="https://medium.com/@chirag.dave/whats-new-in-laravel-12-a-comprehensive-overview-4f5f84c8b551" class="underline" target="_blank">Medium</a></li>
+                          <li><a href="https://laravel-news.com/laravel-12-2-0" class="underline" target="_blank">Laravel-news</a></li>
+                          <li><a href="https://blog.laravel.com/laravel-starter-kits-a-new-beginning-for-your-next-project" class="underline" target="_blank">Blog.laravel</a></li>
+                          <li><a href="https://techsolutionstuff.com/post/laravel-12-workos-authkit-authentication" class="underline" target="_blank">Techsolutionstuff</a></li>
+                      </ul>
                     </div>
                   </div>
-    
-    
-                </div>
+
+                  <!-- LARAVEL CLOUD -->
+                  <div class="New-section pt-12">
+                    <!-- HEADER -->
+                    <div class="mt-16  mb-8">
+                      <div class="flex gap-6 justify-start items-center mb-1">
+                        <h2 class="text-3xl font-bold text-start flex-shrink-0">Laravel Cloud</h2>
+                        <div class="h-0.5 w-full bg-white/80"></div>
+                      </div>
+                      <p class="text-start text-lg text-white/70">
+                      Sortie en meme temps que Laravel 12 et développé par la même équipe, Laravel Cloud est une solution d'hébergement optimisé pour les applications Laravel.
+                      </p>
+                    </div>
+                    
+                    <!-- IMG-Section -->
+                    <a href="https://cloud.laravel.com/" target="_blank">
+                      <img src="./assets/laravel-logo-light-pxJRErMw.png" alt="" class="rounded-xs bg-white px-4 hover:scale-102 transition">
+                    </a>
+
+                    
+                    <!-- NOUVEAUTES -->
+                    <div class="mt-8">
+                      <h2 class="text-white text-left text-2xl font-bold mb-4">Fonctionnalités</h2>
+                      <ul class="list-disc list-outside flex flex-col gap-2 text-start ml-4 xl:text-lg">
+                          <li><b>Plusieurs souscriptions possible : </b>Dont un abonnement gratuit de type "Sandbox".</li>
+                          <li><b>Plusieurs fonctions utiles : </b>Deploiement automatique inclus d'office, scalabilité de l'infrastructure aisée et préventions des attaques DDOS.</li>
+                      </ul>
+                    </div>
+                    
+                    <!-- Sources -->
+                    <div class="mt-8">
+                      <h2 class="text-white text-left text-xl font-bold mb-4">Sources :</h2>
+                      <ul class="list-disc list-outside flex flex-col gap-2 text-start ml-4 xl:text-lg">
+                          <li><a href="https://medium.com/@chirag.dave/whats-new-in-laravel-12-a-comprehensive-overview-4f5f84c8b551" class="underline" target="_blank">Medium</a></li>
+                          <li><a href="https://laravel-news.com/introducing-laravel-cloud" class="underline" target="_blank">Laravel-news</a></li>
+                          <li><a href="https://blog.laravel.com/laravel-starter-kits-a-new-beginning-for-your-next-project" class="underline" target="_blank">Blog.laravel</a></li>
+                          <li><a href="https://techsolutionstuff.com/post/laravel-12-workos-authkit-authentication" class="underline" target="_blank">Techsolutionstuff</a></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- LARAVEL NIGHTWATCH -->
+                  <div class="New-section pt-12">
+                    <!-- HEADER -->
+                    <div class="mt-16  mb-8">
+                      <div class="flex gap-6 justify-start items-center mb-1">
+                        <h2 class="text-3xl font-bold text-start flex-shrink-0">Laravel Nightwatch</h2>
+                        <div class="h-0.5 w-full bg-white/80"></div>
+                      </div>
+                      <p class="text-start text-lg text-white/70">
+                      Disponible uniquement en early access depuis début 2025, Laravel Nightwatch s'annonce comme la solution de monitoring ultime pour les applications Laravel.
+                      </p>
+                    </div>
+                    
+                    <!-- IMG-Section -->
+                    <a href="https://nightwatch.laravel.com/" target="_blank">
+                      <svg class="w-full bg-slate-700 p-4 rounded-sm hover:scale-102 transition" viewBox="0 0 148 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 21.1869C0 21.3598 0.141914 21.5 0.316973 21.5H5.12964C5.77255 21.5 6.37194 21.1791 6.72297 20.6471L7.82404 18.9782C7.96145 18.77 7.81015 18.4942 7.55848 18.4942H0.316973C0.141913 18.4942 0 18.6344 0 18.8073V21.1869Z" class="fill-white"></path>
+                      <path d="M0.316973 17.2417C0.141914 17.2417 0 17.1016 0 16.9286V14.562C0 14.389 0.141914 14.2489 0.316973 14.2489H10.3594C10.6111 14.2489 10.7624 14.5247 10.625 14.7329L9.06351 17.0996C9.005 17.1883 8.9051 17.2417 8.79795 17.2417H0.316973Z" class="fill-white"></path>
+                      <path d="M19.1082 18.4942C18.8565 18.4942 18.7052 18.77 18.8426 18.9782L19.9437 20.6471C20.2947 21.1791 20.8941 21.5 21.537 21.5H26.3497C26.5248 21.5 26.6667 21.3598 26.6667 21.1869V18.8073C26.6667 18.6344 26.5248 18.4942 26.3497 18.4942H19.1082Z" class="fill-white"></path>
+                      <path d="M26.6667 16.9286C26.6667 17.1016 26.5248 17.2417 26.3497 17.2417H17.8687C17.7616 17.2417 17.6617 17.1883 17.6032 17.0996L16.0417 14.7329C15.9043 14.5247 16.0556 14.2489 16.3073 14.2489H26.3497C26.5248 14.2489 26.6667 14.389 26.6667 14.562V16.9286Z" class="fill-white"></path>
+                      <path d="M0 12.6833C0 12.8563 0.141914 12.9964 0.316974 12.9964H11.5989C11.706 12.9964 11.8059 12.943 11.8644 12.8543L12.6451 11.671C12.7137 11.567 12.7137 11.433 12.6451 11.329L11.8644 10.1457C11.8059 10.057 11.706 10.0036 11.5989 10.0036H0.316973C0.141914 10.0036 0 10.1437 0 10.3167V12.6833Z" class="fill-white"></path>
+                      <path d="M14.8022 12.8543C14.8607 12.943 14.9606 12.9964 15.0678 12.9964H26.3497C26.5248 12.9964 26.6667 12.8563 26.6667 12.6833V10.3167C26.6667 10.1437 26.5248 10.0036 26.3497 10.0036H15.0678C14.9606 10.0036 14.8607 10.057 14.8022 10.1457L14.0215 11.329C13.953 11.433 13.953 11.567 14.0215 11.671L14.8022 12.8543Z" class="fill-white"></path>
+                      <path d="M0.316973 8.75113C0.141914 8.75113 0 8.61095 0 8.43803V6.07137C0 5.89844 0.141914 5.75826 0.316973 5.75826H8.79795C8.9051 5.75826 9.005 5.81173 9.06351 5.90041L10.625 8.26707C10.7624 8.47534 10.6111 8.75113 10.3594 8.75113H0.316973Z" class="fill-white"></path>
+                      <path d="M26.6667 8.43803C26.6667 8.61095 26.5248 8.75113 26.3497 8.75113H16.3073C16.0556 8.75113 15.9043 8.47534 16.0417 8.26707L17.6032 5.90041C17.6617 5.81173 17.7616 5.75826 17.8687 5.75826H26.3497C26.5248 5.75826 26.6667 5.89844 26.6667 6.07137V8.43803Z" class="fill-white"></path>
+                      <path d="M0 4.19272C0 4.36565 0.141913 4.50583 0.316973 4.50583H7.55848C7.81015 4.50583 7.96145 4.23004 7.82404 4.02177L6.72297 2.3529C6.37194 1.82085 5.77255 1.5 5.12964 1.5H0.316973C0.141914 1.5 0 1.64018 0 1.81311V4.19272Z" class="fill-white"></path>
+                      <path d="M18.8426 4.02177C18.7052 4.23004 18.8565 4.50583 19.1082 4.50583H26.3497C26.5248 4.50583 26.6667 4.36565 26.6667 4.19272V1.81311C26.6667 1.64018 26.5248 1.5 26.3497 1.5H21.537C20.8941 1.5 20.2947 1.82085 19.9437 2.3529L18.8426 4.02177Z" class="fill-white"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M37.667 0C35.4579 0 33.667 1.79086 33.667 4V19C33.667 21.2091 35.4579 23 37.667 23H143.667C145.876 23 147.667 21.2091 147.667 19V4C147.667 1.79086 145.876 0 143.667 0H37.667ZM39.5981 18H40.4874C40.6761 18 40.7704 17.9057 40.7704 17.717V8.03535H40.8513L46.4096 17.7372C46.5444 17.9124 46.6859 18 46.8341 18H47.582C47.7706 18 47.8649 17.9057 47.8649 17.717V5.28649C47.8649 5.09784 47.7706 5.00351 47.582 5.00351H46.6926C46.504 5.00351 46.4096 5.09784 46.4096 5.28649V14.9682H46.3288L40.7502 5.16521C40.6963 5.05741 40.5885 5.00351 40.4268 5.00351H39.5981C39.4095 5.00351 39.3151 5.09784 39.3151 5.28649V17.717C39.3151 17.9057 39.4095 18 39.5981 18ZM52.6361 17.717V5.28649C52.6361 5.09784 52.5418 5.00351 52.3531 5.00351H51.4436C51.2549 5.00351 51.1606 5.09784 51.1606 5.28649V17.717C51.1606 17.9057 51.2549 18 51.4436 18H52.3531C52.5418 18 52.6361 17.9057 52.6361 17.717ZM58.7243 18H60.9072C61.837 18 62.5646 17.7372 63.0901 17.2117C63.6156 16.6862 63.8784 15.9518 63.8784 15.0086V11.6129C63.8784 11.33 63.7437 11.1885 63.4742 11.1885H60.22C60.0313 11.1885 59.937 11.2828 59.937 11.4714V12.2193C59.937 12.3945 60.0313 12.4821 60.22 12.4821H62.221C62.3423 12.4821 62.4029 12.5494 62.4029 12.6842V14.9479C62.4029 16.1203 61.8437 16.7064 60.7253 16.7064H58.886C57.7676 16.7064 57.2084 16.1203 57.2084 14.9479V8.05557C57.2084 6.88325 57.7676 6.2971 58.886 6.2971H60.7253C61.8437 6.2971 62.4029 6.88325 62.4029 8.05557V8.82363C62.4029 9.02575 62.4972 9.12682 62.6859 9.12682H63.5954C63.7841 9.12682 63.8784 9.02575 63.8784 8.82363V7.99493C63.8784 7.06517 63.6156 6.33752 63.0901 5.812C62.5646 5.27301 61.837 5.00351 60.9072 5.00351H58.7243C57.7945 5.00351 57.0601 5.26627 56.5211 5.79179C55.9956 6.31731 55.7329 7.05169 55.7329 7.99493V15.0086C55.7329 15.9518 55.9956 16.6862 56.5211 17.2117C57.0601 17.7372 57.7945 18 58.7243 18ZM67.1531 18H68.0627C68.2513 18 68.3456 17.9057 68.3456 17.717V12.2597C68.3456 12.1384 68.413 12.0778 68.5478 12.0778H73.5604C73.6951 12.0778 73.7625 12.1384 73.7625 12.2597V17.717C73.7625 17.9057 73.8568 18 74.0455 18H74.955C75.1437 18 75.238 17.9057 75.238 17.717V5.28649C75.238 5.09784 75.1437 5.00351 74.955 5.00351H74.0455C73.8568 5.00351 73.7625 5.09784 73.7625 5.28649V10.6023C73.7625 10.7236 73.6951 10.7842 73.5604 10.7842H68.5478C68.413 10.7842 68.3456 10.7236 68.3456 10.6023V5.28649C68.3456 5.09784 68.2513 5.00351 68.0627 5.00351H67.1531C66.9645 5.00351 66.8701 5.09784 66.8701 5.28649V17.717C66.8701 17.9057 66.9645 18 67.1531 18ZM80.7007 18H81.6102C81.7989 18 81.8932 17.9057 81.8932 17.717V6.47901C81.8932 6.35774 81.9606 6.2971 82.0953 6.2971H84.8442C85.0463 6.2971 85.1474 6.20277 85.1474 6.01413V5.28649C85.1474 5.09784 85.0463 5.00351 84.8442 5.00351H77.4667C77.2646 5.00351 77.1635 5.09784 77.1635 5.28649V6.01413C77.1635 6.20277 77.2646 6.2971 77.4667 6.2971H80.2156C80.3503 6.2971 80.4177 6.35774 80.4177 6.47901V17.717C80.4177 17.9057 80.512 18 80.7007 18ZM88.9424 18H90.4987C90.6739 18 90.7817 17.9057 90.8221 17.717L93.4902 6.86304H93.571L96.2188 17.717C96.2592 17.9057 96.3738 18 96.5624 18H98.1188C98.2939 18 98.4017 17.9057 98.4422 17.717L101.05 5.3067C101.09 5.10458 101.002 5.00351 100.787 5.00351H99.6953C99.5067 5.00351 99.3921 5.10458 99.3517 5.3067L97.3305 16.4234H97.2092L94.4401 5.26627C94.3997 5.0911 94.2919 5.00351 94.1167 5.00351H92.904C92.7288 5.00351 92.621 5.0911 92.5806 5.26627L89.852 16.4234H89.7307L87.6892 5.28649C87.6758 5.09784 87.568 5.00351 87.3658 5.00351H86.2744C86.0588 5.00351 85.9712 5.09784 86.0116 5.28649L88.5988 17.717C88.6392 17.9057 88.7537 18 88.9424 18ZM102.32 18H103.331C103.479 18 103.58 17.9057 103.634 17.717L104.584 14.766H109.476L110.426 17.717C110.466 17.9057 110.56 18 110.708 18H111.739C111.914 18 111.975 17.9057 111.921 17.717L108.142 5.28649C108.088 5.09784 107.96 5.00351 107.757 5.00351H106.302C106.1 5.00351 105.972 5.09784 105.918 5.28649L102.138 17.717C102.085 17.9057 102.145 18 102.32 18ZM104.908 13.5129L106.989 6.51943H107.07L109.152 13.5129H104.908ZM116.348 18H117.258C117.447 18 117.541 17.9057 117.541 17.717V6.47901C117.541 6.35774 117.608 6.2971 117.743 6.2971H120.492C120.694 6.2971 120.795 6.20277 120.795 6.01413V5.28649C120.795 5.09784 120.694 5.00351 120.492 5.00351H113.115C112.912 5.00351 112.811 5.09784 112.811 5.28649V6.01413C112.811 6.20277 112.912 6.2971 113.115 6.2971H115.863C115.998 6.2971 116.066 6.35774 116.066 6.47901V17.717C116.066 17.9057 116.16 18 116.348 18ZM125.5 18H127.925C128.855 18 129.583 17.7372 130.108 17.2117C130.647 16.6862 130.917 15.9518 130.917 15.0086V14.0182C130.917 13.8295 130.822 13.7352 130.634 13.7352H129.724C129.535 13.7352 129.441 13.8295 129.441 14.0182V14.9479C129.441 16.1203 128.875 16.7064 127.743 16.7064H125.661C124.543 16.7064 123.984 16.1203 123.984 14.9479V8.05557C123.984 6.88325 124.543 6.2971 125.661 6.2971H127.743C128.875 6.2971 129.441 6.88325 129.441 8.05557V8.98533C129.441 9.17398 129.535 9.2683 129.724 9.2683H130.634C130.822 9.2683 130.917 9.17398 130.917 8.98533V7.99493C130.917 7.05169 130.647 6.31731 130.108 5.79179C129.583 5.26627 128.855 5.00351 127.925 5.00351H125.5C124.57 5.00351 123.836 5.26627 123.297 5.79179C122.771 6.31731 122.508 7.05169 122.508 7.99493V15.0086C122.508 15.9518 122.771 16.6862 123.297 17.2117C123.836 17.7372 124.57 18 125.5 18ZM133.929 18H134.838C135.027 18 135.121 17.9057 135.121 17.717V12.2597C135.121 12.1384 135.188 12.0778 135.323 12.0778H140.336C140.471 12.0778 140.538 12.1384 140.538 12.2597V17.717C140.538 17.9057 140.632 18 140.821 18H141.731C141.919 18 142.013 17.9057 142.013 17.717V5.28649C142.013 5.09784 141.919 5.00351 141.731 5.00351H140.821C140.632 5.00351 140.538 5.09784 140.538 5.28649V10.6023C140.538 10.7236 140.471 10.7842 140.336 10.7842H135.323C135.188 10.7842 135.121 10.7236 135.121 10.6023V5.28649C135.121 5.09784 135.027 5.00351 134.838 5.00351H133.929C133.74 5.00351 133.646 5.09784 133.646 5.28649V17.717C133.646 17.9057 133.74 18 133.929 18Z" class="fill-white"></path>
+                      </svg>
+                    </a>
+                    
+                    
+                    <!-- NOUVEAUTES -->
+                    
+                    <div class="mt-8">
+                      <h2 class="text-white text-left text-2xl font-bold mb-4">Fonctionnalités annoncées</h2>
+                      <p class="text-white xl:text-lg text-left">Laravel Nightwatch est un service de monitoring développé spécifiquement pour les applications Laravel. Il aura pour but de renseigner les équipes techniques sur les performances de leur application, et les eventuelles erreurs rencontrées par les utilisateurs. Ce service se voudra très simple à mettre en place et disposera d'une interface adaptée à une utilisation en équipe (gestion des tâches par attribution, importance, etc). De plus l'outil integrera des fonctionnalitées IA, comme des recommandations de correction d'erreurs personnalisées.</p>
+                      <h4 class="text-white text-left text-xl font-bold mt-6 mb-4">Tour d'horizon du service :</h4>
+                      <iframe class="w-full aspect-video mx-auto" src="https://www.youtube.com/embed/R0oHLhZz4yc?si=Sj_NuVjXl_AZaMii" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <p class="text-white xl:text-lg text-left mt-6 italic">Plus d'informations seront dévoilées lors de la <a href="https://laracon.us" class="underline font-semibold">Conférence Laracon</a> En juillet 2025</p>
+                    </div>
+                    
+                    <!-- Sources -->
+                    <div class="mt-8">
+                      <h2 class="text-white text-left text-xl font-bold mb-4">Sources :</h2>
+                      <ul class="list-disc list-outside flex flex-col gap-2 text-start ml-4 xl:text-lg">
+                          <li><a href="https://laravel-news.com/a-first-look-at-laravel-nightwatch" class="underline" target="_blank">Laravel-news</a></li>
+                      </ul>
+                    </div>
+                  </div>
+      
               </div>
             </div>
             
           </section>
     
-          <section class="h-[40vh] max-h-[40rem] w-full z-10 flex items-end relative vtContactSeparator overflow-hidden">
+          <section class="md:h-[40vh] h-[30vh] max-h-[40rem] w-full z-10 flex items-end relative vtContactSeparator overflow-hidden">
         
             <svg width="100%" height="150" class="z-40 absolute top-0 blackOverlay" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M 100 0 L 0 70 L 0 0 Z" fill="black" />
