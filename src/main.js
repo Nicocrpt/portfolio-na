@@ -54,6 +54,7 @@ function injectImage(element) {
   image.style.maxWidth = window.innerWidth > 450 ? '80%' : '99%'
   image.style.maxHeight = '80%'
   image.style.borderRadius = '2px'
+  image.classList.remove('object-cover', 'object-left')
   if (image.classList.contains('aspect-16/9')) {
     image.classList.remove('aspect-16/9')
   }
