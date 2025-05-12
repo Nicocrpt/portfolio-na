@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/src/style.css">
     <script src="https://www.google.com/recaptcha/api.js?render=6Le-gAErAAAAAAbFjKutBW9ctZgzc63wBI0D3TDe"></script>
 </head>
-<body class="relative bg-black" x-data="{ burgerMenu: false, projectModal: false, scrolled: false, init() {
+<body class="relative bg-black" x-data="{fullImage: false, burgerMenu: false, projectModal: false, scrolled: false, init() {
     const urlParams = new URLSearchParams(window.location.search);
     const modalParam = urlParams.get('modal');
     
@@ -2155,6 +2155,8 @@
                 </div>
               </div>
 
+              <img src="Images/feedly-exemple.png" alt="feedly-exemple" class="w-[830px] max-w-[93%] rounded-sm mx-auto mt-10 mb-4 hover:scale-103 transition cursor-pointer" @click="fullImage = true; injectImageTwo($el)">
+
               <div class="max-w-[95%] w-[860px] text-left mt-12">
                 <h4 class=" font-semibold mb-2 text-left text-xl">Autres sources :</h4>
                 <ul class="text-lg list-disc list-inside">
@@ -2419,6 +2421,21 @@
         </div>
 
     </section>
+
+
+    <div class="w-full h-full fixed top-0 left-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50" x-show="fullImage" @click="fullImage = false" x-transition:enter="transition-all ease-in-out duration-200"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="transition-all ease-in-out duration-200"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0">
+        <div class=" mx-auto w-[98%] h-full flex justify-center items-center mt-[64px]" id="imageReceiver2" x-show="fullImage" x-transition:enter="transition-all ease-in-out duration-200"
+        x-transition:enter-start="opacity-0 scale-0"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition-all ease-in-out duration-200"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-0"></div>
+    </div>
 
     <!-- Modale validation formulaire -->
     <div id="sendMessage" class="h-20 w-full fixed top-[75px] left-0  z-40 -translate-y-[200%] opacity-0 transition-all ease-in-out duration-300 flex items-center justify-center">

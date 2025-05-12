@@ -71,8 +71,23 @@ function injectImage(element) {
   }
 }
 
+function injectImageTwo(element) {
+  let wrapper = document.querySelector('#imageReceiver2')
+  wrapper.innerHTML = element.outerHTML
+  let image = wrapper.children[0]
+  image.style.width = "auto"
+  image.style.maxWidth = window.innerWidth > 450 ? '80%' : '99%'
+  image.style.maxHeight = '80%'
+  image.style.borderRadius = '2px'
+  image.classList.remove('object-cover', 'object-left')
+  if (image.classList.contains('aspect-16/9')) {
+    image.classList.remove('aspect-16/9')
+  }
+}
+
 window.showInfos = showInfos;
 window.injectImage = injectImage;
+window.injectImageTwo = injectImageTwo;
 
 window.onload = function() {
     document.querySelector(".loader-wrapper").style.display = "none";
