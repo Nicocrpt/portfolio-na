@@ -753,16 +753,20 @@ const navLinks = document.querySelectorAll(".navLink");
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
+      console.log('isintersecting')
       navLinks.forEach(link => {
-        link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
-        link.parentElement.children[1].classList.toggle("!scale-x-100", link.getAttribute("href") === `#${entry.target.id}`);
+        const isActive = link.getAttribute("href") === `#${entry.target.id}`;
+        link.classList.toggle("active", isActive);
+        if (link.parentElement.children[1]) {
+          link.parentElement.children[1].classList.toggle("!scale-x-100", isActive);
+        } 
       });
     }
   });
 }, {
   root: null,
-  rootMargin: '0px',
-  threshold: 0.5, // plus le chiffre est haut, plus la section doit être visible
+  rootMargin: "-80px 0px 0px 0px",
+  threshold: 0.1,
 });
 
 window.addEventListener('load', () => {
