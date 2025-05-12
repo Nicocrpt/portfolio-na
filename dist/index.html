@@ -6,8 +6,8 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>Nicolas Carpita - Développeur Full-Stack</title>
     <script src="https://www.google.com/recaptcha/api.js?render=6Le-gAErAAAAAAbFjKutBW9ctZgzc63wBI0D3TDe"></script>
-  <script type="module" crossorigin src="./assets/index-BgFjEXAg.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BGC_g4r8.css">
+  <script type="module" crossorigin src="./assets/index-CrRy0i27.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DgFDYrZC.css">
 </head>
 <body class="relative bg-black" x-data="{ burgerMenu: false, projectModal: false, scrolled: false, init() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -885,14 +885,23 @@
                 <p class="text-zinc-400/70 max-sm:text-xs lg:text-xl font-semibold text-center sm:mb-16 mb-10">Ensemble des réalisations que j'ai effectué, que ce soit en entreprise ou en cours de formation</p>
               </div>
     
-              <div class="w-full flex justify-center items-center mb-8">
-                <div class="border border-white/40 w-full rounded-l-full mr-2 sm:ml-12 ml-4"></div>
+              <div class="w-full flex max-sm:flex-col justify-center items-center mb-8">
+                <div class="border border-white/40 w-full rounded-l-full mr-2 sm:ml-12 ml-4 max-sm:hidden"></div>
                 <a href="Files/tableau_competences_nicolas_carpita.pdf" target="_blank" type="application/pdf" class=" px-2 py-1 bg-white/90 hover:bg-white rounded font-semibold transition-all ease-in-out duration-200 flex-shrink-0">Tableau de compétences E5</a>
-                <div class="border border-white/40 w-full rounded-r-full ml-2"></div>
-                <a href="Files/CARPITA-NICOLAS-BTSSIDOPROFE5.pdf" target="_blank" type="application/pdf" class=" px-2 py-1 bg-white/90 hover:bg-white rounded font-semibold transition-all ease-in-out duration-200 flex-shrink-0">Dossier E5</a>
-                <div class="border border-white/40 w-full rounded-r-full ml-2"></div>
-                <a href="Files/CARPITA-NICOLAS-BTSSIREAPROE6.pdf" target="_blank" type="application/pdf" class=" px-2 py-1 bg-white/90 hover:bg-white rounded font-semibold transition-all ease-in-out duration-200 flex-shrink-0">Dossier E6</a>
-                <div class="border border-white/40 w-full rounded-r-full ml-2 sm:mr-12 mr-4"></div>
+                <div class="border border-white/40 w-full rounded-r-full mx-2 max-sm:hidden"></div>
+                <!-- min-sm -->
+                <a href="Files/CARPITA-NICOLAS-BTSSIDOPROFE5.pdf" target="_blank" type="application/pdf" class=" px-2 py-1 bg-white/90 hover:bg-white rounded font-semibold transition-all ease-in-out duration-200 flex-shrink-0 max-sm:hidden">Dossier E5</a>
+                <div class="border border-white/40 w-full rounded-r-full mx-2 max-sm:hidden"></div>
+                <a href="Files/CARPITA-NICOLAS-BTSSIREAPROE6.pdf" target="_blank" type="application/pdf" class=" px-2 py-1 bg-white/90 hover:bg-white rounded font-semibold transition-all ease-in-out duration-200 flex-shrink-0 max-sm:hidden">Dossier E6</a>
+                <div class="border border-white/40 w-full rounded-r-full ml-2 sm:mr-12 mr-4 max-sm:hidden"></div>
+                <!-- Max-sm -->
+                <div class="sm:hidden flex max-sm:gap-4 max-sm:mt-4">
+                  <a href="Files/CARPITA-NICOLAS-BTSSIDOPROFE5.pdf" target="_blank" type="application/pdf" class=" px-2 py-1 bg-white/90 hover:bg-white rounded font-semibold transition-all ease-in-out duration-200 flex-shrink-0 w-[6.7rem]">Dossier E5</a>
+                  
+                  <a href="Files/CARPITA-NICOLAS-BTSSIREAPROE6.pdf" target="_blank" type="application/pdf" class=" px-2 py-1 bg-white/90 hover:bg-white rounded font-semibold transition-all ease-in-out duration-200 flex-shrink-0 w-[6.7rem]">Dossier E6</a>
+                  <div class="border border-white/40 w-full rounded-r-full ml-2 sm:mr-12 mr-4 max-sm:hidden"></div>
+                </div>
+                
               </div>
               
               <div class="flex flex-wrap gap-[2%] mt-6 md:mt-12 justify-start items-start mx-auto projectContent">
@@ -2150,7 +2159,6 @@
               <div class="max-w-[95%] w-[860px] text-left mt-12">
                 <h4 class=" font-semibold mb-2 text-left text-xl">Autres sources :</h4>
                 <ul class="text-lg list-disc list-inside">
-                  <li class="text-lg"> <a href="https://reederapp.com/" target="_blank">Reeder (aggrégateur de flux RSS)</a></li>
                   <li><a href="https://www.youtube.com/" target="_blank">Youtube</a></li>
                   <li><a href="https://consent.google.com/m?continue=https://news.google.com/?hl%3Dfr&gl=FR&m=0&pc=n&cm=2&hl=fr&src=1" target="_blank">Google actualités</a></li>
                 </ul>

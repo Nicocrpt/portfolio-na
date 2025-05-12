@@ -27,15 +27,26 @@ Alpine.start()
 
 function isMobileDevice(elementRef) {
   const elements = document.querySelectorAll(elementRef);
-  console.log(elements)
+  console.log(elements);
+
+  const isMobile = /Mobi|Android|iPhone|iPod/i.test(navigator.userAgent) || isIpad();
 
   elements.forEach(element => {
-    if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      element.setAttribute("onclick", `showInfos(this)`)
+    if (isMobile) {
+      element.setAttribute("onclick", `showInfos(this)`);
     } else {
-      element.classList.add('group')
+      element.classList.add('group');
     }
-  })  
+  });
+}
+
+function isIpad() {
+  return (
+    // Détection des anciens iPad (avant iPadOS 13)
+    /iPad/.test(navigator.userAgent) ||
+    // Détection des iPad exécutant iPadOS 13 ou version ultérieure
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+  );
 }
 
 function showInfos(element) {
