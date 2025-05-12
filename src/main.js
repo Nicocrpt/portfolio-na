@@ -80,8 +80,8 @@ function injectImageTwo(element) {
   image.style.maxHeight = '80%'
   image.style.borderRadius = '2px'
   image.classList.remove('object-cover', 'object-left')
-  if (image.classList.contains('aspect-16/9')) {
-    image.classList.remove('aspect-16/9')
+  if (image.classList.contains('hover:scale-103')) {
+    image.classList.remove('hover:scale-103')
   }
 }
 
